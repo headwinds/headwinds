@@ -2,7 +2,7 @@
 
 I'm currently 3 years into life at [Lobaw Digital](https://loblawdigital.co/) learning all things eCommerce. 
 
-In Jan of this year, I've transitioned from a frontend specialist to a full-stack generalist and DevOps manager. My Gitlab graph definitely reflects that change. 
+In January of 2022, I transitioned from a Frontend specialist to a Full-stack generalist and DevOps manager. My Gitlab graph definitely reflects that change. 
 
 <img src="./gitlab.png" />
 
