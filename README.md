@@ -12,7 +12,7 @@ Depending on the task, I've been writing small Java, Go, and Python programs aka
 
 ## Worl/Play 
 
-Over the last 2 years, I've been collaborating off and on with David & Nick to create a new media sharing app (Expo/React Native) and social network (NestJS & PostgreSQL). 
+Over the last 2 years, I've been collaborating off and on with David & Nick to create a new media sharing app (Expo/React Native) and hobby social network (NestJS & PostgreSQL). 
 
 [Secret project](https://github.com/Project-PD)
 
