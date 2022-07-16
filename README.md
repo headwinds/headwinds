@@ -8,7 +8,7 @@ In January of 2022, I transitioned from a Frontend specialist to a Full-stack ge
 
 Loblaw Digital does not use Github although I'm a big fan of it especially co-polit.
 
-Depending on the task, I've been writing small Java, Go, and Python programs aka micro-services that monitor our feed servers and SQL database through evented systems. I also spend more time herding cats than code. 
+Depending on the task, I've been writing small Java, Go, and Python programs aka micro-services that monitor our feed servers and SQL database through evented systems. I also spend more time herding cats than code. I face many ingress/egress issues like we're missing 3 days worth of orders, what happened to that 250k? Or our recommnedation engine has stopped receiving it's feed, hey [wha' Happened?](https://www.youtube.com/watch?v=Of8JOVXYU0Q)
 
 ## Work/Play 
 
