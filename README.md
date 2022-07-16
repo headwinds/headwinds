@@ -8,9 +8,9 @@ In Jan of this year, I've transitioned from a frontend specialist to a full-stac
 
 Loblaw Digital does not use Github although I'm a big fan of it especially co-polit.
 
-Depending on the task, I've been writing small Java, Go, and Python programs aka micro-services that monitor our feed servers and SQL database through evented systems.
+Depending on the task, I've been writing small Java, Go, and Python programs aka micro-services that monitor our feed servers and SQL database through evented systems. I also spend more time herding cats than code. 
 
-## Worl/Play 
+## Work/Play 
 
 Over the last 2 years, I've been collaborating off and on with David & Nick to create a new media sharing app (Expo/React Native) and hobby social network (NestJS & PostgreSQL). 
 
