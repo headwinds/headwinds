@@ -20,8 +20,13 @@ Launch: maybe the fall of 2022?!
 
 ## Play 
 
+A list of recent experiements over the last year:
+
 * [Cave Troll: Cracking React, XState & PusherJS Communication](https://dev.to/headwinds/heartbeat-cracking-react-xstate-pusherjs-communication-3bac)
-* [Dig Through Python And Create Game Art with Playscii](https://dev.to/headwinds/dig-through-python-and-create-game-art-with-playscii-5dlp)
+* [A PostgreSQL study of JOIN types](https://twitter.com/headwinds/status/1588225965959815168)
+dig-through-python-and-create-game-art-with-playscii-5dlp)
 * [A Guide for Guides: Building a Fun Java App with Tomcat & Maven with the Community Edition of IntelliJ](https://dev.to/headwinds/a-guide-for-guides-building-a-fun-java-app-with-tomcat-maven-with-the-community-edition-of-intellij-28cb)
+* [Async/Await with simple probability to solve e2e testing problem](https://codesandbox.io/s/async-await-with-recursion-qewndk)
+* [Dig Through Python And Create Game Art with Playscii](https://dev.to/headwinds/)
 
 ⛺
