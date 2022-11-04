@@ -25,7 +25,7 @@ A list of recent experiements:
 * [Cave Troll: Cracking React, XState & PusherJS Communication](https://dev.to/headwinds/heartbeat-cracking-react-xstate-pusherjs-communication-3bac)
 * [A PostgreSQL study of JOIN types](https://twitter.com/headwinds/status/1588225965959815168)
 * [A Guide for Guides: Building a Fun Java App with Tomcat & Maven with the Community Edition of IntelliJ](https://dev.to/headwinds/a-guide-for-guides-building-a-fun-java-app-with-tomcat-maven-with-the-community-edition-of-intellij-28cb)
-* [Async/Await with simple probability to solve e2e testing problem](https://codesandbox.io/s/async-await-with-recursion-qewndk)
+* [Async/Await with simple probability to solve an e2e testing problem](https://codesandbox.io/s/async-await-with-recursion-qewndk)
 * [Dig Through Python And Create Game Art with Playscii](https://dev.to/headwinds/)
 
 ⛺
