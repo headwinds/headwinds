@@ -1,0 +1,10 @@
+.number {
+    margin: 16px;
+    padding: 0px;
+    font-size: 40px;
+    font-weight: 500;
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-variant-numeric: tabular-nums;
+    color: teal;
+  }

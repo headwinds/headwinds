@@ -120,3 +120,25 @@
     flex-direction: column;
   }
 }
+
+.me {
+  margin: 0px;
+  padding: 0px;
+  color: #efd02c;
+  font-size: 40px;
+}
+
+.exp {
+  font-size: 16px;
+  color: #999;
+  font-weight: 400;
+  text-align: center;
+  margin: 0px;
+  padding: 0px;
+}
+
+.list {
+  font-size: 16px;
+  color: #999;
+  font-weight: 400;
+}

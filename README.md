@@ -16,7 +16,7 @@ Over the last 2 years, I've been collaborating off and on with David & Nick to c
 
 [Secret project](https://github.com/Project-PD)
 
-Launch: maybe the fall of 2022?!
+Launch: maybe the fall of 2022?! In the meantime, you can enjoy some of my [React Native snacks](https://expo.dev/accounts/headwinds/snacks).
 
 ## Play 
 
