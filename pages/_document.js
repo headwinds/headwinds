@@ -1,6 +1,6 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
 
-const GA_TRACKING_ID = "G-B43KPTB74Y";
+const GA_TRACKING_ID = "G-9RE35QXTH3";
 
 export default class MyDocument extends Document {
   render() {
@@ -25,7 +25,7 @@ export default class MyDocument extends Document {
             }}
           />
         </Head>
-        <body>
+        <body style={{ backgroundColor: "whitesmoke" }}>
           <Main />
           <NextScript />
         </body>

@@ -1,10 +1,16 @@
 import dynamic from "next/dynamic";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
+import Headwinds from "./headwinds";
 
-const DynamicAnimateNumber = dynamic(() => import("./animate-number"), {
+/*
+const DynamicHeadwinds = dynamic(() => import("./headwinds"), {
   ssr: false,
-});
+});*/
+
+export default function Home() {
+  return <Headwinds />;
+}
 
 /*
 
@@ -81,29 +87,3 @@ const animationAssistant = () => {
 
 const disney = animationAssistant;
 */
-
-export default function Home() {
-  return (
-    <div className={styles.container}>
-      <Head>
-        <title>headwinds</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <h1>⚡</h1>
-      <h2 className={styles.me}>Brandon Flowers</h2>
-      <DynamicAnimateNumber to={(65, 234)} from={0} />
-      <h3 className={styles.exp}>Full Stack Developer</h3>
-      <h3 className={styles.exp}>
-        Passionate about building UI with
-        <br /> Machine Learning & NLP
-      </h3>
-      <ul className={styles.list}>
-        <li>Javascript: React, React Native, & NodeJS</li>
-        <li>Python</li>
-        <li>Java: Springboot & Maven</li>
-        <li>Go</li>
-        <li>SQL</li>
-      </ul>
-    </div>
-  );
-}
