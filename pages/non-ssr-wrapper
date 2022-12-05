@@ -1,0 +1,7 @@
+import dynamic from "next/dynamic";
+import React from "react";
+const NonSSRWrapper = (props) => <div>{props.children}</div>;
+
+export default dynamic(() => Promise.resolve(NonSSRWrapper), {
+  ssr: false,
+});

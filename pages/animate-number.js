@@ -13,7 +13,7 @@ function AnimateNumber() {
     reset: false,
     reverse: flip,
     from: { number: 0 },
-    number: 65_434,
+    number: 65434,
     delay: 2000,
     //onRest: () => set(!flip),
   });

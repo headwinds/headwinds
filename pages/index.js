@@ -1,13 +1,15 @@
 import dynamic from "next/dynamic";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
+import Headwinds from "./headwinds";
 
+/*
 const DynamicHeadwinds = dynamic(() => import("./headwinds"), {
   ssr: false,
-});
+});*/
 
 export default function Home() {
-  return <DynamicHeadwinds />;
+  return <Headwinds />;
 }
 
 /*
