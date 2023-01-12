@@ -4,7 +4,8 @@ import styles from "../styles/Home.module.css";
 import Head from "next/head";
 import About from "./about";
 import Golds from "./golds";
-import { Wrapper, Column } from "cross-country";
+import { Wrapper, Column, Accordion } from "cross-country";
+
 
 function Headwinds() {
   return (
@@ -13,6 +14,7 @@ function Headwinds() {
         <title>headwinds</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Accordion foo="bar" />
       <Column customClass={styles.about}>
         <About />
       </Column>

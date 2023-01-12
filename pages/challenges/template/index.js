@@ -5,7 +5,7 @@ import getResult from "./template";
 
 const stateValdiationInitialState = {
   person: {
-    name: "Brandon",
+    name: "getResult()",
   },
 };
 
@@ -40,18 +40,13 @@ export default function Template() {
   } = state;
   const slabRef = createRef();
 
-  const onFirstNameChangeHandler = () => {
+  const handleGetResult = () => {
     const newName = getResult("Thor");
     dispatch({
       type: stateActionTypes.UPDATE_NAME,
       payload: { name: newName },
     });
   };
-
-  useEffect(() => {
-    if (slabRef.current) {
-    }
-  });
 
   const htmlStr = `<div><h2>${getResult()}</h2></div>`;
 
@@ -72,10 +67,14 @@ export default function Template() {
           height: "100vh",
         }}
       >
-        <h1>Template Test</h1>
+        <h1 style={{ color: "grey" }}>Coding Challenge</h1>
         <div dangerouslySetInnerHTML={{ __html: htmlStr }} />
-        <div>{name}</div>
-        <button onClick={onFirstNameChangeHandler}>go</button>
+        <div style={{ display: "none" }}>
+          <div>{name}</div>
+          <button onClick={handleGetResult} style={{ padding: 8, margin: 16 }}>
+            go
+          </button>
+        </div>
       </div>
     </div>
   );

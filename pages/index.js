@@ -3,11 +3,7 @@ import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import Headwinds from "./headwinds";
 
-/*
-const DynamicHeadwinds = dynamic(() => import("./headwinds"), {
-  ssr: false,
-});*/
-
+// now 100% SSR!
 export default function Home() {
   return <Headwinds />;
 }
@@ -66,9 +62,7 @@ transitionModel = {
   target: {},
 }
 
-disney.transtion(transitionModel);
-
-https://react-spring.dev/common/interpolation <-- HELP!
+Advanced.transtion(transitionModel);
 
 const animationAssistant = () => {
   transition: () => {},

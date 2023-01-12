@@ -16,7 +16,12 @@ Over the last 2 years, I've been collaborating off and on with David & Nick to c
 
 [Secret project](https://github.com/Project-PD)
 
-Launch: maybe the fall of 2022?! In the meantime, you can enjoy some of my [React Native snacks](https://expo.dev/accounts/headwinds/snacks).
+Launch: maybe the Spring of 2023?! In the meantime, you can enjoy some of my React Native Expo snacks:
+- [contact list](https://snack.expo.dev/@headwinds/virtualized-contact-list)
+- [mulit day picker](https://snack.expo.dev/@headwinds/multi-seven-day-picker)
+- [easing study](https://snack.expo.dev/@headwinds/animated-easing-visualized)
+- [sequenced 3D Card Flip](https://snack.expo.dev/@headwinds/flip-flip-flip-card)
+
 
 ## Play 
 

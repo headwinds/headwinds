@@ -1,7 +1,5 @@
-const list = [{ name: "Hulk" }, { name: "Thor" }, { name: "Iron Man" }];
-
 const getResult = () => {
-  return list.find((item) => item.name === "Iron Man").name || "Not Found";
+  console.log("coding challeng Mon Dec 12");
+  return "result here";
 };
-
 export default getResult;
