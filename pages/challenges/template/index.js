@@ -2,6 +2,7 @@ import React, { useEffect, useReducer, createRef } from "react";
 import dynamic from "next/dynamic";
 import Head from "next/head";
 import getResult from "./template";
+import TemplateView from "./template-view";
 
 const stateValdiationInitialState = {
   person: {
@@ -69,8 +70,8 @@ export default function Template() {
       >
         <h1 style={{ color: "grey" }}>Coding Challenge</h1>
         <div dangerouslySetInnerHTML={{ __html: htmlStr }} />
-        <div style={{ display: "none" }}>
-          <div>{name}</div>
+        <TemplateView />
+        <div>
           <button onClick={handleGetResult} style={{ padding: 8, margin: 16 }}>
             go
           </button>
