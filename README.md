@@ -18,7 +18,7 @@ I enjoyed nearly 4 years @ [Lobaw Digital](https://loblawdigital.co/) learning a
 
 <img src="./gitlab.png" />
 
-Loblaw Digital uses Gitlab which like cool blue over forest greens to present developer productivity.
+Loblaw Digital uses Gitlab which likes cool blue over forest greens to present developer productivity.
 
 Depending on the task, I've been writing small Java, Go, and Python programs aka micro-services that monitor our feed servers and SQL database through evented systems. I also spend more time herding cats than code. I face many issues like we're missing 3 days worth of orders, what happened to that 250k? Or our recommnedation engine has stopped receiving it's feed, what gives?!
 
