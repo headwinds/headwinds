@@ -1,6 +1,6 @@
 # Analytics, Data Visualizaiton, and a sense of Adventure
 
-## Currently (2023)
+### Currently (2023)
 
 I'm 2 months into life @ [Validere](https://validere.com/) producing Data Visualizaions to monitor carbon and methane gas.
 
@@ -8,7 +8,7 @@ The world needs to work together to reduce emissions towards [net zero](https://
 
 I'm also personally exploring what [net-zero](https://www.canada.ca/en/services/environment/weather/climatechange/climate-plan/net-zero-emissions-2050.html) means to Canada and my neighborhood/ I'll use [cross-country](https://github.com/headwinds/cross-country) to present some experiments and charts dealing with this climate crisis at large, and how we can measure it's impact locally.
 
-## Previously (2019 - 2023)
+### Previously (2019 - 2023)
 
 I enjoyed nearly 4 years @ [Lobaw Digital](https://loblawdigital.co/) learning all things eCommerce.
 
@@ -22,7 +22,7 @@ Depending on the task, I've been writing small Java, Go, and Python programs aka
 
 [Linkedin](https://ca.linkedin.com/in/brandonflowers)
 
-## Full Stack
+### Secret Full Stack Project
 
 Over the last 2 years, I've been collaborating off and on with David & Nick to create a new media sharing app (Expo/React Native) and hobby social network ([NestJS](https://nestjs.com/) & PostgreSQL).
 
@@ -35,7 +35,7 @@ Launch: maybe the Spring of 2023?! In the meantime, you can enjoy some of my Rea
 - [easing study](https://snack.expo.dev/@headwinds/animated-easing-visualized)
 - [sequenced 3D Card Flip](https://snack.expo.dev/@headwinds/flip-flip-flip-card)
 
-## Play
+## Writing & Other Experiments
 
 A list of recent experiements:
 
@@ -47,7 +47,9 @@ A list of recent experiements:
 
 ⛺
 
-This is NextJS app that is powered by my component library [cross-country](https://www.npmjs.com/package/cross-country)
+This repo serves my site [headwinds.vercel.app](https://headwinds.vercel.app/) which is a [NextJS](https://nextjs.org/) app leveraging my component library [cross-country](https://www.npmjs.com/package/cross-country) and distributed backend involving Python, Pusher, Postgres, & RabbitMQ.
+
+It can be installed:
 
 ```
 npm i
