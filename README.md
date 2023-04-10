@@ -6,7 +6,7 @@ I'm 2 months into life @ [Validere](https://validere.com/) producing Data Visual
 
 The world needs to work together to reduce emissions towards [net zero](https://www.globalcitizen.org/en/content/what-is-net-zero-emissions-climate-change) and levels pre-industrial revolution!
 
-I'm also personally exploring what [net-zero](https://www.canada.ca/en/services/environment/weather/climatechange/climate-plan/net-zero-emissions-2050.html) means to Canada and my neighborhood/ I'll use [cross-country](https://github.com/headwinds/cross-country) to present some experiments and charts dealing with this climate crisis at large, and how we can measure it's impact locally.
+I'm also personally exploring what [net-zero means to Canada](https://www.canada.ca/en/services/environment/weather/climatechange/climate-plan/net-zero-emissions-2050.html) and my neighborhood. I'll use [cross-country](https://github.com/headwinds/cross-country) to present some experiments and charts dealing with this climate crisis at large, and how we can measure it's impact locally.
 
 ### Previously (2019 - 2023)
 
