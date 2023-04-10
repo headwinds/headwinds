@@ -27,33 +27,30 @@ function About() {
         <Headline>Brandon Flowers</Headline>
         {/*<AnimateNumber to={(65, 234)} from={0} />*/}
       </Row>
-      <SubHeadline size="medium">Full Stack Developer</SubHeadline>
-      <SubHeadline color="#e3d597">
-        Passionate about building UI and APIs{" "}
+      <SubHeadline size="medium">
+        I{"'"}m a Full Stack Developer @{" "}
+        <Link url="http://www.validere.com">Validere</Link>
+      </SubHeadline>
+      <SubHeadline color="#C8B51D">
+        Passionate about Data Visualization, APIs, and Natural Language
+        Processing{" "}
       </SubHeadline>
       <Paragraph customStyle={{ marginBottom: 16 }}>
-        This is a "build in public" experiment where I{"'"}m dogfooding my own
-        component library{" "}
+        This is a "build in public" experiment where I{"'"}m building with my
+        own component library{" "}
         <Link url="https://www.npmjs.com/package/cross-country">
           cross-country
         </Link>{" "}
-        and distributed services, connecting containers written in{" "}
+        to experiemnent with data visualization and distributed services,
+        connecting containers written in{" "}
         <Link url="https://github.com/headwinds/python-notebooks/">Python</Link>
-        , Java, Node,{" "}
+        , <Link url="https://github.com/headwinds/cabinquest">Node</Link>,{" "}
         <Link url="https://github.com/headwinds/northwind-frostpunk/">Go</Link>{" "}
         & PostgreSQL.
       </Paragraph>
       <Link url="https://www.linkedin.com/in/brandonflowers">Linkedin</Link>
       <Link url="https://www.github.com/headwinds">Github</Link>
       <Link url="https://www.twitter.com/headwinds">Twitter</Link>
-      {/*}
-      <List>
-        <ListItem>Javascript: React, React Native, & NodeJS</ListItem>
-        <ListItem>Python</ListItem>
-        <ListItem>Java: Springboot & Maven</ListItem>
-        <ListItem>Go</ListItem>
-        <ListItem>SQL</ListItem>
-      </List>*/}
     </Column>
   );
 }

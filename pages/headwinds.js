@@ -6,7 +6,6 @@ import About from "./about";
 import Golds from "./golds";
 import { Wrapper, Column, Accordion } from "cross-country";
 
-
 function Headwinds() {
   return (
     <Wrapper customClass={styles.wrapper}>
