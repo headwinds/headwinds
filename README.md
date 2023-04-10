@@ -4,7 +4,7 @@
 
 I'm 2 months into life @ [Validere](https://validere.com/) producing Data Visualizaions to monitor carbon and methane gas.
 
-The world needs to work together to reduce emissions towards [net zero](https://www.globalcitizen.org/en/content/what-is-net-zero-emissions-climate-change) and levels pre-industrial revolution!
+The world needs to work together to reduce emissions towards [net zero](https://www.globalcitizen.org/en/content/what-is-net-zero-emissions-climate-change) which doesn't mean no emissions but to the levels that existed before the industrial revolution!
 
 I'm also personally exploring what [net-zero means to Canada](https://www.canada.ca/en/services/environment/weather/climatechange/climate-plan/net-zero-emissions-2050.html) and my neighborhood. I'll use [cross-country](https://github.com/headwinds/cross-country) to present some experiments and charts dealing with this climate crisis at large, and how we can measure it's impact locally.
 
