@@ -1,8 +1,10 @@
 # Analytics, Data Visualizaiton, and a sense of Adventure
 
-### Currently (2023)
+### Currently (Feb 6/2023 - present)
 
-I'm 2 months into life @ [Validere](https://validere.com/) producing Data Visualizaions to monitor carbon and methane gas.
+I'm enjoying frontend dev life @ [Validere](https://validere.com/) producing UI dashboards & Data Visualizaions.
+
+We measure carbon and methane gas across various industries with a current focus on Oil & Gas as well as Agriculture where we are exploring the best methods to collect and report on [carbon sequestration](https://info.biologicalcarbon.ca/carbon-storage-publications?gclid=CjwKCAjwpuajBhBpEiwA_Ztfhf-Q7zSz2MSdZiPA4BRXdUasZ2LOMIJ4D8bWaCUBvV0S4hvpdRKOCxoCIuIQAvD_BwE).
 
 The world needs to work together to reduce emissions towards [net zero](https://www.globalcitizen.org/en/content/what-is-net-zero-emissions-climate-change) which doesn't mean no emissions but to the levels that existed before the industrial revolution!
 
@@ -12,7 +14,7 @@ Although I did warm to Gitlab, I'm happy to be back on Github (we use Github, AW
 
 I'm currently part of a task force collecting any evidence that its now safe to use professionally; that is won't steal or leak any of our IP. Early accounts that it wasn't secure certainly hurt its reputation, and I'm trying to put a case together to overcome that and convince our legal team that we have nothing to worry about today. Stay tuned! I feel this research should be open sourced, and I'll share what I can.
 
-### Previously (2019 - 2023)
+### Previously (Sept 4/2019 - Feb 2/2023)
 
 I enjoyed nearly 4 years @ [Lobaw Digital](https://loblawdigital.co/) learning all things eCommerce.
 

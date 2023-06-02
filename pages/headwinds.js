@@ -4,7 +4,9 @@ import styles from "../styles/Home.module.css";
 import Head from "next/head";
 import About from "./about";
 import Golds from "./golds";
-import { Wrapper, Column, Accordion } from "cross-country";
+import { Wrapper, Column } from "cross-country";
+
+const isReady = false;
 
 function Headwinds() {
   return (
@@ -13,13 +15,23 @@ function Headwinds() {
         <title>headwinds</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Accordion foo="bar" />
-      <Column customClass={styles.about}>
-        <About />
-      </Column>
-      <Column customClass={styles.visualization}>
-        <Golds />
-      </Column>
+      {!isReady ? (
+        <p>
+          I'm on
+          <a href="https://twitter.com/headwinds">twitter</a> and{" "}
+          <a href="https://github.com/headwinds/">github</a>
+        </p>
+      ) : null}
+      {isReady ? (
+        <>
+          <Column customClass={styles.about}>
+            <About />
+          </Column>
+          <Column customClass={styles.visualization}>
+            <Golds />
+          </Column>
+        </>
+      ) : null}
     </Wrapper>
   );
 }
