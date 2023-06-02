@@ -4,7 +4,7 @@
 
 I'm enjoying frontend dev life @ [Validere](https://validere.com/) producing UI dashboards & Data Visualizaions.
 
-We measure carbon and methane gas across various industries with a current focus on Oil & Gas as well as Agriculture where we are exploring the best methods to collect and report on [carbon sequestration](https://info.biologicalcarbon.ca/carbon-storage-publications?gclid=CjwKCAjwpuajBhBpEiwA_Ztfhf-Q7zSz2MSdZiPA4BRXdUasZ2LOMIJ4D8bWaCUBvV0S4hvpdRKOCxoCIuIQAvD_BwE).
+We measure carbon and methane gas across various industries with a current focus on [Oil & Gas](https://www.validere.com/carbon-hub) as well as Agriculture where we are exploring the best methods to collect and report on [carbon sequestration](https://info.biologicalcarbon.ca/carbon-storage-publications?gclid=CjwKCAjwpuajBhBpEiwA_Ztfhf-Q7zSz2MSdZiPA4BRXdUasZ2LOMIJ4D8bWaCUBvV0S4hvpdRKOCxoCIuIQAvD_BwE).
 
 The world needs to work together to reduce emissions towards [net zero](https://www.globalcitizen.org/en/content/what-is-net-zero-emissions-climate-change) which doesn't mean no emissions but to the levels that existed before the industrial revolution!
 
