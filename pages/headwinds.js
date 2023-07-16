@@ -6,7 +6,7 @@ import About from "./about";
 import Golds from "./golds";
 import { Wrapper, Column } from "cross-country";
 
-const isReady = false;
+const isReady = true;
 
 function Headwinds() {
   return (
