@@ -1,10 +1,7 @@
-import React, { useState } from "react";
-import { useSpring, animated, SpringValue } from "react-spring";
+import React from "react";
 import styles from "../styles/Home.module.css";
 import Head from "next/head";
-import About from "./about";
-import Golds from "./golds";
-import { Wrapper, Column } from "cross-country";
+import { Wrapper, HeadwindsHomePage } from "cross-country";
 
 const isReady = true;
 
@@ -22,16 +19,7 @@ function Headwinds() {
           <a href="https://github.com/headwinds/">github</a>
         </p>
       ) : null}
-      {isReady ? (
-        <>
-          <Column customClass={styles.about}>
-            <About />
-          </Column>
-          <Column customClass={styles.visualization}>
-            <Golds />
-          </Column>
-        </>
-      ) : null}
+      {isReady ? <HeadwindsHomePage /> : null}
     </Wrapper>
   );
 }

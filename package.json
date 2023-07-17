@@ -8,11 +8,12 @@
     "start": "next start"
   },
   "dependencies": {
-    "cross-country": "^1.1.80",
+    "cross-country": "1.1.82",
     "next": "13.0.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-spring": "9.5.5",
+    "vercel": "^31.0.3",
     "xstate": "^4.34.0"
   }
 }
