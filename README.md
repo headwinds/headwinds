@@ -1,8 +1,12 @@
 # Analytics, Data Visualizaiton, and a sense of Adventure
 
+## Present
+
+I am seeking new exmployment. Ideally, I'm looking to join a company as either a Senior or Staff level engineer where I can lead and build frontend React UI as well contribute to the SQL-based backend with either Node, Python or Go. I would also be happy to write 100% frontend code and collaborate with backend engineers and data scientists. I can always explore new languages in my spare time and I enjoy learning how they fit together securely. 
+
 [Linkedin](https://ca.linkedin.com/in/brandonflowers)
 
-### Currently (Feb 6/2023 - present)
+### (Feb 6/2023 - Dec 1/2023)
 
 I'm enjoying frontend dev life @ [Validere](https://validere.com/) producing UI dashboards & Data Visualizaions.
 
