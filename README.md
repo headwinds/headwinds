@@ -28,7 +28,9 @@ I enjoyed nearly 4 years @ [Lobaw Digital](https://loblawdigital.co/) learning a
 
 Loblaw Digital uses Gitlab which likes cool blue over forest greens to present developer productivity.
 
-Depending on the task, I've been writing small Java, Go, and Python programs aka micro-services that monitor our feed servers and SQL database through evented systems. I also spend more time herding cats than code. I face many issues like we're missing 3 days worth of orders, what happened to that 250k? Or our recommnedation engine has stopped receiving it's feed, what gives?!
+I mostly built React-based UI with some vanilla JS on legacy systems. We invested heavily in GraphQL to write efficient endpoints and provide a caching layer. Along with the home page and checkout experience, my favourite page was the [product details page](https://shop.shoppersdrugmart.ca/libra-2/p/BB_681495008421?variantCode=681495008421&source=nspt) for Shopper's Drug Mart which is responsive, accessible, and driven by GraphQL. 
+
+Along with UI, I also had the opportunity to write tools and backend services in Java, Go, and Python that monitor our feed servers and SQL database through evented systems. While on page duty, I faced many issues like we're missing 3 days worth of orders, what happened to that 250k? Or our recommnedation engine has stopped receiving it's feed, why has it stopped? So I first experiment with Bashed and finally landed on Go as the best language to monitor and report on our feed servers.
 
 ## Writing & Other Experiments
 
@@ -41,7 +43,7 @@ Depending on the task, I've been writing small Java, Go, and Python programs aka
 
 ### Secret Full Stack Project
 
-Over the last 2 years, I've been collaborating with [David](https://github.com/djensenius) & [Nick](https://github.com/nickpagee) to create a photo sharing app (Expo/React Native) and hobby social network ([NestJS](https://nestjs.com/) & PostgreSQL.
+Over the last 2 years, I've been collaborating with [David](https://github.com/djensenius) & [Nick](https://github.com/nickpagee) to create a photo sharing app (Expo/React Native) and hobby social network ([NestJS](https://nestjs.com/) & PostgreSQL) which is deployed to Azure.
 
 [Secret project](https://github.com/Project-PD)
 
