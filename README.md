@@ -1,4 +1,4 @@
-# Analytics, Data Visualizaiton, and a sense of Adventure
+# UI Data Visualizaiton, Analytics, APIs and a sense of Adventure
 
 ### Present
 
