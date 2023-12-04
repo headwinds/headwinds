@@ -8,7 +8,7 @@ I am seeking new exmployment. Ideally, I'm looking to join a company as either a
 
 ### (Feb 6/2023 - Dec 1/2023)
 
-I'm enjoying frontend dev life @ [Validere](https://validere.com/) producing UI dashboards & Data Visualizaions.
+I'm enjoying frontend dev life @ [Validere](https://validere.com/) producing UI dashboards, Data Visualizaions, and their React-Native based [mobile app](https://apps.apple.com/ca/app/validere/id6446293374).
 
 We measure carbon and methane gas across various industries with a current focus on [Oil & Gas](https://www.validere.com/carbon-hub) as well as Agriculture where we are exploring the best methods to collect and report on [carbon sequestration](https://info.biologicalcarbon.ca/carbon-storage-publications?gclid=CjwKCAjwpuajBhBpEiwA_Ztfhf-Q7zSz2MSdZiPA4BRXdUasZ2LOMIJ4D8bWaCUBvV0S4hvpdRKOCxoCIuIQAvD_BwE).
 
@@ -28,7 +28,9 @@ I enjoyed nearly 4 years @ [Lobaw Digital](https://loblawdigital.co/) learning a
 
 Loblaw Digital uses Gitlab which likes cool blue over forest greens to present developer productivity.
 
-I mostly built React-based UI with some vanilla JS on legacy systems. We invested heavily in GraphQL to write efficient endpoints and provide a caching layer. Along with the home page and checkout experience, my favourite page was the [product details page](https://shop.shoppersdrugmart.ca/libra-2/p/BB_681495008421?variantCode=681495008421&source=nspt) for Shopper's Drug Mart which is responsive, accessible, and driven by GraphQL. 
+![shoppers_pdp](https://github.com/headwinds/headwinds/assets/68402/b125efa5-4eae-45d3-a81c-691ebd57aed7)
+
+I mostly built React-based UI with some vanilla JS on legacy systems. We invested heavily in GraphQL to write efficient endpoints and provide a caching layer. Along with the home page and checkout experience, my favourite page was the product detail page for Shopper's Drug Mart which is responsive, accessible, and driven by GraphQL. 
 
 Along with UI, I also had the opportunity to write tools and backend services in Java, Go, and Python that monitor our feed servers and SQL database through evented systems. While on page duty, I faced many issues like we're missing 3 days worth of orders, what happened to that 250k? Or our recommnedation engine has stopped receiving it's feed, why has it stopped? So I first experiment with Bashed and finally landed on Go as the best language to monitor and report on our feed servers.
 
