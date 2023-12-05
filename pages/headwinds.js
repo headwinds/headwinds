@@ -2,8 +2,9 @@ import React from "react";
 import styles from "../styles/Home.module.css";
 import Head from "next/head";
 import { Wrapper, HeadwindsHomePage } from "cross-country";
+import HeadwindsSidequest from "../components/headwinds-sidequest"
 
-const isReady = true;
+const isReady = false;
 
 function Headwinds() {
   return (
@@ -13,11 +14,9 @@ function Headwinds() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {!isReady ? (
-        <p>
-          I'm on
-          <a href="https://twitter.com/headwinds">twitter</a> and{" "}
-          <a href="https://github.com/headwinds/">github</a>
-        </p>
+        <>
+          <HeadwindsSidequest />
+        </>
       ) : null}
       {isReady ? <HeadwindsHomePage /> : null}
     </Wrapper>
