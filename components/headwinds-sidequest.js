@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import { Column, Row, SubHeadline, Paragraph, Link, Headline, List, ListItem, AnimateNumber } from 'cross-country';
-import brandon from './brandon_square.png';
+// import brandon from './brandon_square.png';
 import { useTransition, animated, useSpringRef, useSpring } from '@react-spring/web';
 
 import Image from 'next/image';

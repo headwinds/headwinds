@@ -2,7 +2,7 @@ import React from "react";
 import styles from "../styles/Home.module.css";
 import Head from "next/head";
 import { Wrapper, HeadwindsHomePage } from "cross-country";
-import HeadwindsSidequest from "./home/headwinds-sidequest"
+import HeadwindsSidequest from "../components/headwinds-sidequest"
 
 const isReady = false;
 
