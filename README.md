@@ -36,6 +36,7 @@ Along with UI, I also had the opportunity to write tools and backend services in
 
 ## Writing & Other Experiments
 
+- [LeetCode Largest Island](https://codesandbox.io/p/sandbox/leetcode-largest-island-iyu3m0?file=%2Fsrc%2Findex.js%3A9%2C22)
 - [US Windturbine study on Kaggle](https://www.kaggle.com/code/headwinds/us-wind-turbines)
 - [Cave Troll: Cracking React, XState & PusherJS Communication](https://dev.to/headwinds/heartbeat-cracking-react-xstate-pusherjs-communication-3bac)
 - [A PostgreSQL study of JOIN types](https://twitter.com/headwinds/status/1588225965959815168)
