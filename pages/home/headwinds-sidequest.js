@@ -5,7 +5,7 @@ import { useTransition, animated, useSpringRef, useSpring } from '@react-spring/
 
 import Image from 'next/image';
 
-import { Bolt } from './bolt';
+import Bolt from './bolt';
 import { LinkedinLogo, GithubLogo, TwitterLogo, X } from 'phosphor-react';
 
 const moss = '#bccd9d';
