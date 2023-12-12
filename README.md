@@ -10,7 +10,7 @@ I am seeking new exmployment. Ideally, I'm looking to join a company as either a
 
 <img width="1260" alt="carbon hub" src="https://github.com/headwinds/headwinds/assets/68402/34c59896-522f-4940-b782-b99a38102f66" />
 
-At @ [Validere](https://validere.com/) I produced UI and orchestrated the communication between Filter Panels, Cluster Maps, Charts, Metric Tiles and Data Tables that would all react to each other on the same page. Along with another developer, I also helped pioneer their first React-Native [mobile app](https://apps.apple.com/ca/app/validere/id6446293374) which we released in the 3 phrases beginning it version 3.0 over 6 months. 
+At @ [Validere](https://validere.com/) I lead the frontend development effort for their new Carbon Hub Home page producing the UI that orchestrates many components including Filter Panels, Cluster Maps, Charts, Metric Tiles and Data Tables that will all react to each other and update. Along with another developer, I also helped pioneer their first React-Native [mobile app](https://apps.apple.com/ca/app/validere/id6446293374) which we released in the 3 phrases beginning it version 3.0 over 6 months. 
 
 We measure carbon and methane gas across various industries with a current focus on [Oil & Gas](https://www.validere.com/carbon-hub) as well as Agriculture where we are exploring the best methods to collect and report on [carbon sequestration](https://info.biologicalcarbon.ca/carbon-storage-publications?gclid=CjwKCAjwpuajBhBpEiwA_Ztfhf-Q7zSz2MSdZiPA4BRXdUasZ2LOMIJ4D8bWaCUBvV0S4hvpdRKOCxoCIuIQAvD_BwE).
 
