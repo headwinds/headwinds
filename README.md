@@ -1,4 +1,4 @@
-# UI Data Visualizaiton, Analytics, APIs and a sense of Adventure
+# React UI, Analytics, APIs and a sense of Adventure
 
 ### Present
 
