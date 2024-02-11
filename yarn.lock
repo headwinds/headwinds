@@ -449,6 +449,32 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@receter/my-component-library@npm:^0.0.1":
+  version: 0.0.1
+  resolution: "@receter/my-component-library@npm:0.0.1"
+  peerDependencies:
+    react: ^18.2.0
+    react-dom: ^18.2.0
+  checksum: f6ca8efaac3a05b610a29e24bded41cece780101818ffa585d4924bc0500be8faa858cd130cf6161d977f710d133ee15940cb3b068a2b797d416e4e8427599d7
+  languageName: node
+  linkType: hard
+
+"@rollup/pluginutils@npm:5":
+  version: 5.1.0
+  resolution: "@rollup/pluginutils@npm:5.1.0"
+  dependencies:
+    "@types/estree": "npm:^1.0.0"
+    estree-walker: "npm:^2.0.2"
+    picomatch: "npm:^2.3.1"
+  peerDependencies:
+    rollup: ^1.20.0||^2.0.0||^3.0.0||^4.0.0
+  peerDependenciesMeta:
+    rollup:
+      optional: true
+  checksum: c7bed15711f942d6fdd3470fef4105b73991f99a478605e13d41888963330a6f9e32be37e6ddb13f012bc7673ff5e54f06f59fd47109436c1c513986a8a7612d
+  languageName: node
+  linkType: hard
+
 "@rollup/pluginutils@npm:^4.0.0":
   version: 4.2.1
   resolution: "@rollup/pluginutils@npm:4.2.1"
@@ -622,6 +648,13 @@ __metadata:
   version: 1.1.8
   resolution: "@types/content-type@npm:1.1.8"
   checksum: 5115a68f9eeb2139f7598519245a47c7e39cae0965c5ea64067190f934e6d1568d6fec0643b113b54351a9472f8b810958b8040af53b15c82d2b2ca46d9af2be
+  languageName: node
+  linkType: hard
+
+"@types/estree@npm:^1.0.0":
+  version: 1.0.5
+  resolution: "@types/estree@npm:1.0.5"
+  checksum: b3b0e334288ddb407c7b3357ca67dbee75ee22db242ca7c56fe27db4e1a31989cb8af48a84dd401deb787fe10cc6b2ab1ee82dc4783be87ededbe3d53c79c70d
   languageName: node
   linkType: hard
 
@@ -1330,9 +1363,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cross-country@npm:1.2.1":
-  version: 1.2.1
-  resolution: "cross-country@npm:1.2.1"
+"cross-country@npm:1.2.5":
+  version: 1.2.5
+  resolution: "cross-country@npm:1.2.5"
   dependencies:
     "@react-spring/web": "npm:^9.7.3"
     "@storybook/testing-library": "npm:^0.2.2"
@@ -1349,6 +1382,7 @@ __metadata:
     phosphor-react: "npm:^1.4.1"
     prismjs: "npm:^1.23.0"
     react-error-boundary: "npm:^4.0.11"
+    rollup-plugin-css-only: "npm:^4.5.2"
     unsplash-js: "npm:^7.0.10"
     uuid: "npm:^8.0.0"
     vite-plugin-css-injected-by-js: "npm:^3.3.0"
@@ -1357,7 +1391,7 @@ __metadata:
   peerDependencies:
     react: ^18.2.0
     react-dom: ^18.2.0
-  checksum: c67cf6eebba755b836364a53e001ba83fff5d1aa4e1264b880b594013894d3c5276b604433ec384f7851adddbe6fd8fbbb664b1a274effac4ba845055ad09a39
+  checksum: 0cac86cebb54363de6aca63330d8b0b8a79ed2fc16173801ba7b60d5320e0ae52c46109fe959f44efe6fe4fb4f6f74690406c0974ffa1aa0f226716881996c1f
   languageName: node
   linkType: hard
 
@@ -2097,7 +2131,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"estree-walker@npm:2.0.2, estree-walker@npm:^2.0.1":
+"estree-walker@npm:2.0.2, estree-walker@npm:^2.0.1, estree-walker@npm:^2.0.2":
   version: 2.0.2
   resolution: "estree-walker@npm:2.0.2"
   checksum: 53a6c54e2019b8c914dc395890153ffdc2322781acf4bd7d1a32d7aedc1710807bdcd866ac133903d5629ec601fbb50abe8c2e5553c7f5a0afdd9b6af6c945af
@@ -2433,7 +2467,8 @@ __metadata:
   resolution: "headwinds@workspace:."
   dependencies:
     "@react-spring/web": "npm:^9.7.3"
-    cross-country: "npm:1.2.1"
+    "@receter/my-component-library": "npm:^0.0.1"
+    cross-country: "npm:1.2.5"
     next: "npm:^14.0.4"
     phosphor-react: "npm:^1.4.1"
     react: "npm:18.2.0"
@@ -3456,6 +3491,17 @@ __metadata:
   version: 3.0.2
   resolution: "robust-predicates@npm:3.0.2"
   checksum: 4ecd53649f1c2d49529c85518f2fa69ffb2f7a4453f7fd19c042421c7b4d76c3efb48bc1c740c8f7049346d7cb58cf08ee0c9adaae595cc23564d360adb1fde4
+  languageName: node
+  linkType: hard
+
+"rollup-plugin-css-only@npm:^4.5.2":
+  version: 4.5.2
+  resolution: "rollup-plugin-css-only@npm:4.5.2"
+  dependencies:
+    "@rollup/pluginutils": "npm:5"
+  peerDependencies:
+    rollup: <5
+  checksum: 22bcb5c499662249fbd88b6733bec9b52f59d4659be229a87f32cb2b8165362b96203de230ecc12ed4d65ca321961673bddb609c7a6004a5d498ae7854cf7d47
   languageName: node
   linkType: hard
 

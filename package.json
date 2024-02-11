@@ -9,7 +9,8 @@
   },
   "dependencies": {
     "@react-spring/web": "^9.7.3",
-    "cross-country": "1.2.1",
+    "@receter/my-component-library": "^0.0.1",
+    "cross-country": "1.2.5",
     "next": "^14.0.4",
     "phosphor-react": "^1.4.1",
     "react": "18.2.0",

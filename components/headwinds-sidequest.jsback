@@ -9,6 +9,7 @@ import {
   List,
   ListItem,
   AnimateNumber,
+  Button,
 } from "cross-country";
 // import brandon from './brandon_square.png';
 import {
@@ -70,6 +71,7 @@ const HeadwindsSidequest = ({ isLoading = false }) => {
       style={{ opacity: 0, maxWidth: 600, ...springs }}
     >
       <Column>
+        <Button>Click me</Button>
         <Row>
           <Column customStyle={{ padding: 0 }}>
             {/*<Image a11y="brandon flowers" url={brandon} width={100} height={100} customStyle={{ borderRadius: '50%' }} />*/}
@@ -121,8 +123,9 @@ const HeadwindsSidequest = ({ isLoading = false }) => {
             fontSize: 18,
           }}
         >
-          As a passionate, product-focussed dev, I also prototype and write about React, APIs,
-          State Machines & leveraging Natural Language Processing.
+          As a passionate, product-focussed dev, I also prototype and write
+          about React, APIs, State Machines & leveraging Natural Language
+          Processing.
         </SubHeadline>
         <Paragraph customStyle={paraStyle}>
           Ever since the death of Google Reader 💀, I've been exploring RSS in a
