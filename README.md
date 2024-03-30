@@ -32,17 +32,15 @@ I'm currently part of a task force collecting any evidence that its now safe to 
 
 #### Loblaws - (Sept 4/2019 - Feb 2/2023)
 
-I enjoyed nearly 4 years @ [Lobaw Digital](https://loblawdigital.co/) learning all things eCommerce.
+![shoppers_pdp](https://github.com/headwinds/headwinds/assets/68402/b125efa5-4eae-45d3-a81c-691ebd57aed7)
+
+I enjoyed nearly 4 years @ [Lobaw Digital](https://loblawdigital.co/) learning all things eCommerce. I mostly built React-based UI with some vanilla JS on legacy systems. We invested heavily in GraphQL to write efficient endpoints and provide a caching layer. Along with the home page and checkout experience, my favourite page was the product detail page for Shopper's Drug Mart which is responsive, accessible, and driven by GraphQL. 
+
+Along with UI, I also had the opportunity to write tools and backend services in Java, Go, and Python that monitor our feed servers and SQL database through evented systems. While on page duty, I faced many issues like we're missing 3 days worth of orders, what happened to that 250k? Or our recommnedation engine has stopped receiving it's feed, why has it stopped? So I first experiment with Bashed and finally landed on Go as the best language to monitor and report on our feed servers.
 
 <img src="./gitlab.png" />
 
 Loblaw Digital uses Gitlab which likes cool blue over forest greens to present developer productivity.
-
-![shoppers_pdp](https://github.com/headwinds/headwinds/assets/68402/b125efa5-4eae-45d3-a81c-691ebd57aed7)
-
-I mostly built React-based UI with some vanilla JS on legacy systems. We invested heavily in GraphQL to write efficient endpoints and provide a caching layer. Along with the home page and checkout experience, my favourite page was the product detail page for Shopper's Drug Mart which is responsive, accessible, and driven by GraphQL. 
-
-Along with UI, I also had the opportunity to write tools and backend services in Java, Go, and Python that monitor our feed servers and SQL database through evented systems. While on page duty, I faced many issues like we're missing 3 days worth of orders, what happened to that 250k? Or our recommnedation engine has stopped receiving it's feed, why has it stopped? So I first experiment with Bashed and finally landed on Go as the best language to monitor and report on our feed servers.
 
 ## Writing & Other Experiments
 
