@@ -8,13 +8,13 @@ I have built hundreds of apps generating billions in revenue but I'm most valuab
 
 [Linkedin](https://ca.linkedin.com/in/brandonflowers)
 
-### (Mar 25/2024 - Present)
+#### Prenuvo - (Mar 25/2024 - Present)
 
 <img width="976" alt="prenuno-ui" src="https://github.com/headwinds/headwinds/assets/68402/a44af096-164f-4767-8049-30bf5c77d661">
 
 I’ve joined [Prenuvo](https://www.prenuvo.com/prenuvo-app) to help make full body MRI scans accessible to all! One day it could and should be as affordable as a dental cleaning. As an interface developer, I get this great opportunity to do data visualization and collaborate with their AI team to assist radiologists in reviewing scans. [Vladek's story](https://www.youtube.com/watch?v=0unTW6WPDjk) expresses the benefits of early detection.
 
-### (Feb 6/2023 - Dec 1/2023)
+#### Validere - (Feb 6/2023 - Dec 1/2023)
 
 <img width="1260" alt="carbon hub" src="https://github.com/headwinds/headwinds/assets/68402/34c59896-522f-4940-b782-b99a38102f66" />
 
@@ -30,7 +30,7 @@ Although I did warm to Gitlab, I'm happy to be back on Github (we use Github, AW
 
 I'm currently part of a task force collecting any evidence that its now safe to use professionally; that is won't steal or leak any of our IP. Early accounts that it wasn't secure certainly hurt its reputation, and I'm trying to put a case together to overcome that and convince our legal team that we have nothing to worry about today. Stay tuned! I feel this research should be open sourced, and I'll share what I can.
 
-### Previously (Sept 4/2019 - Feb 2/2023)
+#### Loblaws - (Sept 4/2019 - Feb 2/2023)
 
 I enjoyed nearly 4 years @ [Lobaw Digital](https://loblawdigital.co/) learning all things eCommerce.
 
