@@ -1,10 +1,18 @@
 # UI, Analytics, APIs and a sense of Adventure
 
-### Present
+### Profile
 
-I am seeking new exmployment. Ideally, I'm looking to join a company as either a Senior or Staff level engineer where I can lead and build frontend React UI as well contribute to the SQL-based backend with either Node, Python or Go. I would also be happy to write 100% frontend code and collaborate with backend engineers and data scientists. I can always explore new languages in my spare time and I enjoy learning how they all fit together securely by buiding a project from front to back. 
+With 10+ years experience, I believe I have reached the level of [Staff engineer](https://twitter.com/headwinds/status/1773501547520864685) where I can confidently lead, campaign and build fullstack apps; a keystone within a diverse team.
+
+I have built hundreds of apps generating billions in revenue but I'm most valuable in the stratetic thinking and planning behind the product misison. I can write with React, Node, Python, Go and SQL. I can always enjoy exploring new languages in my spare time and I enjoy learning how they all fit together securely by buiding a project from front to back. 
 
 [Linkedin](https://ca.linkedin.com/in/brandonflowers)
+
+### (Mar 25/2024 - Present)
+
+<img width="976" alt="prenuno-ui" src="https://github.com/headwinds/headwinds/assets/68402/a44af096-164f-4767-8049-30bf5c77d661">
+
+I’ve joined [Prenuvo](https://www.prenuvo.com/prenuvo-app) to help make full body MRI scans accessible to all! One day it could and should be as affordable as a dental cleaning. As an interface developer, I get this great opportunity to do data visualization and collaborate with their AI team to assist radiologists in reviewing scans. [Vladek's story](https://www.youtube.com/watch?v=0unTW6WPDjk) expresses the benefits of early detection.
 
 ### (Feb 6/2023 - Dec 1/2023)
 
