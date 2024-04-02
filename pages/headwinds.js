@@ -2,7 +2,7 @@ import React from "react";
 import styles from "../styles/Home.module.css";
 import Head from "next/head";
 import { Wrapper, HeadwindsHomePage } from "cross-country";
-//import HeadwindsSidequest from "../components/headwinds-sidequest"
+import HeadwindsSidequest from "../components/headwinds-sidequest";
 
 const isReady = false;
 
@@ -19,7 +19,7 @@ function Headwinds() {
         <title>headwinds</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <HeadwindsHomePage />
+      <HeadwindsSidequest />
     </Wrapper>
   );
 }
