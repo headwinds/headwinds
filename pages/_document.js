@@ -5,7 +5,7 @@ const GA_TRACKING_ID = "G-PEMG3PDD0R";
 export default class MyDocument extends Document {
   render() {
     return (
-      <Html>
+      <Html> 
         <Head>
           {/* Global Site Tag (gtag.js) - Google Analytics */}
           <script
