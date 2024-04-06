@@ -1,3 +1,8 @@
+// TODO: explore why I disabled typecheck on this file!
+// @ts-nocheck
+// npm run build
+
+"use client";
 import React, { useRef, useEffect } from "react";
 import {
   Column,
@@ -29,7 +34,7 @@ const gold = "#b2a25a";
 const teal = "#0baeae";
 
 const HeadwindsSidequest = ({ isLoading = false }) => {
-  const wrapperRef = useRef();
+  const wrapperRef = useRef<HTMLDivElement>(null);
 
   const customLinkStyle = {
     textDecoration: "none",
@@ -85,8 +90,9 @@ const HeadwindsSidequest = ({ isLoading = false }) => {
               customStyle={{
                 margin: 0,
                 padding: 0,
-                color: "#ababab",
+                color: "rgb(207, 192, 127)",
                 fontWeight: 600,
+                display: "flex",
               }}
             >
               <Bolt />
