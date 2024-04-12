@@ -30,7 +30,7 @@ import Bolt from "./bolt";
 import { LinkedinLogo, GithubLogo, TwitterLogo, X } from "phosphor-react";
 
 const moss = "#bccd9d";
-const gold = "#b2a25a";
+const gold = "rgb(207, 192, 127)"; //"#b2a25a";
 const teal = "#0baeae";
 
 const HeadwindsSidequest = ({ isLoading = false }) => {
@@ -117,7 +117,7 @@ const HeadwindsSidequest = ({ isLoading = false }) => {
         <SubHeadline
           color={gold}
           customStyle={{
-            backgroundColor: "#eee",
+            backgroundColor: "white",
             padding: 8,
             fontWeight: 300,
             borderRadius: 4,
