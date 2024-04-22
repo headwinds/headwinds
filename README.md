@@ -54,7 +54,7 @@ Loblaw Digital uses Gitlab which likes cool blue over forest greens to present d
 
 ### Not so Secret Full Stack Project
 
-Introducing [photodare](https://www.photodare.ca/) which is now live in the [app store for iPhone](https://apps.apple.com/ca/app/photodare/id6479333804)
+Introducing [PhotoDare](https://www.photodare.ca/) which is now live in the [app store for iPhone](https://apps.apple.com/ca/app/photodare/id6479333804)
 
 I've been collaborating with [David](https://github.com/djensenius) & [Nick](https://github.com/nickpagee) to create a photo sharing app (Expo/React Native) and social network ([NestJS](https://nestjs.com/) & PostgreSQL) which is deployed to Azure.
 
