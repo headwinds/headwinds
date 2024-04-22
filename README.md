@@ -52,13 +52,15 @@ Loblaw Digital uses Gitlab which likes cool blue over forest greens to present d
 - [Async/Await with simple probability to solve an e2e testing problem](https://codesandbox.io/s/async-await-with-recursion-qewndk)
 - [Dig Through Python And Create Game Art with Playscii](https://dev.to/headwinds/)
 
-### Secret Full Stack Project
+### Not so Secret Full Stack Project
 
-Over the last 2 years, I've been collaborating with [David](https://github.com/djensenius) & [Nick](https://github.com/nickpagee) to create a photo sharing app (Expo/React Native) and hobby social network ([NestJS](https://nestjs.com/) & PostgreSQL) which is deployed to Azure.
+Introducing [photodare](https://www.photodare.ca/) which is now live in the [app store for iPhone](https://apps.apple.com/ca/app/photodare/id6479333804)
 
-[Secret project](https://github.com/Project-PD)
+I've been collaborating with [David](https://github.com/djensenius) & [Nick](https://github.com/nickpagee) to create a photo sharing app (Expo/React Native) and social network ([NestJS](https://nestjs.com/) & PostgreSQL) which is deployed to Azure.
 
-Launch: maybe the Spring of 2023?! In the meantime, you can enjoy some of my React Native Expo snacks:
+[Secret Github project](https://github.com/Project-PD)
+
+React Native Expo snacks:
 
 - [contact list](https://snack.expo.dev/@headwinds/virtualized-contact-list)
 - [mulit day picker](https://snack.expo.dev/@headwinds/multi-seven-day-picker)
