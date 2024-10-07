@@ -22,18 +22,19 @@ jobs:
         run: pnpm install --frozen-lockfile
       - name: Deploy to Staging
         id: deploy-to-staging
-        run: |
-          npx vercel --token ${{ secrets.VERCEL_HOBBY_TOKEN }} --scope ${{ secrets.VERCEL_ORG_ID }} --project ${{ secrets.VERCEL_PROJECT_ID }} --prod 2>&1 | tee deploy.log
-        env:
+        uses: BetaHuhn/deploy-to-vercel-action@v1
+        with:
           GITHUB_TOKEN: ${{ secrets.GH_PAT }}
           VERCEL_TOKEN: ${{ secrets.VERCEL_HOBBY_TOKEN }}
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+        env:
           VEL_TOKEN: ${{ secrets.VERCEL_HOBBY_TOKEN }}
+        continue-on-error: true
       - name: Extract Staging URL
         id: extract-staging-url
         run: |
-          STAGING_URL=$(grep -oP 'available at: \Khttps://\S+' deploy.log)
+          STAGING_URL=$(grep -oP 'available at: \Khttps://\S+' $GITHUB_WORKSPACE/deploy.log)
           echo "STAGING_URL=$STAGING_URL" >> $GITHUB_ENV
           echo "::set-output name=staging_url::$STAGING_URL"
       - name: Validate Staging URL
