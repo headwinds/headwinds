@@ -33,8 +33,9 @@ jobs:
         continue-on-error: true
       - name: Install pup
         run: |
-          sudo apt-get update
-          sudo apt-get install -y pup
+          wget https://github.com/ericchiang/pup/releases/download/v0.4.0/pup_0.4.0_linux_amd64.zip
+          unzip pup_0.4.0_linux_amd64.zip
+          sudo mv pup /usr/local/bin/
       - name: Extract Staging URL from Comment
         id: extract-staging-url
         run: |
