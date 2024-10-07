@@ -33,7 +33,7 @@ jobs:
           VERCEL_TOKEN: ${{ secrets.VERCEL_HOBBY_TOKEN }}
       - name: Get Staging URL
         run: |
-          STAGING_URL=$(curl -s -X GET "https://api.vercel.com/v9/projects/${VERCEL_PROJECT_ID}/deployments" -H "Authorization: Bearer ${VERCEL_HOBBY_TOKEN}" | jq -r '.deployments[0].url')
+          STAGING_URL=$(curl -s -X GET "https://api.vercel.com/v9/projects/${{ secrets.VERCEL_PROJECT_ID }}/deployments" -H "Authorization: Bearer ${{ secrets.VERCEL_HOBBY_TOKEN }}" | jq -r '.deployments[0].url')
           echo "STAGING_URL=$STAGING_URL" >> $GITHUB_ENV
       - name: Trigger playwright.yml
         if: success()
