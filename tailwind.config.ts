@@ -16,5 +16,6 @@ const config: Config = {
     },
   },
   plugins: [],
+  include: ["cross-country.d.ts"],
 };
 export default config;
