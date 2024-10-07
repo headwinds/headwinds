@@ -1,5 +1,5 @@
 # playwright.yml
-name: Playwright Tests upon Trigger
+name: Playwright Tests upon Trigger and PNPM
 
 on:
   repository_dispatch:
