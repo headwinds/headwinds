@@ -2,11 +2,9 @@
 
 ### Profile
 
-With 10+ years experience, I believe I have reached the level of [Staff engineer](https://twitter.com/headwinds/status/1773501547520864685) where I can confidently direct the build of fullstack apps, and campaign as a keystone within a diverse team.
+With 10+ years experience, I believe I have reached the level of [Staff engineer](https://twitter.com/headwinds/status/1773501547520864685) where I can confidently contribute to and direct the build of apps, lead and mentor junior developers, and collaborate with business, design, backend engineers and data scientists. I'm also quite content to continue my career as a [senior developer](https://ca.linkedin.com/in/brandonflowers) primarily working on the frontend with react.  
 
 I have built hundreds of apps generating billions in revenue but I'm most valuable in the stratetic thinking and planning behind the product misison. I can write with React, Node, Python, Go and SQL. I can always enjoy exploring new languages in my spare time and I enjoy learning how they all fit together securely by buiding a project from front to back. 
-
-[Linkedin](https://ca.linkedin.com/in/brandonflowers)
 
 #### Prenuvo - (Mar 25/2024 - Present)
 
