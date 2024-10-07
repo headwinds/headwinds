@@ -63,20 +63,13 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           repository: ${{ github.repository }}
           event-type: trigger-playwright
-          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}", "stagingUrl": "${{ env.STAGING_URL }}"}'        - name: Trigger playwright.yml
-          if: success()
-          uses: peter-evans/repository-dispatch@v1
-          with:
-            token: ${{ secrets.GITHUB_TOKEN }}
-            repository: ${{ github.repository }}
-            event-type: trigger-playwright
-            client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}", "stagingUrl": "${{ env.STAGING_URL }}"}'
-          env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          continue-on-error: true
+          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}", "stagingUrl": "${{ env.STAGING_URL }}"}'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        continue-on-error: true
       - name: Confirm Dispatch Event
         if: success()
         run: |
-            echo "Dispatch event sent successfully"
+          echo "Dispatch event sent successfully"
         env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
