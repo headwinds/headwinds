@@ -39,7 +39,7 @@ jobs:
           echo "Fetching comments from: $COMMENT_URL"
           COMMENT=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" $COMMENT_URL | jq -r '.[-1].body')
           echo "Latest comment: $COMMENT"
-          STAGING_URL=$(echo "$COMMENT" | grep -oP 'Preview:\s*\Khttps://\S+')
+          STAGING_URL=$(echo "$COMMENT" | xmllint --html --xpath "string(//a[contains(text(),'https://headwinds')]/@href)" - 2>/dev/null)
           echo "Extracted staging URL: $STAGING_URL"
           echo "STAGING_URL=$STAGING_URL" >> $GITHUB_ENV
           echo "::set-output name=staging_url::$STAGING_URL"
