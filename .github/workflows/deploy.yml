@@ -30,11 +30,18 @@ jobs:
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
           VERCEL_ENV: staging
         env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_HOBBY_TOKEN }}
+          VEL_TOKEN: ${{ secrets.VERCEL_HOBBY_TOKEN }}
       - name: Get Staging URL
+        id: get-staging-url
         run: |
           STAGING_URL=$(curl -s -X GET "https://api.vercel.com/v9/projects/${{ secrets.VERCEL_PROJECT_ID }}/deployments" -H "Authorization: Bearer ${{ secrets.VERCEL_HOBBY_TOKEN }}" | jq -r '.deployments[0].url')
           echo "STAGING_URL=$STAGING_URL" >> $GITHUB_ENV
+          echo "::set-output name=staging_url::$STAGING_URL"
+      - name: Validate Staging URL
+        if: steps.get-staging-url.outputs.staging_url == 'null'
+        run: |
+          echo "Failed to retrieve STAGING_URL"
+          exit 1
       - name: Trigger playwright.yml
         if: success()
         uses: peter-evans/repository-dispatch@v1
