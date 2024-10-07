@@ -28,14 +28,15 @@ jobs:
           VERCEL_TOKEN: ${{ secrets.VERCEL_HOBBY_TOKEN }}
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-          VERCEL_ENV: staging
         env:
           VEL_TOKEN: ${{ secrets.VERCEL_HOBBY_TOKEN }}
         continue-on-error: true
+        run: |
+          BetaHuhn/deploy-to-vercel-action@v1 2>&1 | tee deploy.log
       - name: Extract Staging URL
         id: extract-staging-url
         run: |
-          STAGING_URL=$(grep -oP 'available at: \Khttps://\S+' <(echo "${{ steps.deploy-to-staging.outputs.stdout }}"))
+          STAGING_URL=$(grep -oP 'available at: \Khttps://\S+' deploy.log)
           echo "STAGING_URL=$STAGING_URL" >> $GITHUB_ENV
           echo "::set-output name=staging_url::$STAGING_URL"
       - name: Validate Staging URL
