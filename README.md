@@ -90,4 +90,4 @@ npx playwright test
 
 ### Future
 
-As a side-hustle to grow and learn some of the latest web technologies, I've started a project to guide users to become greater achievers and map their own development course while chatting with AI and mining their existing productivity apps like Gmail and Google calendar. It's in the early prototyping phases and not ready to share yet, I'm mainly building with react, python (flask), [Google Cloud](https://cloud.google.com/), [Perplexity Labs](https://labs.perplexity.ai/), and postgres.
+As a side-hustle, I've started a project to guide users to become greater achievers and map their own development course while chatting with AI and mining their existing productivity apps like Gmail and Google calendar. It's in the early prototyping phases and not ready to share yet, I'm mainly building with react, python (flask), [Google Cloud](https://cloud.google.com/), [Perplexity Labs](https://labs.perplexity.ai/), and postgres.
