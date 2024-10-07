@@ -10,12 +10,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 18
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-      - name: Run Playwright Tests
-        run: pnpm test
+        run: npm install
+      - name: Run Playwright tests
+        run: npm run test
         env:
           STAGING_URL: ${{ github.event.client_payload.stagingUrl }}
