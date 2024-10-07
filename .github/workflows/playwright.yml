@@ -4,9 +4,14 @@ name: Run Playwright Tests
 on:
   repository_dispatch:
     types: [trigger-playwright]
+  pull_request:
+    branches: [main, master]
+    paths-ignore:
+      - "**/*"
 
 jobs:
   test:
+    if: github.event_name == 'repository_dispatch' || github.event.pull_request.head.repo.default_branch == github.event.pull_request.base.repo.default_branch
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
