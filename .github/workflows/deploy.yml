@@ -1,0 +1,49 @@
+name: Deploy and Test
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - name: Install dependencies
+        run: npm ci
+      - name: Deploy to Staging
+        uses: BetaHuhn/deploy-to-vercel-action@v1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+          VERCEL_ENV: staging
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      - name: Get Staging URL
+        run: |
+          STAGING_URL=$(curl -s -X GET "https://api.vercel.com/v9/projects/${VERCEL_PROJECT_ID}/deployments" -H "Authorization: Bearer ${VERCEL_TOKEN}" | jq -r '.deployments[0].url')
+          echo "STAGING_URL=$STAGING_URL" >> $GITHUB_ENV
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+      - name: Run Playwright tests
+        run: npx playwright test --config=playwright.config.js
+        env:
+          PLAYWRIGHT_TEST_BASE_URL: ${{ env.STAGING_URL }}
+      - name: Deploy to Production
+        if: ${{ success() }}
+        uses: BetaHuhn/deploy-to-vercel-action@v1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+          VERCEL_ENV: production
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
