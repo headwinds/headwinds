@@ -20,15 +20,15 @@ jobs:
         uses: BetaHuhn/deploy-to-vercel-action@v1
         with:
           GITHUB_TOKEN: ${{ secrets.GH_PAT }}
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_HOBBY_TOKEN: ${{ secrets.VERCEL_HOBBY_TOKEN }}
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
           VERCEL_ENV: staging
         env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_HOBBY_TOKEN: ${{ secrets.VERCEL_HOBBY_TOKEN }}
       - name: Get Staging URL
         run: |
-          STAGING_URL=$(curl -s -X GET "https://api.vercel.com/v9/projects/${VERCEL_PROJECT_ID}/deployments" -H "Authorization: Bearer ${VERCEL_TOKEN}" | jq -r '.deployments[0].url')
+          STAGING_URL=$(curl -s -X GET "https://api.vercel.com/v9/projects/${VERCEL_PROJECT_ID}/deployments" -H "Authorization: Bearer ${VERCEL_HOBBY_TOKEN}" | jq -r '.deployments[0].url')
           echo "STAGING_URL=$STAGING_URL" >> $GITHUB_ENV
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
@@ -41,9 +41,9 @@ jobs:
         uses: BetaHuhn/deploy-to-vercel-action@v1
         with:
           GITHUB_TOKEN: ${{ secrets.GH_PAT }}
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_HOBBY_TOKEN: ${{ secrets.VERCEL_HOBBY_TOKEN }}
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
           VERCEL_ENV: production
         env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_HOBBY_TOKEN: ${{ secrets.VERCEL_HOBBY_TOKEN }}
