@@ -13,7 +13,8 @@
     "@next/third-parties": "^14.1.4",
     "next": "14.1.4",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "@phosphor-icons/react": "2.1.7"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.9",
@@ -26,7 +27,6 @@
     "cross-country": "1.2.13",
     "eslint": "^8",
     "eslint-config-next": "14.1.4",
-    "phosphor-react": "^1.4.1",
     "postcss": "^8",
     "tailwindcss": "^3.3.0",
     "typescript": "^5",
