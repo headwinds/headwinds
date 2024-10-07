@@ -14,7 +14,16 @@ test("has title on localhost", async ({ page }) => {
   await expect(page).toHaveTitle(/headwinds/);
 }); */
 
-test("has title", async ({ page }) => {
+test("has title in dynamic staging environment", async ({ page }) => {
+  const baseUrl = process.env.PLAYWRIGHT_TEST_BASE_URL;
+  await page.goto(baseUrl);
+  // Your test logic here
+
+  // Expect a title "to contain" a substring.
+  await expect(page).toHaveTitle(/headwinds/);
+});
+
+test("has title in static production environment", async ({ page }) => {
   await page.goto("https://headwinds.vercel.app/");
 
   // Expect a title "to contain" a substring.

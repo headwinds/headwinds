@@ -1,0 +1,75 @@
+name: Deploy and Test
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Deploy to Staging
+        id: deploy-to-staging
+        uses: BetaHuhn/deploy-to-vercel-action@v1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+          VERCEL_TOKEN: ${{ secrets.VERCEL_HOBBY_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+        env:
+          VEL_TOKEN: ${{ secrets.VERCEL_HOBBY_TOKEN }}
+        continue-on-error: true
+      - name: Install Go
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y golang
+      - name: Install pup
+        run: |
+          go install github.com/ericchiang/pup@latest
+          sudo mv ~/go/bin/pup /usr/local/bin/
+      - name: Extract Staging URL from Comment
+        id: extract-staging-url
+        run: |
+          PR_NUMBER=${{ github.event.pull_request.number }}
+          COMMENT_URL="https://api.github.com/repos/${{ github.repository }}/issues/${PR_NUMBER}/comments"
+          echo "Fetching comments from: $COMMENT_URL"
+          COMMENT=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" $COMMENT_URL | jq -r '.[-1].body')
+          echo "Latest comment: $COMMENT"
+          STAGING_URL=$(echo "$COMMENT" | pup 'a[href^="https://headwinds"] attr{href}')
+          echo "Extracted staging URL: $STAGING_URL"
+          echo "STAGING_URL=$STAGING_URL" >> $GITHUB_ENV
+          echo "::set-output name=staging_url::$STAGING_URL"
+      - name: Validate Staging URL
+        if: steps.extract-staging-url.outputs.staging_url == 'null'
+        run: |
+          echo "Failed to retrieve STAGING_URL"
+          exit 1
+      - name: Trigger playwright.yml
+        if: success()
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          event-type: trigger-playwright
+          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}", "stagingUrl": "${{ env.STAGING_URL }}"}'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        continue-on-error: true
+      - name: Confirm Dispatch Event
+        if: success()
+        run: |
+          echo "Dispatch event sent successfully"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

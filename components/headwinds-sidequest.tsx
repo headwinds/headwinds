@@ -27,7 +27,12 @@ import {
 import Image from "next/image";
 
 import Bolt from "./bolt";
-import { LinkedinLogo, GithubLogo, TwitterLogo, X } from "phosphor-react";
+import {
+  LinkedinLogo,
+  GithubLogo,
+  TwitterLogo,
+  XLogo,
+} from "@phosphor-icons/react/dist/ssr";
 
 const moss = "#bccd9d";
 const gold = "rgb(207, 192, 127)"; //"#b2a25a";
@@ -109,8 +114,11 @@ const HeadwindsSidequest = ({ isLoading = false }) => {
         <Paragraph customStyle={paraStyle}>
           I{"'"}ve joined <Link url="https://www.prenuvo.com">Prenuvo</Link> as
           a Senior Software Engineer. I 💛 solving complex customer journeys,
-          workflows, and crafting executive dashboards rich with metrics and
-          data visualisations. Learn more about me via my{" "}
+          writing automatation tests and crafting React components in eCommerce
+          and executive dashboards, rich with metrics and data visualisations.{" "}
+        </Paragraph>
+        <Paragraph customStyle={paraStyle}>
+          Learn more about me via my{" "}
           <Link url="https://www.linkedin.com/in/brandonflowers">Linkedin</Link>{" "}
           and <Link url="https://github.com/headwinds/">Github</Link>.
         </Paragraph>
@@ -187,8 +195,8 @@ const HeadwindsSidequest = ({ isLoading = false }) => {
               url="https://www.twitter.com/headwinds"
               customStyle={customLinkStyle}
             >
-              <TwitterLogo size={32} color={gold} weight="light" />
-              <Paragraph customStyle={customParagraphStyle}>Twitter</Paragraph>
+              <XLogo size={32} color={gold} weight="light" />
+              <Paragraph customStyle={customParagraphStyle}>X</Paragraph>
             </Link>
           </ListItem>
         </List>
