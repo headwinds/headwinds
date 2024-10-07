@@ -82,6 +82,8 @@ pnpm dev
 
 I'm currently using my site as a sandbox to learn [Playwright e2e automation testing via CI/CD](https://playwright.dev/docs/ci-intro) so that I can visualize the deployment steps of my various environments when deploying and get alerted if any errors occur.
 
+Along with Github actions, I also want to try this [approach to code coverage](https://dev.to/anishkny/code-coverage-for-a-nextjs-app-using-playwright-tests-18n7).
+
 ```
 npx playwright test
 ```
