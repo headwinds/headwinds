@@ -1,3 +1,4 @@
+# deploy.yml
 name: Deploy and Test
 
 on:
@@ -14,10 +15,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 18
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 9
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
       - name: Deploy to Staging
@@ -34,20 +31,11 @@ jobs:
         run: |
           STAGING_URL=$(curl -s -X GET "https://api.vercel.com/v9/projects/${VERCEL_PROJECT_ID}/deployments" -H "Authorization: Bearer ${VERCEL_HOBBY_TOKEN}" | jq -r '.deployments[0].url')
           echo "STAGING_URL=$STAGING_URL" >> $GITHUB_ENV
-      - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
-      - name: Run Playwright tests
-        run: npx playwright test --config=playwright.config.js
-        env:
-          PLAYWRIGHT_TEST_BASE_URL: ${{ env.STAGING_URL }}
-      - name: Deploy to Production
-        if: ${{ success() }}
-        uses: BetaHuhn/deploy-to-vercel-action@v1
+      - name: Trigger playwright.yml
+        if: success()
+        uses: peter-evans/repository-dispatch@v1
         with:
-          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
-          VERCEL_TOKEN: ${{ secrets.VERCEL_HOBBY_TOKEN }}
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-          VERCEL_ENV: production
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_HOBBY_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          event-type: trigger-playwright
+          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}", "stagingUrl": "${{ env.STAGING_URL }}"}'
