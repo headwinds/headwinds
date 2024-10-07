@@ -31,11 +31,14 @@ jobs:
         env:
           VEL_TOKEN: ${{ secrets.VERCEL_HOBBY_TOKEN }}
         continue-on-error: true
+      - name: Install Go
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y golang
       - name: Install pup
         run: |
-          wget https://github.com/ericchiang/pup/releases/download/v0.4.0/pup_0.4.0_linux_amd64.zip
-          unzip pup_0.4.0_linux_amd64.zip
-          sudo mv pup /usr/local/bin/
+          go install github.com/ericchiang/pup@latest
+          sudo mv ~/go/bin/pup /usr/local/bin/
       - name: Extract Staging URL from Comment
         id: extract-staging-url
         run: |
