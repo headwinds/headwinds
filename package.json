@@ -15,6 +15,7 @@
     "react-dom": "^18"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.27.9",
     "@playwright/test": "^1.47.2",
     "@react-spring/web": "^9.7.3",
     "@types/node": "^20",
