@@ -22,17 +22,14 @@ jobs:
         run: pnpm install --frozen-lockfile
       - name: Deploy to Staging
         id: deploy-to-staging
-        uses: BetaHuhn/deploy-to-vercel-action@v1
-        with:
+        run: |
+          BetaHuhn/deploy-to-vercel-action@v1 2>&1 | tee deploy.log
+        env:
           GITHUB_TOKEN: ${{ secrets.GH_PAT }}
           VERCEL_TOKEN: ${{ secrets.VERCEL_HOBBY_TOKEN }}
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-        env:
           VEL_TOKEN: ${{ secrets.VERCEL_HOBBY_TOKEN }}
-        continue-on-error: true
-        run: |
-          BetaHuhn/deploy-to-vercel-action@v1 2>&1 | tee deploy.log
       - name: Extract Staging URL
         id: extract-staging-url
         run: |
