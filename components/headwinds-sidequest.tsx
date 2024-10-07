@@ -109,8 +109,9 @@ const HeadwindsSidequest = ({ isLoading = false }) => {
         <Paragraph customStyle={paraStyle}>
           I{"'"}ve joined <Link url="https://www.prenuvo.com">Prenuvo</Link> as
           a Senior Software Engineer. I 💛 solving complex customer journeys,
-          workflows, and crafting executive dashboards rich with metrics and
-          data visualisations. Learn more about me via my{" "}
+          workflows, writing automatation tests and crafting executive
+          dashboards rich with metrics and data visualisations. Learn more about
+          me via my{" "}
           <Link url="https://www.linkedin.com/in/brandonflowers">Linkedin</Link>{" "}
           and <Link url="https://github.com/headwinds/">Github</Link>.
         </Paragraph>

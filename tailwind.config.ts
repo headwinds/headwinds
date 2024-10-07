@@ -17,5 +17,12 @@ const config: Config = {
   },
   plugins: [],
   include: ["cross-country.d.ts"],
+  compilerOptions: {
+    baseUrl: "./",
+    paths: {
+      "@/*": ["*"],
+      "@headwinds": ["components/*"],
+    },
+  },
 };
 export default config;
