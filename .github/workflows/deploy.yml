@@ -23,7 +23,7 @@ jobs:
       - name: Deploy to Staging
         id: deploy-to-staging
         run: |
-          BetaHuhn/deploy-to-vercel-action@v1 2>&1 | tee deploy.log
+          npx vercel --token ${{ secrets.VERCEL_HOBBY_TOKEN }} --scope ${{ secrets.VERCEL_ORG_ID }} --project ${{ secrets.VERCEL_PROJECT_ID }} --prod 2>&1 | tee deploy.log
         env:
           GITHUB_TOKEN: ${{ secrets.GH_PAT }}
           VERCEL_TOKEN: ${{ secrets.VERCEL_HOBBY_TOKEN }}
