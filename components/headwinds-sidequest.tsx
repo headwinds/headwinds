@@ -79,6 +79,7 @@ const HeadwindsSidequest = ({ isLoading = false }) => {
     <animated.div
       ref={wrapperRef}
       style={{ opacity: 0, maxWidth: 600, ...springs }}
+      className="min-w-[380px]"
     >
       <Column>
         <Row>
@@ -114,8 +115,24 @@ const HeadwindsSidequest = ({ isLoading = false }) => {
         <Paragraph customStyle={paraStyle}>
           I{"'"}ve joined <Link url="https://www.prenuvo.com">Prenuvo</Link> as
           a Senior Software Engineer. I 💛 solving complex customer journeys,
-          writing automatation tests and crafting React components in eCommerce
-          and executive dashboards, rich with metrics and data visualisations.{" "}
+          writing automatation tests and crafting React components and
+          dashboards, rich with metrics and data visualisations.{" "}
+        </Paragraph>
+        <Paragraph customStyle={paraStyle}>
+          Previously, I worked on the eCommerce team at{" "}
+          <Link url="https://www.shoppersdrugmart.ca/apple-airpods-max/p/EQ50?variantCode=194252245095">
+            Shopper's Drug Mart
+          </Link>{" "}
+          building with React and GraphQL. I've contributed to a couple React
+          Native apps:{" "}
+          <Link url="https://apps.apple.com/ca/app/validere/id6446293374">
+            Validere
+          </Link>{" "}
+          and{" "}
+          <Link url="https://apps.apple.com/ca/app/photodare/id6479333804">
+            PhotoDare
+          </Link>
+          .
         </Paragraph>
         <Paragraph customStyle={paraStyle}>
           Learn more about me via my{" "}
@@ -145,8 +162,7 @@ const HeadwindsSidequest = ({ isLoading = false }) => {
           <Link url="https://chromewebstore.google.com/detail/porthole/dilfffpckfhcpgidnmgaeoidgekcjlln?pli=1">
             Porthole
           </Link>{" "}
-          is a chrome-extension version, and I also have an unreleased
-          React-native app in the works.
+          is a chrome-extension version.
         </Paragraph>
         <Paragraph customStyle={paraStyle}>
           My site is a "build in public" experiment where I{"'"}m feauturing my
