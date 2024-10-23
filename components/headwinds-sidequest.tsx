@@ -114,9 +114,9 @@ const HeadwindsSidequest = ({ isLoading = false }) => {
         </Row>
         <Paragraph customStyle={paraStyle}>
           I{"'"}ve joined <Link url="https://www.prenuvo.com">Prenuvo</Link> as
-          a Senior Software Engineer. I 💛 solving complex customer journeys,
-          writing automatation tests and crafting React components and
-          dashboards, rich with metrics and data visualisations.{" "}
+          a Senior Software Engineer. I 💛 solving complex customer journeys and
+          crafting both React & React Native UI, rich with metrics and data
+          visualisations.{" "}
         </Paragraph>
         <Paragraph customStyle={paraStyle}>
           Previously, I worked on the eCommerce team at{" "}
