@@ -3,7 +3,7 @@
 // npm run build
 
 "use client";
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useMemo } from "react";
 import {
   Column,
   Row,
@@ -23,7 +23,8 @@ import {
   useSpringRef,
   useSpring,
 } from "@react-spring/web";
-
+import identity from "./projects/project-data";
+import Project from "./projects/Project";
 import Image from "next/image";
 
 import Bolt from "./bolt";
@@ -56,8 +57,6 @@ const HeadwindsSidequest = ({ isLoading = false }) => {
 
   const paraStyle = { lineHeight: 1.5 };
 
-  const todayNum = 5;
-
   const [springs, api] = useSpring(() => ({
     from: { opacity: 0 },
   }));
@@ -74,6 +73,19 @@ const HeadwindsSidequest = ({ isLoading = false }) => {
       });
     }
   });
+
+  const projectCards = useMemo(() => {
+    // sort by project.rank and slice top 5
+    const topProjects = identity.projects
+      .sort((a, b) => a.rank - b.rank)
+      .slice(0, 5);
+
+    return topProjects.map((project, ix) => (
+      <Project key={ix} project={project} />
+    ));
+  }, []);
+
+  const todayNum = projectCards.length;
 
   return (
     <animated.div
@@ -105,12 +117,6 @@ const HeadwindsSidequest = ({ isLoading = false }) => {
               Brandon Flowers
             </Headline>
           </Column>
-
-          {/*
-        <Row>
-        <Paragraph>Days Unemployed</Paragraph>
-        <AnimateNumber delay="1000" to={todayNum} from={0} customStyle={{color: "#b2a25a"}} />
-        </Row>*/}
         </Row>
         <Paragraph customStyle={paraStyle}>
           I{"'"}ve joined <Link url="https://www.prenuvo.com">Prenuvo</Link> as
@@ -153,6 +159,26 @@ const HeadwindsSidequest = ({ isLoading = false }) => {
           about React, APIs, State Machines & leveraging Natural Language
           Processing.
         </SubHeadline>
+
+        <Row>
+          <Paragraph>Top</Paragraph>
+          <AnimateNumber
+            delay="3000"
+            to={todayNum}
+            from={todayNum}
+            customStyle={{
+              color: "rgb(207, 192, 127)",
+              padding: 8,
+              fontSize: 24,
+              fontWeight: 700,
+            }}
+          />
+          <Paragraph>Portfolio Projects</Paragraph>
+        </Row>
+
+        <Column>{projectCards}</Column>
+      </Column>
+      <Column>
         <Paragraph customStyle={paraStyle}>
           Ever since the death of Google Reader 💀, I've been exploring RSS in a
           personal project called{" "}
@@ -184,9 +210,6 @@ const HeadwindsSidequest = ({ isLoading = false }) => {
           </Link>{" "}
           database.
         </Paragraph>
-        <Paragraph
-          customStyle={{ marginBottom: 16, lineHeight: 1.5 }}
-        ></Paragraph>
         <List customStyle={{ listStyleType: "none" }}>
           <ListItem>
             <Link
