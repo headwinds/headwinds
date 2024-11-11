@@ -1,13 +1,11 @@
 import React, { useRef, useEffect } from "react";
 import { Link } from "next-view-transitions";
+import { Links } from "../footer/footer";
 
 const Header = () => {
   return (
     <div>
-      <Link href={`/`}>Home</Link>
-      <Link href={`/about`}>About</Link>
-      <Link href={`/projects`}>Projects</Link>
-      <Link href={`/contact`}>Contact</Link>
+      <Links />
     </div>
   );
 };
