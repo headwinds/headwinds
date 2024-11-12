@@ -1,24 +1,15 @@
 import React, { useRef, useEffect } from "react";
 import { Link } from "next-view-transitions";
-
-export const Links = () => (
-  <>
-    <Link href={`/`}>Home</Link>
-    <Link href={`/about`}>About</Link>
-    <Link href={`/articles`}>Articles</Link>
-    <Link href={`/projects`}>Projects</Link>
-    <Link href={`/contact`}>Contact</Link>
-  </>
-);
+import Links from "../links/links";
 
 const Footer = () => {
   return (
-    <div className="flex m-2">
-      <div className="flex flex-col w-[50%]">something</div>
+    <div className="flex m-2 h-[200px] bg-slate-200">
+      <div className="flex flex-col w-[50%]"></div>
       <div className="flex flex-col w-[10%] justify-center">
         <Links />
       </div>
-      <div className="flex flex-col w-[40%]">something else</div>
+      <div className="flex flex-col w-[40%]"></div>
     </div>
   );
 };
