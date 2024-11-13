@@ -40,15 +40,15 @@ const SearchInternet = ({ project }: { project: ProjectType }) => {
   const perplexityUrl = getPerplexitySearch(project) ?? "";
 
   return (
-    <>
+    <div className="flex">
       <Link href={googleUrl} target="_blank" rel="noopener noreferrer">
         <MagnifyingGlass size={32} weight="fill" />
       </Link>
-      {/*}
+
       <Link href={perplexityUrl} target="_blank" rel="noopener noreferrer">
         <PerplexityLogo width="30" height="30" />
-      </Link>*/}
-    </>
+      </Link>
+    </div>
   );
 };
 
@@ -66,11 +66,12 @@ const getYoutubeThumbnail = (url: string): string => {
 
 const Projects = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedArtistYoutube, setSelectedArtistYoutube] =
-    useState<ProjectType | null>(null);
+  const [selectedProject, setSelectedProject] = useState<ProjectType | null>(
+    null
+  );
 
-  const handleYoutube = (project: ProjectType) => {
-    setSelectedArtistYoutube(project);
+  const handleProjectClick = (project: ProjectType) => {
+    setSelectedProject(project);
   };
 
   const fuse = useMemo(
@@ -96,38 +97,28 @@ const Projects = () => {
   };
 
   const onContributeClick = () => {
-    window.open(
-      "https://github.com/headwinds/sun-and-bass/discussions",
-      "_blank"
-    );
+    window.open("https://github.com/headwinds/headwinds/discussions", "_blank");
   };
 
   return (
-    <div className="container mx-auto px-4 py-8 bg-gray-100">
-      <style jsx global>{`
-        @import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
-      `}</style>
-      <h1
-        className="text-4xl font-bold text-center mb-8"
-        style={{ fontFamily: "'Satisfy', cursive" }}
-      >
-        Projects
-      </h1>
+    <div className="flex flex-col container mx-auto px-4 py-8 bg-gray-100">
+      <div className="flex justify-start items-center w-full">
+        <h1 className={`text-6xl font-bold text-center mb-8 text-stone-200`}>
+          Projects
+        </h1>
+        <div className="flex items-center w-full">
+          <div className="flex mb-8 max-w-md mx-auto items-center">
+            <SearchInput
+              type="text"
+              placeholder="Search projects..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="pl-10 w-full"
+            />
 
-      <div className="flex flex-col justify-center w-full items-center m-2">
-        <a href="https://github.com/headwinds" target="_blank">
-          <GithubLogo size={32} weight="fill" />{" "}
-        </a>
-      </div>
-      <div className="relative mb-8 max-w-md mx-auto">
-        <SearchInput
-          type="text"
-          placeholder="Search projects..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          className="pl-10 w-full"
-        />
-        <MagnifyingGlass size={32} weight="fill" />
+            <MagnifyingGlass size={32} weight="fill" className="ml-2" />
+          </div>
+        </div>
       </div>
       <Masonry
         breakpointCols={breakpointColumnsObj}
@@ -140,9 +131,9 @@ const Projects = () => {
               <div className="p-4">
                 <Project
                   project={project}
-                  //selectedArtistYoutube={selectedArtistYoutube}
-                  //onClick={() => handleYoutube(project)}
-                  //onContributeClick={onContributeClick}
+                  selectedProjectId={String(selectedProject?.id)}
+                  onClick={() => handleProjectClick(project)}
+                  onContributeClick={onContributeClick}
                 />
                 <SearchInternet project={project} />
               </div>

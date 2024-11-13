@@ -24,6 +24,9 @@ export type ProjectType = {
 
 interface ProjectProps {
   project: ProjectType;
+  selectedProjectId: string | undefined;
+  onClick: (selectedProjectId: string) => void;
+  onContributeClick: () => void;
 }
 
 const Project = ({ project }: ProjectProps) => {
