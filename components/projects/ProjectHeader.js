@@ -1,10 +1,4 @@
 import React from "react";
-import { theme } from "../theme/Theme";
-import { Link } from "react-router";
-
-const linkStyle = theme.linkStyle;
-const titleStyle = theme.titleStyle;
-const colonyStyle = theme.colonyStyle;
 
 const ProjectHeader = ({ title }) => {
   return (
@@ -17,12 +11,7 @@ const ProjectHeader = ({ title }) => {
         }}
       >
         <div>
-          <h1 style={titleStyle}>{title}</h1>
-        </div>
-        <div>
-          <Link to={`/portfolio`} style={linkStyle}>
-            X
-          </Link>
+          <h1>{title}</h1>
         </div>
       </div>
       <div
@@ -33,7 +22,7 @@ const ProjectHeader = ({ title }) => {
           alignItems: "",
         }}
       >
-        <div id="colony" style={colonyStyle} />
+        <div id="colony" />
       </div>
     </div>
   );
