@@ -25,12 +25,11 @@
     }
   },
   "include": [
-    "next-env.d.ts",
+    "next-env.qoq.ts",
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "app/articles/[articleId]/page.mdx",
-    "types/**/*.d.ts"
+    "app/articles/[articleId]/page.mdx"
   ],
   "exclude": ["node_modules"]
 }
