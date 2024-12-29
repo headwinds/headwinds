@@ -6,13 +6,19 @@ With 10+ years experience, I believe I have reached the level of [Staff engineer
 
 I have built hundreds of apps generating billions in revenue but I'm most valuable in the stratetic thinking and planning behind the product misison. I can write with React, Node, Python, Go and SQL. I can always enjoy exploring new languages in my spare time and I enjoy learning how they all fit together securely by buiding a project from front to back.
 
-#### Prenuvo - (Mar 25/2024 - Present)
+#### GoBolt (Present)
+
+![last_mile](https://github.com/user-attachments/assets/cf030738-47ba-40f9-9408-60275a0a9bb3)
+
+GoBolt's misison for [sustainable logistics](https://www.gobolt.com/sustainable-logistics) aligns perfectly with my desire to confront our climate crisis and provide services that actually affect change. Along with monitoring carbon offsets, I'm fascinated with the all the design challenges of creating distributed apps that simplify the shipping experience, networking and tracking the various phases as products move from the merchant to our front doors. I want to combine my passion for data visualisation, mapping, and user experience to optimize the delivery flow, providing valuable metrics and customer journey insights at every step.     
+
+#### Prenuvo (2024)
 
 <img width="976" alt="prenuno-ui" src="https://github.com/headwinds/headwinds/assets/68402/a44af096-164f-4767-8049-30bf5c77d661">
 
-I’ve joined [Prenuvo](https://www.prenuvo.com/prenuvo-app) to help make full body MRI scans accessible to all! One day it could and should be as affordable as a dental cleaning. As an interface developer, I get this great opportunity to do data visualization and collaborate with their AI team to assist radiologists in reviewing scans. [Vladek's story](https://www.youtube.com/watch?v=0unTW6WPDjk) expresses the benefits of early detection.
+I joined [Prenuvo](https://www.prenuvo.com/prenuvo-app) to help make full body MRI scans accessible to all! One day it could and should be as affordable as a dental cleaning. As an interface developer, I get this great opportunity to do data visualization and collaborate with their AI team to assist radiologists in reviewing scans. [Vladek's story](https://www.youtube.com/watch?v=0unTW6WPDjk) expresses the benefits of early detection.
 
-#### Validere - (Feb 6/2023 - Dec 1/2023)
+#### Validere (2023)
 
 <img width="1260" alt="carbon hub" src="https://github.com/headwinds/headwinds/assets/68402/34c59896-522f-4940-b782-b99a38102f66" />
 
@@ -28,7 +34,7 @@ Although I did warm to Gitlab, I'm happy to be back on Github (we use Github, AW
 
 I'm currently part of a task force collecting any evidence that its now safe to use professionally; that is won't steal or leak any of our IP. Early accounts that it wasn't secure certainly hurt its reputation, and I'm trying to put a case together to overcome that and convince our legal team that we have nothing to worry about today. Stay tuned! I feel this research should be open sourced, and I'll share what I can.
 
-#### Loblaws - (Sept 4/2019 - Feb 2/2023)
+#### Loblaws Digital (2019 - 2023)
 
 ![shoppers_pdp](https://github.com/headwinds/headwinds/assets/68402/b125efa5-4eae-45d3-a81c-691ebd57aed7)
 
