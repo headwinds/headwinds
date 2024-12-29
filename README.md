@@ -24,15 +24,7 @@ I joined [Prenuvo](https://www.prenuvo.com/prenuvo-app) to help make full body M
 
 While at [Validere](https://validere.com/) I lead the frontend development effort for their new Carbon Hub Home page producing the UI that orchestrates many components including Filter Panels, Cluster Maps, Charts, Metric Tiles and Data Tables that will all react to each other and update. Along with another developer, I also helped pioneer their first React-Native [mobile app](https://apps.apple.com/ca/app/validere/id6446293374) which we released in the 3 phrases beginning it version 3.0 over 6 months.
 
-We measure carbon and methane gas across various industries with a current focus on [Oil & Gas](https://www.validere.com/carbon-hub) as well as Agriculture where we are exploring the best methods to collect and report on [carbon sequestration](https://info.biologicalcarbon.ca/carbon-storage-publications?gclid=CjwKCAjwpuajBhBpEiwA_Ztfhf-Q7zSz2MSdZiPA4BRXdUasZ2LOMIJ4D8bWaCUBvV0S4hvpdRKOCxoCIuIQAvD_BwE).
-
-The world needs to work together to reduce emissions towards [net zero](https://www.globalcitizen.org/en/content/what-is-net-zero-emissions-climate-change) which doesn't mean no emissions but to the levels that existed before the industrial revolution!
-
-I'm also personally exploring what [net-zero means to Canada](https://www.canada.ca/en/services/environment/weather/climatechange/climate-plan/net-zero-emissions-2050.html) and my neighborhood. I'll use [cross-country](https://github.com/headwinds/cross-country) to present some experiments and charts dealing with this climate crisis at large, and how we can measure it's impact locally.
-
-Although I did warm to Gitlab, I'm happy to be back on Github (we use Github, AWS & Vercel!), and hopefully we can convince the powers that be to also adopt Enterprise [Copilot](https://github.com/features/copilot). Along with code suggestions, I find Copilot is a major productivity boost simply for its ability to autocomplete repetitive tasks.
-
-I'm currently part of a task force collecting any evidence that its now safe to use professionally; that is won't steal or leak any of our IP. Early accounts that it wasn't secure certainly hurt its reputation, and I'm trying to put a case together to overcome that and convince our legal team that we have nothing to worry about today. Stay tuned! I feel this research should be open sourced, and I'll share what I can.
+Validere measures carbon and methane gas across various industries with a current focus on [Oil & Gas](https://www.validere.com/carbon-hub) as well as Agriculture where we are exploring the best methods to collect and report on [carbon sequestration](https://info.biologicalcarbon.ca/carbon-storage-publications?gclid=CjwKCAjwpuajBhBpEiwA_Ztfhf-Q7zSz2MSdZiPA4BRXdUasZ2LOMIJ4D8bWaCUBvV0S4hvpdRKOCxoCIuIQAvD_BwE).
 
 #### Loblaws Digital (2019 - 2023)
 
