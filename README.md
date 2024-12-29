@@ -10,7 +10,7 @@ I have built hundreds of apps generating billions in revenue but I'm most valuab
 
 ![last_mile](https://github.com/user-attachments/assets/cf030738-47ba-40f9-9408-60275a0a9bb3)
 
-GoBolt's misison for [sustainable logistics](https://www.gobolt.com/sustainable-logistics) aligns perfectly with my desire to confront our climate crisis and provide services that actually affect change. Along with monitoring carbon offsets, I'm fascinated with the all the design challenges of creating distributed apps that simplify the shipping experience, networking and tracking the various phases as products move from the merchant to our front doors. I want to combine my passion for data visualisation, mapping, and user experience to optimize the delivery flow, providing valuable metrics and customer journey insights at every step.     
+GoBolt's misison for [sustainable logistics](https://www.gobolt.com/sustainable-logistics) aligns perfectly with my desire to confront our climate crisis and provide services that actually affect change. Along with monitoring carbon offsets, I'm fascinated with all the design challenges of creating distributed apps that simplify the shipping experience, networking and tracking the various phases as products move from the merchant to our front doors. I want to combine my passion for data visualisation, mapping, and user experience to optimize the delivery flow, providing valuable metrics and customer journey insights at every step.     
 
 #### Prenuvo (2024)
 
