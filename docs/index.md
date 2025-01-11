@@ -1,3 +1,3 @@
 ### Articles
 
-[Google App Password Help](/articles/google_app_password_help.md)
+[Google App Password Help](/headwinds/docs/articles/google_app_password_help.md)
