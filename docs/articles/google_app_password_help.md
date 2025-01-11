@@ -1,4 +1,7 @@
-# Google App Password Help
+---
+layout: default
+title: Google App Password Help
+---
 
 Today, I was working on [Porthole](https://github.com/headwinds/headwinds/wiki/Porthole-Chrome-Extension) and accidentally update the password of the gmail account that used to send emails.
 
