@@ -13,12 +13,12 @@ For instance, these are instructions that Claude 3.5 Sonnet gave to fix my issue
 
 Access Google Account Settings
 
-1. Go to https://myaccount.google.com/
+1. Go to [https://myaccount.google.com/](https://myaccount.google.com/)
 1. Click "Security" on left menu
 1. Verify 2-Step Verification is enabled
 1. Create App Password
 
-1. Go to https://myaccount.google.com/apppasswords
+1. Go to [https://myaccount.google.com/apppasswords](ttps://myaccount.google.com/apppasswords)
 1. Click "Select app" dropdown
 1. Choose "Other (Custom name)"
 1. Enter name "Mail API"
@@ -31,13 +31,13 @@ Next, I thought I'd try the free Gemini 1.5 thinking it might be closer to Googl
 
 ### Solution
 
-1. Go to https://myaccount.google.com/apppasswords
+1. Go to [https://myaccount.google.com/apppasswords](ttps://myaccount.google.com/apppasswords)
 1. Create an app name like Mail API and it display a modal with a password phrase like "egja hgob qfel mxoo"
 1. Copy this email somewhere safe and then go into your Gmail Setting by clicking the Gear icon and choose See All Settings
 1. Go to the Accounts and Import tab and change your password to this password phrase
 1. Go to the Forwarding and POP/IMAP tab and ensure Enable IMAP is checked
 
-Claude did recommend this nice Python script to help troubleshoot:
+Claude did recommend this nice Python script to help test the connection:
 
 ```
 gmail_from = your gmail account here
@@ -67,7 +67,7 @@ def test_smtp():
         return False
 ```
 
-Depending on where you put this script, you can run it from Terminal. In my case, I can run it like:
+Depending on where you put this script, you can run it from your Terminal. In my case, I can run it like:
 
 ```
 python3 -c "from helpers.helpers_email import test_smtp; test_smtp()"
@@ -86,7 +86,7 @@ Connected successfully to the local database
 5. Connection closed
 ```
 
-When you update the password in your Gmail account, please allow some time (an half hour?!) for it to propagate. I discovered this by accident. I tried to test it right away and it failed. Then I went away, and tried again and then it worked!
+When you update the password in your Gmail account, please allow some time (a few minutes?!) for it to propagate. I discovered this by accident. I tried to test it right away and it failed. Then I went away, and tried again and then it worked!
 
 Once you've confirmed you can connect to your Gmail, then you're ready to send emails.
 
@@ -144,9 +144,9 @@ def send_gmail(to_emails,
         server.quit()
 ```
 
-I have flask a POST endpoint setup to capture the request, and pass the variables on to use that send_gmail method.
+I already have a flask endpoint setup to capture the request, and pass the variables on to use that send_gmail method.
 
-If you're interested in discussing this further, please leave a comment on my [Discussions](https://github.com/headwinds/headwinds/discussions).
+If you're interested in discussing this further, please leave a comment on my [Discussions](https://github.com/headwinds/headwinds/discussions) board.
 
 When using Gemini 2.0 Flash Experimental Model, I do appreciate it's final comment:
 
