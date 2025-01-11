@@ -154,4 +154,4 @@ When using Gemini 2.0 Flash Experimental Model, I do appreciate it's final comme
 I know this is a bit of a detective process, but by systematically checking these points, we can pinpoint the cause and find the best solution for you. Let me know what you find after checking these things!
 ```
 
-I can responded with a link to this article! 🕵️
+I wish I could responded with a link to this article! 🕵️
