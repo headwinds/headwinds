@@ -2,4 +2,4 @@
 
 ### Articles
 
-[Google App Password Help](/docs/articles/google_app_password_help.md)
+[Google App Password Help](/articles/google_app_password_help.md)
