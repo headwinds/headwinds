@@ -1,5 +1,11 @@
 # UI, Analytics, APIs and a sense of Adventure
 
+### Docs
+
+I just started a new docs section with my first article for 2025 on using your Google account as a SMTP server to send email for free!
+
+- [Articles](https://headwinds.github.io/headwinds/docs/)
+
 ### Profile
 
 With 10+ years experience, I believe I have reached the level of [Staff engineer](https://twitter.com/headwinds/status/1773501547520864685) where I can confidently contribute to and direct the build of apps, lead and mentor junior developers, and collaborate with business, design, backend engineers and data scientists. I'm also quite content to continue my career as a [senior developer](https://ca.linkedin.com/in/brandonflowers) primarily working on the frontend with react.
