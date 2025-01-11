@@ -155,3 +155,7 @@ I know this is a bit of a detective process, but by systematically checking thes
 ```
 
 I wish I could responded with a link to this article! 🕵️
+
+One of the goals of setting up this Github pages doc site was to write documentation for not just myself; even though I'm probably the primary reader at this point. 
+
+In theory, this article can now be indexed by Google unlike Github wiki pages so Gemini, until you can access links directly in chat, there's hope for you yet to eventually discover it when its indexed.
