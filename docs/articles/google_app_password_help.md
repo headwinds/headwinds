@@ -3,13 +3,13 @@ layout: default
 title: Google App Password Help
 ---
 
-Today, I was working on [Porthole](https://github.com/headwinds/headwinds/wiki/Porthole-Chrome-Extension) and accidentally update the password of the gmail account that used to send emails.
+Today, I was working on [Porthole](https://github.com/headwinds/headwinds/wiki/Porthole-Chrome-Extension) and accidentally updated the password of the gmail account that used to send emails breaking the service.
 
 In the [demo](https://porthole-demo.vercel.app/), a user can click on the email button and it should send an email to their account so that they review the article later.
 
 While developing, I'm constantly reaching for AI support and sometimes their knowledge is behind. 
 
-For instance, these are instructions that Claude 3.5 Sonnet gave to fix my issue:
+For instance, these are the instructions that Claude 3.5 Sonnet gave to fix my issue:
 
 Access Google Account Settings
 
@@ -27,7 +27,7 @@ Access Google Account Settings
 
 The problem is that Google has since changed this flow. There is no Select App dropdown!
 
-Next, I thought I'd try the free Gemini 1.5 thinking it might be closer to Google but alas it also provided out of date instructions. 
+Next, I thought I'd try the free Gemini 1.5 thinking it might be closer to Google but, alas, it also provided out of date instructions. 
 
 ### Solution
 
@@ -86,7 +86,7 @@ Connected successfully to the local database
 5. Connection closed
 ```
 
-When you update the password in your Gmail account, please allow some time (a few minutes?!) for it to propagate. I discovered this by accident. I tried to test it right away and it failed. Then I went away, and tried again and then it worked!
+When you update the password in your Gmail account, please allow some time (a few minutes?!) for it to propagate. I discovered this by accident. I tried to test it right away and it failed. Then I got busy doing something else, and I tried again after *some time* and it worked!
 
 Once you've confirmed you can connect to your Gmail, then you're ready to send emails.
 
