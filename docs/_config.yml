@@ -4,3 +4,4 @@ plugins:
 title: Headwinds Documentation
 description: Technical articles and guides
 permalink: /:title
+baseurl: "/headwinds"
