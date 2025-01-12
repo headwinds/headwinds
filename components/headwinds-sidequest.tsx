@@ -112,8 +112,8 @@ const HeadwindsSidequest = ({ isLoading = false }) => {
         </Row>*/}
         </Row>
         <Paragraph customStyle={paraStyle}>
-          I{"'"}ve joined <Link url="https://www.gobolt.com">GoBolt</Link> as
-          a Senior Software Engineer. I 💛 solving complex customer journeys,
+          I{"'"}ve joined <Link url="https://www.gobolt.com">GoBolt</Link> as a
+          Senior Software Engineer. I 💛 solving complex customer journeys,
           writing automatation tests and crafting React components in eCommerce
           and executive dashboards, rich with metrics and data visualisations.{" "}
         </Paragraph>
