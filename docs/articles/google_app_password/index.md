@@ -162,14 +162,21 @@ One of the goals of setting up this Github pages doc site was to write documenta
 
 In theory, this article can now be indexed by Google unlike Github wiki pages so Gemini, until you can access links directly in chat, there's hope for you yet to eventually discover it when its indexed.
 
-### Add Google Account
+### Add a Google Work Account
 
-<img src="assets/personal.png" />
+The following are required to get the App Password flow to work:
 
-When adding a new google account to simply send mail, I'd recommend using the personal option as the business path as a lot of extra forms to fill out more related to online store app.
+- Your Google Account has 2-Step Verification set up only for security keys.
+- You’re logged into a **Work**, School, or another organization account.
+- Your Google Account has Advanced Protection.
+
+<img src="assets/work.png" />
+
+When adding a new google account to simply send mail, you need to setup a **Work** account, and choose the free route: Get a Gmail address. Then, I'd recommend clicking the subtle **Not Now** option since the Continue option will direct you to fill out a lot of forms more related to online store app.
 
 When you fill in the first and last name, it's nice that they make the last name optional.  
 
 <img src="assets/review_google_account.png" />
 
-After you create your personal account, you must enable 2FA authentication. I used my phone and the [Google Authenticator](https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&hl=en_CA&pli=1) because hey what's one more authentication?! Once 2FA is enabled, only then can you create your [app password](https://myaccount.google.com/apppasswords).
+After you create your work account, you must enable 2FA authentication. I used my phone and the [Google Authenticator](https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&hl=en_CA&pli=1) because hey what's one more authentication?! Once 2FA is enabled, only then can you create your [app password](https://myaccount.google.com/apppasswords).
+
