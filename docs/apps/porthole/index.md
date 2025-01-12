@@ -1,3 +1,9 @@
+---
+layout: default
+title: Porthole
+permalink: /docs/apps/porthole/
+---
+
 <img width="1026" alt="Screenshot 2025-01-11 at 10 55 46 AM" src="https://github.com/user-attachments/assets/90710a8f-af46-4297-9008-86020c27c5eb" />
 
 Porthole mines around 50 popular RSS feeds including gaming, design and architecture. You can curate your own feed, and when you open a new tab it will attempt to display a image that fills your browser window and inspire.

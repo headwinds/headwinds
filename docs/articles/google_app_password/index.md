@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Google App Password Help
+permalink: /docs/articles/google_app_password_help/
 ---
 
 ### Production
