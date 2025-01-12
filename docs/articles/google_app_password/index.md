@@ -4,7 +4,9 @@ title: Google App Password Help
 permalink: /docs/articles/google_app_password_help/
 ---
 
-### Production
+January 11, 2024
+
+### Problem
 
 Today, I was working on [Porthole](https://github.com/headwinds/headwinds/wiki/Porthole-Chrome-Extension) and accidentally updated the password of the gmail account that used to send emails breaking the service.
 
