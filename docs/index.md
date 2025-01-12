@@ -1,12 +1,9 @@
 ---
 layout: default
-title: Documentation
+title: Docs
 ---
 
-### Apps
+### Docs
 
-- [Porthole Chrome Extension](/headwinds/docs/apps/porthole)
-
-### Articles
-
-- [Google App Password Help](/headwinds/docs/articles/google_app_password_help)
+- [Apps](/headwinds/docs/apps)
+- [Articles](/headwinds/docs/articles)

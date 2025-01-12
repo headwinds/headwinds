@@ -10,7 +10,10 @@ I have built hundreds of apps generating billions in revenue but I'm most valuab
 
 I started a new docs section with my first article for 2025 on using your Google account as a SMTP server to send email for free!
 
-- [Articles](https://headwinds.github.io/headwinds/docs/)
+- [Apps](https://headwinds.github.io/headwinds/apps)
+- [Articles](https://headwinds.github.io/headwinds/articles)
+
+### Work
 
 #### GoBolt (Present)
 
