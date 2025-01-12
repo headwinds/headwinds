@@ -1,22 +1,22 @@
 # UI, Analytics, APIs and a sense of Adventure
 
-### Docs
-
-I just started a new docs section with my first article for 2025 on using your Google account as a SMTP server to send email for free!
-
-- [Articles](https://headwinds.github.io/headwinds/docs/)
-
 ### Profile
 
 With 10+ years experience, I believe I have reached the level of [Staff engineer](https://twitter.com/headwinds/status/1773501547520864685) where I can confidently contribute to and direct the build of apps, lead and mentor junior developers, and collaborate with business, design, backend engineers and data scientists. I'm also quite content to continue my career as a [senior developer](https://ca.linkedin.com/in/brandonflowers) primarily working on the frontend with react.
 
-I have built hundreds of apps generating billions in revenue but I'm most valuable in the stratetic thinking and planning behind the product misison. I can write with React, Node, Python, Go and SQL. I can always enjoy exploring new languages in my spare time and I enjoy learning how they all fit together securely by buiding a project from front to back.
+I have built hundreds of apps generating billions in revenue but I'm most valuable in the strategic thinking and planning behind the product mission. I can write with React, Node, Python, Go and SQL. I can always enjoy exploring new languages in my spare time and I enjoy learning how they all fit together securely by building a project from front to back.
+
+### Docs
+
+I started a new docs section with my first article for 2025 on using your Google account as a SMTP server to send email for free!
+
+- [Articles](https://headwinds.github.io/headwinds/docs/)
 
 #### GoBolt (Present)
 
 ![last_mile](https://github.com/user-attachments/assets/cf030738-47ba-40f9-9408-60275a0a9bb3)
 
-GoBolt's misison for [sustainable logistics](https://www.gobolt.com/sustainable-logistics) aligns perfectly with my desire to confront our climate crisis and provide services that actually affect change. Along with monitoring carbon offsets, I'm fascinated with all the design challenges of creating distributed apps that simplify the shipping experience, networking and tracking the various phases as products move from the merchant to our front doors. I want to combine my passion for data visualisation, mapping, and user experience to optimize the delivery flow, providing valuable metrics and customer journey insights at every step.     
+GoBolt's misison for [sustainable logistics](https://www.gobolt.com/sustainable-logistics) aligns perfectly with my desire to confront our climate crisis and provide services that actually affect change. Along with monitoring carbon offsets, I'm fascinated with all the design challenges of creating distributed apps that simplify the shipping experience, networking and tracking the various phases as products move from the merchant to our front doors. I want to combine my passion for data visualization, mapping, and user experience to optimize the delivery flow, providing valuable metrics and customer journey insights at every step.     
 
 #### Prenuvo (2024)
 
@@ -38,7 +38,7 @@ Validere measures carbon and methane gas across various industries with a curren
 
 I enjoyed 4 years @ [Lobaw Digital](https://loblawdigital.co/) learning all things eCommerce. I mostly built React-based UI with some vanilla JS on legacy systems. We invested heavily in GraphQL to write efficient endpoints and provide a caching layer. Along with the home page and checkout experience, my favourite page was the product detail page for Shopper's Drug Mart which is responsive, accessible, and driven by GraphQL.
 
-Along with UI, I also had the opportunity to write tools and backend services in Java, Go, and Python that monitor our feed servers and SQL database through evented systems. While on page duty, I faced many issues like we're missing 3 days worth of orders, what happened to that 250k? Or our recommnedation engine has stopped receiving it's feed, why has it stopped? So I first experiment with Bashed and finally landed on Go as the best language to monitor and report on our feed servers.
+Along with UI, I also had the opportunity to write tools and backend services in Java, Go, and Python that monitor our feed servers and SQL database through event systems. While on page duty, I faced many issues like we're missing 3 days worth of orders, what happened to that 250k? Or our recommendation engine has stopped receiving it's feed, why has it stopped? So I first experiment with Bashed and finally landed on Go as the best language to monitor and report on our feed servers.
 
 <img src="./gitlab.png" />
 
