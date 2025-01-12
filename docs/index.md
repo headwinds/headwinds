@@ -5,7 +5,7 @@ title: Documentation
 
 ### Apps
 
-- [Porhole Chrome Extension](/headwinds/apps/porthole)
+- [Porthole Chrome Extension](/headwinds/docs/apps/porthole)
 
 ### Articles
 
