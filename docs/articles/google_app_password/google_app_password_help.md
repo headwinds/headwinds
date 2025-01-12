@@ -3,6 +3,8 @@ layout: default
 title: Google App Password Help
 ---
 
+### Production
+
 Today, I was working on [Porthole](https://github.com/headwinds/headwinds/wiki/Porthole-Chrome-Extension) and accidentally updated the password of the gmail account that used to send emails breaking the service.
 
 In the [demo](https://porthole-demo.vercel.app/), a user can click on the email button and it should send an email to their account so that they review the article later.
@@ -18,7 +20,7 @@ Access Google Account Settings
 1. Verify 2-Step Verification is enabled
 1. Create App Password
 
-1. Go to [https://myaccount.google.com/apppasswords](ttps://myaccount.google.com/apppasswords)
+1. Go to [https://myaccount.google.com/apppasswords](https://myaccount.google.com/apppasswords)
 1. Click "Select app" dropdown
 1. Choose "Other (Custom name)"
 1. Enter name "Mail API"
@@ -31,7 +33,7 @@ Next, I thought I'd try the free Gemini 1.5 thinking it might be closer to Googl
 
 ### Solution
 
-1. Go to [https://myaccount.google.com/apppasswords](ttps://myaccount.google.com/apppasswords)
+1. Go to [https://myaccount.google.com/apppasswords](https://myaccount.google.com/apppasswords)
 1. Create an app name like Mail API and it display a modal with a password phrase like "egja hgob qfel mxoo"
 1. Copy this email somewhere safe and then go into your Gmail Setting by clicking the Gear icon and choose See All Settings
 1. Go to the Accounts and Import tab and change your password to this password phrase
@@ -159,3 +161,15 @@ I wish I could responded with a link to this article! 🕵️
 One of the goals of setting up this Github pages doc site was to write documentation for not just myself; even though I'm probably the primary reader at this point. 
 
 In theory, this article can now be indexed by Google unlike Github wiki pages so Gemini, until you can access links directly in chat, there's hope for you yet to eventually discover it when its indexed.
+
+### Add Google Account
+
+<img src="assets/personal.png" />
+
+When adding a new google account to simply send mail, I'd recommend using the personal option as the business path as a lot of extra forms to fill out more related to online store app.
+
+When you fill in the first and last name, it's nice that they make the last name optional.  
+
+<img src="assets/review_google_account.png" />
+
+After you create your personal account, you must enable 2FA authentication. I used my phone and the [Google Authenticator](https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&hl=en_CA&pli=1) because hey what's one more authentication?! Once 2FA is enabled, only then can you create your [app password](https://myaccount.google.com/apppasswords).
