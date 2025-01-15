@@ -13,7 +13,7 @@
     "@ant-design/icons": "^5.5.2",
     "@next/third-parties": "^14.1.4",
     "@phosphor-icons/react": "2.1.7",
-    "@portholeship/genesis": "^0.0.5",
+    "@portholeship/genesis": "^0.0.7",
     "antd": "^5.23.1",
     "next": "14.1.4",
     "react": "^18",

@@ -25,7 +25,7 @@ import {
 } from "@react-spring/web";
 
 import Image from "next/image";
-import { RiseOutlined } from "@ant-design/icons";
+import { FireOutlined } from "@ant-design/icons";
 
 import Bolt from "./bolt";
 import {
@@ -144,7 +144,7 @@ const HeadwindsSidequest = ({ isLoading = false }) => {
             <Column customStyle={{ padding: 0, alignItems: "center" }}>
               <GenesisButton
                 onClick={onClick}
-                icon={<RiseOutlined />}
+                icon={<FireOutlined />}
                 iconPosition="end"
               >
                 Watch Genesis Grow
