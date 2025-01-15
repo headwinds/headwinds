@@ -10,11 +10,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ant-design/icons": "^5.5.2",
     "@next/third-parties": "^14.1.4",
+    "@phosphor-icons/react": "2.1.7",
+    "@portholeship/genesis": "^0.0.5",
+    "antd": "^5.23.1",
     "next": "14.1.4",
     "react": "^18",
-    "react-dom": "^18",
-    "@phosphor-icons/react": "2.1.7"
+    "react-dom": "^18"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.9",
