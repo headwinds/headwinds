@@ -68,7 +68,7 @@ const HeadwindsSidequest = ({ isLoading = false }) => {
   }));
 
   const onClick = () => {
-    const url = "https://github.com/SecondCloset/genesis";
+    const url = "https://www.npmjs.com/package/@gobolt/genesis";
 
     if (window) {
       window.open(url, "_blank");
