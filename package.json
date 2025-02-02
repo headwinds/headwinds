@@ -11,10 +11,11 @@
   },
   "dependencies": {
     "@ant-design/icons": "^5.5.2",
+    "@gobolt/genesis": "^0.0.10",
     "@next/third-parties": "^14.1.4",
     "@phosphor-icons/react": "2.1.7",
-    "@portholeship/genesis": "^0.0.7",
     "antd": "^5.23.1",
+    "cross-country": "1.2.32",
     "next": "14.1.4",
     "react": "^18",
     "react-dom": "^18"
@@ -27,7 +28,6 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
-    "cross-country": "1.2.13",
     "eslint": "^8",
     "eslint-config-next": "14.1.4",
     "postcss": "^8",

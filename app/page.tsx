@@ -1,12 +1,13 @@
-import Image from "next/image";
-// TODO: Wrapper is not available in this file
-//import { Wrapper, HeadwindsHomePage } from "cross-country";
+"use client";
+
 import HeadwindsSidequest from "../components/headwinds-sidequest";
+import HeadwindsTractors from "../components/headwinds-tractors";
 
 export default function Home() {
   return (
     <div className="flex min-h-screen flex-col items-center justify-between">
-      <HeadwindsSidequest />
+      {/* <HeadwindsSidequest /> */}
+      <HeadwindsTractors />
     </div>
   );
 }

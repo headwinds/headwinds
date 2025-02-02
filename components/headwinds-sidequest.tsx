@@ -1,7 +1,3 @@
-// TODO: explore why I disabled typecheck on this file!
-// @ts-nocheck
-// npm run build
-
 "use client";
 import React, { useRef, useEffect } from "react";
 import {
@@ -16,6 +12,7 @@ import {
   AnimateNumber,
   Button,
 } from "cross-country";
+
 // import brandon from './brandon_square.png';
 import {
   useTransition,
@@ -37,11 +34,31 @@ import {
 import {
   Button as GenesisButton,
   GenesisProvider,
-} from "@portholeship/genesis";
+  GENESIS,
+  ButtonProps,
+} from "@gobolt/genesis";
 
 const moss = "#bccd9d";
 const gold = "rgb(207, 192, 127)"; //"#b2a25a";
 const teal = "#0baeae";
+
+interface TestType {
+  color: string;
+  backgroundColor: string;
+  padding: number;
+  borderRadius: number;
+}
+
+const hi: TestType = {
+  color: "white",
+  backgroundColor: "black",
+  padding: 8,
+  borderRadius: 4,
+};
+
+const logHi = (hi: TestType) => {
+  console.log(hi);
+};
 
 const HeadwindsSidequest = ({ isLoading = false }) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -87,6 +104,8 @@ const HeadwindsSidequest = ({ isLoading = false }) => {
       });
     }
   });
+
+  console.log("ButtonProps", ButtonProps);
 
   return (
     <GenesisProvider>
