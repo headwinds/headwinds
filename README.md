@@ -78,7 +78,7 @@ This repo serves my site [headwinds.vercel.app](https://headwinds.vercel.app/) w
 
 ### Repo
 
-- [https://github.com/headwinds/headwinds] can be installed:
+- [headwinds](https://github.com/headwinds/headwinds) can be installed:
 
 ```
 pnpm i
