@@ -78,7 +78,7 @@ const HeadwindsSidequest = ({ isLoading = false }) => {
 
   const paraStyle = { lineHeight: 1.5 };
 
-  const todayNum = 5;
+  const todayNum = 626;
 
   const [springs, api] = useSpring(() => ({
     from: { opacity: 0 },
@@ -115,34 +115,15 @@ const HeadwindsSidequest = ({ isLoading = false }) => {
       >
         <Column>
           <Row>
-            <Column customStyle={{ padding: 0 }}>
-              {/*<Image a11y="brandon flowers" url={brandon} width={100} height={100} customStyle={{ borderRadius: '50%' }} />*/}
-              <Image
-                src="/brandon_square.png"
-                alt="Brandon Flowers"
-                width={100}
-                height={100}
-                style={{ borderRadius: "50%" }}
+            <Row>
+              <Paragraph>Duoling Streak</Paragraph>
+              <AnimateNumber
+                delay="1000"
+                to={todayNum}
+                from={0}
+                customStyle={{ color: "#b2a25a" }}
               />
-              <Headline
-                customStyle={{
-                  margin: 0,
-                  padding: 0,
-                  color: "rgb(207, 192, 127)",
-                  fontWeight: 600,
-                  display: "flex",
-                }}
-              >
-                <Bolt />
-                Brandon Flowers
-              </Headline>
-            </Column>
-
-            {/*
-        <Row>
-        <Paragraph>Days Unemployed</Paragraph>
-        <AnimateNumber delay="1000" to={todayNum} from={0} customStyle={{color: "#b2a25a"}} />
-        </Row>*/}
+            </Row>
           </Row>
           <Paragraph customStyle={paraStyle}>
             I{"'"}ve joined <Link url="https://www.gobolt.com">GoBolt</Link> as

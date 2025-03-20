@@ -12,10 +12,14 @@
   "dependencies": {
     "@ant-design/icons": "^5.5.2",
     "@gobolt/genesis": "^0.0.10",
+    "@mdx-js/loader": "^3.1.0",
+    "@mdx-js/react": "^3.1.0",
+    "@next/mdx": "^15.2.3",
     "@next/third-parties": "^14.1.4",
     "@phosphor-icons/react": "2.1.7",
+    "@types/mdx": "^2.0.13",
     "antd": "^5.23.1",
-    "cross-country": "1.2.32",
+    "cross-country": "1.2.34",
     "next": "14.1.4",
     "react": "^18",
     "react-dom": "^18"

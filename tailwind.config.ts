@@ -22,6 +22,7 @@ const config: Config = {
     paths: {
       "@/*": ["*"],
       "@headwinds": ["components/*"],
+      "@/components": ["components/*"],
     },
   },
 };
