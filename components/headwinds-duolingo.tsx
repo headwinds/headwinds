@@ -23,7 +23,7 @@ const HeadwindsDuolingo = () => {
         <Row>
           <Paragraph>Duolingo Streak</Paragraph>
           <AnimateNumber
-            delay="1000"
+            delay={1000}
             to={todayNum}
             from={0}
             customStyle={{ color: gold }}

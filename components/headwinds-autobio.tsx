@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
 import {
+  HeadwindsLogo,
   Column,
-  SubHeadline,
   Paragraph,
   Link,
   List,
@@ -26,25 +26,6 @@ interface TestType {
   borderRadius: number;
 }
 
-const Quote = ({ text }: { text: string }) => {
-  const quoteStyle = {
-    display: "flex",
-    flexDirection: "column" as const,
-    position: "relative" as const,
-    color: gold,
-    padding: "1rem",
-    maxWidth: "42rem",
-    margin: "1rem 0",
-    backgroundColor: "rgba(255, 255, 255, 0.05)",
-    borderLeft: `4px solid ${gold}`,
-    borderRadius: "4px",
-    fontStyle: "italic",
-    lineHeight: "1.6",
-  };
-
-  return <div style={quoteStyle}>{text}</div>;
-};
-
 const HeadwindsAutobio = () => {
   const customLinkStyle = {
     textDecoration: "none",
@@ -63,19 +44,15 @@ const HeadwindsAutobio = () => {
 
   return (
     <Column customStyle={{ padding: 0, alignItems: "center" }}>
-      <Column
-        customStyle={{ padding: 0, margin: 0, alignItems: "center" }}
-        customClass=""
-      >
-        <Quote text="As a passionate, product-focussed dev, I also prototype and write about React, APIs, State Machines & leveraging Natural Language Processing." />
-      </Column>
       <Paragraph customStyle={paraStyle}>
         Ever since the death of Google Reader 💀, I've been exploring RSS in a
         personal project called{" "}
-        <Link url="https://golds.vercel.app/">Golds</Link> as part of a goal
-        setting and media research study where I'm tracking trends across over
-        50 feeds covering design, technology, architecture, gaming and sports.{" "}
-        <Link url="https://chromewebstore.google.com/detail/porthole/dilfffpckfhcpgidnmgaeoidgekcjlln?pli=1">
+        <Link url="https://golds.vercel.app/">Golds</Link>.
+      </Paragraph>
+      <Paragraph customStyle={paraStyle}>
+        I'm tracking trends across over 50 feeds covering design, technology,
+        architecture, gaming and sports.{" "}
+        <Link url="https://headwinds.github.io/headwinds/docs/apps/porthole/">
           Porthole
         </Link>{" "}
         is a chrome-extension version, and I also have an unreleased
@@ -86,9 +63,9 @@ const HeadwindsAutobio = () => {
         <Link url="https://www.npmjs.com/package/cross-country">
           Cross Country
         </Link>
-        , combining them{" "}
+        , combining them with{" "}
         <Link url="https://nextjs.org/docs/app/building-your-application/configuring/mdx">
-          NextJS markdown
+          Next mdx
         </Link>
         , and writing my own Backend services in{" "}
         <Link url="https://github.com/headwinds/python-notebooks/">Python</Link>
@@ -98,7 +75,7 @@ const HeadwindsAutobio = () => {
         <Link url="https://twitter.com/headwinds/status/1588225965959815168">
           PostgreSQL
         </Link>{" "}
-        database. I aspire to write clean, maintainable, well-tested code.
+        database.
       </Paragraph>
       <Paragraph
         customStyle={{ marginBottom: 16, lineHeight: 1.5 }}
@@ -132,6 +109,9 @@ const HeadwindsAutobio = () => {
           </Link>
         </ListItem>
       </List>
+      <Column>
+        <HeadwindsLogo />
+      </Column>
     </Column>
   );
 };

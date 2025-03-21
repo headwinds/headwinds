@@ -33,17 +33,14 @@ const AnimatedColumn = ({ children, delayMs = 1000 }: AnimateColumnProps) => {
         },
         delay: delayMs,
         config: {
-          duration: 2000 // 2 seconds for the fade-in animation
-        }
+          duration: 2000, // 2 seconds for the fade-in animation
+        },
       });
     }
   });
 
   return (
-    <animated.div
-      ref={wrapperRef}
-      style={{ opacity: 0, maxWidth: 600, ...springs }}
-    >
+    <animated.div ref={wrapperRef} style={{ maxWidth: 600, ...springs }}>
       {children}
     </animated.div>
   );

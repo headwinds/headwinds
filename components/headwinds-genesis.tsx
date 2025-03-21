@@ -38,31 +38,28 @@ const HeadwindsGenesis = () => {
   };
 
   return (
-    <GenesisProvider>
-      <Column customStyle={{ padding: 0, alignItems: "center" }}>
-        <Paragraph customStyle={paraStyle}>
-          We are currently building out a new Design System and Component
-          Library to serve our{" "}
-          <Link url="https://www.gobolt.com/sustainable-logistics/">
-            sustainable fleet
-          </Link>{" "}
-          of React & React Native apps.
-        </Paragraph>
-        <Column customStyle={{ padding: 0, alignItems: "center" }}>
-          <GenesisButton
-            onClick={onClick}
-            icon={<FireOutlined />}
-            iconPosition="end"
-          >
-            Watch Genesis Grow
-          </GenesisButton>
-          <Paragraph customStyle={paraStyle}>
-            This is my fourth design system, and am planning to share 5 years of
-            best practices from product service tactics to Typescript wizardry!{" "}
-          </Paragraph>
-        </Column>
-      </Column>
-    </GenesisProvider>
+    <Column customStyle={{ padding: 0, alignItems: "center" }}>
+      <Paragraph customStyle={paraStyle}>
+        We are currently building out a new Design System and Component Library
+        to serve our{" "}
+        <Link url="https://www.gobolt.com/sustainable-logistics/">
+          sustainable fleet
+        </Link>{" "}
+        of React & React Native apps.
+      </Paragraph>
+
+      <GenesisButton
+        onClick={onClick}
+        icon={<FireOutlined />}
+        iconPosition="end"
+      >
+        Watch Genesis Grow
+      </GenesisButton>
+      <Paragraph customStyle={paraStyle}>
+        This is my fourth design system, and am planning to share 5 years of
+        best practices from product service tactics to Typescript wizardry!{" "}
+      </Paragraph>
+    </Column>
   );
 };
 export default HeadwindsGenesis;

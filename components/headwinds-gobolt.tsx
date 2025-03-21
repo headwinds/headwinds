@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { Column, Paragraph, Link } from "cross-country";
+import HeadwindsQuote from "@/components/headwinds-quote";
 
 const moss = "#bccd9d";
 const gold = "rgb(207, 192, 127)"; //"#b2a25a";
@@ -27,7 +28,7 @@ const HeadwindsGoBolt = () => {
         writing automatation tests and crafting React components in eCommerce
         and executive dashboards, rich with metrics and data visualisations.{" "}
       </Paragraph>
-
+      <HeadwindsQuote />
       <Paragraph customStyle={paraStyle}>
         Learn more about me via my{" "}
         <Link url="https://www.linkedin.com/in/brandonflowers">Linkedin</Link>{" "}
