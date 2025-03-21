@@ -17,7 +17,7 @@ const HeadwindsPilot = () => {
     breakpoint.toLowerCase() === "narrow" ? "UW" : "University of Waterloo";
 
   return (
-    <Column customStyle={{ padding: 0 }}>
+    <Column customStyle={{ padding: 0, width: "100%", maxWidth: 580 }}>
       <Row customStyle={{ padding: 0, justifyContent: "space-between" }}>
         <>
           <div className="flex">
