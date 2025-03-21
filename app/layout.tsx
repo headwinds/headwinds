@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import "cross-country/dist/bundle.css";
+//import "cross-country/dist/bundle.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import App from "./app";
 

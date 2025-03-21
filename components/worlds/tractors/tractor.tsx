@@ -2,7 +2,6 @@
 import React from "react";
 import { Button } from "@gobolt/genesis";
 import { HeadwindsLogo, Column } from "cross-country";
-import { Row } from "cross-country/dist/components";
 
 interface TractorProps {
   model?: string;
