@@ -1,6 +1,7 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Column, Headline, SubHeadline, Row, Link } from "cross-country";
+import ScrambleText from "@/components/scramble-text";
 import { useGenesis } from "@gobolt/genesis";
 
 import Image from "next/image";
@@ -9,9 +10,48 @@ import Bolt from "./bolt";
 const moss = "#bccd9d";
 const gold = "rgb(207, 192, 127)"; //"#b2a25a";
 const teal = "#0baeae";
+const grey = "#333";
+
+const majors = [
+  "Engineering",
+  "Data Science",
+  "Graphic Design",
+  "Psychology",
+  "Computer Science",
+  "BA Honours English",
+];
+
+const glitchCharacters = "Ø92X!#4@XpQX?09343X0";
+
+const names = ["Headwinds Studio", "Brandøn Fløwers"];
+
+const Profession = ({ major, uw }: { major: string; uw: string }) => {
+  return (
+    <span>
+      <ScrambleText text={major} customStyle={{ color: grey }} />,{" "}
+      <Link
+        customStyle={{
+          color: "rgb(51, 51, 51)",
+        }}
+        url="https://uwaterloo.ca/"
+      >
+        <ScrambleText text={uw} customStyle={{ color: grey }} />
+      </Link>
+    </span>
+  );
+};
 
 const HeadwindsPilot = () => {
   const { breakpoint } = useGenesis();
+  const [major, setMajor] = useState(majors[5]);
+  const [name, setName] = useState(names[0]);
+  const [uni, setUni] = useState("");
+
+  useEffect(() => {
+    setTimeout(() => {
+      setName(names[1]);
+    }, 4000);
+  }, []);
 
   const uw =
     breakpoint.toLowerCase() === "narrow" ? "UW" : "University of Waterloo";
@@ -32,25 +72,16 @@ const HeadwindsPilot = () => {
                   display: "flex",
                 }}
               >
-                Brandon Flowers
+                <ScrambleText text={name} customStyle={{ color: gold }} />
               </Headline>
               <SubHeadline
                 customStyle={{
                   fontSize: 16,
-                  color: "#333",
+                  color: grey,
                   fontWeight: 300,
                 }}
-              >
-                BA Honours English,{" "}
-                <Link
-                  customStyle={{
-                    color: "rgb(51, 51, 51)",
-                  }}
-                  url="https://uwaterloo.ca/"
-                >
-                  {uw}
-                </Link>
-              </SubHeadline>
+              ></SubHeadline>
+              {name === names[1] ? <Profession major={major} uw={uw} /> : null}
             </div>
           </div>
         </>

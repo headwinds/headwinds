@@ -45,6 +45,10 @@ declare module "cross-country" {
     // Add any specific List props
   }
 
+  export interface ScrambleTextProps extends BaseProps {
+    text: string;
+  }
+
   export interface ListItemProps extends BaseProps {
     // Add any specific ListItem props
   }
@@ -70,4 +74,5 @@ declare module "cross-country" {
   export class AnimateNumber extends React.Component<AnimatedNumberProps> {}
   export class Hunter extends React.Component<HunterProps> {}
   export class HeadwindsLogo extends React.Component<HeadwindsLogoProps> {}
+  export class ScrambleText extends React.Component<ScrambleTextProps> {}
 }
