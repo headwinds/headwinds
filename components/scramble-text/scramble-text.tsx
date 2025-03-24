@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { useSpring, animated, config } from "@react-spring/web";
 import clsx from "clsx";

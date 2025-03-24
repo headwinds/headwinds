@@ -43,18 +43,24 @@ const Profession = ({ major, uw }: { major: string; uw: string }) => {
 
 const HeadwindsPilot = () => {
   const { breakpoint } = useGenesis();
+  const isMobile = breakpoint.toLowerCase() === "narrow";
+
   const [major, setMajor] = useState(majors[5]);
   const [name, setName] = useState(names[0]);
-  const [uni, setUni] = useState("");
+
+  useEffect(() => {
+    const startingName = isMobile ? names[0].substring(0, 9) : names[0];
+    setName(startingName);
+  }, [breakpoint]);
 
   useEffect(() => {
     setTimeout(() => {
-      setName(names[1]);
+      const newName = isMobile ? names[1].substring(0, 7) : names[1];
+      setName(newName);
     }, 4000);
-  }, []);
+  }, [breakpoint]);
 
-  const uw =
-    breakpoint.toLowerCase() === "narrow" ? "UW" : "University of Waterloo";
+  const uw = isMobile ? "UW" : "University of Waterloo";
 
   return (
     <Column customStyle={{ padding: 0, width: "100%", maxWidth: 580 }}>
@@ -79,9 +85,13 @@ const HeadwindsPilot = () => {
                   fontSize: 16,
                   color: grey,
                   fontWeight: 300,
+                  margin: 0,
+                  padding: 0,
                 }}
               ></SubHeadline>
-              {name === names[1] ? <Profession major={major} uw={uw} /> : null}
+              {name.includes("Brand") ? (
+                <Profession major={major} uw={uw} />
+              ) : null}
             </div>
           </div>
         </>
