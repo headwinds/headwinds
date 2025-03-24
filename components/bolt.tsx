@@ -14,9 +14,12 @@ const Bolt = () => {
 
     // Flash sequence with opacity
     const flashSequence = [
-      { opacity: 0.75, brightness: 3 },
-      { opacity: 0.25, brightness: 1 },
-      { opacity: 0.2, brightness: 3 },
+      { opacity: 1, brightness: 3 },
+      { opacity: 1, brightness: 1 },
+      { opacity: 1, brightness: 3 },
+      { opacity: 1, brightness: 1 },
+      { opacity: 1, brightness: 3 },
+      { opacity: 1, brightness: 3 },
       { opacity: 1, brightness: 1 },
     ];
 
@@ -37,7 +40,7 @@ const Bolt = () => {
   }, []);
 
   return (
-    <animated.div style={springs}>
+    <animated.div style={style}>
       <Image src="/darkbolt.svg" alt="lightening bolt" width={34} height={40} />
     </animated.div>
   );
