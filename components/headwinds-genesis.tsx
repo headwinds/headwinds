@@ -2,7 +2,7 @@
 import React from "react";
 import { Column, Paragraph, Link } from "cross-country";
 import { FireOutlined } from "@ant-design/icons";
-import { Button as GenesisButton, GenesisProvider } from "@gobolt/genesis";
+import { Button as GenesisButton, SelectCount } from "@gobolt/genesis";
 
 const moss = "#bccd9d";
 const gold = "rgb(207, 192, 127)"; //"#b2a25a";
@@ -39,6 +39,14 @@ const HeadwindsGenesis = () => {
 
   return (
     <Column customStyle={{ padding: 0, alignItems: "center" }}>
+      <SelectCount
+        options={[
+          { label: "One", value: "1" },
+          { label: "Two", value: "2" },
+          { label: "Three", value: "3" },
+        ]}
+        onChange={() => {}}
+      />
       <Paragraph customStyle={paraStyle}>
         We are currently building out a new Design System and Component Library
         to serve our{" "}

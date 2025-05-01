@@ -1,21 +1,20 @@
 "use client";
 import { Breadcrumb } from "@gobolt/genesis";
-import MarkdownHeadwinds from "./markdown-headwinds.mdx";
+import MarkdownQuest from "./markdown-quest.mdx";
 
-export default function Home() {
+export default function BrandonFlowers() {
   const items = [
     {
-      title: "Headwinds",
+      title: <a href="">Headwinds</a>,
     },
     {
-      title: <a href="">Brandon Flowers</a>,
+      title: "Brandon Flowers",
     },
   ];
-
   return (
     <div className="flex min-h-screen flex-col items-center justify-between m-2">
       <Breadcrumb items={items} />
-      <MarkdownHeadwinds />
+      <MarkdownQuest />
     </div>
   );
 }
