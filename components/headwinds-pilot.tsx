@@ -23,9 +23,9 @@ const majors = [
 
 const glitchCharacters = "Ø92X!#4@XpQX?09343X0";
 
-const names = ["Headwinds Studio", "Brandøn Fløwers"];
+const names = ["Headwinds Studio", "Brandøn Fløwers", "Frontend Developer"];
 
-const Profession = ({ major, uw }: { major: string; uw: string }) => {
+const Education = ({ major, uw }: { major: string; uw: string }) => {
   return (
     <span>
       <ScrambleText text={major} customStyle={{ color: grey }} />,{" "}
@@ -36,6 +36,28 @@ const Profession = ({ major, uw }: { major: string; uw: string }) => {
         url="https://uwaterloo.ca/"
       >
         <ScrambleText text={uw} customStyle={{ color: grey }} />
+      </Link>
+    </span>
+  );
+};
+
+const Profession = ({
+  firstText = "React & React Native",
+  secondText = " & Design Systems",
+}: {
+  firstText?: string;
+  secondText?: string;
+}) => {
+  return (
+    <span>
+      <ScrambleText text={firstText} customStyle={{ color: grey }} />,{" "}
+      <Link
+        customStyle={{
+          color: "rgb(51, 51, 51)",
+        }}
+        url="https://informationisbeautiful.net/"
+      >
+        <ScrambleText text={secondText} customStyle={{ color: grey }} />
       </Link>
     </span>
   );
@@ -60,7 +82,15 @@ const HeadwindsPilot = () => {
     }, 4000);
   }, [breakpoint]);
 
+  useEffect(() => {
+    setTimeout(() => {
+      const newName = isMobile ? names[2].substring(0, 8) : names[2];
+      setName(newName);
+    }, 7000);
+  }, [breakpoint]);
+
   const uw = isMobile ? "UW" : "University of Waterloo";
+  const secondProfessionText = isMobile ? "Data Viz" : "Data Visualization";
 
   return (
     <Column customStyle={{ padding: 0, width: "100%", maxWidth: 580 }}>
@@ -89,9 +119,14 @@ const HeadwindsPilot = () => {
                   padding: 0,
                 }}
               ></SubHeadline>
-              {name.includes("Brand") ? (
-                <Profession major={major} uw={uw} />
-              ) : null}
+              <>
+                {name.includes("Brand") ? (
+                  <Education major={major} uw={uw} />
+                ) : null}
+                {name.includes("Frontend") ? (
+                  <Profession secondText={secondProfessionText} />
+                ) : null}
+              </>
             </div>
           </div>
         </>
