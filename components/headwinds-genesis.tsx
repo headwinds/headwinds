@@ -39,14 +39,6 @@ const HeadwindsGenesis = () => {
 
   return (
     <Column customStyle={{ padding: 0, alignItems: "center" }}>
-      <SelectCount
-        options={[
-          { label: "One", value: "1" },
-          { label: "Two", value: "2" },
-          { label: "Three", value: "3" },
-        ]}
-        onChange={() => {}}
-      />
       <Paragraph customStyle={paraStyle}>
         We are currently building out a new Design System and Component Library
         to serve our{" "}

@@ -10,7 +10,7 @@ const GA_TRACKING_ID = "G-PEMG3PDD0R";
 
 export const metadata: Metadata = {
   title: "headwinds",
-  description: "a prometheus of web desgin & development",
+  description: "a prometheus",
 };
 
 export default function RootLayout({

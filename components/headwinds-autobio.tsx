@@ -43,20 +43,22 @@ const HeadwindsAutobio = () => {
   const paraStyle = { lineHeight: 1.5 };
 
   return (
-    <Column customStyle={{ padding: 0, alignItems: "center" }}>
+    <div
+      style={{
+        padding: 0,
+        alignItems: "center",
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
       <Paragraph customStyle={paraStyle}>
-        Ever since the death of Google Reader 💀, I've been exploring RSS in a
-        personal project called{" "}
-        <Link url="https://golds.vercel.app/">Golds</Link>.
-      </Paragraph>
-      <Paragraph customStyle={paraStyle}>
-        I'm tracking trends across over 50 feeds covering design, technology,
-        architecture, gaming and sports.{" "}
+        Ever since the death of Google Reader 💀, I've been tracking trends
+        across over 50 feeds covering design, technology, architecture, gaming
+        and sports in a personal project called{" "}
         <Link url="https://headwinds.github.io/headwinds/docs/apps/porthole/">
           Porthole
-        </Link>{" "}
-        is a chrome-extension version, and I also have an unreleased
-        React-native app in the works.
+        </Link>
+        .
       </Paragraph>
       <Paragraph customStyle={paraStyle}>
         I'm constantly experimenting with my own component library{" "}
@@ -112,7 +114,7 @@ const HeadwindsAutobio = () => {
       <Column>
         <HeadwindsLogo />
       </Column>
-    </Column>
+    </div>
   );
 };
 export default HeadwindsAutobio;
