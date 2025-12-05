@@ -60,32 +60,11 @@ const HeadwindsAutobio = () => {
         </Link>
         .
       </Paragraph>
-      <Paragraph customStyle={paraStyle}>
-        I'm constantly experimenting with my own component library{" "}
-        <Link url="https://www.npmjs.com/package/cross-country">
-          Cross Country
-        </Link>
-        , combining them with{" "}
-        <Link url="https://nextjs.org/docs/app/building-your-application/configuring/mdx">
-          Next mdx
-        </Link>
-        , and writing my own Backend services in{" "}
-        <Link url="https://github.com/headwinds/python-notebooks/">Python</Link>
-        , <Link url="https://github.com/headwinds/cabinquest">Node</Link>, and{" "}
-        <Link url="https://github.com/headwinds/northwind-frostpunk/">Go</Link>{" "}
-        against a{" "}
-        <Link url="https://twitter.com/headwinds/status/1588225965959815168">
-          PostgreSQL
-        </Link>{" "}
-        database.
-      </Paragraph>
-      <Paragraph
-        customStyle={{ marginBottom: 16, lineHeight: 1.5 }}
-      ></Paragraph>
+
       <List customStyle={{ listStyleType: "none" }}>
         <ListItem>
           <Link
-            url="https://www.linkedin.com/in/branonflowers"
+            url="https://www.linkedin.com/in/brandonflowers"
             customStyle={customLinkStyle}
           >
             <LinkedinLogo size={32} color={gold} weight="light" />

@@ -23,7 +23,7 @@ const majors = [
 
 const glitchCharacters = "Ø92X!#4@XpQX?09343X0";
 
-const names = ["Headwinds Studio", "Brandøn Fløwers", "Frontend Developer"];
+const names = ["Headwinds Studio", "Brandøn Fløwers", "Full-stack Developer"];
 
 const Education = ({ major, uw }: { major: string; uw: string }) => {
   return (
@@ -42,7 +42,7 @@ const Education = ({ major, uw }: { major: string; uw: string }) => {
 };
 
 const Profession = ({
-  firstText = "React & React Native",
+  firstText = "React, React Native, Node",
   secondText = " & Design Systems",
 }: {
   firstText?: string;
@@ -123,7 +123,7 @@ const HeadwindsPilot = () => {
                 {name.includes("Brand") ? (
                   <Education major={major} uw={uw} />
                 ) : null}
-                {name.includes("Frontend") ? (
+                {name.includes("Full-stack") ? (
                   <Profession secondText={secondProfessionText} />
                 ) : null}
               </>

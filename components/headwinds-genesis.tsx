@@ -40,24 +40,14 @@ const HeadwindsGenesis = () => {
   return (
     <Column customStyle={{ padding: 0, alignItems: "center" }}>
       <Paragraph customStyle={paraStyle}>
-        We are currently building out a new Design System and Component Library
-        to serve our{" "}
-        <Link url="https://www.gobolt.com/sustainable-logistics/">
-          sustainable fleet
-        </Link>{" "}
-        of React & React Native apps.
-      </Paragraph>
-
-      <GenesisButton
-        onClick={onClick}
-        icon={<FireOutlined />}
-        iconPosition="end"
-      >
-        Watch Genesis Grow
-      </GenesisButton>
-      <Paragraph customStyle={paraStyle}>
-        This is my fourth design system, and am planning to share 5 years of
-        best practices from product service tactics to Typescript wizardry!{" "}
+        This year I built a design system called{" "}
+        <Link url="https://www.npmjs.com/package/@gobolt/genesis">Genesis</Link>{" "}
+        , the{" "}
+        <Link url="https://play.google.com/store/apps/details?id=com.gobolt.goose&hl=en_CA">
+          GoBolt Warehouse React Native app
+        </Link>
+        , and contributed Node services to triage products within a Warehouse
+        Management System.
       </Paragraph>
     </Column>
   );
