@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@ant-design/icons": "^5.5.2",
-    "@gobolt/genesis": "^0.0.10",
+    "@gobolt/genesis": "^0.2.14",
     "@mdx-js/loader": "^3.1.0",
     "@mdx-js/react": "^3.1.0",
     "@next/mdx": "^15.2.3",

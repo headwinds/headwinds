@@ -43,47 +43,28 @@ const HeadwindsAutobio = () => {
   const paraStyle = { lineHeight: 1.5 };
 
   return (
-    <Column customStyle={{ padding: 0, alignItems: "center" }}>
+    <div
+      style={{
+        padding: 0,
+        alignItems: "center",
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
       <Paragraph customStyle={paraStyle}>
-        Ever since the death of Google Reader 💀, I've been exploring RSS in a
-        personal project called{" "}
-        <Link url="https://golds.vercel.app/">Golds</Link>.
-      </Paragraph>
-      <Paragraph customStyle={paraStyle}>
-        I'm tracking trends across over 50 feeds covering design, technology,
-        architecture, gaming and sports.{" "}
+        Ever since the death of Google Reader 💀, I've been tracking trends
+        across over 50 feeds covering design, technology, architecture, gaming
+        and sports in a personal project called{" "}
         <Link url="https://headwinds.github.io/headwinds/docs/apps/porthole/">
           Porthole
-        </Link>{" "}
-        is a chrome-extension version, and I also have an unreleased
-        React-native app in the works.
-      </Paragraph>
-      <Paragraph customStyle={paraStyle}>
-        I'm constantly experimenting with my own component library{" "}
-        <Link url="https://www.npmjs.com/package/cross-country">
-          Cross Country
         </Link>
-        , combining them with{" "}
-        <Link url="https://nextjs.org/docs/app/building-your-application/configuring/mdx">
-          Next mdx
-        </Link>
-        , and writing my own Backend services in{" "}
-        <Link url="https://github.com/headwinds/python-notebooks/">Python</Link>
-        , <Link url="https://github.com/headwinds/cabinquest">Node</Link>, and{" "}
-        <Link url="https://github.com/headwinds/northwind-frostpunk/">Go</Link>{" "}
-        against a{" "}
-        <Link url="https://twitter.com/headwinds/status/1588225965959815168">
-          PostgreSQL
-        </Link>{" "}
-        database.
+        .
       </Paragraph>
-      <Paragraph
-        customStyle={{ marginBottom: 16, lineHeight: 1.5 }}
-      ></Paragraph>
+
       <List customStyle={{ listStyleType: "none" }}>
         <ListItem>
           <Link
-            url="https://www.linkedin.com/in/branonflowers"
+            url="https://www.linkedin.com/in/brandonflowers"
             customStyle={customLinkStyle}
           >
             <LinkedinLogo size={32} color={gold} weight="light" />
@@ -112,7 +93,7 @@ const HeadwindsAutobio = () => {
       <Column>
         <HeadwindsLogo />
       </Column>
-    </Column>
+    </div>
   );
 };
 export default HeadwindsAutobio;

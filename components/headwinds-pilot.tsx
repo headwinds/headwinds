@@ -23,9 +23,9 @@ const majors = [
 
 const glitchCharacters = "Ø92X!#4@XpQX?09343X0";
 
-const names = ["Headwinds Studio", "Brandøn Fløwers"];
+const names = ["Headwinds Studio", "Brandøn Fløwers", "Full-stack Developer"];
 
-const Profession = ({ major, uw }: { major: string; uw: string }) => {
+const Education = ({ major, uw }: { major: string; uw: string }) => {
   return (
     <span>
       <ScrambleText text={major} customStyle={{ color: grey }} />,{" "}
@@ -41,20 +41,56 @@ const Profession = ({ major, uw }: { major: string; uw: string }) => {
   );
 };
 
+const Profession = ({
+  firstText = "React, React Native, Node",
+  secondText = " & Design Systems",
+}: {
+  firstText?: string;
+  secondText?: string;
+}) => {
+  return (
+    <span>
+      <ScrambleText text={firstText} customStyle={{ color: grey }} />,{" "}
+      <Link
+        customStyle={{
+          color: "rgb(51, 51, 51)",
+        }}
+        url="https://informationisbeautiful.net/"
+      >
+        <ScrambleText text={secondText} customStyle={{ color: grey }} />
+      </Link>
+    </span>
+  );
+};
+
 const HeadwindsPilot = () => {
   const { breakpoint } = useGenesis();
+  const isMobile = breakpoint.toLowerCase() === "narrow";
+
   const [major, setMajor] = useState(majors[5]);
   const [name, setName] = useState(names[0]);
-  const [uni, setUni] = useState("");
+
+  useEffect(() => {
+    const startingName = isMobile ? names[0].substring(0, 9) : names[0];
+    setName(startingName);
+  }, [breakpoint]);
 
   useEffect(() => {
     setTimeout(() => {
-      setName(names[1]);
+      const newName = isMobile ? names[1].substring(0, 7) : names[1];
+      setName(newName);
     }, 4000);
-  }, []);
+  }, [breakpoint]);
 
-  const uw =
-    breakpoint.toLowerCase() === "narrow" ? "UW" : "University of Waterloo";
+  useEffect(() => {
+    setTimeout(() => {
+      const newName = isMobile ? names[2].substring(0, 8) : names[2];
+      setName(newName);
+    }, 7000);
+  }, [breakpoint]);
+
+  const uw = isMobile ? "UW" : "University of Waterloo";
+  const secondProfessionText = isMobile ? "Data Viz" : "Data Visualization";
 
   return (
     <Column customStyle={{ padding: 0, width: "100%", maxWidth: 580 }}>
@@ -79,9 +115,18 @@ const HeadwindsPilot = () => {
                   fontSize: 16,
                   color: grey,
                   fontWeight: 300,
+                  margin: 0,
+                  padding: 0,
                 }}
               ></SubHeadline>
-              {name === names[1] ? <Profession major={major} uw={uw} /> : null}
+              <>
+                {name.includes("Brand") ? (
+                  <Education major={major} uw={uw} />
+                ) : null}
+                {name.includes("Full-stack") ? (
+                  <Profession secondText={secondProfessionText} />
+                ) : null}
+              </>
             </div>
           </div>
         </>
