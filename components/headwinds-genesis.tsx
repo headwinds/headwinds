@@ -2,7 +2,7 @@
 import React from "react";
 import { Column, Paragraph, Link } from "cross-country";
 import { FireOutlined } from "@ant-design/icons";
-import { Button as GenesisButton, SelectCount } from "@gobolt/genesis";
+import { Button as GenesisButton } from "@gobolt/genesis";
 
 const moss = "#bccd9d";
 const gold = "rgb(207, 192, 127)"; //"#b2a25a";
