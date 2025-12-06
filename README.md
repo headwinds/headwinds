@@ -2,7 +2,7 @@
 
 ### Profile
 
-With 10+ years experience, I've built hundreds of apps generating billions in revenue. I'm a confident a [senior developer](https://ca.linkedin.com/in/brandonflowers) always aspiring to be [Staff engineer](https://twitter.com/headwinds/status/1773501547520864685) where I can lead the team and collaborate with business, design, backend engineers and data scientists. I like to primarily craft the frontend with React but can also take on some backend tasks in Node, Pyton or Go.
+With 10+ years experience, I've built hundreds of apps generating billions in revenue. I'm a confident a [senior developer](https://ca.linkedin.com/in/brandonflowers) always aspiring to be [Staff engineer](https://twitter.com/headwinds/status/1773501547520864685) where I can lead the team and collaborate with business, design, backend engineers and data scientists. I like to primarily craft the frontend with React but can also take on some backend tasks in Node, Pyton and Go.
 
 ### Work
 
@@ -33,10 +33,6 @@ Validere measures carbon and methane gas across various industries with a curren
 I enjoyed 4 years @ [Lobaw Digital](https://loblawdigital.co/) learning all things eCommerce. I mostly built React-based UI with some vanilla JS on legacy systems. We invested heavily in GraphQL to write efficient endpoints and provide a caching layer. Along with the home page and checkout experience, my favourite page was the product detail page for Shopper's Drug Mart which is responsive, accessible, and driven by GraphQL.
 
 Along with UI, I also had the opportunity to write tools and backend services in Java, Go, and Python that monitor our feed servers and SQL database through event systems. While on page duty, I faced many issues like we're missing 3 days worth of orders, what happened to that 250k? Or our recommendation engine has stopped receiving it's feed, why has it stopped? So I first experiment with Bashed and finally landed on Go as the best language to monitor and report on our feed servers.
-
-<img src="./gitlab.png" />
-
-Loblaw Digital uses Gitlab which likes cool blue over forest greens to present developer productivity.
 
 ## Writing & Other Experiments
 
