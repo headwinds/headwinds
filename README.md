@@ -15,7 +15,7 @@ I started a new docs section with my first article for 2025 on using your Google
 
 ### Work
 
-#### GoBolt (Present)
+#### GoBolt (2025)
 
 ![last_mile](https://github.com/user-attachments/assets/cf030738-47ba-40f9-9408-60275a0a9bb3)
 
