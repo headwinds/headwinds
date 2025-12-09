@@ -2,7 +2,7 @@
 
 ### Profile
 
-With 10+ years experience, I've built hundreds of apps generating billions in revenue. I'm a confident a [senior developer](https://ca.linkedin.com/in/brandonflowers) always aspiring to be [Staff engineer](https://twitter.com/headwinds/status/1773501547520864685) where I can lead the team and collaborate with business, design, backend engineers and data scientists. I'm usually split 70-30 between front and backend where I primarily like to craft the frontend with React and React Native, and can also take on backend tasks in Node, Pyton and Go.
+With 10+ years experience, I've built hundreds of apps generating billions in revenue. I'm a confident [senior developer](https://ca.linkedin.com/in/brandonflowers); always aspiring to be a [Staff engineer](https://twitter.com/headwinds/status/1773501547520864685). I enjoy leading the team and collaborating with business, design, backend engineers and data scientists. I'm usually split 70-30 between front and backend where I primarily like to craft the frontend with React and React Native, and can also take on backend tasks in Node, Python and Go.
 
 ### Work
 
