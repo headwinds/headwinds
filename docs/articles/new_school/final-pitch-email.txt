@@ -1,0 +1,37 @@
+# Learn Aid Pitch
+
+**Subject:** A case for a Frontend-Forward Lead
+
+Hi Majeed,
+
+Thank you for the opportunity to chat yesterday about the lead tech role at Learn Aid. I really enjoyed learning more about your vision for the platform and the transition from Code Aid to Learn Aid—opening the door to subjects beyond coding is a massive opportunity.
+
+Reflecting on our conversation, I wanted to share some thoughts on where I could bring the most value to the team, specifically regarding the balance between backend engineering and product experience.
+
+If the immediate critical need is deep database optimization, complex indexing strategies, or heavy infrastructure plumbing, I might not be the specialist you need right now. While I know my way around the backend—I've earned my stripes fixing Cartesian explosions, writing complex sub-queries, and optimizing performance—my true "superpower" lies on the other side of the stack.
+
+However, if the goal is to build a world-class product that feels intuitive, engaging, and accessible, this is where I excel.
+
+Building a modern educational platform requires navigating a landscape of frontend complexity that is often underestimated. To compete with top-tier consumer apps, Learn Aid needs to be more than just functional; it needs to be delightful and robust.
+
+Beyond code, there is the emerging layer of AI interaction. As a linguist studying French, critical theory, and learning protocols, I am uniquely positioned to excel at context engineering and agentic workflows—often more so than a traditional backend engineer.
+
+This is where my background in linguistics and critical theory becomes a technical advantage. As Andrej Karpathy noted, ["The hottest new programming language is English"](https://twitter.com/karpathy/status/1617979122625712128). Crafting effective prompts and context windows for educational AI requires the same precision as writing good code—but with an understanding of pedagogy, tone, and how people actually learn.
+
+I’m personally invested in the future of education. My eldest daughter is in Grade 9 in a new STEM program at Bloor CI, and my youngest is in Spirit of Math. Watching them learn has solidified a personal mission for me: making math appealing to the creative mind.
+
+I fell in love with trigonometry only when I applied it to collision detection in game mechanics. Imagine if we could shape a curriculum where math is required for an Arts degree—not as abstract theory, but as practical, applied magic. We have the chance to build tools for this new generation that fuse STEM into STEAM, making technical concepts accessible through creativity.
+
+Having been through acquisitions, funding rounds, and phases of massive growth, I see Learn Aid's potential to become Canada's next unicorn. But I also believe the playbook has changed. We don't need hundreds of engineers to reach a $100M+ valuation.
+
+With the right leverage, a lean, elite team of 15-20 people can outperform organizations ten times their size. Over the last year, I worked closely with [CTO.ai](https://cto.ai/), seeing firsthand how modern DevOps and platform engineering allow us to offload infrastructure complexity. This lets us keep the core team focused on what matters most: the product and the learner.
+
+I view this role not just as a developer, but as a product partner. My background allows me to bridge the gap between design and engineering. I can be the "cartographer" who maps out the technical landscape for the product vision.
+
+If you have a strong backend engineer (or plan to hire one) to handle the deep database architecture, I can be the counterpart who ensures the product itself is world-class, scalable, and loved by users.
+
+Thanks again for the conversation. I’m excited about what Learn Aid is building.
+
+Best,
+
+Brandon

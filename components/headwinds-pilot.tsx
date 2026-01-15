@@ -84,7 +84,10 @@ const HeadwindsPilot = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      const newName = isMobile ? names[2].substring(0, 8) : names[2];
+      const professionLength = "Full-stack".length;
+      const newName = isMobile
+        ? names[2].substring(0, professionLength)
+        : names[2];
       setName(newName);
     }, 7000);
   }, [breakpoint]);
