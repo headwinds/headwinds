@@ -2,20 +2,11 @@
 
 ### Profile
 
-With 10+ years experience, I believe I have reached the level of [Staff engineer](https://twitter.com/headwinds/status/1773501547520864685) where I can confidently contribute to and direct the build of apps, lead and mentor junior developers, and collaborate with business, design, backend engineers and data scientists. I'm also quite content to continue my career as a [senior developer](https://ca.linkedin.com/in/brandonflowers) primarily working on the frontend with react.
-
-I have built hundreds of apps generating billions in revenue but I'm most valuable in the strategic thinking and planning behind the product mission. I can write with React, Node, Python, Go and SQL. I can always enjoy exploring new languages in my spare time and I enjoy learning how they all fit together securely by building a project from front to back.
-
-### Docs
-
-I started a new docs section with my first article for 2025 on using your Google account as a SMTP server to send email for free!
-
-- [Apps](https://headwinds.github.io/headwinds/docs/apps)
-- [Articles](https://headwinds.github.io/headwinds/docs/articles)
+With 10+ years experience, I've built hundreds of apps generating billions in revenue. I'm a confident [senior developer](https://ca.linkedin.com/in/brandonflowers); always aspiring to be a [Staff engineer](https://twitter.com/headwinds/status/1773501547520864685). I enjoy leading the team and collaborating with business, design, backend engineers and data scientists. I'm usually split 70-30 between front and backend where I craft UI with React and React Native, and take on backend services in Node, Python and Go.
 
 ### Work
 
-#### GoBolt (Present)
+#### GoBolt (2025)
 
 ![last_mile](https://github.com/user-attachments/assets/cf030738-47ba-40f9-9408-60275a0a9bb3)
 
@@ -41,11 +32,7 @@ Validere measures carbon and methane gas across various industries with a curren
 
 I enjoyed 4 years @ [Lobaw Digital](https://loblawdigital.co/) learning all things eCommerce. I mostly built React-based UI with some vanilla JS on legacy systems. We invested heavily in GraphQL to write efficient endpoints and provide a caching layer. Along with the home page and checkout experience, my favourite page was the product detail page for Shopper's Drug Mart which is responsive, accessible, and driven by GraphQL.
 
-Along with UI, I also had the opportunity to write tools and backend services in Java, Go, and Python that monitor our feed servers and SQL database through event systems. While on page duty, I faced many issues like we're missing 3 days worth of orders, what happened to that 250k? Or our recommendation engine has stopped receiving it's feed, why has it stopped? So I first experiment with Bashed and finally landed on Go as the best language to monitor and report on our feed servers.
-
-<img src="./gitlab.png" />
-
-Loblaw Digital uses Gitlab which likes cool blue over forest greens to present developer productivity.
+Along with UI, I also had the opportunity to write tools and backend services in Java, Go, and Python that monitor our feed servers and database.
 
 ## Writing & Other Experiments
 
@@ -56,6 +43,8 @@ Loblaw Digital uses Gitlab which likes cool blue over forest greens to present d
 - [A Guide for Guides: Building a Fun Java App with Tomcat & Maven with the Community Edition of IntelliJ](https://dev.to/headwinds/a-guide-for-guides-building-a-fun-java-app-with-tomcat-maven-with-the-community-edition-of-intellij-28cb)
 - [Async/Await with simple probability to solve an e2e testing problem](https://codesandbox.io/s/async-await-with-recursion-qewndk)
 - [Dig Through Python And Create Game Art with Playscii](https://dev.to/headwinds/)
+- [Apps](https://headwinds.github.io/headwinds/docs/apps)
+- [Articles](https://headwinds.github.io/headwinds/docs/articles)
 
 ### Not so Secret Full Stack Project
 
@@ -72,8 +61,6 @@ React Native Expo snacks:
 - [easing study](https://snack.expo.dev/@headwinds/animated-easing-visualized)
 - [sequenced 3D Card Flip](https://snack.expo.dev/@headwinds/flip-flip-flip-card)
 
-⛺
-
 This repo serves my site [headwinds.vercel.app](https://headwinds.vercel.app/) which is a [NextJS](https://nextjs.org/) app leveraging my component library [cross-country](https://www.npmjs.com/package/cross-country) and distributed backend involving Python, Pusher, Postgres, & RabbitMQ.
 
 ### Repo
@@ -85,16 +72,6 @@ pnpm i
 pnpm dev
 ```
 
-### Present
-
-I'm currently using my site as a sandbox to learn [Playwright e2e automation testing via CI/CD](https://playwright.dev/docs/ci-intro) so that I can visualize the deployment steps of my various environments when deploying and get alerted if any errors occur.
-
-Along with Github actions, I also want to try this [approach to code coverage](https://dev.to/anishkny/code-coverage-for-a-nextjs-app-using-playwright-tests-18n7).
-
-```
-npx playwright test
-```
-
 ### Future
 
-As a side-hustle, I've started a project to guide users to map their own development course while chatting with AI and mining their existing productivity apps like Gmail and Google calendar. It's in the early prototyping phases and not ready to share yet, I'm mainly building with React, Python (flask), [Google Cloud](https://cloud.google.com/), [Perplexity Labs](https://labs.perplexity.ai/), and PostgreSQL.
+As a side-hustle, I've started a project to guide users to map their own development course - a Linear for your life - while chatting with AI and mining their existing productivity apps like Gmail and Google calendar. It's in the early prototyping phases and not ready to share yet, I'm mainly building with React, Python (flask), [Google Cloud](https://cloud.google.com/), [Perplexity Labs](https://labs.perplexity.ai/), and PostgreSQL.
