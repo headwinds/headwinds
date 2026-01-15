@@ -6,7 +6,7 @@ const moss = "#bccd9d";
 const gold = "rgb(207, 192, 127)"; //"#b2a25a";
 const teal = "#0baeae";
 
-const HeadwindsDuolingo = () => {
+const HeadwindsBilingual = () => {
   const customLinkStyle = {
     textDecoration: "none",
     boxShadow: "none",
@@ -33,4 +33,4 @@ const HeadwindsDuolingo = () => {
     </Column>
   );
 };
-export default HeadwindsDuolingo;
+export default HeadwindsBilingual;
