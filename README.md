@@ -1,4 +1,4 @@
-# UI, Analytics, APIs and a sense of Adventure
+# AI, Analytics, APIs and a sense of Adventure
 
 ### Profile
 
