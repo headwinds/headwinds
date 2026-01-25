@@ -8,7 +8,7 @@ declare module "cross-country" {
   }
 
   export interface HeadwindsLogoProps extends BaseProps {
-    // Add any specific Column props here
+    width?: number;
   }
 
   export interface ColumnProps extends BaseProps {

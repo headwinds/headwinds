@@ -49,8 +49,6 @@ const HeadwindsPresent = () => {
 
   const todayNum = 626;
 
-
-
   return (
     <Column customStyle={{ padding: 0, alignItems: "center" }}>
       <Paragraph customStyle={paraStyle}>
@@ -59,8 +57,6 @@ const HeadwindsPresent = () => {
         with metrics, insights and other data viz.{" "}
       </Paragraph>
       <Axl />
-
-
     </Column>
   );
 };
