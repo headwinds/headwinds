@@ -7,7 +7,7 @@ const paraStyle = { lineHeight: 1.5 };
 const ThemeBackyardChickens = () => {
   return (
     <Column customStyle={{ padding: 0, alignItems: "center" }}>
-      <Headline level={3}>Backyard Chickens & Shoffice AUDs</Headline>
+      <Headline>Backyard Chickens & Shoffice AUDs</Headline>
       <Paragraph customStyle={paraStyle}>
         Exploring backyard chickens and shoffice (shed+office) accessory 
         dwelling units. Opportunities to build with mass timber and sustainable 

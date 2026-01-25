@@ -7,7 +7,7 @@ const paraStyle = { lineHeight: 1.5 };
 const ThemeSalmonMigration = () => {
   return (
     <Column customStyle={{ padding: 0, alignItems: "center" }}>
-      <Headline level={3}>Salmon Migration</Headline>
+      <Headline> Salmon Migration</Headline>
       <Paragraph customStyle={paraStyle}>
         Tracking{" "}
         <Link url="https://www.perplexity.ai/search/each-year-i-like-to-see-the-mi-2PCDTgsVRYOPNS6LUQG17g#0">

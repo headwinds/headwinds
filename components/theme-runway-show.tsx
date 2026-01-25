@@ -7,7 +7,7 @@ const paraStyle = { lineHeight: 1.5 };
 const ThemeRunwayShow = () => {
   return (
     <Column customStyle={{ padding: 0, alignItems: "center" }}>
-      <Headline level={3}>Runway Show Dataset</Headline>
+      <Headline>Runway Show Dataset</Headline>
       <Paragraph customStyle={paraStyle}>
         Building a dataset of all{" "}
         <Link url="https://www.perplexity.ai/search/i-want-to-build-a-dataset-of-a-9D.Qm8g1QWe0O2WEzmoKNA">

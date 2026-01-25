@@ -7,7 +7,7 @@ const paraStyle = { lineHeight: 1.5 };
 const ThemeHomeEnergy = () => {
   return (
     <Column customStyle={{ padding: 0, alignItems: "center" }}>
-      <Headline level={3}>Home Energy & Data Consumption</Headline>
+      <Headline>Home Energy & Data Consumption</Headline>
       <Paragraph customStyle={paraStyle}>
         Tracking home energy consumption as it relates to making coffee and 
         other daily activities. Understanding our energy footprint through 

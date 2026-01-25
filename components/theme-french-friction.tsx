@@ -7,7 +7,7 @@ const paraStyle = { lineHeight: 1.5 };
 const ThemeFrenchFriction = () => {
   return (
     <Column customStyle={{ padding: 0, alignItems: "center" }}>
-      <Headline level={3}>French Friction</Headline>
+      <Headline>French Friction</Headline>
       <Paragraph customStyle={paraStyle}>
         Exploring the challenges and nuances of language learning, cultural 
         exchange, and bilingual communication.
