@@ -7,6 +7,7 @@ import {
   Link,
   List,
   ListItem,
+  Row,
 } from "cross-country";
 
 import {
@@ -46,6 +47,7 @@ const HeadwindsAutobio = () => {
     <div
       style={{
         padding: 0,
+        justifyContent: "space-between",
         alignItems: "center",
         display: "flex",
         flexDirection: "column",
@@ -60,39 +62,40 @@ const HeadwindsAutobio = () => {
         </Link>
         .
       </Paragraph>
-
-      <List customStyle={{ listStyleType: "none" }}>
-        <ListItem>
-          <Link
-            url="https://www.linkedin.com/in/brandonflowers"
-            customStyle={customLinkStyle}
-          >
-            <LinkedinLogo size={32} color={gold} weight="light" />
-            <Paragraph customStyle={customParagraphStyle}>Linkedin</Paragraph>
-          </Link>
-        </ListItem>
-        <ListItem>
-          <Link
-            url="https://www.github.com/headwinds"
-            customStyle={customLinkStyle}
-          >
-            <GithubLogo size={32} color={gold} weight="light" />
-            <Paragraph customStyle={customParagraphStyle}>Github</Paragraph>
-          </Link>
-        </ListItem>
-        <ListItem>
-          <Link
-            url="https://www.twitter.com/headwinds"
-            customStyle={customLinkStyle}
-          >
-            <XLogo size={32} color={gold} weight="light" />
-            <Paragraph customStyle={customParagraphStyle}>X</Paragraph>
-          </Link>
-        </ListItem>
-      </List>
-      <Column>
-        <HeadwindsLogo />
-      </Column>
+      <Row customStyle={{width: "100%", justifyContent: "space-between"}}>
+        <List customStyle={{ listStyleType: "none" }}>
+          <ListItem>
+            <Link
+              url="https://www.linkedin.com/in/brandonflowers"
+              customStyle={customLinkStyle}
+            >
+              <LinkedinLogo size={32} color={gold} weight="light" />
+              <Paragraph customStyle={customParagraphStyle}>Linkedin</Paragraph>
+            </Link>
+          </ListItem>
+          <ListItem>
+            <Link
+              url="https://www.github.com/headwinds"
+              customStyle={customLinkStyle}
+            >
+              <GithubLogo size={32} color={gold} weight="light" />
+              <Paragraph customStyle={customParagraphStyle}>Github</Paragraph>
+            </Link>
+          </ListItem>
+          <ListItem>
+            <Link
+              url="https://www.twitter.com/headwinds"
+              customStyle={customLinkStyle}
+            >
+              <XLogo size={32} color={gold} weight="light" />
+              <Paragraph customStyle={customParagraphStyle}>X</Paragraph>
+            </Link>
+          </ListItem>
+        </List>
+        <div style={{width: 200, display: "flex", justifyContent: "center"}}>
+        <HeadwindsLogo width={100} />  
+        </div>
+      </Row>
     </div>
   );
 };
