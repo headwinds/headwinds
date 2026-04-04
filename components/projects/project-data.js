@@ -26,7 +26,7 @@ const identity = {
       client: 'Energy',
       company: 'Kaggle',
       tags: 'security,file sharing, messaging',
-      vertical: "Brandon Flowers",
+      vertical: "Energy",
       duration: 25,
       team: 1,
       role: 'Lead UI',

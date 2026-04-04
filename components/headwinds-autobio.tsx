@@ -48,7 +48,6 @@ const HeadwindsAutobio = () => {
       style={{
         padding: 0,
         justifyContent: "space-between",
-        alignItems: "center",
         display: "flex",
         flexDirection: "column",
       }}
@@ -62,7 +61,9 @@ const HeadwindsAutobio = () => {
         </Link>
         .
       </Paragraph>
-      <Row customStyle={{width: "100%", justifyContent: "space-between"}}>
+      <Column>
+      <Row customStyle={{width: "100%", justifyContent: "space-between", background: "#fffdf6", borderTop: "1px solid #fcfcc5"
+      }}>
         <List customStyle={{ listStyleType: "none" }}>
           <ListItem>
             <Link
@@ -96,7 +97,15 @@ const HeadwindsAutobio = () => {
         <HeadwindsLogo width={100} />  
         </div>
       </Row>
+   
+      </Column>
     </div>
   );
 };
 export default HeadwindsAutobio;
+
+/*
+   <div style={{ zIndex: 9, background: "red", clipPath: "polygon(0 0, 80% 0, 100% 20%, 100% 100%, 0 100%)"}} data-testid="overlay" />
+
+   https://stackoverflow.com/questions/72611944/unable-to-have-a-div-with-sharp-corner-instead-getting-it-as-rounded-corner#:~:text=You%20can%20use%20clip%2Dpath%20instead%20of%20a%20rounded%20corner.
+*/

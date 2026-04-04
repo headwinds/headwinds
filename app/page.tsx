@@ -1,14 +1,9 @@
 "use client";
 
-import MarkdownQuest from "./brandon-flowers/markdown-quest.mdx";
+import LandingPage from "@/components/landing/LandingPage";
 
 const Home = () => {
-
-  return (
-    <div className="flex flex-col items-center justify-between m-1">
-      <MarkdownQuest />
-    </div>
-  );
-}
+  return <LandingPage />;
+};
 export default Home;
 

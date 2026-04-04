@@ -50,11 +50,13 @@ const HeadwindsPresent = () => {
   const todayNum = 626;
 
   return (
-    <Column customStyle={{ padding: 0, alignItems: "center" }}>
+    <Column customStyle={{ padding: 0 }}>
+        <Paragraph customStyle={paraStyle}>
+       👋 Hi! I'm Brandon Flowers, a creative full-stack hybrid living in Toronto.
+      </Paragraph>
       <Paragraph customStyle={paraStyle}>
         I 💛 solving complex customer journeys, building automation, scheduling
-        reports, and crafting UI, rich
-        with metrics, insights and other data viz.{" "}
+        reports, and crafting UI, rich with metrics, charts, and insights.{" "}
       </Paragraph>
       <Axl />
     </Column>
