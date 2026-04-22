@@ -3,12 +3,13 @@
 import Link from "next/link";
 import { journalEntries } from "@/components/journal/journal-data";
 import PageShell from "@/components/layout/PageShell";
+import BrandTrophyGrid from "@/components/landing/BrandTrophyGrid";
 
 const stats = [
-  { value: "14", label: "PROJECTS" },
+  { value: "12", label: "PROJECTS" },
   { value: "10+", label: "YEARS EXPERIENCE" },
-  { value: "6", label: "BRANDS" },
-  { value: "3", label: "APPS SHIPPED" },
+  { value: "12", label: "BRANDS" },
+  { value: "25+", label: "APPS SHIPPED" },
 ];
 
 const interests = [
@@ -203,6 +204,9 @@ const LandingPage = () => {
           ))}
         </div>
       </div>
+
+      {/* Brand Trophies */}
+      <BrandTrophyGrid />
 
       {/* Journal + Wishlist Teaser Row */}
       <div className="flex gap-1.5">

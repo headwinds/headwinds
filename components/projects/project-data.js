@@ -37,6 +37,7 @@ const identity = {
       route: "/budding-data-scientist",
       id: 1
     },
+    /*
     {
       name: 'TodaQ Financial',
       description:
@@ -72,7 +73,7 @@ const identity = {
       locked: false,
       route: "/bio",
       id: 3
-    },
+    },*/
     {
       name: 'Patient Network',
       description:
@@ -110,7 +111,7 @@ const identity = {
       id: 5
     },
     {
-      name: 'ML Tools',
+      name: 'Voice of the Customer',
       description:
         'Agents were required to manually tag thousands of lines of chat data. Natural Language Processing and Machine Learning alorigthms can now automatically tag the vast majority of this text reducing human involment down to much more manageable results. Inspired by an excel-like interface that talks to ML services, this tool allows an agent to quickly review problematic tags and reduced the time it takes to develop a model for the Data Science team down from 3 months to 1 week.',
       client: '247',

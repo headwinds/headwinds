@@ -330,6 +330,17 @@ export const wishlistItems: WishlistItem[] = [
     category: "TTRPG",
     status: "active",
   },
+
+  {
+    id: "one-last-fight",
+    name: "One Last Fight",
+    url: "https://hitpointpress.com/products/one-last-fight-standard-edition",
+    image: "https://hitpointpress.com/cdn/shop/files/OLF-Box2-2.png?v=1772832996&width=1206",
+    category: "TTRPG",
+    status: "active",
+  },
+
+  
   {
     id: "citizen-sleeper-ttrpg",
     name: "Citizen Sleeper (Lost in Cult)",
