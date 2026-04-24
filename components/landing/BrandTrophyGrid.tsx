@@ -78,7 +78,7 @@ export function BrandTrophy({ brandId, className = "" }: BrandTrophyProps) {
           backgroundSize: `${COLS * 100}% ${ROWS * 100}%`,
           backgroundPosition: `${xPct}% ${yPct}%`,
           backgroundRepeat: "no-repeat",
-          filter: "brightness(1.28) contrast(1.1)",
+          filter: "brightness(1.3)",
           mixBlendMode: "multiply",
         }}
       />

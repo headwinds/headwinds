@@ -11,23 +11,38 @@ const ContactPage = () => {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
     "idle"
   );
+  const [errorMsg, setErrorMsg] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("sending");
+    setErrorMsg("");
+
+    if (message.trim().length < 2) {
+      setStatus("error");
+      setErrorMsg("Message must be at least 2 characters.");
+      return;
+    }
+
     try {
       const res = await fetch(`${getScoutDomain()}/api/email/contact`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, message }),
+        body: JSON.stringify({ name, from_email: email, message }),
       });
-      if (!res.ok) throw new Error("Failed to send");
+
+      if (!res.ok) {
+        const data = await res.json().catch(() => null);
+        throw new Error(data?.message ?? "Failed to send");
+      }
+
       setStatus("sent");
       setName("");
       setEmail("");
       setMessage("");
-    } catch {
+    } catch (err) {
       setStatus("error");
+      setErrorMsg(err instanceof Error ? err.message : "Something went wrong. Please try again.");
     }
   };
 
@@ -103,7 +118,7 @@ const ContactPage = () => {
           )}
           {status === "error" && (
             <p className="text-sm text-red-600 m-0">
-              Something went wrong. Please try again.
+              {errorMsg || "Something went wrong. Please try again."}
             </p>
           )}
         </form>
