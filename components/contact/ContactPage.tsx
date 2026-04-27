@@ -48,11 +48,11 @@ const ContactPage = () => {
 
   return (
     <PageShell>
-      <div className="flex gap-1.5">
+      <div className="flex flex-col md:flex-row gap-1.5">
         {/* Contact Form Card */}
         <form
           onSubmit={handleSubmit}
-          className="flex-1 bg-[#F3EBE2] rounded-2xl p-12 flex flex-col gap-6"
+          className="flex-1 bg-[#F3EBE2] rounded-2xl p-8 md:p-12 flex flex-col gap-6"
         >
           <p className="text-xs font-medium text-[#6B6B6B] tracking-[3px] m-0">
             GET IN TOUCH
@@ -124,7 +124,7 @@ const ContactPage = () => {
         </form>
 
         {/* Info Column */}
-        <div className="w-[420px] flex flex-col gap-1.5 shrink-0">
+        <div className="w-full md:w-[420px] flex flex-col gap-1.5 md:shrink-0">
           <div className="bg-[#C3DED8] rounded-2xl p-8 flex flex-col gap-3">
             <svg
               className="w-6 h-6 text-[#1A1A1A]"

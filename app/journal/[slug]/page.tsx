@@ -1,10 +1,10 @@
 "use client";
 
 import { useParams } from "next/navigation";
-import Nav from "@/components/headwinds-nav";
+import Link from "next/link";
+import PageShell from "@/components/layout/PageShell";
 import JournalEntryView from "@/components/journal/JournalEntry";
 import { getEntryBySlug } from "@/components/journal/journal-data";
-import Link from "next/link";
 
 const JournalEntryPage = () => {
   const params = useParams();
@@ -13,31 +13,30 @@ const JournalEntryPage = () => {
 
   if (!entry) {
     return (
-      <div className="flex flex-col items-center justify-between m-1">
-        <Nav />
-        <div className="text-center py-20">
-          <h1 className="text-xl font-bold text-gray-900 mb-2">
+      <PageShell>
+        <div className="bg-[#F3EBE2] rounded-2xl py-20 px-12 flex flex-col items-center gap-4">
+          <h1 className="text-2xl font-normal text-[#1A1A1A] m-0">
             Entry not found
           </h1>
-          <p className="text-sm text-gray-500 mb-4">
+          <p className="text-sm text-[#6B6B6B] m-0">
             The journal entry &ldquo;{slug}&rdquo; doesn&apos;t exist.
           </p>
           <Link
             href="/journal"
-            className="text-sm text-blue-600 hover:underline"
+            className="text-sm text-[#6B6B6B] hover:text-[#1A1A1A] no-underline transition-colors"
           >
             ← Back to Journal
           </Link>
         </div>
-      </div>
+      </PageShell>
     );
   }
 
   return (
-    <div className="flex flex-col items-center justify-between m-1">
-      <Nav />
+    <PageShell>
       <JournalEntryView entry={entry} />
-    </div>
+    </PageShell>
   );
 };
+
 export default JournalEntryPage;

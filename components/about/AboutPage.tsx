@@ -23,9 +23,9 @@ const AboutPage = () => {
   return (
     <PageShell>
       {/* Hero: Photo + Intro */}
-      <div className="flex gap-1.5">
+      <div className="flex flex-col md:flex-row gap-1.5">
         {/* Photo Card */}
-        <div className="w-[400px] bg-[#F3EBE2] rounded-2xl p-8 flex flex-col items-center gap-4 shrink-0">
+        <div className="w-full md:w-[400px] bg-[#F3EBE2] rounded-2xl p-8 flex flex-col items-center gap-4 md:shrink-0">
           <Image
             src="/brandon_square.png"
             alt="Brandon Flowers"
@@ -34,12 +34,12 @@ const AboutPage = () => {
             className="rounded-full object-cover"
           />
           <h2 className="text-2xl text-[#1A1A1A] m-0">Brandon Flowers</h2>
-          <p className="text-sm text-[#6B6B6B] m-0">Full-stack Engineer</p>
+          <p className="text-sm text-[#6B6B6B] m-0">Full-stack Engineer, Naturalist</p>
           <p className="text-sm text-[#6B6B6B] m-0">Toronto, Canada</p>
         </div>
 
         {/* Intro Card */}
-        <div className="flex-1 bg-[#F3EBE2] rounded-2xl p-12 flex flex-col justify-center gap-6">
+        <div className="flex-1 bg-[#F3EBE2] rounded-2xl p-8 md:p-12 flex flex-col justify-center gap-6">
           <p className="text-xs font-medium text-[#6B6B6B] tracking-[3px] m-0">
             ABOUT
           </p>
@@ -57,8 +57,8 @@ const AboutPage = () => {
       </div>
 
       {/* Career + Education Row */}
-      <div className="flex gap-1.5">
-        <div className="flex-1 bg-[#C3DED8] rounded-2xl p-10 flex flex-col gap-5">
+      <div className="flex flex-col md:flex-row gap-1.5">
+        <div className="flex-1 bg-[#C3DED8] rounded-2xl p-8 md:p-10 flex flex-col gap-5">
           <p className="text-[11px] font-medium text-[#3D3D3D] tracking-[3px] m-0">
             CURRENT ROLE
           </p>
@@ -73,7 +73,7 @@ const AboutPage = () => {
             success.
           </p>
         </div>
-        <div className="w-[400px] bg-[#F3EBE2] rounded-2xl p-10 flex flex-col gap-6 shrink-0">
+        <div className="w-full md:w-[400px] bg-[#F3EBE2] rounded-2xl p-8 md:p-10 flex flex-col gap-6 md:shrink-0">
           <p className="text-[11px] font-medium text-[#6B6B6B] tracking-[3px] m-0">
             EDUCATION
           </p>
@@ -119,7 +119,7 @@ const AboutPage = () => {
       </div>
 
       {/* Skills + Passions Row */}
-      <div className="flex gap-1.5">
+      <div className="flex flex-col md:flex-row gap-1.5">
         <div className="flex-1 bg-[#F3EBE2] rounded-2xl p-10 flex flex-col gap-4">
           <p className="text-[11px] font-medium text-[#6B6B6B] tracking-[3px] m-0">
             SKILLS & TOOLS
@@ -143,7 +143,7 @@ const AboutPage = () => {
       </div>
 
       {/* Porthole Card */}
-      <div className="bg-[#C4CFDE] rounded-2xl px-12 py-10 flex flex-col gap-5">
+      <div className="bg-[#C4CFDE] rounded-2xl px-8 md:px-12 py-8 md:py-10 flex flex-col gap-5">
         <p className="text-[11px] font-medium text-[#3D3D3D] tracking-[3px] m-0">
           SIDE PROJECT
         </p>
@@ -156,7 +156,7 @@ const AboutPage = () => {
       </div>
 
       {/* Social Links Row */}
-      <div className="flex gap-1.5">
+      <div className="flex flex-col sm:flex-row gap-1.5">
         <a
           href="https://github.com/headwinds"
           target="_blank"

@@ -95,15 +95,15 @@ const ProjectDetailPage = ({ slug }: ProjectDetailPageProps) => {
             {project.description}
           </p>
         </div>
-        <div className="flex-1 rounded-2xl overflow-hidden bg-[#C4CFDE]">
+        <div className="flex-1 rounded-2xl bg-[#C4CFDE] p-2">
           {heroImage ? (
             <img
               src={heroImage.src}
               alt={project.name}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover rounded-lg"
             />
           ) : (
-            <div className="w-full h-full flex items-center justify-center">
+            <div className="w-full h-full flex items-center justify-center rounded-lg">
               <span className="text-2xl font-medium text-[#1A1A1A]/20">
                 {project.client}
               </span>

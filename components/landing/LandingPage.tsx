@@ -6,11 +6,12 @@ import Link from "next/link";
 import { journalEntries } from "@/components/journal/journal-data";
 import PageShell from "@/components/layout/PageShell";
 import BrandTrophyGrid from "@/components/landing/BrandTrophyGrid";
+import LandingChatWidget from "@/components/landing/LandingChatWidget";
 
 const stats = [
-  { value: "12", label: "PROJECTS" },
+  { value: "12+", label: "PROJECTS" },
   { value: "10+", label: "YEARS EXPERIENCE" },
-  { value: "12", label: "BRANDS" },
+  { value: "12+", label: "BRANDS" },
   { value: "25+", label: "APPS SHIPPED" },
 ];
 
@@ -192,13 +193,13 @@ const LandingPage = () => {
         </div>
       )}
       {/* Hero Section */}
-      <div className="flex gap-1.5 min-h-[480px]">
+      <div className="flex flex-col md:flex-row gap-1.5 md:min-h-[480px]">
         {/* Left - Greeting */}
-        <div className="flex-1 bg-[#F3EBE2] rounded-2xl p-12 md:p-16 flex flex-col justify-center gap-8">
+        <div className="flex-1 bg-[#F3EBE2] rounded-2xl p-8 md:p-16 flex flex-col justify-center gap-6 md:gap-8">
           <p className="text-xs font-medium text-[#6B6B6B] tracking-[2px]">
             HI, I&apos;M BRANDON
           </p>
-          <h1 className="text-5xl md:text-7xl font-normal text-[#1A1A1A] tracking-tight leading-none">
+          <h1 className="text-3xl sm:text-5xl md:text-7xl font-normal text-[#1A1A1A] tracking-tight leading-none">
             Greenfield Director & Agentic Builder
             <br />
             for AI Startups.
@@ -252,16 +253,16 @@ const LandingPage = () => {
       </div>
 
       {/* Stats Row */}
-      <div className="flex gap-1.5">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-1.5">
         {stats.map((stat, i) => (
           <div
             key={stat.label}
-            className={`flex-1 ${statColors[i]} rounded-2xl py-8 px-6 flex flex-col items-center justify-center gap-2`}
+            className={`${statColors[i]} rounded-2xl py-8 px-6 flex flex-col items-center justify-center gap-2`}
           >
-            <span className="text-5xl font-bold text-[#1A1A1A]">
+            <span className="text-4xl md:text-5xl font-bold text-[#1A1A1A]">
               {stat.value}
             </span>
-            <span className="text-xs font-medium text-[#6B6B6B] tracking-[2px] text-center">
+            <span className="text-[10px] md:text-xs font-medium text-[#6B6B6B] tracking-[2px] text-center">
               {stat.label}
             </span>
           </div>
@@ -269,39 +270,12 @@ const LandingPage = () => {
       </div>
 
       {/* AI Greeting + Interests Row */}
-      <div className="flex gap-1.5">
-        {/* AI Greeting Card */}
-        <div className="flex-1 bg-[#1A1A1A] rounded-2xl p-10 flex flex-col gap-6">
-          <p className="text-[11px] font-medium text-[#6B6B6B] tracking-[3px]">
-            AI ASSISTANT
-          </p>
-          <p className="text-lg text-[#F5F4F2] leading-relaxed">
-            Hey! I&apos;m Brandon&apos;s AI assistant. Ask me anything about his
-            work, skills, or interests. I know about his 14 projects across
-            React, Python, and React Native.
-          </p>
-          <div className="flex items-center justify-between bg-[#2A2A2A] rounded-lg px-4 py-3.5">
-            <span className="text-sm text-[#5A5A5A]">
-              Ask me something...
-            </span>
-            <svg
-              className="w-4.5 h-4.5 text-[#C9A962]"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"
-              />
-            </svg>
-          </div>
-        </div>
+      <div className="flex flex-col md:flex-row gap-1.5">
+        {/* AI Chat Widget */}
+        <LandingChatWidget />
 
         {/* Interests Card */}
-        <div className="w-[420px] bg-[#F3EBE2] rounded-2xl p-10 flex flex-col gap-5">
+        <div className="w-full md:w-[420px] bg-[#F3EBE2] rounded-2xl p-8 md:p-10 flex flex-col gap-5">
           <p className="text-[11px] font-medium text-[#6B6B6B] tracking-[3px]">
             THINGS I LOVE
           </p>
@@ -319,9 +293,9 @@ const LandingPage = () => {
       </div>
 
       {/* Featured Projects Section */}
-      <div className="bg-[#F3EBE2] rounded-2xl p-12 flex flex-col gap-8">
+      <div className="bg-[#F3EBE2] rounded-2xl p-8 md:p-12 flex flex-col gap-8">
         <div className="flex items-center justify-between">
-          <h2 className="text-4xl font-normal text-[#1A1A1A]">
+          <h2 className="text-2xl md:text-4xl font-normal text-[#1A1A1A]">
             Featured Projects
           </h2>
           <Link
@@ -364,9 +338,9 @@ const LandingPage = () => {
       <BrandTrophyGrid />
 
       {/* Journal + Wishlist Teaser Row */}
-      <div className="flex gap-1.5">
+      <div className="flex flex-col md:flex-row gap-1.5">
         {/* Journal Teaser */}
-        <div className="flex-1 bg-[#F3EBE2] rounded-2xl p-10 flex flex-col gap-5">
+        <div className="flex-1 bg-[#F3EBE2] rounded-2xl p-8 md:p-10 flex flex-col gap-5">
           <p className="text-[11px] font-medium text-[#6B6B6B] tracking-[3px]">
             LATEST FROM THE JOURNAL
           </p>
@@ -385,7 +359,7 @@ const LandingPage = () => {
         </div>
 
         {/* Wishlist Teaser */}
-        <div className="flex-1 bg-[#D5DCBA] rounded-2xl p-10 flex flex-col gap-5">
+        <div className="flex-1 bg-[#D5DCBA] rounded-2xl p-8 md:p-10 flex flex-col gap-5">
           <p className="text-[11px] font-medium text-[#6B6B6B] tracking-[3px]">
             FROM THE WISHLIST
           </p>

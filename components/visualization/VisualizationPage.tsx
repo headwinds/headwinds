@@ -146,7 +146,7 @@ const ClusterChart = () => (
 );
 
 const ClusterLegend = () => (
-  <div className="bg-[#F3EBE2] rounded-2xl p-8 flex flex-col gap-5 w-72 shrink-0">
+  <div className="bg-[#F3EBE2] rounded-2xl p-8 flex flex-col gap-5 w-full md:w-72 md:shrink-0">
     <span className="text-[11px] font-medium text-[#6B6B6B] tracking-[3px]">
       SEGMENTS
     </span>
@@ -221,11 +221,11 @@ const VisualizationPage = () => {
   return (
     <PageShell>
       {/* Hero Header — dark, Feltron-inspired */}
-      <div className="bg-[#1A1A1A] rounded-2xl px-12 py-14 flex flex-col gap-4">
+      <div className="bg-[#1A1A1A] rounded-2xl px-6 md:px-12 py-10 md:py-14 flex flex-col gap-4">
         <span className="text-[11px] font-medium text-[#6B6B6B] tracking-[4px]">
           DATA + INSIGHTS
         </span>
-        <h1 className="text-5xl md:text-[56px] text-[#F3EBE2] m-0 leading-[1.05] -tracking-wide font-normal">
+        <h1 className="text-3xl sm:text-5xl md:text-[56px] text-[#F3EBE2] m-0 leading-[1.05] -tracking-wide font-normal">
           How I Think
           <br />
           About Analytics
@@ -254,7 +254,7 @@ const VisualizationPage = () => {
       </div>
 
       {/* Cluster Section */}
-      <div className="flex gap-1.5">
+      <div className="flex flex-col md:flex-row gap-1.5">
         <ClusterChart />
         <ClusterLegend />
       </div>

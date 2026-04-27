@@ -13,7 +13,7 @@ const JournalPage = () => {
           JOURNAL
         </p>
         <h1 className="text-4xl md:text-5xl font-normal text-[#1A1A1A] tracking-tight m-0">
-          Hot Take Journal
+        <span style={{ filter: "grayscale(1)" }}>🔥</span> Journal
         </h1>
         <p className="text-lg text-[#3D3D3D] leading-relaxed m-0">
           Thoughts on AI, tech, and building things.
