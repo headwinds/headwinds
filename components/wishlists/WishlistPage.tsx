@@ -15,7 +15,7 @@ const topCategories = (() => {
   for (const item of wishlistItems) {
     counts.set(item.category, (counts.get(item.category) ?? 0) + 1);
   }
-  return [...counts.entries()]
+  return Array.from(counts.entries())
     .sort((a, b) => b[1] - a[1])
     .map(([cat]) => cat);
 })();
