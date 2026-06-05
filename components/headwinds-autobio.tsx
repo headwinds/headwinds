@@ -7,6 +7,7 @@ import {
   Link,
   List,
   ListItem,
+  Row,
 } from "cross-country";
 
 import {
@@ -46,7 +47,7 @@ const HeadwindsAutobio = () => {
     <div
       style={{
         padding: 0,
-        alignItems: "center",
+        justifyContent: "space-between",
         display: "flex",
         flexDirection: "column",
       }}
@@ -60,40 +61,51 @@ const HeadwindsAutobio = () => {
         </Link>
         .
       </Paragraph>
-
-      <List customStyle={{ listStyleType: "none" }}>
-        <ListItem>
-          <Link
-            url="https://www.linkedin.com/in/brandonflowers"
-            customStyle={customLinkStyle}
-          >
-            <LinkedinLogo size={32} color={gold} weight="light" />
-            <Paragraph customStyle={customParagraphStyle}>Linkedin</Paragraph>
-          </Link>
-        </ListItem>
-        <ListItem>
-          <Link
-            url="https://www.github.com/headwinds"
-            customStyle={customLinkStyle}
-          >
-            <GithubLogo size={32} color={gold} weight="light" />
-            <Paragraph customStyle={customParagraphStyle}>Github</Paragraph>
-          </Link>
-        </ListItem>
-        <ListItem>
-          <Link
-            url="https://www.twitter.com/headwinds"
-            customStyle={customLinkStyle}
-          >
-            <XLogo size={32} color={gold} weight="light" />
-            <Paragraph customStyle={customParagraphStyle}>X</Paragraph>
-          </Link>
-        </ListItem>
-      </List>
       <Column>
-        <HeadwindsLogo />
+      <Row customStyle={{width: "100%", justifyContent: "space-between", background: "#fffdf6", borderTop: "1px solid #fcfcc5"
+      }}>
+        <List customStyle={{ listStyleType: "none" }}>
+          <ListItem>
+            <Link
+              url="https://www.linkedin.com/in/brandonflowers"
+              customStyle={customLinkStyle}
+            >
+              <LinkedinLogo size={32} color={gold} weight="light" />
+              <Paragraph customStyle={customParagraphStyle}>Linkedin</Paragraph>
+            </Link>
+          </ListItem>
+          <ListItem>
+            <Link
+              url="https://www.github.com/headwinds"
+              customStyle={customLinkStyle}
+            >
+              <GithubLogo size={32} color={gold} weight="light" />
+              <Paragraph customStyle={customParagraphStyle}>Github</Paragraph>
+            </Link>
+          </ListItem>
+          <ListItem>
+            <Link
+              url="https://www.twitter.com/headwinds"
+              customStyle={customLinkStyle}
+            >
+              <XLogo size={32} color={gold} weight="light" />
+              <Paragraph customStyle={customParagraphStyle}>X</Paragraph>
+            </Link>
+          </ListItem>
+        </List>
+        <div style={{width: 200, display: "flex", justifyContent: "center"}}>
+        <HeadwindsLogo width={100} />  
+        </div>
+      </Row>
+   
       </Column>
     </div>
   );
 };
 export default HeadwindsAutobio;
+
+/*
+   <div style={{ zIndex: 9, background: "red", clipPath: "polygon(0 0, 80% 0, 100% 20%, 100% 100%, 0 100%)"}} data-testid="overlay" />
+
+   https://stackoverflow.com/questions/72611944/unable-to-have-a-div-with-sharp-corner-instead-getting-it-as-rounded-corner#:~:text=You%20can%20use%20clip%2Dpath%20instead%20of%20a%20rounded%20corner.
+*/

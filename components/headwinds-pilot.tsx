@@ -42,8 +42,8 @@ const Education = ({ major, uw }: { major: string; uw: string }) => {
 };
 
 const Profession = ({
-  firstText = "React, React Native, Node",
-  secondText = " & Design Systems",
+  firstText = "React, Python",
+  secondText = " & System Design",
 }: {
   firstText?: string;
   secondText?: string;
@@ -86,7 +86,7 @@ const HeadwindsPilot = () => {
     setTimeout(() => {
       const professionLength = "Full-stack".length;
       const newName = isMobile
-        ? names[2].substring(0, professionLength)
+        ? names[2].substring(0, 10)
         : names[2];
       setName(newName);
     }, 7000);
@@ -96,7 +96,7 @@ const HeadwindsPilot = () => {
   const secondProfessionText = isMobile ? "Data Viz" : "Data Visualization";
 
   return (
-    <Column customStyle={{ padding: 0, width: "100%", maxWidth: 580 }}>
+    <Column customStyle={{ padding: 0, width: "100%", maxWidth: 580, height: 100 }}>
       <Row customStyle={{ padding: 0, justifyContent: "space-between" }}>
         <>
           <div className="flex">
