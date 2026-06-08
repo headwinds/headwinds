@@ -286,7 +286,7 @@ const MobileSankeyDiagram = () => (
     <span className="text-[11px] font-medium text-[#6B6B6B] tracking-[3px]">
       SOLOSCOUT FUNNEL
     </span>
-    <p>The <a href="https://soloscout.net" target="_blank"><span className="underline">soloscout</span></a> platform is a community for introspective cozy game designers and storytellers.</p>
+    <p>The <a href="https://soloscout.net" target="_blank"><span className="underline">soloscout</span></a> platform is a community for introspective cozy game designers and storytellers. Only a $1B market disguised as a hobby (valued at ~$973M in 2024 and projected to hit $1.5B by 2032).</p>
     <h2 className="text-[28px] text-[#1A1A1A] -tracking-wide m-0">
       From Attention to Loyalty
     </h2>

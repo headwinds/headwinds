@@ -118,12 +118,12 @@ const AboutPage = () => {
             &ldquo;The hottest new programming language is English.&rdquo;{" "}
             —{" "}
             <a
-              href="https://x.com/rauchg/status/1901357103731847605"
+              href="https://x.com/karpathy/status/1617979122625712128"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[#1A1A1A] underline hover:no-underline"
             >
-              @rauchg
+              @karpathy
             </a>
           </p>
         </div>

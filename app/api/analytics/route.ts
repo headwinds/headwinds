@@ -3,6 +3,26 @@ import { BetaAnalyticsDataClient } from "@google-analytics/data";
 
 const PROPERTY_ID = process.env.GA4_PROPERTY_ID;
 
+function normalizeCredentials(credentials: any) {
+  if (!credentials || typeof credentials !== "object") return null;
+
+  const privateKey = credentials.private_key;
+  const normalized = {
+    type: "service_account",
+    token_uri: "https://oauth2.googleapis.com/token",
+    ...credentials,
+  };
+
+  if (typeof privateKey === "string") {
+    return {
+      ...normalized,
+      private_key: privateKey.replace(/\\n/g, "\n"),
+    };
+  }
+
+  return normalized;
+}
+
 function parseCredentialsFromEnv() {
   const credJson = process.env.GA4_SERVICE_ACCOUNT_JSON;
   const clientEmail = process.env.GA4_CLIENT_EMAIL;
@@ -10,12 +30,12 @@ function parseCredentialsFromEnv() {
 
   if (credJson) {
     try {
-      return JSON.parse(credJson);
+      return normalizeCredentials(JSON.parse(credJson));
     } catch {
       try {
         // Supports base64-encoded JSON for env-safe transport.
         const decoded = Buffer.from(credJson, "base64").toString("utf8");
-        return JSON.parse(decoded);
+        return normalizeCredentials(JSON.parse(decoded));
       } catch {
         return null;
       }

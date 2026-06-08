@@ -1,6 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 
 const UNSPLASH_ACCESS_KEY = process.env.UNSPLASH_ACCESS_KEY || "";
+const SCOUT_API_URL =
+  process.env.SCOUT_API_URL ||
+  process.env.SCOUT_API_URL_PROD ||
+  (process.env.NODE_ENV === "production"
+    ? "https://scout-222670816692.northamerica-northeast1.run.app"
+    : "http://localhost:8000");
 const cache = new Map<string, { url: string; expires: number }>();
 const CACHE_TTL_MS = 24 * 60 * 60 * 1000; // 24 hours
 
@@ -18,6 +24,26 @@ export async function GET(request: NextRequest) {
   const cached = cache.get(key);
   if (cached && Date.now() < cached.expires) {
     return NextResponse.json({ url: cached.url });
+  }
+
+  // Prefer Scout's Unsplash service so the key can be managed in one backend.
+  try {
+    const scoutRes = await fetch(`${SCOUT_API_URL}/api/unsplash`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ query }),
+    });
+
+    if (scoutRes.ok) {
+      const scoutData = await scoutRes.json();
+      const scoutUrl: string = scoutData?.data?.photo_url || "";
+      if (scoutUrl) {
+        cache.set(key, { url: scoutUrl, expires: Date.now() + CACHE_TTL_MS });
+        return NextResponse.json({ url: scoutUrl });
+      }
+    }
+  } catch {
+    // Fall through to local direct Unsplash API path.
   }
 
   if (!UNSPLASH_ACCESS_KEY) {

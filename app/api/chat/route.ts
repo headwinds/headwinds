@@ -1,7 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const SUMMARIZE_URL =
-  process.env.SCOUT_SUMMARIZE_URL || "http://127.0.0.1:5004";
+function getSummarizeUrl(): string {
+  return (
+    process.env.SCOUT_SUMMARIZE_URL ||
+    process.env.SCOUT_SUMMARY_API_URL_PROD ||
+    process.env.SCOUT_SUMMARIZE_API_URL ||
+    (process.env.NODE_ENV === "production"
+      ? "https://scout-summary.vercel.app"
+      : "http://127.0.0.1:5004")
+  );
+}
 
 const BRANDON_SYSTEM_PROMPT = `You are the AI assistant on Brandon Flowers' personal portfolio site headwinds.dev. You answer questions about Brandon specifically — the Toronto-based full-stack developer, NOT the musician.
 
@@ -129,7 +137,8 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const response = await fetch(`${SUMMARIZE_URL}/api/perplexity/chat`, {
+    const summarizeUrl = getSummarizeUrl();
+    const response = await fetch(`${summarizeUrl}/api/perplexity/chat`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
