@@ -7,6 +7,8 @@ const SCOUT_API_URL =
   (process.env.NODE_ENV === "production"
     ? "https://scout-222670816692.northamerica-northeast1.run.app"
     : "http://localhost:8000");
+const FALLBACK_IMAGE_URL =
+  "https://images.unsplash.com/photo-1504198266287-1659872e6590?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080";
 const cache = new Map<string, { url: string; expires: number }>();
 const CACHE_TTL_MS = 24 * 60 * 60 * 1000; // 24 hours
 
@@ -31,7 +33,7 @@ export async function GET(request: NextRequest) {
     const scoutRes = await fetch(`${SCOUT_API_URL}/api/unsplash`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ query }),
+      body: JSON.stringify({ query, category: "technology" }),
     });
 
     if (scoutRes.ok) {
@@ -42,15 +44,18 @@ export async function GET(request: NextRequest) {
         return NextResponse.json({ url: scoutUrl });
       }
     }
+
+    if (scoutRes.status === 404) {
+      cache.set(key, { url: FALLBACK_IMAGE_URL, expires: Date.now() + CACHE_TTL_MS });
+      return NextResponse.json({ url: FALLBACK_IMAGE_URL });
+    }
   } catch {
     // Fall through to local direct Unsplash API path.
   }
 
   if (!UNSPLASH_ACCESS_KEY) {
-    return NextResponse.json(
-      { error: "Unsplash API key not configured" },
-      { status: 503 }
-    );
+    cache.set(key, { url: FALLBACK_IMAGE_URL, expires: Date.now() + CACHE_TTL_MS });
+    return NextResponse.json({ url: FALLBACK_IMAGE_URL });
   }
 
   try {
