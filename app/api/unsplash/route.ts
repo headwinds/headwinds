@@ -7,8 +7,45 @@ const SCOUT_API_URL =
   (process.env.NODE_ENV === "production"
     ? "https://scout-222670816692.northamerica-northeast1.run.app"
     : "http://localhost:8000");
-const FALLBACK_IMAGE_URL =
-  "https://images.unsplash.com/photo-1504198266287-1659872e6590?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080";
+
+const BRAND_QUERY_HINTS: Record<string, string> = {
+  nintendo: "nintendo gaming console",
+  bmw: "bmw car dashboard",
+  microsoft: "microsoft office workspace",
+  ada: "customer support team software",
+  "247": "ai chatbot interface",
+  "247.ai": "ai chatbot interface",
+  labatt: "canadian brewery",
+  bacardi: "cocktail bar",
+  mitsubishi: "mitsubishi lancer car",
+  totaldrama: "animation character design",
+};
+
+function inferCategory(query: string): string {
+  const q = query.toLowerCase();
+  if (q.includes("nintendo") || q.includes("gaming") || q.includes("game")) {
+    return "gaming";
+  }
+  if (q.includes("music") || q.includes("dj") || q.includes("band")) {
+    return "music";
+  }
+  if (q.includes("bmw") || q.includes("mitsubishi") || q.includes("microsoft")) {
+    return "technology";
+  }
+  return "design";
+}
+
+function getSearchQuery(query: string): string {
+  const normalized = query.toLowerCase();
+  for (const key of Object.keys(BRAND_QUERY_HINTS)) {
+    if (normalized.includes(key)) return BRAND_QUERY_HINTS[key];
+  }
+  return query;
+}
+
+function getFallbackImageUrl(query: string): string {
+  return `https://source.unsplash.com/1600x900/?${encodeURIComponent(query)}`;
+}
 const cache = new Map<string, { url: string; expires: number }>();
 const CACHE_TTL_MS = 24 * 60 * 60 * 1000; // 24 hours
 
@@ -23,6 +60,9 @@ export async function GET(request: NextRequest) {
   }
 
   const key = query.toLowerCase();
+  const category = inferCategory(query);
+  const searchQuery = getSearchQuery(query);
+  const fallbackUrl = getFallbackImageUrl(searchQuery);
   const cached = cache.get(key);
   if (cached && Date.now() < cached.expires) {
     return NextResponse.json({ url: cached.url });
@@ -33,7 +73,7 @@ export async function GET(request: NextRequest) {
     const scoutRes = await fetch(`${SCOUT_API_URL}/api/unsplash`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ query, category: "technology" }),
+      body: JSON.stringify({ query: searchQuery, category }),
     });
 
     if (scoutRes.ok) {
@@ -46,16 +86,16 @@ export async function GET(request: NextRequest) {
     }
 
     if (scoutRes.status === 404) {
-      cache.set(key, { url: FALLBACK_IMAGE_URL, expires: Date.now() + CACHE_TTL_MS });
-      return NextResponse.json({ url: FALLBACK_IMAGE_URL });
+      cache.set(key, { url: fallbackUrl, expires: Date.now() + CACHE_TTL_MS });
+      return NextResponse.json({ url: fallbackUrl });
     }
   } catch {
     // Fall through to local direct Unsplash API path.
   }
 
   if (!UNSPLASH_ACCESS_KEY) {
-    cache.set(key, { url: FALLBACK_IMAGE_URL, expires: Date.now() + CACHE_TTL_MS });
-    return NextResponse.json({ url: FALLBACK_IMAGE_URL });
+    cache.set(key, { url: fallbackUrl, expires: Date.now() + CACHE_TTL_MS });
+    return NextResponse.json({ url: fallbackUrl });
   }
 
   try {
