@@ -1,7 +1,48 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const SUMMARIZE_URL =
-  process.env.SCOUT_SUMMARIZE_URL || "http://127.0.0.1:5004";
+function getSummarizeUrl(): string {
+  return (
+    process.env.SCOUT_SUMMARIZE_URL ||
+    process.env.SCOUT_SUMMARY_API_URL_PROD ||
+    process.env.SCOUT_SUMMARIZE_API_URL ||
+    (process.env.NODE_ENV === "production"
+      ? "https://scout-summary.vercel.app"
+      : "http://127.0.0.1:5004")
+  );
+}
+
+const PERPLEXITY_API_URL = "https://api.perplexity.ai/chat/completions";
+
+async function callPerplexityDirect(prompt: string) {
+  const apiKey = process.env.PERPLEXITY_API_KEY;
+  if (!apiKey) return null;
+
+  const response = await fetch(PERPLEXITY_API_URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${apiKey}`,
+    },
+    body: JSON.stringify({
+      model: "sonar-pro",
+      messages: [
+        { role: "system", content: BRANDON_SYSTEM_PROMPT },
+        { role: "user", content: prompt },
+      ],
+      temperature: 0.2,
+    }),
+  });
+
+  if (!response.ok) return null;
+  const data = await response.json();
+  const answer = data?.choices?.[0]?.message?.content;
+  if (typeof answer !== "string" || !answer.trim()) return null;
+
+  return {
+    answer,
+    citations: data?.citations ?? [],
+  };
+}
 
 const BRANDON_SYSTEM_PROMPT = `You are the AI assistant on Brandon Flowers' personal portfolio site headwinds.dev. You answer questions about Brandon specifically — the Toronto-based full-stack developer, NOT the musician.
 
@@ -63,6 +104,67 @@ const MAX_PROMPT_LENGTH = 1000;
 const FALLBACK_ANSWER =
   "I can help with Brandon's projects, skills, and work history. The live AI backend is temporarily unavailable, but you can still ask about React, React Native, Python, D3, AI/ML, and featured brand work like BMW, Ada, and 247.ai.";
 
+type BrandInsight = {
+  keywords: string[];
+  insight: string;
+};
+
+const BRAND_INSIGHTS: BrandInsight[] = [
+  {
+    keywords: ["bmw"],
+    insight:
+      "BMW: Brandon worked on car-configurator UI experiences and EV range data visualization, focusing on fast interaction design, clear tradeoff communication, and responsive React front-end architecture for high-traffic product exploration.",
+  },
+  {
+    keywords: ["ada", "ada support"],
+    insight:
+      "Ada Support: Brandon contributed to AI support platform UI, improving clarity and usability in workflows where agents and automation need to move quickly between customer context and recommended actions.",
+  },
+  {
+    keywords: ["247.ai", "247", "24/7"],
+    insight:
+      "247.ai: Brandon built NLP chatbot UI and predictive suggestions with decision-tree visualization, helping reduce ML model iteration time from about 3 months to roughly 1 week by tightening feedback loops between product and engineering.",
+  },
+  {
+    keywords: ["validere"],
+    insight:
+      "Validere: Brandon led frontend delivery for Carbon Hub dashboards (maps, charts, metric tiles, and tables) and helped ship their first React Native app, emphasizing trustworthy climate-data UX at enterprise scale.",
+  },
+  {
+    keywords: ["loblaws", "shoppers"],
+    insight:
+      "Loblaws Digital / Shoppers Drug Mart: Brandon spent 4 years building eCommerce flows with React and GraphQL, including high-visibility product detail experiences and backend monitoring tooling in Go/Python.",
+  },
+  {
+    keywords: ["prenuvo"],
+    insight:
+      "Prenuvo: Brandon worked on data visualization for AI-assisted radiology review, prioritizing readability, confidence cues, and clinician-friendly interaction patterns.",
+  },
+  {
+    keywords: ["gobolt"],
+    insight:
+      "GoBolt: Brandon built logistics-focused interfaces around delivery tracking and carbon metrics, combining React UI systems with distributed data flows to support operational decision-making.",
+  },
+  {
+    keywords: ["bacardi", "labatt", "nintendo", "mitsubishi", "total drama"],
+    insight:
+      "Brand campaign work: Brandon delivered interactive campaign UI across major consumer brands, balancing visual storytelling with production reliability and cross-device performance.",
+  },
+];
+
+function buildLocalInsight(prompt: string): string {
+  const normalized = prompt.toLowerCase();
+  const matches = BRAND_INSIGHTS.filter((item) =>
+    item.keywords.some((keyword) => normalized.includes(keyword))
+  );
+
+  if (matches.length === 0) {
+    return FALLBACK_ANSWER;
+  }
+
+  return matches.map((m) => m.insight).join(" ");
+}
+
 const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
 
 function cleanupExpiredEntries() {
@@ -92,6 +194,7 @@ function isRateLimited(ip: string): { limited: boolean; remaining: number } {
 }
 
 export async function POST(request: NextRequest) {
+  let promptText = "";
   try {
     const ip =
       request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
@@ -114,6 +217,7 @@ export async function POST(request: NextRequest) {
 
     const body = await request.json();
     const { prompt } = body as { prompt: string };
+    promptText = prompt ?? "";
 
     if (!prompt?.trim()) {
       return NextResponse.json(
@@ -129,7 +233,8 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const response = await fetch(`${SUMMARIZE_URL}/api/perplexity/chat`, {
+    const summarizeUrl = getSummarizeUrl();
+    const response = await fetch(`${summarizeUrl}/api/perplexity/chat`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -142,9 +247,18 @@ export async function POST(request: NextRequest) {
     if (!response.ok) {
       const text = await response.text();
       console.error("Summarize API error:", response.status, text);
+
+      const direct = await callPerplexityDirect(promptText);
+      if (direct) {
+        return NextResponse.json(direct, {
+          headers: { "X-RateLimit-Remaining": String(remaining) },
+        });
+      }
+
+      const localInsight = buildLocalInsight(promptText);
       return NextResponse.json(
         {
-          answer: FALLBACK_ANSWER,
+          answer: localInsight,
           citations: [],
         },
         {
@@ -170,9 +284,19 @@ export async function POST(request: NextRequest) {
     );
   } catch (err) {
     console.error("Chat API error:", err);
+
+    try {
+      const direct = await callPerplexityDirect(promptText);
+      if (direct) {
+        return NextResponse.json(direct);
+      }
+    } catch {
+      // Fall through to local fallback.
+    }
+
     return NextResponse.json(
       {
-        answer: FALLBACK_ANSWER,
+        answer: buildLocalInsight(promptText),
         citations: [],
       },
       { status: 200 }

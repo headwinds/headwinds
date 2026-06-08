@@ -102,7 +102,7 @@ const ContactPage = () => {
 
           {apiDown === true && (
             <div className="px-4 py-3 bg-[#E8D5C4] rounded-lg text-sm text-[#3D3D3D]">
-              The contact service is currently unavailable. Please try again later or email me directly at brandon@headwinds.net
+              The contact service is currently unavailable. Please try again later or email me directly at brandonflowers@gmail.com
             </div>
           )}
 
