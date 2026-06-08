@@ -106,7 +106,7 @@ const TimeSeriesHero: React.FC<TimeSeriesHeroProps> = ({
           {activeKey === "analytics" && (
             <span className="text-[11px] text-[#6B6B6B] tracking-[1px]">
               {gaStatus === "live"
-                ? "LIVE — Google Analytics (G-PEMG3PDD0R)"
+                ? "LIVE — Google Analytics"
                 : gaStatus === "loading"
                   ? "CONNECTING TO GA4..."
                   : "GA4 DATA UNAVAILABLE — SET GA4_PROPERTY_ID + GA4_SERVICE_ACCOUNT_JSON"}
