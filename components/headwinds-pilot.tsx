@@ -73,24 +73,25 @@ const HeadwindsPilot = () => {
   useEffect(() => {
     const startingName = isMobile ? names[0].substring(0, 9) : names[0];
     setName(startingName);
-  }, [breakpoint]);
+  }, [isMobile]);
 
   useEffect(() => {
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       const newName = isMobile ? names[1].substring(0, 7) : names[1];
       setName(newName);
     }, 4000);
-  }, [breakpoint]);
+
+    return () => clearTimeout(timer);
+  }, [isMobile]);
 
   useEffect(() => {
-    setTimeout(() => {
-      const professionLength = "Full-stack".length;
-      const newName = isMobile
-        ? names[2].substring(0, 10)
-        : names[2];
+    const timer = setTimeout(() => {
+      const newName = isMobile ? names[2].substring(0, 10) : names[2];
       setName(newName);
     }, 7000);
-  }, [breakpoint]);
+
+    return () => clearTimeout(timer);
+  }, [isMobile]);
 
   const uw = isMobile ? "UW" : "University of Waterloo";
   const secondProfessionText = isMobile ? "Data Viz" : "Data Visualization";

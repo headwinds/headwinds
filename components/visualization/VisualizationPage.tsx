@@ -7,6 +7,47 @@ import SankeyChart from "./SankeyChart";
 
 /* ── KPI sets per dataset ───────────────────────────────── */
 
+interface AnalyticsPoint {
+  date: string;
+  sessions: number;
+  users: number;
+  pageviews: number;
+}
+
+function computeAnalyticsKPIs(points: AnalyticsPoint[]): KPI[] {
+  if (!points.length) return kpiSets.analytics.map((k) => ({ ...k, value: "--", delta: "--" }));
+
+  const sorted = [...points].sort((a, b) => a.date.localeCompare(b.date));
+  const totalSessions = sorted.reduce((s, p) => s + p.sessions, 0);
+  const totalUsers = sorted.reduce((s, p) => s + p.users, 0);
+  const totalPageviews = sorted.reduce((s, p) => s + p.pageviews, 0);
+  const pagesPerSession = totalSessions > 0 ? totalPageviews / totalSessions : 0;
+
+  const recent = sorted.slice(-3);
+  const prior = sorted.slice(-6, -3);
+  const recentSessions = recent.reduce((s, p) => s + p.sessions, 0);
+  const priorSessions = prior.reduce((s, p) => s + p.sessions, 0);
+  const recentUsers = recent.reduce((s, p) => s + p.users, 0);
+  const priorUsers = prior.reduce((s, p) => s + p.users, 0);
+  const recentPageviews = recent.reduce((s, p) => s + p.pageviews, 0);
+  const priorPageviews = prior.reduce((s, p) => s + p.pageviews, 0);
+
+  const fmt = (n: number, prev: number) => {
+    if (prev === 0) return "–";
+    const pct = ((n - prev) / prev * 100).toFixed(1);
+    return `${Number(pct) >= 0 ? "+" : ""}${pct}% vs prior 3mo`;
+  };
+
+  const peak = sorted.reduce((max, p) => p.sessions > max.sessions ? p : max, sorted[0]);
+
+  return [
+    { value: totalSessions.toLocaleString(), metric: "Total Sessions", label: "ATTENTION", delta: fmt(recentSessions, priorSessions) },
+    { value: totalUsers.toLocaleString(), metric: "Unique Users", label: "REACH", delta: fmt(recentUsers, priorUsers) },
+    { value: totalPageviews.toLocaleString(), metric: "Pageviews", label: "ENGAGEMENT", delta: fmt(recentPageviews, priorPageviews) },
+    { value: pagesPerSession.toFixed(1), metric: "Pages / Session", label: "DEPTH", delta: `Peak: ${peak.date} (${peak.sessions} sessions)` },
+  ];
+}
+
 interface KPI {
   value: string;
   label: string;
@@ -145,9 +186,23 @@ const insights = [
   },
 ];
 
+const engagementScores: Record<string, number> = {
+  analytics: 82,
+  allbirds: 74,
+  whaling: 63,
+  salmon: 77,
+};
+
 /* ── Components ──────────────────────────────────────────── */
 
-const ClusterChart = () => (
+const ClusterChart = ({
+  engagementScore,
+}: {
+  engagementScore: number;
+}) => {
+  const [showScore, setShowScore] = useState(false);
+
+  return (
   <div className="bg-[#F3EBE2] rounded-2xl p-8 flex flex-col gap-3 flex-1 min-w-0">
     <span className="text-[11px] font-medium text-[#6B6B6B] tracking-[3px]">
       USER SEGMENTATION
@@ -156,9 +211,18 @@ const ClusterChart = () => (
       Behavioral Clusters
     </h2>
     <div className="relative w-full aspect-[2/1] bg-[#E8E2DA] rounded-xl overflow-hidden">
-      <span className="absolute bottom-2 right-3 text-[10px] text-[#6B6B6B] tracking-wide">
+      <button
+        type="button"
+        onClick={() => setShowScore((prev) => !prev)}
+        className="absolute bottom-2 right-3 text-[10px] text-[#6B6B6B] tracking-wide underline decoration-transparent hover:decoration-[#6B6B6B]"
+      >
         Engagement Score &rarr;
-      </span>
+      </button>
+      {showScore && (
+        <div className="absolute bottom-8 right-3 bg-[#1A1A1A] text-[#F3EBE2] text-[10px] px-2 py-1 rounded-md tracking-wide">
+          Score: {engagementScore}/100
+        </div>
+      )}
       <span className="absolute top-2 left-3 text-[10px] text-[#6B6B6B] tracking-wide">
         Revenue Potential &rarr;
       </span>
@@ -188,7 +252,8 @@ const ClusterChart = () => (
       ))}
     </div>
   </div>
-);
+  );
+};
 
 const ClusterLegend = () => (
   <div className="bg-[#F3EBE2] rounded-2xl p-8 flex flex-col gap-5 w-full md:w-72 md:shrink-0">
@@ -221,6 +286,7 @@ const MobileSankeyDiagram = () => (
     <span className="text-[11px] font-medium text-[#6B6B6B] tracking-[3px]">
       SOLOSCOUT FUNNEL
     </span>
+    <p>The <a href="https://soloscout.net" target="_blank"><span className="underline">soloscout</span></a> platform is a community for introspective cozy game designers and storytellers.</p>
     <h2 className="text-[28px] text-[#1A1A1A] -tracking-wide m-0">
       From Attention to Loyalty
     </h2>
@@ -264,7 +330,21 @@ const MobileSankeyDiagram = () => (
 
 const VisualizationPage = () => {
   const [activeKey, setActiveKey] = useState("analytics");
-  const kpis = kpiSets[activeKey] ?? kpiSets.analytics;
+  const [analyticsKPIs, setAnalyticsKPIs] = useState<KPI[]>(
+    kpiSets.analytics.map((k) => ({ ...k, value: "--", delta: "--" }))
+  );
+  const engagementScore = engagementScores[activeKey] ?? engagementScores.analytics;
+
+  useEffect(() => {
+    fetch("/api/analytics")
+      .then((r) => r.json())
+      .then((d) => {
+        if (d.points?.length) setAnalyticsKPIs(computeAnalyticsKPIs(d.points));
+      })
+      .catch(() => {});
+  }, []);
+
+  const kpis = activeKey === "analytics" ? analyticsKPIs : (kpiSets[activeKey] ?? kpiSets.analytics);
 
   return (
     <PageShell>
@@ -308,7 +388,7 @@ const VisualizationPage = () => {
 
       {/* Cluster Section */}
       <div className="flex flex-col md:flex-row gap-1.5">
-        <ClusterChart />
+        <ClusterChart engagementScore={engagementScore} />
         <ClusterLegend />
       </div>
 

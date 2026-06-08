@@ -146,12 +146,12 @@ const PageShell = ({ children }: { children: React.ReactNode }) => {
             LinkedIn
           </a>
           <a
-            href="https://twitter.com/headwinds"
+            href="https://x.com/headwinds"
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm text-[#8A8A8A] hover:text-[#F5F4F2] transition-colors"
           >
-            Twitter
+            X
           </a>
         </div>
       </div>

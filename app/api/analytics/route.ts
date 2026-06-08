@@ -3,16 +3,40 @@ import { BetaAnalyticsDataClient } from "@google-analytics/data";
 
 const PROPERTY_ID = process.env.GA4_PROPERTY_ID;
 
-function getClient(): BetaAnalyticsDataClient | null {
+function parseCredentialsFromEnv() {
   const credJson = process.env.GA4_SERVICE_ACCOUNT_JSON;
-  if (!credJson || !PROPERTY_ID) return null;
+  const clientEmail = process.env.GA4_CLIENT_EMAIL;
+  const privateKey = process.env.GA4_PRIVATE_KEY?.replace(/\\n/g, "\n");
 
-  try {
-    const credentials = JSON.parse(credJson);
-    return new BetaAnalyticsDataClient({ credentials });
-  } catch {
-    return null;
+  if (credJson) {
+    try {
+      return JSON.parse(credJson);
+    } catch {
+      try {
+        // Supports base64-encoded JSON for env-safe transport.
+        const decoded = Buffer.from(credJson, "base64").toString("utf8");
+        return JSON.parse(decoded);
+      } catch {
+        return null;
+      }
+    }
   }
+
+  if (clientEmail && privateKey) {
+    return {
+      client_email: clientEmail,
+      private_key: privateKey,
+    };
+  }
+
+  return null;
+}
+
+function getClient(): BetaAnalyticsDataClient | null {
+  if (!PROPERTY_ID) return null;
+  const credentials = parseCredentialsFromEnv();
+  if (!credentials) return null;
+  return new BetaAnalyticsDataClient({ credentials });
 }
 
 let cache: { data: unknown; ts: number } | null = null;

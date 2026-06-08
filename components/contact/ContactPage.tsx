@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PageShell from "@/components/layout/PageShell";
 import { getScoutDomain } from "@/utils/network-util";
 
@@ -12,6 +12,41 @@ const ContactPage = () => {
     "idle"
   );
   const [errorMsg, setErrorMsg] = useState("");
+  const [apiDown, setApiDown] = useState<boolean | null>(null); // null = checking
+
+  useEffect(() => {
+    const PING_KEY = "hwds_contact_ping_v1";
+    const pingAlreadySent = localStorage.getItem(PING_KEY) === "1";
+
+    if (!pingAlreadySent) {
+      // First visit: send a real test email — success proves the service is live
+      fetch(`${getScoutDomain()}/api/email/contact`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: "Visitor",
+          from_email: "ping@headwinds.dev",
+          message: "👋 Someone just visited your contact page.",
+        }),
+      })
+        .then((r) => {
+          if (r.ok) {
+            localStorage.setItem(PING_KEY, "1");
+            setApiDown(false);
+          } else {
+            setApiDown(true);
+          }
+        })
+        .catch(() => setApiDown(true));
+    } else {
+      // Repeat visit: lightweight health check only
+      fetch("/api/health", { cache: "no-store" })
+        .then((r) => setApiDown(!r.ok))
+        .catch(() => setApiDown(true));
+    }
+  }, []);
+
+  const isDisabled = status === "sending" || apiDown === true;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -40,9 +75,9 @@ const ContactPage = () => {
       setName("");
       setEmail("");
       setMessage("");
-    } catch (err) {
+    } catch {
       setStatus("error");
-      setErrorMsg(err instanceof Error ? err.message : "Something went wrong. Please try again.");
+      setErrorMsg("Please try again later.");
     }
   };
 
@@ -65,6 +100,12 @@ const ContactPage = () => {
             a line and I&apos;ll get back to you.
           </p>
 
+          {apiDown === true && (
+            <div className="px-4 py-3 bg-[#E8D5C4] rounded-lg text-sm text-[#3D3D3D]">
+              The contact service is currently unavailable. Please try again later or email me directly at brandon@headwinds.net
+            </div>
+          )}
+
           <div className="flex flex-col gap-2">
             <label className="text-sm font-medium text-[#1A1A1A]">Name</label>
             <input
@@ -73,7 +114,8 @@ const ContactPage = () => {
               onChange={(e) => setName(e.target.value)}
               placeholder="Your name"
               required
-              className="w-full h-12 px-4 bg-white rounded-lg border border-[#C5BEB6] text-sm text-[#1A1A1A] placeholder:text-[#6B6B6B] focus:outline-none focus:border-[#1A1A1A] transition-colors"
+              disabled={isDisabled}
+              className="w-full h-12 px-4 bg-white rounded-lg border border-[#C5BEB6] text-sm text-[#1A1A1A] placeholder:text-[#6B6B6B] focus:outline-none focus:border-[#1A1A1A] transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
             />
           </div>
 
@@ -85,7 +127,8 @@ const ContactPage = () => {
               onChange={(e) => setEmail(e.target.value)}
               placeholder="you@example.com"
               required
-              className="w-full h-12 px-4 bg-white rounded-lg border border-[#C5BEB6] text-sm text-[#1A1A1A] placeholder:text-[#6B6B6B] focus:outline-none focus:border-[#1A1A1A] transition-colors"
+              disabled={isDisabled}
+              className="w-full h-12 px-4 bg-white rounded-lg border border-[#C5BEB6] text-sm text-[#1A1A1A] placeholder:text-[#6B6B6B] focus:outline-none focus:border-[#1A1A1A] transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
             />
           </div>
 
@@ -99,16 +142,17 @@ const ContactPage = () => {
               placeholder="Tell me about your project..."
               required
               rows={5}
-              className="w-full px-4 py-3 bg-white rounded-lg border border-[#C5BEB6] text-sm text-[#1A1A1A] placeholder:text-[#6B6B6B] focus:outline-none focus:border-[#1A1A1A] transition-colors resize-none"
+              disabled={isDisabled}
+              className="w-full px-4 py-3 bg-white rounded-lg border border-[#C5BEB6] text-sm text-[#1A1A1A] placeholder:text-[#6B6B6B] focus:outline-none focus:border-[#1A1A1A] transition-colors resize-none disabled:opacity-40 disabled:cursor-not-allowed"
             />
           </div>
 
           <button
             type="submit"
-            disabled={status === "sending"}
-            className="w-fit px-10 py-3.5 bg-[#1A1A1A] text-[#F3EBE2] rounded-lg text-sm font-bold hover:bg-[#333] transition-colors disabled:opacity-50"
+            disabled={isDisabled}
+            className="w-fit px-10 py-3.5 bg-[#1A1A1A] text-[#F3EBE2] rounded-lg text-sm font-bold hover:bg-[#333] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            {status === "sending" ? "Sending..." : "Send Message"}
+            {status === "sending" ? "Sending..." : apiDown === null ? "Checking..." : "Send Message"}
           </button>
 
           {status === "sent" && (
@@ -141,8 +185,7 @@ const ContactPage = () => {
             </svg>
             <h3 className="text-lg text-[#1A1A1A] m-0">Email</h3>
             <p className="text-sm text-[#3D3D3D] m-0">
-              brandon@headwinds.net
-            </p>
+              brandonflowers@gmail.com            </p>
           </div>
 
           <div className="bg-[#C4CFDE] rounded-2xl p-8 flex flex-col gap-3">
