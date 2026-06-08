@@ -8,7 +8,7 @@ const Bolt = () => {
     config: { duration: 100 },
   }));
 
-  const flash = async () => {
+  const flash = React.useCallback(async () => {
     // Initial delay
     await new Promise((resolve) => setTimeout(resolve, 2000));
 
@@ -27,7 +27,7 @@ const Bolt = () => {
       to: flashSequence,
       config: { duration: 100 },
     });
-  };
+  }, [api]);
 
   // Apply brightness as a filter in the style
   const style = {
@@ -37,7 +37,7 @@ const Bolt = () => {
 
   React.useEffect(() => {
     flash();
-  }, []);
+  }, [flash]);
 
   return (
     <animated.div style={style}>

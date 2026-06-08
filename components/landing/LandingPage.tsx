@@ -16,11 +16,11 @@ const stats = [
 ];
 
 const interests = [
-  "React & React Native",
-  "D&D-Style Adventures",
-  "Data Visualization",
+  "React & Python",
+  "Data Visualization & Brand Design",
   "AI & Machine Learning",
-  "Art & Design",
+  "Environmental Conservation",
+  "Fantasy, Sci-fi, Sci-fan",
 ];
 
 const featuredProjects = [
@@ -202,7 +202,7 @@ const LandingPage = () => {
           <h1 className="text-3xl sm:text-5xl md:text-7xl font-normal text-[#1A1A1A] tracking-tight leading-none">
             Greenfield Director & Agentic Builder
             <br />
-            for AI Startups.
+            for companies seeking AI super powers.
           </h1>
           <p className="text-lg text-[#3D3D3D] leading-relaxed max-w-md">
             A creative developer who loves crafting beautiful digital
@@ -277,7 +277,7 @@ const LandingPage = () => {
         {/* Interests Card */}
         <div className="w-full md:w-[420px] bg-[#F3EBE2] rounded-2xl p-8 md:p-10 flex flex-col gap-5">
           <p className="text-[11px] font-medium text-[#6B6B6B] tracking-[3px]">
-            THINGS I LOVE
+            THINGS I 💛
           </p>
           <div className="flex flex-col gap-3">
             {interests.map((interest) => (

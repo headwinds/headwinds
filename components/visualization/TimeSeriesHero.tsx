@@ -109,7 +109,7 @@ const TimeSeriesHero: React.FC<TimeSeriesHeroProps> = ({
                 ? "LIVE — Google Analytics (G-PEMG3PDD0R)"
                 : gaStatus === "loading"
                   ? "CONNECTING TO GA4..."
-                  : "GA4 NOT CONFIGURED — SHOWING SAMPLE DATA"}
+                  : "GA4 DATA UNAVAILABLE — SET GA4_PROPERTY_ID + GA4_SERVICE_ACCOUNT_JSON"}
             </span>
           )}
         </div>

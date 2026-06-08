@@ -17,6 +17,15 @@ interface ChatResponse {
   thread_id: string | null;
 }
 
+function getCitationLabel(url: string, title?: string): string {
+  if (title?.trim()) return title;
+  try {
+    return new URL(url).hostname;
+  } catch {
+    return "source";
+  }
+}
+
 const SUGGESTIONS = [
   "What projects has Brandon built?",
   "What are his core skills?",
@@ -185,7 +194,7 @@ const LandingChatWidget = () => {
                           rel="noopener noreferrer"
                           className="text-[10px] px-2 py-0.5 rounded bg-[#333] text-[#888] hover:text-[#F5F4F2] transition-colors truncate max-w-[160px]"
                         >
-                          {c.title || new URL(c.url).hostname}
+                          {getCitationLabel(c.url, c.title)}
                         </a>
                       ))}
                     </div>
