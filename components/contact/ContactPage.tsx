@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from "react";
 import PageShell from "@/components/layout/PageShell";
-import { getScoutDomain } from "@/utils/network-util";
 
 const ContactPage = () => {
   const [name, setName] = useState("");
@@ -20,7 +19,7 @@ const ContactPage = () => {
 
     if (!pingAlreadySent) {
       // First visit: send a real test email — success proves the service is live
-      fetch(`${getScoutDomain()}/api/email/contact`, {
+      fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -60,7 +59,7 @@ const ContactPage = () => {
     }
 
     try {
-      const res = await fetch(`${getScoutDomain()}/api/email/contact`, {
+      const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, from_email: email, message }),

@@ -411,6 +411,7 @@ export default function BrandTrophyGrid() {
   const [brandImage, setBrandImage] = useState<string | null>(null);
   const [brandMetrics, setBrandMetrics] = useState<BrandMetrics | null>(null);
   const [isLoadingMetrics, setIsLoadingMetrics] = useState(false);
+  const [imageLoadError, setImageLoadError] = useState(false);
   const fetchedRef = useRef<string | null>(null);
 
   const closeModal = useCallback(() => {
@@ -418,6 +419,7 @@ export default function BrandTrophyGrid() {
     setBrandImage(null);
     setBrandMetrics(null);
     setIsLoadingMetrics(false);
+    setImageLoadError(false);
     fetchedRef.current = null;
   }, []);
 
@@ -428,6 +430,7 @@ export default function BrandTrophyGrid() {
     setIsLoadingMetrics(true);
     setBrandMetrics(null);
     setBrandImage(null);
+    setImageLoadError(false);
 
     fetch(`/api/unsplash?query=${encodeURIComponent(selectedBrand.label)}`)
       .then((r) => r.json())
@@ -540,12 +543,13 @@ export default function BrandTrophyGrid() {
               {/* Hero Image */}
               <div className="p-2 flex-shrink-0">
                 <div className="relative w-full aspect-[16/9] bg-[#EAE3DA]" style={{ borderRadius: 8, overflow: "hidden" }}>
-                  {brandImage ? (
+                  {brandImage && !imageLoadError ? (
                     <img
                       src={brandImage}
                       alt={selectedBrand.label}
                       className="absolute inset-0 w-full h-full object-cover"
                       style={{ borderRadius: 8 }}
+                      onError={() => setImageLoadError(true)}
                     />
                   ) : (
                     <>
