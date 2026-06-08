@@ -69,7 +69,7 @@ const SankeyChart: React.FC = () => {
         SOLOSCOUT FUNNEL
       </span>
 
-      <p className="text-sm text-[#3D3D3D] leading-relaxed m-0"><a href="https://soloscout.net" target="_blank"><span className="underline">soloscout.net</span></a> is a community platform for introspective "cozy game" designers and storytellers. Only a billion-dollar market disguised as a hobby. The cozy game market was valued at ~$973M in 2024 and projected to hit $1.5B by 2032</p>
+      <p className="text-sm text-[#3D3D3D] leading-relaxed m-0" style={{maxWidth: 700 }}><a href="https://soloscout.net" target="_blank"><span className="underline">soloscout.net</span></a> is a community platform for introspective "cozy game" designers and storytellers. Only a billion-dollar market disguised as a hobby. The cozy game market was valued at ~$973M in 2024 and projected to hit $1.5B by 2032.</p>
 
       <h2 className="text-[28px] text-[#1A1A1A] -tracking-wide m-0">
         From Attention to Loyalty
