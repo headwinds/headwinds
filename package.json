@@ -1,6 +1,7 @@
 {
   "name": "headwinds",
   "version": "0.1.2",
+  "packageManager": "pnpm@8.15.9",
   "private": true,
   "scripts": {
     "preinstall": "npx only-allow pnpm",

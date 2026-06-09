@@ -1,0 +1,1 @@
+https://www.bustle.com/articles/146000-how-to-wear-black-lipstick-like-kendall-jenner-without-looking-like-a-vampire-photos

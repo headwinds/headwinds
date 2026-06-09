@@ -15,7 +15,7 @@ const passions = [
   "AI & Machine Learning",
   "Rapid Prototyping",
   "RSS & Trend Tracking",
-  "D&D-style Adventures",
+  "RPG Adventures",
 ];
 
 const AboutPage = () => {

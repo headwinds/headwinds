@@ -41,12 +41,12 @@ const featuredProjects = [
     img: "/projects/247-cluster.png",
   },
   {
-    name: "Ada Support",
-    desc: "Predictive customer suggestions",
-    tech: "REACT · ML",
-    color: "#D5DCBA",
-    route: "/projects/ada",
-    img: "/projects/ada-predictions.png",
+    name: "Shoppers Drug Mart",
+    desc: "Full eCommerce UX and Downstream/Upstream Data Management",
+    tech: "REACT · GOLANG · GCP",
+    color: "#e9e6b7",
+    route: "/projects/shoppers-drug-mart",
+    img: "/projects/shoppers-drug-mart.png",
   },
 ];
 
@@ -205,9 +205,7 @@ const LandingPage = () => {
             for companies seeking AI super powers.
           </h1>
           <p className="text-lg text-[#3D3D3D] leading-relaxed max-w-md">
-            A creative developer who loves crafting beautiful digital
-            experiences, exploring art, and turning ideas into interactive
-            stories.
+            A fullstack developer who crafts rich interfaces powered by distributed system design, turning loose business ideas into tight data-driven experiences that monitor and optimize performance.
           </p>
           <Link
             href="/projects"
