@@ -77,20 +77,20 @@ export const brandInsightsData: Record<string, BrandMetrics> = {
     }
   },
   "mitsubishi": {
-    "ceo": "Unknown",
-    "stock_price": "Unknown",
+    "ceo": "Takao Kato",
+    "stock_price": "Mitsubishi Motors (7211.T) - live market quote",
     "latest_news": {
-      "title": "Unknown",
-      "url": "https://example.com"
+      "title": "Mitsubishi Motors reports FY2025 results and outlines growth strategy updates",
+      "url": "https://www.mitsubishi-motors.com/en/newsrelease/"
     },
     "sustainability": {
-      "title": "Unknown",
-      "url": "https://example.com"
+      "title": "Mitsubishi Motors publishes sustainability and decarbonization initiatives in latest ESG disclosures",
+      "url": "https://www.mitsubishi-motors.com/en/sustainability/"
     },
     "spirit_whale": {
-      "name": "Fin Whale 123",
+      "name": "Trouble",
       "species": "Fin Whale",
-      "fun_fact": "Fin whales are the second-largest animals on Earth, after blue whales."
+      "fun_fact": "Trouble is a well-documented North Atlantic fin whale identified through long-term photo ID and known for repeatedly returning to key feeding grounds."
     }
   },
   "home-depot": {
