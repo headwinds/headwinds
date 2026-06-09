@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback, useRef } from "react";
 import Link from "next/link";
+import { brandInsightsData, type BrandMetrics } from "./insights-data";
 
 const SPRITE_URL = "/headwinds_trophies.png";
 const COLS = 4;
@@ -33,14 +34,6 @@ interface BrandMeta {
   whaleSpecies: string;
   nudgeX?: number;
   nudgeY?: number;
-}
-
-interface BrandMetrics {
-  ceo: string;
-  stock_price: string;
-  latest_news: { title: string; url: string };
-  sustainability: { title: string; url: string };
-  spirit_whale: { name: string; species: string; fun_fact: string };
 }
 
 const BRANDS: BrandMeta[] = [
@@ -385,22 +378,6 @@ function shuffle<T>(arr: T[]): T[] {
   return a;
 }
 
-function buildBrandPrompt(brand: BrandMeta): string {
-  return `Return ONLY valid JSON (no markdown, no code fences, no explanation) with these fields for ${brand.label}: { "ceo": "current CEO full name", "stock_price": "current stock price with currency symbol, or 'Private' if not publicly traded", "latest_news": { "title": "a recent headline about the company", "url": "link to the article" }, "sustainability": { "title": "a recent sustainability or ESG headline", "url": "link to the article" }, "spirit_whale": { "name": "a real named individual ${brand.whaleSpecies} from research databases", "species": "${brand.whaleSpecies}", "fun_fact": "one sentence fun fact about this whale" } }`;
-}
-
-function parseMetrics(answer: string): BrandMetrics | null {
-  try {
-    const cleaned = answer.replace(/```json\s*/g, "").replace(/```\s*/g, "").trim();
-    const start = cleaned.indexOf("{");
-    const end = cleaned.lastIndexOf("}");
-    if (start === -1 || end === -1) return null;
-    return JSON.parse(cleaned.slice(start, end + 1));
-  } catch {
-    return null;
-  }
-}
-
 function truncate(text: string, max = 50): string {
   return text.length > max ? text.slice(0, max) + "…" : text;
 }
@@ -410,25 +387,19 @@ export default function BrandTrophyGrid() {
   const [selectedBrand, setSelectedBrand] = useState<BrandMeta | null>(null);
   const [brandImage, setBrandImage] = useState<string | null>(null);
   const [brandMetrics, setBrandMetrics] = useState<BrandMetrics | null>(null);
-  const [isLoadingMetrics, setIsLoadingMetrics] = useState(false);
   const [imageLoadError, setImageLoadError] = useState(false);
-  const fetchedRef = useRef<string | null>(null);
 
   const closeModal = useCallback(() => {
     setSelectedBrand(null);
     setBrandImage(null);
     setBrandMetrics(null);
-    setIsLoadingMetrics(false);
     setImageLoadError(false);
-    fetchedRef.current = null;
   }, []);
 
   useEffect(() => {
-    if (!selectedBrand || fetchedRef.current === selectedBrand.id) return;
-    fetchedRef.current = selectedBrand.id;
+    if (!selectedBrand) return;
 
-    setIsLoadingMetrics(true);
-    setBrandMetrics(null);
+    setBrandMetrics(brandInsightsData[selectedBrand.id] ?? null);
     setBrandImage(null);
     setImageLoadError(false);
 
@@ -436,19 +407,6 @@ export default function BrandTrophyGrid() {
       .then((r) => r.json())
       .then((d) => { if (d.url) setBrandImage(d.url); })
       .catch(() => {});
-
-    fetch("/api/chat", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ prompt: buildBrandPrompt(selectedBrand) }),
-    })
-      .then((r) => r.json())
-      .then((d) => {
-        const parsed = parseMetrics(d.answer || "");
-        if (parsed) setBrandMetrics(parsed);
-      })
-      .catch(() => {})
-      .finally(() => setIsLoadingMetrics(false));
   }, [selectedBrand]);
 
   useEffect(() => {
@@ -617,21 +575,10 @@ export default function BrandTrophyGrid() {
             <div
               className="w-[320px] flex flex-col gap-3 max-h-[90vh] overflow-y-auto transition-all duration-300 ease-out"
               style={{
-                opacity: isLoadingMetrics || brandMetrics ? 1 : 0,
-                transform: isLoadingMetrics || brandMetrics ? "translateX(0)" : "translateX(-16px)",
+                opacity: brandMetrics ? 1 : 0,
+                transform: brandMetrics ? "translateX(0)" : "translateX(-16px)",
               }}
             >
-              {isLoadingMetrics && !brandMetrics && (
-                <div className="bg-[#F3EBE2] rounded-2xl shadow-2xl p-6 flex items-center gap-2">
-                  <div className="flex gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#6B6B6B] animate-bounce [animation-delay:0ms]" />
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#6B6B6B] animate-bounce [animation-delay:150ms]" />
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#6B6B6B] animate-bounce [animation-delay:300ms]" />
-                  </div>
-                  <span className="text-xs text-[#6B6B6B]">Loading insights…</span>
-                </div>
-              )}
-
               {brandMetrics && (
                 <>
                   {/* Brand Insights Card */}
