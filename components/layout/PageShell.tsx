@@ -8,6 +8,7 @@ import { HeadwindsLogo } from "cross-country";
 const navLinks = [
   { href: "/about", label: "About" },
   { href: "/projects", label: "Projects" },
+  { href: "/rangers", label: "Rangers" },
   { href: "/journal", label: "Journal" },
   { href: "/wishlist", label: "Wishlist" },
   { href: "/visualization", label: "Visualization" },

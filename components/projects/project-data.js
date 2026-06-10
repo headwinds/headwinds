@@ -105,7 +105,7 @@ const identity = {
       team: 4,
       role: 'Lead UI',
       tech: 'React, Redux, Go, Postgres, GraphQL',
-      year: 2018,
+      year: 2020,
       localized: false,
       locked: false,
       route: "/shoppers-drug-mart",
