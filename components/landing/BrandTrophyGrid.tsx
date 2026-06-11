@@ -2,10 +2,15 @@
 
 import { useState, useEffect, useCallback, useRef } from "react";
 import Link from "next/link";
+import { AnimatePresence, motion } from "motion/react";
+import { BRANDS as INFOGRAPHIC_BRANDS } from "@/headwinds-infographics/brandData";
+import { brandInsightsData, type BrandMetrics } from "./insights-data";
 
 const SPRITE_URL = "/headwinds_trophies.png";
 const COLS = 4;
 const ROWS = 3;
+const INFOGRAPHIC_IMG_BASE = "/headwinds-infographics";
+const SHOW_SPRITE_CALIBRATOR = false;
 
 export type BrandId =
   | "nintendo"
@@ -33,14 +38,6 @@ interface BrandMeta {
   whaleSpecies: string;
   nudgeX?: number;
   nudgeY?: number;
-}
-
-interface BrandMetrics {
-  ceo: string;
-  stock_price: string;
-  latest_news: { title: string; url: string };
-  sustainability: { title: string; url: string };
-  spirit_whale: { name: string; species: string; fun_fact: string };
 }
 
 const BRANDS: BrandMeta[] = [
@@ -149,6 +146,104 @@ const BRANDS: BrandMeta[] = [
 ];
 
 const brandMap = new Map(BRANDS.map((b) => [b.id, b]));
+const infographicMap = new Map(INFOGRAPHIC_BRANDS.map((b) => [b.id, b]));
+
+const gridReveal = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.06,
+    },
+  },
+};
+
+const tileReveal = {
+  hidden: { opacity: 0, y: 20 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: "spring" as const,
+      stiffness: 220,
+      damping: 24,
+    },
+  },
+};
+
+function BrandInfographicTile({ brandId }: { brandId: BrandId }) {
+  const infographic = infographicMap.get(brandId);
+  if (!infographic) return null;
+
+  return (
+    <div className="h-full w-full bg-[#EAE3DA] border border-[#D8CEBF] p-2.5 flex flex-col gap-2 text-[#4F4D47]">
+      <header className="flex items-start gap-2 border-b border-[#D8CEBF] pb-2">
+        <span className="text-[10px] font-bold tracking-[0.1em] text-[#BBAE9E] leading-none pt-0.5">
+          {infographic.index}
+        </span>
+        <div className="min-w-0">
+          <p className="text-[14px] font-extrabold text-[#34322D] leading-tight truncate">
+            {infographic.name}
+          </p>
+          <p className="text-[9px] uppercase tracking-[0.18em] text-[#8A8579] mt-1 truncate">
+            {infographic.sector}
+          </p>
+        </div>
+      </header>
+
+      <div className="relative h-[38%] rounded-[4px] overflow-hidden bg-[#BBAE9E]">
+        <img
+          src={`${INFOGRAPHIC_IMG_BASE}/${infographic.image}`}
+          alt={infographic.imageAlt}
+          className="absolute inset-0 w-full h-full object-cover"
+          loading="lazy"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#34322D]/70 via-[#34322D]/35 to-transparent" />
+      </div>
+
+      <div className="border-b border-[#D8CEBF] pb-2">
+        <p className="text-[34px] md:text-[38px] leading-none font-extrabold tracking-tight text-[#34322D]">
+          {infographic.hero.value}
+        </p>
+        <p className="text-[12px] leading-tight text-[#8A8579] mt-1.5 line-clamp-2">
+          {infographic.hero.label}
+        </p>
+      </div>
+
+      <div className="grid grid-cols-3 gap-1.5 pt-1 border-t border-[#D8CEBF]">
+        {infographic.stats.map((stat) => (
+          <div key={stat.label} className="border-l-2 border-[#BBAE9E] pl-1 min-w-0">
+            <p className="text-[11px] font-extrabold leading-none text-[#34322D] truncate">
+              {stat.value}
+            </p>
+            <p className="text-[8px] leading-tight text-[#8A8579] mt-1 line-clamp-3">
+              {stat.label}
+            </p>
+          </div>
+        ))}
+      </div>
+
+      <p className="text-[10px] leading-relaxed text-[#4F4D47] line-clamp-4">
+        {infographic.narrative}
+      </p>
+
+      <footer className="mt-auto border-t border-[#D8CEBF] pt-1.5">
+        <div className="grid grid-cols-[3.6rem_1fr] gap-2 py-1 items-start border-b border-dotted border-[#D8CEBF]">
+          <span className="text-[8px] uppercase tracking-[0.14em] font-bold text-[#BBAE9E]">Agency</span>
+          <span className="text-[9px] leading-tight text-[#4F4D47] line-clamp-2">{infographic.agency}</span>
+        </div>
+        <div className="grid grid-cols-[3.6rem_1fr] gap-2 py-1 items-start border-b border-dotted border-[#D8CEBF]">
+          <span className="text-[8px] uppercase tracking-[0.14em] font-bold text-[#BBAE9E]">Award</span>
+          <span className="text-[9px] leading-tight text-[#4F4D47] line-clamp-2">{infographic.award}</span>
+        </div>
+        <div className="grid grid-cols-[3.6rem_1fr] gap-2 py-1 items-start">
+          <span className="text-[8px] uppercase tracking-[0.14em] font-bold text-[#BBAE9E]">Opinion</span>
+          <span className="text-[9px] leading-tight italic text-[#34322D] line-clamp-3">{infographic.reputation}</span>
+        </div>
+      </footer>
+    </div>
+  );
+}
 
 export function getBrand(id: BrandId): BrandMeta | undefined {
   return brandMap.get(id);
@@ -385,22 +480,6 @@ function shuffle<T>(arr: T[]): T[] {
   return a;
 }
 
-function buildBrandPrompt(brand: BrandMeta): string {
-  return `Return ONLY valid JSON (no markdown, no code fences, no explanation) with these fields for ${brand.label}: { "ceo": "current CEO full name", "stock_price": "current stock price with currency symbol, or 'Private' if not publicly traded", "latest_news": { "title": "a recent headline about the company", "url": "link to the article" }, "sustainability": { "title": "a recent sustainability or ESG headline", "url": "link to the article" }, "spirit_whale": { "name": "a real named individual ${brand.whaleSpecies} from research databases", "species": "${brand.whaleSpecies}", "fun_fact": "one sentence fun fact about this whale" } }`;
-}
-
-function parseMetrics(answer: string): BrandMetrics | null {
-  try {
-    const cleaned = answer.replace(/```json\s*/g, "").replace(/```\s*/g, "").trim();
-    const start = cleaned.indexOf("{");
-    const end = cleaned.lastIndexOf("}");
-    if (start === -1 || end === -1) return null;
-    return JSON.parse(cleaned.slice(start, end + 1));
-  } catch {
-    return null;
-  }
-}
-
 function truncate(text: string, max = 50): string {
   return text.length > max ? text.slice(0, max) + "…" : text;
 }
@@ -410,25 +489,22 @@ export default function BrandTrophyGrid() {
   const [selectedBrand, setSelectedBrand] = useState<BrandMeta | null>(null);
   const [brandImage, setBrandImage] = useState<string | null>(null);
   const [brandMetrics, setBrandMetrics] = useState<BrandMetrics | null>(null);
-  const [isLoadingMetrics, setIsLoadingMetrics] = useState(false);
   const [imageLoadError, setImageLoadError] = useState(false);
-  const fetchedRef = useRef<string | null>(null);
+  const [showInfographicTiles, setShowInfographicTiles] = useState(false);
+  const [hasTriggeredInfographics, setHasTriggeredInfographics] = useState(false);
+  const sectionRef = useRef<HTMLDivElement | null>(null);
 
   const closeModal = useCallback(() => {
     setSelectedBrand(null);
     setBrandImage(null);
     setBrandMetrics(null);
-    setIsLoadingMetrics(false);
     setImageLoadError(false);
-    fetchedRef.current = null;
   }, []);
 
   useEffect(() => {
-    if (!selectedBrand || fetchedRef.current === selectedBrand.id) return;
-    fetchedRef.current = selectedBrand.id;
+    if (!selectedBrand) return;
 
-    setIsLoadingMetrics(true);
-    setBrandMetrics(null);
+    setBrandMetrics(brandInsightsData[selectedBrand.id] ?? null);
     setBrandImage(null);
     setImageLoadError(false);
 
@@ -436,19 +512,6 @@ export default function BrandTrophyGrid() {
       .then((r) => r.json())
       .then((d) => { if (d.url) setBrandImage(d.url); })
       .catch(() => {});
-
-    fetch("/api/chat", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ prompt: buildBrandPrompt(selectedBrand) }),
-    })
-      .then((r) => r.json())
-      .then((d) => {
-        const parsed = parseMetrics(d.answer || "");
-        if (parsed) setBrandMetrics(parsed);
-      })
-      .catch(() => {})
-      .finally(() => setIsLoadingMetrics(false));
   }, [selectedBrand]);
 
   useEffect(() => {
@@ -488,13 +551,39 @@ export default function BrandTrophyGrid() {
     return () => window.removeEventListener("resize", handleResize);
   }, [getGridCount]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (hasTriggeredInfographics) return;
+
+      const section = sectionRef.current;
+      if (!section) return;
+
+      const sectionRect = section.getBoundingClientRect();
+      const sectionCenterY = sectionRect.top + sectionRect.height / 2;
+      const viewportCenterY = (window.innerHeight || 1) / 2;
+
+      if (sectionCenterY <= viewportCenterY) {
+        setShowInfographicTiles(true);
+        setHasTriggeredInfographics(true);
+      }
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
+  }, [hasTriggeredInfographics]);
+
   const gridCols = "grid-cols-2 sm:grid-cols-3 lg:grid-cols-4";
 
   const xPct = (brand: BrandMeta) => COLS > 1 ? (brand.col / (COLS - 1)) * 100 : 0;
   const yPct = (brand: BrandMeta) => ROWS > 1 ? (brand.row / (ROWS - 1)) * 100 : 0;
 
   return (
-    <div className="bg-[#F3EBE2] rounded-2xl p-8 md:p-12 flex flex-col gap-6">
+    <div ref={sectionRef} className="bg-[#F3EBE2] rounded-2xl p-8 md:p-12 flex flex-col gap-6">
       <div className="flex items-center justify-between">
         <p className="text-[11px] font-medium text-[#6B6B6B] tracking-[3px]">
           BRANDS I&apos;VE WORKED WITH
@@ -504,27 +593,61 @@ export default function BrandTrophyGrid() {
         </span>
       </div>
 
-      <div className={`grid ${gridCols} gap-2`}>
+      <motion.div
+        className={`grid ${gridCols} gap-2`}
+        variants={gridReveal}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.25 }}
+      >
         {visibleBrands.map((brand, i) => (
-          <div
+          <motion.div
             key={`${brand.id}-${i}`}
-            className="rounded-xl bg-[#EAE3DA] aspect-[23/18] overflow-hidden cursor-pointer group relative"
+            className="rounded-xl bg-[#EAE3DA] overflow-hidden cursor-pointer group relative"
             onClick={() => setSelectedBrand(brand)}
+            variants={tileReveal}
+            style={{ aspectRatio: showInfographicTiles ? "23 / 46" : "23 / 18" }}
+            animate={{ aspectRatio: showInfographicTiles ? "23 / 46" : "23 / 18" }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           >
-            <BrandTrophy brandId={brand.id} />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/70 via-[#1A1A1A]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3">
-              <p className="text-[10px] font-medium text-white/60 tracking-[2px] mb-0.5">
-                {brand.role.toUpperCase()}
-              </p>
-              <h4 className="text-sm font-semibold text-white leading-tight">
-                {brand.label}
-              </h4>
-            </div>
-          </div>
+            <AnimatePresence initial={false} mode="wait">
+              {showInfographicTiles ? (
+                <motion.div
+                  key={`infographic-${brand.id}`}
+                  className="absolute inset-0"
+                  initial={{ opacity: 0, y: -18 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 18 }}
+                  transition={{ duration: 0.36, delay: i * 0.04, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  <BrandInfographicTile brandId={brand.id} />
+                </motion.div>
+              ) : (
+                <motion.div
+                  key={`logo-${brand.id}`}
+                  className="absolute inset-0"
+                  initial={{ opacity: 0, y: -18 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 18 }}
+                  transition={{ duration: 0.36, delay: i * 0.03, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  <BrandTrophy brandId={brand.id} />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/70 via-[#1A1A1A]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3">
+                    <p className="text-[10px] font-medium text-white/60 tracking-[2px] mb-0.5">
+                      {brand.role.toUpperCase()}
+                    </p>
+                    <h4 className="text-sm font-semibold text-white leading-tight">
+                      {brand.label}
+                    </h4>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
 
-      <SpriteCalibrator />
+      {SHOW_SPRITE_CALIBRATOR && <SpriteCalibrator />}
 
       {/* Brand Modal */}
       {selectedBrand && (
@@ -617,21 +740,10 @@ export default function BrandTrophyGrid() {
             <div
               className="w-[320px] flex flex-col gap-3 max-h-[90vh] overflow-y-auto transition-all duration-300 ease-out"
               style={{
-                opacity: isLoadingMetrics || brandMetrics ? 1 : 0,
-                transform: isLoadingMetrics || brandMetrics ? "translateX(0)" : "translateX(-16px)",
+                opacity: brandMetrics ? 1 : 0,
+                transform: brandMetrics ? "translateX(0)" : "translateX(-16px)",
               }}
             >
-              {isLoadingMetrics && !brandMetrics && (
-                <div className="bg-[#F3EBE2] rounded-2xl shadow-2xl p-6 flex items-center gap-2">
-                  <div className="flex gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#6B6B6B] animate-bounce [animation-delay:0ms]" />
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#6B6B6B] animate-bounce [animation-delay:150ms]" />
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#6B6B6B] animate-bounce [animation-delay:300ms]" />
-                  </div>
-                  <span className="text-xs text-[#6B6B6B]">Loading insights…</span>
-                </div>
-              )}
-
               {brandMetrics && (
                 <>
                   {/* Brand Insights Card */}

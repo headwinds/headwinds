@@ -64,7 +64,7 @@ const TimeSeriesHero: React.FC<TimeSeriesHeroProps> = ({
   const datasets: TimeSeriesDataset[] = [
     liveAnalytics ?? staticDatasets[0],
     allbirdsData,
-    whalingData,
+    //whalingData,
     salmonData,
   ];
 

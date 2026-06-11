@@ -129,7 +129,10 @@ const LandingChatWidget = () => {
   const hasMessages = messages.length > 0;
 
   return (
-    <div className="flex-1 bg-[#1A1A1A] rounded-2xl flex flex-col max-h-[400px] overflow-hidden">
+    <div className="flex-1 bg-[#1A1A1A] rounded-2xl flex flex-col overflow-hidden" style={{
+      maxHeight: hasMessages ? "800px" : "400px",
+      transition: "max-height 0.3s ease-out",
+    }}>
       {/* Header */}
       <div className="px-6 pt-6 pb-3 flex-shrink-0">
         <p className="text-[11px] font-medium text-[#6B6B6B] tracking-[3px]">
@@ -145,14 +148,14 @@ const LandingChatWidget = () => {
               Ask me anything about Brandon&apos;s work, skills, or interests.
             </p>
             <ul className="list-none m-0 p-0 flex flex-wrap gap-2">
-              {SUGGESTIONS.map((s) => (
-                <li key={s}>
+              {SUGGESTIONS.map((suggestion) => (
+                <li key={suggestion}>
                   <button
-                    onClick={() => sendMessage(s)}
+                    onClick={() => sendMessage(suggestion)}
                     disabled={isSending}
                     className="px-3 py-2 rounded-full border border-[#333] bg-[#2A2A2A] text-sm text-[#AAAAAA] hover:border-[#C9A962] hover:text-[#F5F4F2] transition-colors disabled:opacity-50"
                   >
-                    {s}
+                    {suggestion}
                   </button>
                 </li>
               ))}
@@ -225,7 +228,7 @@ const LandingChatWidget = () => {
             onChange={(e) => setInputValue(e.target.value)}
             onKeyDown={handleKeyDown}
             onInput={handleInput}
-            placeholder="Ask me something..."
+            placeholder="Ask me something about design or development..."
             rows={1}
             disabled={isSending}
             className="flex-1 resize-none rounded-lg bg-[#2A2A2A] border border-[#333] text-[#F5F4F2] placeholder:text-[#5A5A5A] px-3 py-2.5 text-sm focus:outline-none focus:border-[#C9A962] disabled:opacity-50"

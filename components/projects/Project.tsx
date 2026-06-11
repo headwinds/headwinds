@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { theme } from "../theme/Theme";
+// import { theme } from "../theme/Theme";
 // import { drawColony } from "./drawColony";
-import { connect } from "react-redux";
+// import { connect } from "react-redux";
 import ProjectHeader from "./ProjectHeader";
 import SocialLinks from "./SocialLinks";
 import BMW from "./bmw/BMW";
@@ -19,9 +19,20 @@ import Labatt from "./labatt/Labatt";
 import Nintendo from "./nintendo/Nintendo";
 import WindProject from "./wind/WindProject";
 
-const containerStyle = theme.containerStyle;
+const containerStyle = {}; //theme.containerStyle;
 
-class Project extends Component {
+interface ProjectProps {
+  route: {
+    title: string;
+    project: string;
+  };
+  app?: any;
+  location?: any;
+  game?: any;
+  dispatch?: any;
+}
+
+class Project extends Component<ProjectProps> {
   constructor(props) {
     super(props);
 
@@ -77,16 +88,3 @@ class Project extends Component {
   }
 }
 
-const mapStateToProps = (state, ownProps) => ({
-  app: state.app,
-  location: ownProps.location,
-  game: state.game,
-});
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    dispatch,
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Project);

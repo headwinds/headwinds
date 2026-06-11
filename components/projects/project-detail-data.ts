@@ -9,11 +9,8 @@ export interface ProjectDetail {
 }
 
 const projectDetails: Record<string, ProjectDetail> = {
-  "/budding-data-scientist": {
-    paragraphs: [
-      "While searching through datasets on Kaggle, I discovered a fresh dataset covering over 20 years of US Wind Turbine production, and was pleasantly surprised to be the first to dive into this rich dataset.",
-      "Instead of predicting future production like I have done in other competitions, I wanted to explore production at the state level and discover if any states were approaching 100% self sufficiency similar to Scotland's tremendous achievement.",
-    ],
+  "/validere": {
+   paragraphs: [],
     links: [
       {
         label: "Data Visualization",

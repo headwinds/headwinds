@@ -20,21 +20,21 @@ const identity = {
   },
   projects: [
     {
-      name: 'US Wind Turbines',
+      name: 'Validere',
       description:
-        'Frontend Developer,UI Design & Data Visualization',
+        'Validere is a measurement and reporting company for carbon emissions. I worked on three main sections of their reporting app: the dashboard featuring charting components, key metrics, a data visualisation clustering thousands of facilities; forms with conditionally rendered fields; and workflows with branching task management. I also spearheaded the release of their first React Native application.',
       client: 'Energy',
-      company: 'Kaggle',
+      company: 'Validere',
       tags: 'security,file sharing, messaging',
       vertical: "Energy",
       duration: 25,
       team: 1,
-      role: 'Lead UI',
-      tech: 'Python',
+      role: 'Senior Fullstack Developer',
+      tech: 'React & Node',
       year: 2018,
       localized: false,
       locked: false,
-      route: "/budding-data-scientist",
+      route: "/validere",
       id: 1
     },
     /*
@@ -73,7 +73,7 @@ const identity = {
       locked: false,
       route: "/bio",
       id: 3
-    },*/
+    },
     {
       name: 'Patient Network',
       description:
@@ -90,6 +90,25 @@ const identity = {
       localized: false,
       locked: false,
       route: "/trioova",
+      id: 4
+    },
+    */
+    {
+      name: 'Shoppers Drug Mart',
+      description:
+        'Loblaw Companies Limited is one of the most successful and largest corporations in Canada. As part of the Shoppers Drug Mart team, I’ve helped build and maintain their eCommerce platform with React, GraphQL, and Go. I lead a small team of developers, writing frontend components, test automation with Playwright, and responsive UI from landing page to checkout, ensuring both the desktop and mobile experience was efficient and delighted the customers.',
+      client: 'Shoppers Drug Mart',
+      company: 'Loblaw Companies Limited',
+      tags: 'security,file sharing, messaging',
+      vertical: "Health",
+      duration: 4,
+      team: 4,
+      role: 'Lead UI',
+      tech: 'React, Redux, Go, Postgres, GraphQL',
+      year: 2020,
+      localized: false,
+      locked: false,
+      route: "/shoppers-drug-mart",
       id: 4
     },
     {

@@ -6,30 +6,9 @@ const paralinkStyle = theme.paralinkStyle;
 const WindProject = () => {
   return (
       <div>
-        <p>
-          While searching through datasets on Kaggle, I discovered a fresh dataset covering
-          over 20 years of US Wind Turbine production, and was pleasantly
-          surprised to be the first to dive into this rich dataset and results can be seen in this{' '}
-          <a
-            href="https://www.kaggle.com/headwinds/us-wind-turbines"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              ...paralinkStyle,
-              marginTop: 0,
-              marginBottom: 20,
-              pointerEvents: 'all',
-              cursor: 'pointer'
-            }}
-          >
-            Data Visualization.
-          </a></p>
-        <p>
-          Instead of predictiong future production like I have done in the other
-          competitions, I wanted to explore production at the state level and
-          discover if any states were approaching 100% self sufficiency similar
-          to Scotland{"'"}s tremendous achievement this year.
-        </p>
+   <p>While at Validere I lead the frontend development effort for their new Carbon Hub Home page producing the UI that orchestrates many components including Filter Panels, Cluster Maps, Charts, Metric Tiles and Data Tables that will all react to each other and update.</p> 
+   <p>Along with another developer, I also helped pioneer their first React-Native mobile app which we released in the 3 phrases beginning it version 3.0 over 6 months.</p>
+   <p>Validere measures carbon and methane gas across various industries with a current focus on Oil & Gas as well as Agriculture where we are exploring the best methods to collect and report on carbon sequestration.</p>
       </div>
   );
 };

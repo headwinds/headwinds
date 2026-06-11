@@ -21,7 +21,7 @@ import imgCamh from "@/components/projects/camh/camh.jpg";
 import imgMicrosoft from "@/components/projects/microsoft/microsoft.jpg";
 
 const projectImages: Record<string, any> = {
-  "/budding-data-scientist": imgWind,
+  "/validere": imgWind,
   "/toda": imgToda,
   "/bio": imgBio,
   "/trioova": imgTrioova,

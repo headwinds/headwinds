@@ -6,7 +6,7 @@ import identity from "@/components/projects/project-data";
 import PageShell from "@/components/layout/PageShell";
 import { useFilterMetrics } from "@/hooks/useFilterMetrics";
 
-import imgWind from "@/components/projects/wind/manufacturers.png";
+import imgWind from "@/components/projects/wind/validere.png";
 import img247 from "@/components/projects/247/cluster.png";
 import imgAda from "@/components/projects/ada/predictiveSuggestions.png";
 import imgTotalDrama from "@/components/projects/totaldrama/totaldrama.png";
@@ -20,12 +20,14 @@ import imgBio from "@/components/projects/bio/bio.jpg";
 import imgTrioova from "@/components/projects/trioova/trioova.jpg";
 import imgCamh from "@/components/projects/camh/camh.jpg";
 import imgMicrosoft from "@/components/projects/microsoft/microsoft.jpg";
+import imgShoppers from "@/components/projects/shoppers/shoppers.png";
 
 const projectImages: Record<string, any> = {
-  "/budding-data-scientist": imgWind,
+  "/validere": imgWind,
   "/toda": imgToda,
   "/bio": imgBio,
-  "/trioova": imgTrioova,
+  //"/trioova": imgTrioova,
+  "/shoppers-drug-mart": imgShoppers,
   "/camh": imgCamh,
   "/247": img247,
   "/ada": imgAda,
