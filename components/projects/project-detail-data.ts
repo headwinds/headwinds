@@ -10,14 +10,19 @@ export interface ProjectDetail {
 
 const projectDetails: Record<string, ProjectDetail> = {
   "/validere": {
-   paragraphs: [],
+   paragraphs: [
+      "Validere is a data analytics company that provides solutions for the oil and gas industry. I was hired as a senior frontend developer to build their new web application using React and TypeScript. I worked closely with the product team to design and implement new features, and also helped to improve the overall user experience of the application.",
+      "One of the key features I developed was a real-time data visualization dashboard that allows users to monitor their operations and make informed decisions. This feature was built using D3.js and provided a significant improvement in the user experience for our customers.",  
+   ],
     links: [
+      { label: "Validere", href: "https://www.validere.com" },
       {
         label: "Data Visualization",
         href: "https://www.kaggle.com/headwinds/us-wind-turbines",
       },
     ],
   },
+  /*
   "/toda": {
     paragraphs: [
       "Toda is a blockchain service which, along with a currency, can produce many secure file types like identities, art or virtual items. With a Toda file, you have full control over who can access that file and who you can share it with.",
@@ -35,6 +40,7 @@ const projectDetails: Record<string, ProjectDetail> = {
       },
     ],
   },
+  */
   "/bio": {
     paragraphs: [
       "I'm primarily a product-focused Frontend developer with more than 10 years of experience who works on complex UI problems that provide the best possible UX across multiple desktops and devices.",
@@ -43,6 +49,7 @@ const projectDetails: Record<string, ProjectDetail> = {
       "As a budding data scientist, I've also branched out into Machine Learning and can assemble a basic ML pipeline to perform predictions or recommendations. I'm fascinated by Natural Language Processing and produced several D3 and Python notebook data visualizations of customer intents and journey.",
     ],
   },
+  /*
   "/trioova": {
     paragraphs: [
       "QoC Health is an agency for health care clients. I joined as a senior developer and was promoted to team lead reporting to the CTO and mentoring a mix of 5 junior to intermediate developers.",
@@ -66,6 +73,18 @@ const projectDetails: Record<string, ProjectDetail> = {
     links: [
       { label: "QoC Health", href: "https://www.qochealth.com" },
       { label: "Thoughtspot", href: "https://mythoughtspot.ca/" },
+    ],
+  },
+  */
+   "/gobolt": {
+    paragraphs: [
+      "GoBolt is a logistics company that provides a platform for shippers and carriers to connect and manage their shipments.",
+      "I was hired as a senior frontend developer to build their new web application using React and TypeScript. I worked closely with the product team to design and implement new features, and also helped to improve the overall user experience of the application.",
+      "One of the key features I developed was a real-time tracking system that allows shippers to see the location of their shipments in real-time. This feature was built using WebSockets and provided a significant improvement in the user experience for our customers.", 
+    ],
+    links: [
+      { label: "GoBolt", href: "https://www.gobolt.com" },
+      { label: "Genesis Design System", href: "https://www.npmjs.com/package/@gobolt/genesis" },
     ],
   },
   "/247": {
@@ -106,6 +125,7 @@ const projectDetails: Record<string, ProjectDetail> = {
         label: "Total Drama Avatar Builder",
         href: "https://www.youtube.com/watch?v=wa0ToGv_QTw&t=43s",
       },
+      { label: "SagoSago", href: "https://www.sagosago.com" },
       { label: "Jason Krogh", href: "http://heythere.ca/interview/jason-krogh/" },
     ],
   },
@@ -116,6 +136,7 @@ const projectDetails: Record<string, ProjectDetail> = {
       "I managed a group of super talented developers and together we delivered an exceptional experience that moved users through 9 different timezones and showcased the new Mitsubishi Lancer in various interactive settings.",
     ],
     links: [
+      { label: "Mitsubishi", href: "https://www.mitsubishi-motors.com" },
       { label: "FWA", href: "https://thefwa.com/cases/lancer-earth" },
     ],
   },
@@ -123,6 +144,9 @@ const projectDetails: Record<string, ProjectDetail> = {
     paragraphs: [
       "In order to promote version 2 of the MSN search toolbar, we developed a quiz contest that would be played out in real-time over the course of 4 weeks.",
       "As their lead front-end architect, I worked with a team of designers and developers, and was mainly responsible for programming the game logic that relied on Flash/XML communication with ASP.NET. We also did some complex 1024-bit encryption to protect our users, and produced two versions in French and English.",
+    ],
+    links: [
+      { label: "Microsoft", href: "https://www.microsoft.com" },
     ],
   },
   "/bmw": {
@@ -134,6 +158,10 @@ const projectDetails: Record<string, ProjectDetail> = {
     ],
     links: [
       { label: "Blast Radius", href: "https://www.blastradius.com" },
+      {
+        label: "BMW",
+        href: "https://www.bmw.com",
+      },
       {
         label: "BMW Vision iNext",
         href: "https://design-milk.com/la-auto-show-bmw-vision-inext",
@@ -151,6 +179,7 @@ const projectDetails: Record<string, ProjectDetail> = {
         label: "Bacardi Unwrap the Night",
         href: "https://www.youtube.com/watch?v=HbNDDQ7YB6s",
       },
+      { label: "Bacardi", href: "https://www.bacardi.com" },
     ],
   },
   "/nintendo": {
@@ -163,12 +192,19 @@ const projectDetails: Record<string, ProjectDetail> = {
         label: "Wii Fit",
         href: "https://www.youtube.com/watch?v=-Taruqvk30E",
       },
+       {
+        label: "Nintendo",
+        href: "https://www.nintendo.com",
+      },
     ],
   },
   "/labatt": {
     paragraphs: [
       "I designed and developed this loyalty program for Labatt Call Centre Representatives who handle clients across the country.",
       "The system tracks their business goals and will remind them of their next steps and offer rewards based on their progress. I have been involved in three versions of this application moving it through Interaction Design cycles to a fully functional CRM.",
+    ],
+    links: [
+      { label: "Labatt", href: "https://www.labatt.com" },
     ],
   },
 };

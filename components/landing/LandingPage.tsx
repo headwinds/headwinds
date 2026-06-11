@@ -7,6 +7,7 @@ import { journalEntries } from "@/components/journal/journal-data";
 import PageShell from "@/components/layout/PageShell";
 import BrandTrophyGrid from "@/components/landing/BrandTrophyGrid";
 import LandingChatWidget from "@/components/landing/LandingChatWidget";
+//import ScrambleText from "@/components/scramble-text";
 
 const stats = [
   { value: "12+", label: "PROJECTS" },
@@ -200,9 +201,7 @@ const LandingPage = () => {
             HI, I&apos;M BRANDON
           </p>
           <h1 className="text-3xl sm:text-5xl md:text-7xl font-normal text-[#1A1A1A] tracking-tight leading-none">
-            Greenfield Director & Builder
-         
-           with AI super powers.
+            Greenfield Director & Builder with AI super powers.
           </h1>
           <p className="text-lg text-[#3D3D3D] leading-relaxed max-w-md">
             A fullstack developer who crafts rich interfaces powered by distributed system design, turning loose business ideas into tight data-driven experiences that monitor and optimize performance.

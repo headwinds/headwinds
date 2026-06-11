@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback, useRef } from "react";
 import Link from "next/link";
-import { AnimatePresence, motion } from "motion/react";
+import { motion } from "motion/react";
 import { BRANDS as INFOGRAPHIC_BRANDS } from "@/headwinds-infographics/brandData";
 import { brandInsightsData, type BrandMetrics } from "./insights-data";
 
@@ -64,6 +64,7 @@ const BRANDS: BrandMeta[] = [
     role: "UI Developer",
     desc: "Built interactive promotional experiences for EA Sports titles, working on front-end UI and animation.",
     tech: "Flash AS3",
+    route: "/projects/ea-sports",
     whaleSpecies: "Orca",
     nudgeX: 0.4, nudgeY: 1.8,
   },
@@ -72,6 +73,7 @@ const BRANDS: BrandMeta[] = [
     role: "UI Developer",
     desc: "Developed enterprise web applications for Lexmark's printing and imaging solutions platform.",
     tech: "JavaScript",
+    route: "/projects/lexmark",
     whaleSpecies: "Sperm Whale",
     nudgeX: 1.2, nudgeY: 1.6,
   },
@@ -89,6 +91,7 @@ const BRANDS: BrandMeta[] = [
     role: "UI Developer",
     desc: "Built interactive tools for The Home Depot's digital experience, helping customers explore products and plan projects online.",
     tech: "JavaScript",
+    route: "/projects/home-depot",
     whaleSpecies: "Grey Whale",
     nudgeX: 1, nudgeY: 3.7,
   },
@@ -117,6 +120,7 @@ const BRANDS: BrandMeta[] = [
     tech: "Flash AS2",
     whaleSpecies: "Beluga Whale",
     nudgeX: 1.1, nudgeY: 3.1,
+    route: "/projects/huggies",
   },
   {
     id: "chase", label: "Chase Manhattan", col: 1, row: 2,
@@ -125,6 +129,7 @@ const BRANDS: BrandMeta[] = [
     tech: "Flash AS2",
     whaleSpecies: "Sperm Whale",
     nudgeX: 1, nudgeY: 4,
+    route: "/projects/chase",
   },
   {
     id: "labatt", label: "Labatt", col: 2, row: 2,
@@ -142,11 +147,56 @@ const BRANDS: BrandMeta[] = [
     tech: "JavaScript",
     whaleSpecies: "Grey Whale",
     nudgeX: 1.3, nudgeY: 2,
+    route: "/projects/td-bank",
   },
 ];
 
 const brandMap = new Map(BRANDS.map((b) => [b.id, b]));
 const infographicMap = new Map(INFOGRAPHIC_BRANDS.map((b) => [b.id, b]));
+
+const MODAL_IMAGE_BY_BRAND: Record<BrandId, string> = {
+  nintendo: "/brands/modal_nintendo.png",
+  bmw: "/brands/modal_bmw.png",
+  "ea-sports": "/brands/modal_ea.png",
+  lexmark: "/brands/modal_lexmark.png",
+  mitsubishi: "/brands/modal_mitsubishi.png",
+  "home-depot": "/brands/modal_home.png",
+  bacardi: "/brands/modal_bacardi.png",
+  microsoft: "/brands/modal_microsoft.png",
+  huggies: "/brands/modal_huggies.png",
+  chase: "/brands/modal_chase.png",
+  labatt: "/brands/modal_labatt.png",
+  "td-bank": "/brands/modal_td.png",
+};
+
+const AGENCY_LINKS: Record<string, string> = {
+  "BBDO": "https://www.bbdo.com/",
+  "Dentsu (regional)": "https://www.dentsu.com/",
+  "Uncommon Creative Studio": "https://www.uncommon.london/",
+  "Anomaly": "https://www.anomaly.com/",
+  "FCB Canada": "https://www.fcb.com/",
+  "The Richards Group": "https://www.richards.com/",
+  "22squared": "https://22squared.com/",
+  "McCann": "https://www.mccannworldgroup.com/",
+  "m:united": "https://www.mccannworldgroup.com/",
+  "Serviceplan": "https://www.serviceplan.com/",
+  "Goodby Silverstein": "https://www.goodbysilverstein.com/",
+  "Ogilvy": "https://www.ogilvy.com/",
+  "VML": "https://www.vml.com/",
+  "Leo Burnett": "https://www.leoburnett.com/",
+  "in-house": "https://www.google.com/search?q=in-house+creative+team",
+  "Droga5": "https://droga5.com/",
+  "Leo Burnett Canada": "https://www.leoburnett.com/",
+};
+
+function agencyParts(agency: string): string[] {
+  return agency.split("/").map((part) => part.trim()).filter(Boolean);
+}
+
+function agencyLink(agencyName: string): string {
+  if (/^in-house/i.test(agencyName)) return "";
+  return AGENCY_LINKS[agencyName] ?? `https://www.google.com/search?q=${encodeURIComponent(`${agencyName} agency`)}`;
+}
 
 const gridReveal = {
   hidden: {},
@@ -171,16 +221,46 @@ const tileReveal = {
   },
 };
 
-function BrandInfographicTile({ brandId }: { brandId: BrandId }) {
+function BrandInfographicTile({ brandId, revealed, revealDelay = 0 }: { brandId: BrandId; revealed: boolean; revealDelay?: number }) {
   const infographic = infographicMap.get(brandId);
   if (!infographic) return null;
 
   return (
     <div className="h-full w-full bg-[#EAE3DA] border border-[#D8CEBF] p-2.5 flex flex-col gap-2 text-[#4F4D47]">
+      <div className="relative w-full aspect-[23/18] rounded-[4px] overflow-hidden bg-[#EAE3DA]">
+        <motion.div
+          className="absolute inset-0"
+          initial={false}
+          animate={{ opacity: revealed ? 0 : 1 }}
+          transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <BrandTrophy brandId={brandId} />
+        </motion.div>
+
+        <motion.div
+          className="absolute inset-0"
+          initial={false}
+          animate={{ opacity: revealed ? 1 : 0 }}
+          transition={{ duration: 0.45, delay: revealed ? revealDelay : 0, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <img
+            src={`${INFOGRAPHIC_IMG_BASE}/${infographic.image}`}
+            alt={infographic.imageAlt}
+            className="absolute inset-0 w-full h-full object-cover"
+            loading="lazy"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#34322D]/70 via-[#34322D]/35 to-transparent" />
+        </motion.div>
+      </div>
+
+      <motion.div
+        className="overflow-hidden flex flex-col gap-2"
+        initial={false}
+        animate={{ height: revealed ? "auto" : 0, opacity: revealed ? 1 : 0 }}
+        transition={{ duration: 0.55, delay: revealDelay, ease: [0.16, 1, 0.3, 1] }}
+      >
       <header className="flex items-start gap-2 border-b border-[#D8CEBF] pb-2">
-        <span className="text-[10px] font-bold tracking-[0.1em] text-[#BBAE9E] leading-none pt-0.5">
-          {infographic.index}
-        </span>
+    
         <div className="min-w-0">
           <p className="text-[14px] font-extrabold text-[#34322D] leading-tight truncate">
             {infographic.name}
@@ -190,16 +270,6 @@ function BrandInfographicTile({ brandId }: { brandId: BrandId }) {
           </p>
         </div>
       </header>
-
-      <div className="relative h-[38%] rounded-[4px] overflow-hidden bg-[#BBAE9E]">
-        <img
-          src={`${INFOGRAPHIC_IMG_BASE}/${infographic.image}`}
-          alt={infographic.imageAlt}
-          className="absolute inset-0 w-full h-full object-cover"
-          loading="lazy"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#34322D]/70 via-[#34322D]/35 to-transparent" />
-      </div>
 
       <div className="border-b border-[#D8CEBF] pb-2">
         <p className="text-[34px] md:text-[38px] leading-none font-extrabold tracking-tight text-[#34322D]">
@@ -223,14 +293,33 @@ function BrandInfographicTile({ brandId }: { brandId: BrandId }) {
         ))}
       </div>
 
-      <p className="text-[10px] leading-relaxed text-[#4F4D47] line-clamp-4">
+      <p className="text-[10px] leading-relaxed text-[#4F4D47] line-clamp-4" style={{ minHeight: 50 }} >
         {infographic.narrative}
       </p>
 
       <footer className="mt-auto border-t border-[#D8CEBF] pt-1.5">
         <div className="grid grid-cols-[3.6rem_1fr] gap-2 py-1 items-start border-b border-dotted border-[#D8CEBF]">
           <span className="text-[8px] uppercase tracking-[0.14em] font-bold text-[#BBAE9E]">Agency</span>
-          <span className="text-[9px] leading-tight text-[#4F4D47] line-clamp-2">{infographic.agency}</span>
+          <span className="text-[9px] leading-tight text-[#4F4D47] line-clamp-2">
+            {agencyParts(infographic.agency).map((agency, idx, arr) => (
+              <span key={`${infographic.id}-${agency}`}>
+                {agencyLink(agency) ? (
+                  <a
+                    href={agencyLink(agency)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline decoration-[#CBBFAE] underline-offset-[2px] hover:text-[#34322D] hover:decoration-[#9D8E79] transition-colors"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    {agency}
+                  </a>
+                ) : (
+                  <span>{agency}</span>
+                )}
+                {idx < arr.length - 1 ? " / " : ""}
+              </span>
+            ))}
+          </span>
         </div>
         <div className="grid grid-cols-[3.6rem_1fr] gap-2 py-1 items-start border-b border-dotted border-[#D8CEBF]">
           <span className="text-[8px] uppercase tracking-[0.14em] font-bold text-[#BBAE9E]">Award</span>
@@ -241,6 +330,7 @@ function BrandInfographicTile({ brandId }: { brandId: BrandId }) {
           <span className="text-[9px] leading-tight italic text-[#34322D] line-clamp-3">{infographic.reputation}</span>
         </div>
       </footer>
+      </motion.div>
     </div>
   );
 }
@@ -485,33 +575,32 @@ function truncate(text: string, max = 50): string {
 }
 
 export default function BrandTrophyGrid() {
-  const [visibleBrands, setVisibleBrands] = useState<BrandMeta[]>([]);
+  const getGridCount = useCallback(() => {
+    if (typeof window === "undefined") return 12;
+    const w = window.innerWidth;
+    if (w < 640) return 12;
+    if (w < 1024) return 8;
+    return 12;
+  }, []);
+
+  const [visibleBrands, setVisibleBrands] = useState<BrandMeta[]>(() =>
+    BRANDS.slice(0, 12)
+  );
   const [selectedBrand, setSelectedBrand] = useState<BrandMeta | null>(null);
-  const [brandImage, setBrandImage] = useState<string | null>(null);
   const [brandMetrics, setBrandMetrics] = useState<BrandMetrics | null>(null);
-  const [imageLoadError, setImageLoadError] = useState(false);
   const [showInfographicTiles, setShowInfographicTiles] = useState(false);
   const [hasTriggeredInfographics, setHasTriggeredInfographics] = useState(false);
   const sectionRef = useRef<HTMLDivElement | null>(null);
 
   const closeModal = useCallback(() => {
     setSelectedBrand(null);
-    setBrandImage(null);
     setBrandMetrics(null);
-    setImageLoadError(false);
   }, []);
 
   useEffect(() => {
     if (!selectedBrand) return;
 
     setBrandMetrics(brandInsightsData[selectedBrand.id] ?? null);
-    setBrandImage(null);
-    setImageLoadError(false);
-
-    fetch(`/api/unsplash?query=${encodeURIComponent(selectedBrand.label)}`)
-      .then((r) => r.json())
-      .then((d) => { if (d.url) setBrandImage(d.url); })
-      .catch(() => {});
   }, [selectedBrand]);
 
   useEffect(() => {
@@ -526,14 +615,6 @@ export default function BrandTrophyGrid() {
       window.removeEventListener("keydown", handleKey);
     };
   }, [selectedBrand, closeModal]);
-
-  const getGridCount = useCallback(() => {
-    if (typeof window === "undefined") return 6;
-    const w = window.innerWidth;
-    if (w < 640) return 12;
-    if (w < 1024) return 8;
-    return 12;
-  }, []);
 
   useEffect(() => {
     const count = getGridCount();
@@ -554,20 +635,16 @@ export default function BrandTrophyGrid() {
   useEffect(() => {
     const handleScroll = () => {
       if (hasTriggeredInfographics) return;
-
       const section = sectionRef.current;
       if (!section) return;
-
       const sectionRect = section.getBoundingClientRect();
       const sectionCenterY = sectionRect.top + sectionRect.height / 2;
       const viewportCenterY = (window.innerHeight || 1) / 2;
-
       if (sectionCenterY <= viewportCenterY) {
         setShowInfographicTiles(true);
         setHasTriggeredInfographics(true);
       }
     };
-
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     window.addEventListener("resize", handleScroll);
@@ -578,9 +655,6 @@ export default function BrandTrophyGrid() {
   }, [hasTriggeredInfographics]);
 
   const gridCols = "grid-cols-2 sm:grid-cols-3 lg:grid-cols-4";
-
-  const xPct = (brand: BrandMeta) => COLS > 1 ? (brand.col / (COLS - 1)) * 100 : 0;
-  const yPct = (brand: BrandMeta) => ROWS > 1 ? (brand.row / (ROWS - 1)) * 100 : 0;
 
   return (
     <div ref={sectionRef} className="bg-[#F3EBE2] rounded-2xl p-8 md:p-12 flex flex-col gap-6">
@@ -603,46 +677,16 @@ export default function BrandTrophyGrid() {
         {visibleBrands.map((brand, i) => (
           <motion.div
             key={`${brand.id}-${i}`}
-            className="rounded-xl bg-[#EAE3DA] overflow-hidden cursor-pointer group relative"
+            className="w-full rounded-xl bg-[#EAE3DA] overflow-hidden cursor-pointer relative"
             onClick={() => setSelectedBrand(brand)}
             variants={tileReveal}
-            style={{ aspectRatio: showInfographicTiles ? "23 / 46" : "23 / 18" }}
+            style={{ maxHeight: showInfographicTiles ? "620px" : "none" }}
             animate={{ aspectRatio: showInfographicTiles ? "23 / 46" : "23 / 18" }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.6, delay: i * 0.04, ease: [0.16, 1, 0.3, 1] }}
           >
-            <AnimatePresence initial={false} mode="wait">
-              {showInfographicTiles ? (
-                <motion.div
-                  key={`infographic-${brand.id}`}
-                  className="absolute inset-0"
-                  initial={{ opacity: 0, y: -18 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 18 }}
-                  transition={{ duration: 0.36, delay: i * 0.04, ease: [0.16, 1, 0.3, 1] }}
-                >
-                  <BrandInfographicTile brandId={brand.id} />
-                </motion.div>
-              ) : (
-                <motion.div
-                  key={`logo-${brand.id}`}
-                  className="absolute inset-0"
-                  initial={{ opacity: 0, y: -18 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 18 }}
-                  transition={{ duration: 0.36, delay: i * 0.03, ease: [0.16, 1, 0.3, 1] }}
-                >
-                  <BrandTrophy brandId={brand.id} />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/70 via-[#1A1A1A]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3">
-                    <p className="text-[10px] font-medium text-white/60 tracking-[2px] mb-0.5">
-                      {brand.role.toUpperCase()}
-                    </p>
-                    <h4 className="text-sm font-semibold text-white leading-tight">
-                      {brand.label}
-                    </h4>
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
+            <div className="absolute inset-0">
+              <BrandInfographicTile brandId={brand.id} revealed={showInfographicTiles} revealDelay={i * 0.04} />
+            </div>
           </motion.div>
         ))}
       </motion.div>
@@ -658,44 +702,23 @@ export default function BrandTrophyGrid() {
           <div className="absolute inset-0 bg-black/60 backdrop-blur-sm animate-[fadeIn_200ms_ease-out]" />
 
           <div
-            className="relative flex gap-3 max-h-[90vh] animate-[scaleIn_250ms_ease-out]"
+            className="relative flex flex-col md:flex-row gap-3 w-full max-w-[760px] max-h-[90vh] overflow-y-auto md:overflow-visible animate-[scaleIn_250ms_ease-out]"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Main Card */}
-            <div className="bg-[#F3EBE2] rounded-2xl w-[420px] shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
+            <div className="bg-[#F3EBE2] rounded-2xl w-full md:w-[420px] shadow-2xl overflow-hidden flex flex-col max-h-none md:max-h-[90vh] min-w-0">
               {/* Hero Image */}
               <div className="p-2 flex-shrink-0">
                 <div className="relative w-full aspect-[16/9] bg-[#EAE3DA]" style={{ borderRadius: 8, overflow: "hidden" }}>
-                  {brandImage && !imageLoadError ? (
-                    <img
-                      src={brandImage}
-                      alt={selectedBrand.label}
-                      className="absolute inset-0 w-full h-full object-cover"
-                      style={{ borderRadius: 8 }}
-                      onError={() => setImageLoadError(true)}
-                    />
-                  ) : (
-                    <>
-                      <div
-                        className="absolute inset-0"
-                        style={{
-                          backgroundImage: `url(${SPRITE_URL})`,
-                          backgroundSize: `${COLS * 100}% ${ROWS * 100}%`,
-                          backgroundPosition: `${xPct(selectedBrand)}% ${yPct(selectedBrand)}%`,
-                          backgroundRepeat: "no-repeat",
-                          filter: "brightness(1.3)",
-                          mixBlendMode: "multiply",
-                        }}
-                      />
-                      <div
-                        className="absolute inset-0"
-                        style={{
-                          backgroundColor: "rgb(188, 174, 158)",
-                          mixBlendMode: "lighten",
-                        }}
-                      />
-                    </>
-                  )}
+                  <motion.img
+                    src={MODAL_IMAGE_BY_BRAND[selectedBrand.id]}
+                    alt={selectedBrand.label}
+                    className="absolute inset-0 w-full h-full object-cover"
+                    style={{ borderRadius: 8 }}
+                    initial={{ filter: "grayscale(1)", opacity: 0.5 }}
+                    animate={{ filter: "grayscale(0)", opacity: 1 }}
+                    transition={{ delay: 1, duration: 2, ease: "easeOut" }}
+                  />
                   <button
                     onClick={closeModal}
                     className="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/50 hover:bg-black/70 text-white flex items-center justify-center transition-colors z-10"
@@ -738,7 +761,7 @@ export default function BrandTrophyGrid() {
 
             {/* Insights Slide-Out Panel */}
             <div
-              className="w-[320px] flex flex-col gap-3 max-h-[90vh] overflow-y-auto transition-all duration-300 ease-out"
+              className="w-full md:w-[320px] flex flex-col gap-3 max-h-none md:max-h-[90vh] overflow-y-visible md:overflow-y-auto transition-all duration-300 ease-out min-w-0"
               style={{
                 opacity: brandMetrics ? 1 : 0,
                 transform: brandMetrics ? "translateX(0)" : "translateX(-16px)",

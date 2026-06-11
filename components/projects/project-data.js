@@ -284,7 +284,116 @@ const identity = {
       locked: false,
       route: "/labatt",
       id: 13
-    }
+    },
+    {
+      name: 'The Home Depot Interactive Tools',
+      description:
+        'Built interactive tools for The Home Depot digital experience, helping customers explore products and plan projects online.',
+      client: 'The Home Depot',
+      company: 'Blast Radius',
+      tags: 'experience,retail,interactive',
+      duration: 4,
+      vertical: 'Retail',
+      team: 4,
+      role: 'UI',
+      tech: 'JavaScript',
+      api: 'None',
+      year: 2008,
+      locked: false,
+      route: '/home-depot',
+      id: 14
+    },
+    {
+      name: 'Lexmark Enterprise Platform',
+      description:
+        'Developed enterprise web applications for Lexmark printing and imaging solutions, with a focus on front-end UI and interaction patterns.',
+      client: 'Lexmark',
+      company: 'Blast Radius',
+      tags: 'enterprise,experience,ui',
+      duration: 4,
+      vertical: 'Enterprise',
+      team: 4,
+      role: 'UI',
+      tech: 'JavaScript',
+      api: 'None',
+      year: 2008,
+      locked: false,
+      route: '/lexmark',
+      id: 15
+    },
+    {
+      name: 'EA Sports Promotions',
+      description:
+        'Built interactive promotional experiences for EA Sports titles, delivering front-end UI and animation-heavy campaign work.',
+      client: 'EA Sports',
+      company: 'Blast Radius',
+      tags: 'experience,entertainment,gaming',
+      duration: 4,
+      vertical: 'Entertainment',
+      team: 4,
+      role: 'UI',
+      tech: 'Flash AS3',
+      api: 'None',
+      year: 2009,
+      locked: false,
+      route: '/ea-sports',
+      id: 16
+    },
+    {
+      name: 'Chase Digital Banking Tools',
+      description:
+        'Developed interactive financial tools and promotional web experiences for Chase Manhattan digital banking.',
+      client: 'Chase Manhattan',
+      company: 'Blast Radius',
+      tags: 'finance,experience,interactive',
+      duration: 4,
+      vertical: 'Financial',
+      team: 4,
+      role: 'UI',
+      tech: 'Flash AS2',
+      api: 'None',
+      year: 2007,
+      locked: false,
+      route: '/chase',
+      id: 17
+    },
+    {
+      name: 'Huggies Parent-Focused Experiences',
+      description:
+        'Created interactive campaign experiences for Huggies, focused on engaging new parents through digital content and storytelling.',
+      client: 'Huggies',
+      company: 'Blast Radius',
+      tags: 'experience,lifestyle,campaign',
+      duration: 4,
+      vertical: 'Lifestyle',
+      team: 4,
+      role: 'UI',
+      tech: 'Flash AS2',
+      api: 'None',
+      year: 2008,
+      locked: false,
+      route: '/huggies',
+      id: 18
+    },
+    {
+      name: 'TD Bank Online Promotions',
+      description:
+        'Built interactive digital banking tools and promotional experiences for TD Bank online initiatives.',
+      client: 'TD Bank',
+      company: 'Blast Radius',
+      tags: 'finance,experience,interactive',
+      duration: 4,
+      vertical: 'Financial',
+      team: 4,
+      role: 'UI',
+      tech: 'JavaScript',
+      api: 'None',
+      year: 2009,
+      locked: false,
+      route: '/td-bank',
+      id: 19
+    },
+    
   ]
 };
 

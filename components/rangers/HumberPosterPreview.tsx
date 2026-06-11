@@ -67,7 +67,8 @@ const HumberPosterPreview = () => {
     };
   }, []);
 
-  const ready = poster.status === "completed" && poster.imageUrl;
+  const posterImageUrl = poster.imageUrl ?? undefined;
+  const ready = poster.status === "completed" && Boolean(posterImageUrl);
   const selectedSize = printSizes.find((size) => size.id === sizeId) || printSizes[1];
 
   return (
@@ -89,7 +90,7 @@ const HumberPosterPreview = () => {
       <div className="relative overflow-hidden rounded-xl border border-[#D5CEC6] bg-[#EAE3DA] aspect-[4/3]">
         {ready ? (
           <img
-            src={poster.imageUrl}
+            src={posterImageUrl}
             alt="Humber River Old Mill map poster preview"
             className="h-full w-full object-contain"
           />
@@ -156,7 +157,7 @@ const HumberPosterPreview = () => {
         </Link>
         {ready ? (
           <a
-            href={poster.imageUrl || "#"}
+            href={posterImageUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex px-4 py-2 rounded-lg bg-[#EAE3DA] text-[#3D3D3D] text-sm no-underline hover:bg-[#EDE5DC] transition-colors"

@@ -48,8 +48,8 @@ const ProjectDetailPage = ({ slug }: ProjectDetailPageProps) => {
   if (!project) {
     return (
       <PageShell>
-        <div className="bg-[#F3EBE2] rounded-2xl p-12 text-center">
-          <h1 className="text-2xl font-normal text-[#1A1A1A] mb-4">
+        <div className="bg-[#F3EBE2] rounded-2xl p-6 md:p-12 text-center">
+          <h1 className="text-xl md:text-2xl font-normal text-[#1A1A1A] mb-4">
             Project not found
           </h1>
           <p className="text-sm text-[#6B6B6B] mb-6">
@@ -83,19 +83,19 @@ const ProjectDetailPage = ({ slug }: ProjectDetailPageProps) => {
       </div>
 
       {/* Title Row: Title Card + Image Tile */}
-      <div className="flex gap-1.5">
-        <div className="bg-[#F3EBE2] rounded-2xl p-12 flex flex-col gap-3" style={{ width: 895 }}>
+      <div className="flex flex-col lg:flex-row gap-1.5">
+        <div className="w-full lg:w-[895px] bg-[#F3EBE2] rounded-2xl p-6 md:p-12 flex flex-col gap-3 min-w-0">
           <p className="text-xs font-medium text-[#6B6B6B] tracking-[3px] uppercase">
             {project.client} · {category}
           </p>
-          <h1 className="text-4xl md:text-5xl font-normal text-[#1A1A1A] tracking-tight leading-tight">
+          <h1 className="text-3xl md:text-5xl font-normal text-[#1A1A1A] tracking-tight leading-tight">
             {project.name}
           </h1>
-          <p className="text-lg text-[#3D3D3D] leading-relaxed max-w-[800px]">
+          <p className="text-base md:text-lg text-[#3D3D3D] leading-relaxed max-w-[800px]">
             {project.description}
           </p>
         </div>
-        <div className="flex-1 rounded-2xl bg-[#C4CFDE] p-2">
+        <div className="w-full lg:flex-1 rounded-2xl bg-[#C4CFDE] p-2 min-h-[220px] md:min-h-[280px]">
           {heroImage ? (
             <img
               src={heroImage.src}
@@ -113,38 +113,38 @@ const ProjectDetailPage = ({ slug }: ProjectDetailPageProps) => {
       </div>
 
       {/* Metadata Row */}
-      <div className="flex gap-1.5">
-        <div className="flex-1 bg-[#F3EBE2] rounded-2xl p-6 flex flex-col gap-1">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-1.5">
+        <div className="bg-[#F3EBE2] rounded-2xl p-4 md:p-6 flex flex-col gap-1 min-w-0">
           <p className="text-[11px] font-medium text-[#6B6B6B] tracking-[2px] uppercase">
             Client
           </p>
-          <p className="text-lg text-[#1A1A1A]">{project.client}</p>
+          <p className="text-base md:text-lg text-[#1A1A1A]">{project.client}</p>
         </div>
-        <div className="flex-1 bg-[#F3EBE2] rounded-2xl p-6 flex flex-col gap-1">
+        <div className="bg-[#F3EBE2] rounded-2xl p-4 md:p-6 flex flex-col gap-1 min-w-0">
           <p className="text-[11px] font-medium text-[#6B6B6B] tracking-[2px] uppercase">
             Role
           </p>
-          <p className="text-lg text-[#1A1A1A]">{project.role}</p>
+          <p className="text-base md:text-lg text-[#1A1A1A]">{project.role}</p>
         </div>
-        <div className="flex-1 bg-[#F3EBE2] rounded-2xl p-6 flex flex-col gap-1">
+        <div className="bg-[#F3EBE2] rounded-2xl p-4 md:p-6 flex flex-col gap-1 min-w-0">
           <p className="text-[11px] font-medium text-[#6B6B6B] tracking-[2px] uppercase">
             Tech
           </p>
-          <p className="text-lg text-[#1A1A1A]">{project.tech || "—"}</p>
+          <p className="text-base md:text-lg text-[#1A1A1A]">{project.tech || "—"}</p>
         </div>
-        <div className="flex-1 bg-[#F3EBE2] rounded-2xl p-6 flex flex-col gap-1">
+        <div className="bg-[#F3EBE2] rounded-2xl p-4 md:p-6 flex flex-col gap-1 min-w-0">
           <p className="text-[11px] font-medium text-[#6B6B6B] tracking-[2px] uppercase">
             Year
           </p>
-          <p className="text-lg text-[#1A1A1A]">{project.year}</p>
+          <p className="text-base md:text-lg text-[#1A1A1A]">{project.year}</p>
         </div>
       </div>
 
       {/* Body Content */}
       {detail && (
-        <div className="bg-[#F3EBE2] rounded-2xl p-12 flex flex-col gap-6">
+        <div className="bg-[#F3EBE2] rounded-2xl p-6 md:p-12 flex flex-col gap-5 md:gap-6">
           {detail.paragraphs.map((text, i) => (
-            <p key={i} className="text-base text-[#3D3D3D] leading-relaxed">
+            <p key={i} className="text-[15px] md:text-base text-[#3D3D3D] leading-relaxed">
               {text}
             </p>
           ))}

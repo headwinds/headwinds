@@ -42,3 +42,4 @@ tsconfig.tsbuildinfo
 /blob-report/
 /playwright/.cache/
 .env*.local
+.env*

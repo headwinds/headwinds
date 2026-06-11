@@ -47,11 +47,11 @@ function requestKey(request: PosterRequest) {
 }
 
 function pruneCache(now: number) {
-  for (const [key, entry] of requestCache.entries()) {
+  requestCache.forEach((entry, key) => {
     if (now - entry.updatedAt > REQUEST_TTL_MS) {
       requestCache.delete(key);
     }
-  }
+  });
 }
 
 async function fetchStatus(taskId: string) {
@@ -186,7 +186,7 @@ export async function GET(request: NextRequest) {
     const status = await fetchStatus(taskId);
 
     const now = Date.now();
-    for (const [key, entry] of requestCache.entries()) {
+    requestCache.forEach((entry, key) => {
       if (entry.taskId === taskId) {
         if (status.status === "completed" && status.imageUrl) {
           requestCache.set(key, {
@@ -203,7 +203,7 @@ export async function GET(request: NextRequest) {
           });
         }
       }
-    }
+    });
 
     return NextResponse.json(status);
   } catch (error) {

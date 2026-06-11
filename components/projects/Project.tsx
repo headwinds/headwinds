@@ -33,7 +33,7 @@ interface ProjectProps {
 }
 
 class Project extends Component<ProjectProps> {
-  constructor(props) {
+  constructor(props: ProjectProps) {
     super(props);
 
     console.log("Project props: ", props);

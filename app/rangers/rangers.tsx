@@ -185,13 +185,21 @@ const Rangers = () => {
                     {hasMap && <RangersInteractiveMap />}
                     <p className="text-lg text-[#3D3D3D] leading-relaxed m-0 max-w-2xl">
                         A volunteer community restoring and protecting the Humber River in Toronto through recurring cleanups,
-                        water-health projects, and practical climate action.
+                        water-health projects, and practical climate action exploring  the cross-section of AI, design, and community engagement. Each year we'll celebrate the salmon migration with a special event to watch them return.
                     </p>
                 </div>
 
                 <div className="w-full lg:w-[420px] lg:shrink-0">
-                    {hasPosterGenerator && <HumberPosterPreview />}
+                    <img
+                        src="/humber_river_salmon_volunteers_promo_coyote_monogram.png"
+                        alt="Humber River Rangers in action, volunteers cleaning up the riverbank and testing water quality."
+                        className="rounded-2xl w-full h-auto object-cover border border-[#D5CEC6]"
+                    />
                 </div>
+
+                {hasPosterGenerator &&<div className="w-full lg:w-[420px] lg:shrink-0">
+                  <HumberPosterPreview />
+                </div>}
             </div>
 
             <div className="flex flex-col md:flex-row gap-1.5">
@@ -201,6 +209,11 @@ const Rangers = () => {
                         This project helps people get outside, build stronger local relationships, and contribute to environmental
                         outcomes that can be measured over time.
                     </p>
+                    <ul>
+                        <li className="text-sm text-[#3D3D3D] leading-relaxed m-0 list-disc">Regular river cleanups and stewardship events.</li>
+                        <li className="text-sm text-[#3D3D3D] leading-relaxed m-0 list-disc">Water quality testing and data sharing.</li>
+                        <li className="text-sm text-[#3D3D3D] leading-relaxed m-0 list-disc">AI-powered tools for cleanup coordination and ecological monitoring.</li>
+                    </ul>
                     <p className="text-sm text-[#3D3D3D] leading-relaxed m-0">
                         As we clean and test, we also talk about climate change and AI-powered tools that can support local
                         stewardship in practical ways.
