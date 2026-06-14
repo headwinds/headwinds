@@ -203,7 +203,7 @@ const LandingPage = () => {
           <h1 className="text-3xl sm:text-5xl md:text-7xl font-normal text-[#1A1A1A] tracking-tight leading-none">
             Greenfield Director & Builder with AI super powers.
           </h1>
-          <p className="text-lg text-[#3D3D3D] leading-relaxed max-w-md">
+          <p className="text-lg text-[#3D3D3D] leading-relaxed max-w-lg">
             A fullstack developer who crafts rich interfaces powered by distributed system design, turning loose business ideas into tight data-driven experiences that monitor and optimize performance.
           </p>
           <Link
@@ -228,7 +228,7 @@ const LandingPage = () => {
                     src={frame.img}
                     alt={frame.alt}
                     fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105 rounded-[10px]"
                     sizes={frame.colSpan === "col-span-2" ? "360px" : "180px"}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3">
@@ -315,7 +315,7 @@ const LandingPage = () => {
                   src={project.img}
                   alt={project.name}
                   fill
-                  className="object-cover"
+                  className="object-cover rounded-[15px] transition-transform duration-500 group-hover:scale-105"
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
               </div>

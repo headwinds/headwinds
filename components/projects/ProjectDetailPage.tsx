@@ -19,6 +19,7 @@ import imgBio from "@/components/projects/bio/bio.jpg";
 import imgTrioova from "@/components/projects/trioova/trioova.jpg";
 import imgCamh from "@/components/projects/camh/camh.jpg";
 import imgMicrosoft from "@/components/projects/microsoft/microsoft.jpg";
+import imgShoppersDrugMart from "@/components/projects/shoppers/shoppers.png";
 
 const projectImages: Record<string, any> = {
   "/validere": imgWind,
@@ -35,6 +36,7 @@ const projectImages: Record<string, any> = {
   "/bacardi": imgBacardi,
   "/nintendo": imgNintendo,
   "/labatt": imgLabatt,
+  "/shoppers-drug-mart": imgShoppersDrugMart,
 };
 
 interface ProjectDetailPageProps {
@@ -100,7 +102,7 @@ const ProjectDetailPage = ({ slug }: ProjectDetailPageProps) => {
             <img
               src={heroImage.src}
               alt={project.name}
-              className="w-full h-full object-cover rounded-lg"
+              className="w-full h-full object-cover rounded-[16px]"
             />
           ) : (
             <div className="w-full h-full flex items-center justify-center rounded-lg">
@@ -118,7 +120,9 @@ const ProjectDetailPage = ({ slug }: ProjectDetailPageProps) => {
           <p className="text-[11px] font-medium text-[#6B6B6B] tracking-[2px] uppercase">
             Client
           </p>
-          <p className="text-base md:text-lg text-[#1A1A1A]">{project.client}</p>
+          <p className="text-base md:text-lg text-[#1A1A1A]">
+            {project.client}
+          </p>
         </div>
         <div className="bg-[#F3EBE2] rounded-2xl p-4 md:p-6 flex flex-col gap-1 min-w-0">
           <p className="text-[11px] font-medium text-[#6B6B6B] tracking-[2px] uppercase">
@@ -130,7 +134,9 @@ const ProjectDetailPage = ({ slug }: ProjectDetailPageProps) => {
           <p className="text-[11px] font-medium text-[#6B6B6B] tracking-[2px] uppercase">
             Tech
           </p>
-          <p className="text-base md:text-lg text-[#1A1A1A]">{project.tech || "—"}</p>
+          <p className="text-base md:text-lg text-[#1A1A1A]">
+            {project.tech || "—"}
+          </p>
         </div>
         <div className="bg-[#F3EBE2] rounded-2xl p-4 md:p-6 flex flex-col gap-1 min-w-0">
           <p className="text-[11px] font-medium text-[#6B6B6B] tracking-[2px] uppercase">
@@ -144,7 +150,10 @@ const ProjectDetailPage = ({ slug }: ProjectDetailPageProps) => {
       {detail && (
         <div className="bg-[#F3EBE2] rounded-2xl p-6 md:p-12 flex flex-col gap-5 md:gap-6">
           {detail.paragraphs.map((text, i) => (
-            <p key={i} className="text-[15px] md:text-base text-[#3D3D3D] leading-relaxed">
+            <p
+              key={i}
+              className="text-[15px] md:text-base text-[#3D3D3D] leading-relaxed"
+            >
               {text}
             </p>
           ))}

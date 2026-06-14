@@ -104,6 +104,24 @@ const MAX_PROMPT_LENGTH = 1000;
 const FALLBACK_ANSWER =
   "I can help with Brandon's projects, skills, and work history. The live AI backend is temporarily unavailable, but you can still ask about React, React Native, Python, D3, AI/ML, and featured brand work like BMW, Ada, and 247.ai.";
 
+type ChatBlock =
+  | {
+      type: "text";
+      content: string;
+    }
+  | {
+      type: "metrics";
+      title: string;
+      metrics: { label: string; value: string; description?: string }[];
+    }
+  | {
+      type: "cta";
+      title: string;
+      description: string;
+      href: string;
+      label: string;
+    };
+
 type BrandInsight = {
   keywords: string[];
   insight: string;
@@ -152,8 +170,82 @@ const BRAND_INSIGHTS: BrandInsight[] = [
   },
 ];
 
+const CLIMATE_KEYWORDS = [
+  "climate",
+  "climate change",
+  "environment",
+  "sustainability",
+  "carbon",
+  "emissions",
+  "river",
+  "humber",
+  "salmon",
+  "conservation",
+  "eco",
+  "green",
+];
+
+function buildClimateInsight(prompt: string): string {
+  const normalized = prompt.toLowerCase();
+  const isClimateQuestion = CLIMATE_KEYWORDS.some((keyword) =>
+    normalized.includes(keyword)
+  );
+
+  if (!isClimateQuestion) {
+    return FALLBACK_ANSWER;
+  }
+
+  return [
+    "Brandon's climate-related work shows up in a few places:",
+    "",
+    "- **GoBolt**: built sustainability and logistics UI that helped surface carbon-offset and delivery-tracking information in a clearer way.",
+    "- **Validere**: led frontend work on carbon and methane measurement dashboards, including maps, charts, metric tiles, and data tables.",
+    "- **Humber River Rangers**: is building a community project around river cleanup, water testing, and climate action in Toronto.",
+    "- **Personal focus**: he has a stated interest in environmental conservation, salmon migration, and using software to support better climate outcomes.",
+  ].join("\n");
+}
+
+function buildClimateBlocks(): ChatBlock[] {
+  return [
+    {
+      type: "metrics",
+      title: "Climate-focused work",
+      metrics: [
+        {
+          label: "GoBolt",
+          value: "Sustainability UX",
+          description: "Delivery and carbon-offset tracking surfaced more clearly.",
+        },
+        {
+          label: "Validere",
+          value: "Carbon dashboards",
+          description: "Maps, charts, metric tiles, and data tables.",
+        },
+        {
+          label: "Humber",
+          value: "River stewardship",
+          description: "Cleanup, water testing, and climate action in Toronto.",
+        },
+      ],
+    },
+    {
+      type: "cta",
+      title: "Want to get involved?",
+      description:
+        "Join the Humber River Rangers or share interest in future climate projects.",
+      href: "/rangers",
+      label: "Open Humber River Rangers",
+    },
+  ];
+}
+
 function buildLocalInsight(prompt: string): string {
   const normalized = prompt.toLowerCase();
+
+  if (CLIMATE_KEYWORDS.some((keyword) => normalized.includes(keyword))) {
+    return buildClimateInsight(prompt);
+  }
+
   const matches = BRAND_INSIGHTS.filter((item) =>
     item.keywords.some((keyword) => normalized.includes(keyword))
   );
@@ -163,6 +255,26 @@ function buildLocalInsight(prompt: string): string {
   }
 
   return matches.map((m) => m.insight).join(" ");
+}
+
+function buildLocalResponse(prompt: string): { answer: string; blocks?: ChatBlock[] } {
+  const normalized = prompt.toLowerCase();
+
+  if (CLIMATE_KEYWORDS.some((keyword) => normalized.includes(keyword))) {
+    return {
+      answer: buildClimateInsight(prompt),
+      blocks: [
+        {
+          type: "text",
+          content:
+            "Brandon's climate-related work shows up across logistics, carbon measurement, and community stewardship.",
+        },
+        ...buildClimateBlocks(),
+      ],
+    };
+  }
+
+  return { answer: buildLocalInsight(prompt) };
 }
 
 const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
@@ -255,11 +367,12 @@ export async function POST(request: NextRequest) {
         });
       }
 
-      const localInsight = buildLocalInsight(promptText);
+      const localResponse = buildLocalResponse(promptText);
       return NextResponse.json(
         {
-          answer: localInsight,
+          answer: localResponse.answer,
           citations: [],
+          blocks: localResponse.blocks ?? [],
         },
         {
           headers: { "X-RateLimit-Remaining": String(remaining) },
@@ -272,6 +385,20 @@ export async function POST(request: NextRequest) {
       (typeof data.answer === "string" && data.answer) ||
       (typeof data.response === "string" && data.response) ||
       FALLBACK_ANSWER;
+
+    if (CLIMATE_KEYWORDS.some((keyword) => prompt.toLowerCase().includes(keyword))) {
+      const localResponse = buildLocalResponse(prompt);
+      return NextResponse.json(
+        {
+          answer: localResponse.answer,
+          citations: data.citations ?? [],
+          blocks: localResponse.blocks ?? [],
+        },
+        {
+          headers: { "X-RateLimit-Remaining": String(remaining) },
+        }
+      );
+    }
 
     return NextResponse.json(
       {

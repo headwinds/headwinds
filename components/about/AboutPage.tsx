@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import PageShell from "@/components/layout/PageShell";
+import PortholePreview from "./PortholePreview";
 
 const skills = [
   "React · React Native · Next.js · Node",
@@ -33,7 +34,9 @@ const AboutPage = () => {
             className="rounded-full object-cover"
           />
           <h2 className="text-2xl text-[#1A1A1A] m-0">Brandon Flowers</h2>
-          <p className="text-sm text-[#6B6B6B] m-0">Full-stack Engineer, Naturalist</p>
+          <p className="text-sm text-[#6B6B6B] m-0">
+            Full-stack Engineer, Naturalist
+          </p>
           <p className="text-sm text-[#6B6B6B] m-0">Toronto, Canada</p>
         </div>
 
@@ -51,8 +54,8 @@ const AboutPage = () => {
               </h1>
               <p className="text-lg text-[#3D3D3D] leading-relaxed m-0 max-w-xl">
                 I 💛 solving complex customer journeys, building automation,
-                scheduling reports, and crafting UI rich with metrics, charts, and
-                insights.
+                scheduling reports, and crafting UI rich with metrics, charts,
+                and insights.
               </p>
             </div>
             <Image
@@ -79,10 +82,26 @@ const AboutPage = () => {
           </h3>
           <p className="text-sm text-[#3D3D3D] leading-relaxed m-0">
             As a new founder, I was excited to launch the next generation of
-            human-centric AI-powered companies. They have an ambitious plan to launch 50 in 5 years and are well on track to realize this vision.
+            human-centric AI-powered companies. They have an ambitious plan to
+            launch 50 in 5 years and are well on track to realize this vision.
           </p>
-          <p className="text-sm text-[#3D3D3D] leading-relaxed m-0">At AXL, they pitch that "anyone is a founder" and I believe in that philosophy deeply. When I join a company I pour myself into to work and collaborate with the team to build solutions that will drive success.</p>
-          <p className="text-sm text-[#3D3D3D] leading-relaxed m-0">I was able to contribute to several key projects that significantly impacted the company's growth, most notably a multi-tenant platform that monitors application for performance, errors, and AI usage. It leveraged a RAG backend that I wrote in Python using the vector storage capabilities of Postgres for efficient data retrieval and analysis. In order to ensure RAG was accurate and reliable, I implemented rigorous testing and validation processes to review and annotate the data.  Along with RAG, I used a reasoning LLM to perform a 5 step evaluation loop to arrive at the best possible answer. </p>
+          <p className="text-sm text-[#3D3D3D] leading-relaxed m-0">
+            At AXL, they pitch that "anyone is a founder" and I believe in that
+            philosophy deeply. When I join a company I pour myself into to work
+            and collaborate with the team to build solutions that will drive
+            success.
+          </p>
+          <p className="text-sm text-[#3D3D3D] leading-relaxed m-0">
+            I was able to contribute to several key projects that significantly
+            impacted the company's growth, most notably a multi-tenant platform
+            that monitors application for performance, errors, and AI usage. It
+            leveraged a RAG backend that I wrote in Python using the vector
+            storage capabilities of Postgres for efficient data retrieval and
+            analysis. In order to ensure RAG was accurate and reliable, I
+            implemented rigorous testing and validation processes to review and
+            annotate the data. Along with RAG, I used a reasoning LLM to perform
+            a 5 step evaluation loop to arrive at the best possible answer.{" "}
+          </p>
         </div>
         <div className="w-full md:w-[400px] bg-[#F3EBE2] rounded-2xl p-8 md:p-10 flex flex-col gap-6 md:shrink-0">
           <p className="text-[11px] font-medium text-[#6B6B6B] tracking-[3px] m-0">
@@ -106,17 +125,14 @@ const AboutPage = () => {
           </div>
 
           <div className="flex flex-col gap-1">
-            <h3 className="text-xl text-[#1A1A1A] m-0">
-              Comp Sci &amp; AI
-            </h3>
+            <h3 className="text-xl text-[#1A1A1A] m-0">Comp Sci &amp; AI</h3>
             <p className="text-sm text-[#6B6B6B] m-0">
               School of Life · 2001–present
             </p>
           </div>
 
           <p className="text-xs text-[#6B6B6B] leading-relaxed m-0 pt-2 border-t border-[#D0D0D0]">
-            &ldquo;The hottest new programming language is English.&rdquo;{" "}
-            —{" "}
+            &ldquo;The hottest new programming language is English.&rdquo; —{" "}
             <a
               href="https://x.com/karpathy/status/1617979122625712128"
               target="_blank"
@@ -155,19 +171,36 @@ const AboutPage = () => {
 
       {/* Porthole Card */}
       <div className="bg-[#C4CFDE] rounded-2xl px-8 md:px-12 py-8 md:py-10 flex flex-col gap-5">
-        <p className="text-[11px] font-medium text-[#3D3D3D] tracking-[3px] m-0">
-          SIDE PROJECT
-        </p>
-        <h3 className="text-2xl text-[#1A1A1A] m-0">Porthole</h3>
-        <p className="text-lg text-[#3D3D3D] leading-relaxed m-0">
-          Ever since the death of Google Reader, I&apos;ve been tracking trends
-          across over 50 feeds covering design, technology, architecture, gaming
-          and sports in a personal project called Porthole.
-        </p>
-        <p className="text-lg text-[#3D3D3D] leading-relaxed m-0">This is <a href="https://x.com/headwinds/status/2063963767835144429" target="_blank" rel="noopener noreferrer"><span className="underline">the latest announcement</span></a> shipping v0.9.44</p>
-      </div>
+        <div className="flex flex-col md:flex-row gap-6 md:gap-8">
+          <div className="flex-1">
+            <p className="text-[11px] font-medium text-[#3D3D3D] tracking-[3px] m-0 mb-2">
+              SIDE PROJECT
+            </p>
+            <h3 className="text-2xl text-[#1A1A1A] m-0">Porthole</h3>
 
-      
+            <p className="text-lg text-[#3D3D3D] leading-relaxed m-0 max-w-2xl mb-4">
+              Ever since the death of Google Reader, I&apos;ve been tracking
+              trends across over 50 feeds covering design, technology,
+              architecture, gaming and sports in a personal project called
+              Porthole.
+            </p>
+            <p className="text-lg text-[#3D3D3D] leading-relaxed m-0">
+              This is{" "}
+              <a
+                href="https://x.com/headwinds/status/2063963767835144429"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span className="underline">the latest announcement</span>
+              </a>{" "}
+              shipping v0.9.44
+            </p>
+          </div>
+          <div className="w-full md:w-auto">
+            <PortholePreview />
+          </div>
+        </div>
+      </div>
     </PageShell>
   );
 };

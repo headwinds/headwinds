@@ -60,7 +60,7 @@ const thumbColors = [
 const verticalToCategory: Record<string, string> = {
   Entertainment: "Entertainment",
   Health: "Health",
-  Financial: "Finance",
+  //Financial: "Finance",
   Automotive: "Automotive",
   Lifestyle: "Food & Beverage",
   Energy: "Energy",
@@ -70,7 +70,7 @@ const filterCategories = [
   "All",
   "Entertainment",
   "Health",
-  "Finance",
+  //"Finance",
   "Automotive",
   "Food & Beverage",
   "Energy",
@@ -105,9 +105,7 @@ const ProjectsGrid = () => {
       ? projects.filter((p: any) => !projectBlacklist.includes(p.client))
       : projects
           .filter((p: any) => !projectBlacklist.includes(p.client))
-          .filter(
-            (p: any) => getProjectCategory(p.vertical) === selected
-          );
+          .filter((p: any) => getProjectCategory(p.vertical) === selected);
 
   return (
     <PageShell>
@@ -117,13 +115,12 @@ const ProjectsGrid = () => {
           PROJECTS
         </p>
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-normal text-[#1A1A1A] tracking-tight leading-tight">
-          Work across brands, startups,
+          Work across startups and enterprise.
           <br />
-          and personal experiments.
         </h1>
         <p className="text-base md:text-lg text-[#3D3D3D] leading-relaxed">
-          {projects.length} projects spanning interactive 3D, data
-          visualization, AI platforms, mobile apps, and more.
+          12 projects spanning interactive 3D, data visualization, AI platforms,
+          mobile apps, and more.
         </p>
       </div>
 
@@ -183,7 +180,9 @@ const ProjectsGrid = () => {
               <p className="text-[11px] font-medium text-[#6B6B6B] tracking-[2px] uppercase">
                 {project.client}
               </p>
-              <h3 className="text-lg md:text-xl text-[#1A1A1A]">{project.name}</h3>
+              <h3 className="text-lg md:text-xl text-[#1A1A1A]">
+                {project.name}
+              </h3>
               <p className="text-sm text-[#3D3D3D] leading-relaxed line-clamp-3">
                 {project.description}
               </p>

@@ -134,7 +134,9 @@ const JournalEntry = ({ entry }: JournalEntryProps) => {
 
       {/* Content */}
       <div className="border-t border-[#D5CEC6] pt-6 max-w-2xl">
-        {renderContent(entry.content)}
+        {typeof entry.content === "string"
+          ? renderContent(entry.content)
+          : entry.content}
       </div>
 
       {/* Tags */}

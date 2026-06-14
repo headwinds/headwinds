@@ -9,12 +9,32 @@ interface ChatMessage {
   role: "user" | "assistant";
   content: string;
   citations: { url: string; title?: string }[];
+  blocks?: ChatBlock[];
 }
+
+type ChatBlock =
+  | {
+      type: "text";
+      content: string;
+    }
+  | {
+      type: "metrics";
+      title: string;
+      metrics: { label: string; value: string; description?: string }[];
+    }
+  | {
+      type: "cta";
+      title: string;
+      description: string;
+      href: string;
+      label: string;
+    };
 
 interface ChatResponse {
   answer: string;
   citations: { url: string; title?: string }[];
   thread_id: string | null;
+  blocks?: ChatBlock[];
 }
 
 function getCitationLabel(url: string, title?: string): string {
@@ -26,10 +46,146 @@ function getCitationLabel(url: string, title?: string): string {
   }
 }
 
+function stripCitationMarkers(text: string): string {
+  return text.replace(/\[\d+\]/g, "").trim();
+}
+
+const markdownComponents: Record<string, any> = {
+  p: ({ children }: any) => (
+    <p className="text-sm text-[#F5F4F2] leading-[1.125rem] my-2 mb-4">
+      {children}
+    </p>
+  ),
+  strong: ({ children }: any) => (
+    <strong className="text-[#F5F4F2] font-semibold">{children}</strong>
+  ),
+  em: ({ children }: any) => (
+    <em className="italic">{children}</em>
+  ),
+  a: ({ href, children }: any) => (
+    <a href={href} className="text-[#C9A962] underline hover:opacity-80" target="_blank" rel="noopener noreferrer">
+      {children}
+    </a>
+  ),
+  h1: ({ children }: any) => (
+    <h1 className="text-xl text-[#F5F4F2] font-semibold mt-6 mb-3">
+      {children}
+    </h1>
+  ),
+  h2: ({ children }: any) => (
+    <h2 className="text-lg text-[#F5F4F2] font-semibold mt-6 mb-3">
+      {children}
+    </h2>
+  ),
+  h3: ({ children }: any) => (
+    <h3 className="text-base text-[#F5F4F2] font-semibold mt-6 mb-3">
+      {children}
+    </h3>
+  ),
+  ul: ({ children }: any) => (
+    <ul className="list-disc list-inside text-sm text-[#F5F4F2] leading-relaxed my-4 space-y-1">
+      {children}
+    </ul>
+  ),
+  ol: ({ children }: any) => (
+    <ol className="list-decimal list-inside text-sm text-[#F5F4F2] leading-relaxed my-4 space-y-1">
+      {children}
+    </ol>
+  ),
+  li: ({ children }: any) => (
+    <li className="ml-2">{children}</li>
+  ),
+  blockquote: ({ children }: any) => (
+    <blockquote className="border-l-4 border-[#444] pl-4 py-2 my-4 text-sm text-[#AAAAAA] italic">
+      {children}
+    </blockquote>
+  ),
+  code: ({ children, className }: any) => {
+    const isBlock = className?.includes("language-");
+    if (isBlock) {
+      return (
+        <code className={`${className} bg-[#0A0A0A] text-[#F5F4F2] rounded p-1 font-mono text-xs`}>
+          {children}
+        </code>
+      );
+    }
+    return (
+      <code className="bg-[#333] text-[#F5F4F2] px-2 py-1 rounded-md font-mono text-xs">
+        {children}
+      </code>
+    );
+  },
+  pre: ({ children }: any) => (
+    <pre className="bg-[#0A0A0A] text-[#F5F4F2] p-4 rounded-lg overflow-x-auto my-4 font-mono text-xs leading-relaxed">
+      {children}
+    </pre>
+  ),
+  hr: () => (
+    <hr className="border-0 border-t border-[#333] my-6" />
+  ),
+};
+
+function MetricsBlock({
+  title,
+  metrics,
+}: Extract<ChatBlock, { type: "metrics" }>) {
+  return (
+    <div className="mt-3 rounded-xl border border-[#D5CEC6] bg-[#F3EBE2] p-3">
+      <p className="text-[11px] font-medium text-[#6B6B6B] tracking-[3px] uppercase m-0 mb-3">
+        {title}
+      </p>
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+        {metrics.map((metric) => (
+          <div key={metric.label} className="rounded-lg bg-[#EAE3DA] border border-[#D5CEC6] p-3">
+            <p className="text-[11px] text-[#6B6B6B] tracking-[2px] uppercase m-0">
+              {metric.label}
+            </p>
+            <p className="text-base text-[#1A1A1A] font-medium m-0 mt-1">
+              {metric.value}
+            </p>
+            {metric.description && (
+              <p className="text-xs text-[#8A8A8A] leading-relaxed m-0 mt-2">
+                {metric.description}
+              </p>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function CtaBlock({
+  title,
+  description,
+  href,
+  label,
+}: Extract<ChatBlock, { type: "cta" }>) {
+  return (
+    <div className="mt-3 rounded-xl border border-[#D5CEC6] bg-[#F3EBE2] p-3">
+      <p className="text-[11px] font-medium text-[#6B6B6B] tracking-[3px] uppercase m-0">
+        {title}
+      </p>
+      <p className="text-sm text-[#3D3D3D] leading-relaxed m-0 mt-2">
+        {description}
+      </p>
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex mt-3 px-3 py-2 rounded-lg bg-[#C9A962] text-[#1A1A1A] text-sm font-medium no-underline hover:opacity-90 transition-opacity"
+      >
+        {label}
+      </a>
+    </div>
+  );
+}
+
 const SUGGESTIONS = [
-  "What projects has Brandon built?",
-  "What are his core skills?",
+  "What projects has he lead?",
+  "How has he proven his full-stack chops?",
   "Tell me about his AI work",
+  "What has he done about Climate Change?",
 ];
 
 const LandingChatWidget = () => {
@@ -37,6 +193,7 @@ const LandingChatWidget = () => {
   const [threadId, setThreadId] = useState<string | null>(null);
   const [isSending, setIsSending] = useState(false);
   const [inputValue, setInputValue] = useState("");
+  const [expandedCitations, setExpandedCitations] = useState<Set<string>>(new Set());
   const scrollRef = useRef<HTMLDivElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
@@ -93,6 +250,7 @@ const LandingChatWidget = () => {
             role: "assistant",
             content: data.answer,
             citations: data.citations,
+            blocks: data.blocks,
           },
         ]);
       } catch {
@@ -183,25 +341,92 @@ const LandingChatWidget = () => {
                       {msg.content}
                     </p>
                   ) : (
-                    <div className="text-sm prose prose-sm prose-invert max-w-none break-words prose-p:my-1 prose-headings:my-2 prose-headings:text-[#F5F4F2] prose-strong:text-[#F5F4F2] prose-a:text-[#C9A962]">
-                      <ReactMarkdown>{msg.content}</ReactMarkdown>
-                    </div>
+                    <>
+                      <div className="text-sm leading-[1.125rem] max-w-none break-words">
+                        <ReactMarkdown components={markdownComponents}>{stripCitationMarkers(msg.content)}</ReactMarkdown>
+                      </div>
+
+                      {msg.blocks?.length ? (
+                        <div className="not-prose mt-5 space-y-4">
+                          {msg.blocks.map((block, index) => {
+                            if (block.type === "text") {
+                              return (
+                                <p
+                                  key={`block-text-${index}`}
+                                  className="text-sm text-[#F5F4F2] leading-[1.125rem] m-0"
+                                >
+                                  {block.content}
+                                </p>
+                              );
+                            }
+
+                            if (block.type === "metrics") {
+                              return (
+                                <MetricsBlock
+                                  key={`block-metrics-${index}`}
+                                  {...block}
+                                />
+                              );
+                            }
+
+                            if (block.type === "cta") {
+                              return (
+                                <CtaBlock
+                                  key={`block-cta-${index}`}
+                                  {...block}
+                                />
+                              );
+                            }
+
+                            return null;
+                          })}
+                        </div>
+                      ) : null}
+                    </>
                   )}
-                  {msg.role === "assistant" && msg.citations.length > 0 && (
-                    <div className="mt-2 pt-2 border-t border-[#333] flex flex-wrap gap-1">
-                      {msg.citations.slice(0, 3).map((c, i) => (
-                        <a
-                          key={i}
-                          href={c.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-[10px] px-2 py-0.5 rounded bg-[#333] text-[#888] hover:text-[#F5F4F2] transition-colors truncate max-w-[160px]"
+                  {msg.role === "assistant" && msg.citations.length > 0 && (() => {
+                    const meaningfulCitations = msg.citations.filter(
+                      (c) => getCitationLabel(c.url, c.title) !== "source"
+                    );
+                    const isExpanded = expandedCitations.has(msg.id);
+                    const toggleExpanded = () => {
+                      setExpandedCitations((prev) => {
+                        const next = new Set(prev);
+                        if (next.has(msg.id)) {
+                          next.delete(msg.id);
+                        } else {
+                          next.add(msg.id);
+                        }
+                        return next;
+                      });
+                    };
+                    return meaningfulCitations.length > 0 ? (
+                      <div className="mt-4 pt-3 border-t border-[#333]">
+                        <button
+                          onClick={toggleExpanded}
+                          className="flex items-center gap-2 text-[11px] text-[#AAAAAA] hover:text-[#F5F4F2] transition-colors font-medium tracking-[2px] uppercase"
                         >
-                          {getCitationLabel(c.url, c.title)}
-                        </a>
-                      ))}
-                    </div>
-                  )}
+                          <span>{isExpanded ? "▼" : "▶"}</span>
+                          <span>Sources ({meaningfulCitations.length})</span>
+                        </button>
+                        {isExpanded && (
+                          <div className="mt-2.5 flex flex-col gap-1.5">
+                            {meaningfulCitations.map((c, i) => (
+                              <a
+                                key={i}
+                                href={c.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center text-[11px] px-2.5 py-1.5 rounded-lg border border-[#444] bg-[#1A1A1A] text-[#AAAAAA] hover:bg-[#C9A962] hover:border-[#C9A962] hover:text-[#1A1A1A] transition-all truncate font-medium"
+                              >
+                                {getCitationLabel(c.url, c.title)}
+                              </a>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    ) : null;
+                  })()}
                 </div>
               </div>
             ))}
