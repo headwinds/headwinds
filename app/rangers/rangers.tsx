@@ -5,8 +5,7 @@ import Link from "next/link";
 import PageShell from "@/components/layout/PageShell";
 import HumberPosterPreview from "@/components/rangers/HumberPosterPreview";
 import RangersInteractiveMap from "@/components/rangers/RangersInteractiveMap";
-import type { ScoutUser } from "../../../soloscout-site/types/auth.types";
-import type { PublicProfile } from "../../../soloscout-site/types/profile.types";
+import type { ScoutUser, PublicProfile } from "@/types/soloscout";
 import Participation from "./participation";
 
 // is the participate a SoloScout member?!

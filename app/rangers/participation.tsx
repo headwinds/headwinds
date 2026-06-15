@@ -1,6 +1,5 @@
 const SOLOSCOUT_SITE_URL = "https://soloscout.net";
-import type { ScoutUser } from "../../../soloscout-site/types/auth.types";
-import type { PublicProfile } from "../../../soloscout-site/types/profile.types";
+import type { ScoutUser, PublicProfile } from "@/types/soloscout";
 
 type ParticipantNode = {
   id: string;

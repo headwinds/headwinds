@@ -3,14 +3,13 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Agbalumo } from "next/font/google";
 import { HeadwindsLogo } from "cross-country";
 import ScrambleText from "@/components/scramble-text";
 
-const agbalumo = Agbalumo({
-  weight: "400",
-  subsets: ["latin"],
-});
+const headwindsWordmarkStyle = {
+  fontFamily: '"Trebuchet MS", "Gill Sans", "Segoe UI", sans-serif',
+  letterSpacing: "0.01em",
+};
 
 const navLinks = [
   { href: "/about", label: "About" },
@@ -55,7 +54,7 @@ const PageShell = ({ children }: { children: React.ReactNode }) => {
           <div style={{ width: 60 }}>
             <HeadwindsLogo width={80} />
           </div>
-          <span className={agbalumo.className}>headwinds</span>
+          <span style={headwindsWordmarkStyle}>headwinds</span>
         </Link>
 
         {/* Desktop links */}
@@ -139,7 +138,7 @@ const PageShell = ({ children }: { children: React.ReactNode }) => {
       {/* Footer */}
       <div className="bg-[#1A1A1A] rounded-2xl px-6 md:px-12 py-6 md:py-8 flex flex-col md:flex-row items-center justify-between gap-4">
         <span className="text-sm text-[#6B6B6B]">
-          <span className={agbalumo.className}>headwinds</span> © {currentYear}
+          <span style={headwindsWordmarkStyle}>headwinds</span> © {currentYear}
         </span>
         <div className="flex gap-6">
           <a
