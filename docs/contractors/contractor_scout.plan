@@ -1,0 +1,150 @@
+# Contractor Survey Requirements
+
+## Goal
+
+Collect enough information from a contractor to decide whether Headwinds can run an agent-assisted customer survey workflow for them. This survey is taken by the contractor after they receive a private Headwinds survey link in their email.
+
+The initial contractor intake workflow is:
+
+1. Headwinds emails the contractor a private survey page on the Headwinds site, such as `/surveys/contractor-8374345`.
+2. The contractor completes the survey and provides permission, customer-list readiness, project context, and outreach preferences.
+3. Headwinds submits the contractor's answers to Scout through `quiz_blueprint.py`.
+4. Scout stores the answers as a survey response so Headwinds can decide whether and how to run a future customer outreach campaign.
+
+The later customer outreach workflow is:
+
+1. Contractor gives Headwinds permission to contact customers.
+2. Contractor provides customer/project context or connects a source of truth.
+3. An agent emails existing or new customers, asks them to complete a short customer survey, and uses the responses to surface testimonials, referrals, repeat-work opportunities, and lead-generation insights.
+
+## Contractor Questions
+
+1. Do you have a website?
+
+1a. If yes, reveal: What is your website URL?
+
+1b. If no, reveal: Would you like a website?
+
+2. After you finish each project, what do you use to record the project details and photos of the completed work?
+
+Use a text input field so the contractor can describe the tool or process.
+
+3. Do you ask each customer for a testimonial after each project?
+
+Suggested options: Always, Sometimes, Rarely, Never.
+
+4. How often do you contact clients after the work has been completed?
+
+Use radio buttons: Monthly, Quarterly, Yearly, Every 5 years, Not at all.
+
+5. How would you feel about an agent contacting your existing customers and asking them to fill out a short survey?
+
+Suggested options: Comfortable, Maybe with approval first, Not comfortable, Need more information.
+
+6. How would you feel about an agent contacting new customers and asking them to fill out a short survey after a project is completed?
+
+Suggested options: Comfortable, Maybe with approval first, Not comfortable, Need more information.
+
+7. How do you typically get new customers?
+
+Use checkbox buttons: Word of mouth, Print ads, Digital ads, Website/search, Social media, Referral partners, Repeat customers, Other.
+
+If Other is selected, reveal a text input.
+
+## Additional Questions To Add
+
+8. What type of work do you want more of?
+
+Use checkboxes or a short text input. This helps the agent prioritize survey questions and follow-up opportunities.
+
+9. What customer outcomes matter most to your business?
+
+Use checkboxes: More testimonials, More referrals, More repeat work, Better online reviews, Better project photos, Better lead quality, Better customer feedback.
+
+10. Do you currently have a customer list with names and email addresses?
+
+Suggested options: Yes, in a spreadsheet; Yes, in CRM/software; Yes, but scattered; No; Not sure.
+
+11. Do you have permission to email those customers about their completed projects?
+
+Suggested options: Yes, No, Not sure.
+
+12. Would you want to review and approve each email before the agent sends it?
+
+Suggested options: Yes, for every email; Only for the first batch; No, use an approved template.
+
+13. What should the customer survey ask about?
+
+Use checkboxes: Overall satisfaction, Quality of work, Communication, Timeliness, Cleanliness, Before/after photos, Permission to use testimonial, Permission to use project photos, Referral interest, Future project needs.
+
+14. Are there any customers or project types the agent should not contact?
+
+Use a text input.
+
+15. What name and email address should customer messages come from?
+
+Collect sender name, reply-to email, and optionally company email/domain status.
+
+16. Should customers be offered an incentive for completing the survey?
+
+Suggested options: No incentive, Discount on future work, Gift card, Other.
+
+17. What should happen when a customer leaves a positive response?
+
+Use checkboxes: Ask for a public review, Ask for a referral, Ask for permission to publish the testimonial, Notify the contractor, Add to a case study queue.
+
+18. What should happen when a customer leaves a negative response?
+
+Use checkboxes: Notify the contractor only, Create a follow-up task, Send an apology/follow-up draft for approval, Do not automate follow-up.
+
+## Contractor Survey Page Requirements
+
+- Survey URLs should use non-sequential, hard-to-guess identifiers, for example `/surveys/contractor-8374345`.
+- Add `noindex,nofollow` metadata to the survey page.
+- Add an `X-Robots-Tag: noindex, nofollow` header if the framework/server supports it.
+- Do not include survey pages in sitemaps.
+- Treat the hidden URL as privacy-by-obscurity, not authentication. Avoid placing sensitive contractor or customer data directly on the page unless the visitor has an individualized token or verification step.
+- Store enough invitation metadata to know which contractor received the link and which Scout survey collection their response belongs to.
+- Add a clear unsubscribe or opt-out path in the contractor invitation email.
+- Store invitation history so Headwinds can see which contractor was contacted, when the survey link was sent, and whether the survey was completed.
+
+## Scout Submission Requirements
+
+- Headwinds should submit completed contractor survey results to Scout's quiz blueprint.
+- Existing Scout endpoint for answer submission: `POST /api/quiz`, handled by `scout/blueprints/quiz_blueprint.py` and `scout/blueprints/quiz/post_quiz.py`.
+- Expected submission shape:
+
+```json
+{
+	"quiz_question_collection_id": "contractor-survey-collection-uuid",
+	"data": [
+		{
+			"quiz_question_id": "question-uuid",
+			"selectedId": "answer value or option id",
+			"question": "Question text"
+		}
+	]
+}
+```
+
+- The contractor survey should be created in Scout as a `collection_type` of `survey`, likely through `POST /api/quiz/build`.
+- Headwinds needs to know the Scout `quiz_question_collection_id` and each `quiz_question_id` before rendering or submitting the contractor survey.
+- The Headwinds survey route should map form fields to Scout's expected `data` array.
+- Because this is a survey, most Scout question answers should use `answer: null` or `answer: "any"` when the question is created, depending on how answer validation is expected to behave.
+- The contractor invitation should preserve the contractor identity separately from public route discoverability. The opaque URL should resolve to the contractor invitation and the matching Scout survey collection.
+- Implementation note: verify Scout's `POST /api/quiz` response handling before depending on it. `check_quiz` currently returns a result object, while `post_quiz.py` appears to check for `result is True` before returning a success response.
+
+## Open Product Decisions
+
+1. Does Headwinds create the contractor survey in Scout ahead of time, or should the first version hardcode the Scout collection/question IDs in Headwinds config?
+2. Should the contractor survey require a one-time token in addition to the obscure route ID?
+3. Is the future customer outreach version only for existing customers, or should it also include new customers immediately after project completion?
+4. Will the contractor upload customer data manually, connect software, or both?
+5. Should Headwinds send emails from a Headwinds-managed domain, the contractor's domain, or both?
+6. Should the agent only draft emails at first, or can it send after the contractor approves the campaign settings?
+7. What is the primary business outcome: testimonials, referrals, repeat work, online reviews, or lead qualification?
+
+
+
+
+
