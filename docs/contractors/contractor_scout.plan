@@ -127,22 +127,22 @@ Use checkboxes: Notify the contractor only, Create a follow-up task, Send an apo
 }
 ```
 
-- The contractor survey should be created in Scout as a `collection_type` of `survey`, likely through `POST /api/quiz/build`.
-- Headwinds needs to know the Scout `quiz_question_collection_id` and each `quiz_question_id` before rendering or submitting the contractor survey.
-- The Headwinds survey route should map form fields to Scout's expected `data` array.
+- The contractor survey should be created in Scout as a `collection_type` of `survey` through `POST /api/quiz/build` when the contractor submits the Headwinds form.
+- Headwinds should use the `collection_id` and `question_ids` returned by Scout to submit the contractor's answers to `POST /api/quiz`.
+- The Headwinds survey route should map form fields to Scout's expected `data` array after Scout returns question IDs.
 - Because this is a survey, most Scout question answers should use `answer: null` or `answer: "any"` when the question is created, depending on how answer validation is expected to behave.
 - The contractor invitation should preserve the contractor identity separately from public route discoverability. The opaque URL should resolve to the contractor invitation and the matching Scout survey collection.
+- The hidden route does not replace Scout API authentication. Headwinds still needs a server-side Scout token when writing to protected Scout endpoints.
 - Implementation note: verify Scout's `POST /api/quiz` response handling before depending on it. `check_quiz` currently returns a result object, while `post_quiz.py` appears to check for `result is True` before returning a success response.
 
 ## Open Product Decisions
 
-1. Does Headwinds create the contractor survey in Scout ahead of time, or should the first version hardcode the Scout collection/question IDs in Headwinds config?
-2. Should the contractor survey require a one-time token in addition to the obscure route ID?
-3. Is the future customer outreach version only for existing customers, or should it also include new customers immediately after project completion?
-4. Will the contractor upload customer data manually, connect software, or both?
-5. Should Headwinds send emails from a Headwinds-managed domain, the contractor's domain, or both?
-6. Should the agent only draft emails at first, or can it send after the contractor approves the campaign settings?
-7. What is the primary business outcome: testimonials, referrals, repeat work, online reviews, or lead qualification?
+1. Should the contractor survey require a one-time token in addition to the obscure route ID?
+2. Is the future customer outreach version only for existing customers, or should it also include new customers immediately after project completion?
+3. Will the contractor upload customer data manually, connect software, or both?
+4. Should Headwinds send emails from a Headwinds-managed domain, the contractor's domain, or both?
+5. Should the agent only draft emails at first, or can it send after the contractor approves the campaign settings?
+6. What is the primary business outcome: testimonials, referrals, repeat work, online reviews, or lead qualification?
 
 
 
