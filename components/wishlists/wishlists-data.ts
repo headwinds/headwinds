@@ -261,7 +261,7 @@ export const wishlistItems: WishlistItem[] = [
     name: "Click & Grow",
     url: "https://ca.clickandgrow.com/",
     image:
-      "https://ca.clickandgrow.com/cdn/shop/files/favicon25.png?crop=center&height=32&v=1768216542&width=32",
+      "https://ca.clickandgrow.com/cdn/shop/files/LoadedWater1440x1440.png?v=1780556584&width=4096",
     category: "Plants",
     status: "active",
   },
@@ -306,7 +306,7 @@ export const wishlistItems: WishlistItem[] = [
     id: "blowfish-hangovers",
     name: "Blowfish for Hangovers",
     url: "https://www.amazon.com/Blowfish-Hangovers-FDA-Recognized-Formulation-Guaranteed/dp/B005EHQGCU",
-    image: "https://www.amazon.com/favicon.ico",
+    image: "https://m.media-amazon.com/images/I/51DBUL5R4vL._AC_SX679_.jpg",
     category: "Focus Potions",
     status: "active",
   },
@@ -324,8 +324,9 @@ export const wishlistItems: WishlistItem[] = [
   {
     id: "mythwind",
     name: "Mythwind",
-    url: "https://www.openowlstudios.com/mythwind",
-    image: "",
+    url: "https://openowlstudios.com/pages/mythwind",
+    image:
+      "https://openowlstudios.com/cdn/shop/files/Town.jpg?v=1702500537&width=750",
     category: "Board Games",
     status: "active",
   },
@@ -418,7 +419,7 @@ export const wishlistItems: WishlistItem[] = [
     name: "Computer Speakers with Mic",
     url: "https://www.amazon.com/Computer-Speakers-Bluetooth-Microphone-Aux-Input/dp/B07YDJGPCN",
     image:
-      "https://www.amazon.com/Computer-Speakers-Bluetooth-Microphone-Aux-Input/dp/B07YDJGPCN",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQV85eAWYp1YpnJ3ErAhX8rTCvTHZG_9kQ7fOvaIOT1Aw&s",
     category: "Computer Speakers",
     status: "active",
   },
@@ -546,15 +547,6 @@ export const wishlistItems: WishlistItem[] = [
     category: "Wall Photos",
     status: "active",
   },
-  {
-    id: "wirecutter",
-    name: "The Wirecutter",
-    url: "http://thewirecutter.com/",
-    image:
-      "https://cdn.thewirecutter.com/wp-content/media/2020/10/wc_og_general.png?auto=webp&quality=75&crop=1.91:1&width=1200",
-    category: "Wall Photos",
-    status: "active",
-  },
 
   // ── Graphic Novels ────────────────────────────────────────
   {
@@ -653,7 +645,7 @@ export const wishlistItems: WishlistItem[] = [
     name: "Vitaly ISO",
     url: "https://www.vitalydesign.com/products/wheat-chain?variant=39761619812427#Image33494579281995",
     image:
-      "https://www.vitalydesign.com/products/wheat-chain?variant=39761619812427#Image33494579281995",
+      "https://cdn.shopify.com/s/files/1/0161/1184/files/WheatChain2.0-Vitaly-G-1_eb03d99f-5e71-4270-b83e-c1b0fb11ce68.jpg?v=1754955525&width=800",
     category: "Gold Chains",
     status: "active",
   },
@@ -716,15 +708,7 @@ export const wishlistItems: WishlistItem[] = [
   },
 
   // ── Notebooks ─────────────────────────────────────────────
-  {
-    id: "midori-md-notebook",
-    name: "Midori MD Notebook A5 Grid",
-    url: "http://www.thejournalshop.com/midori-md-notebook-a5-grid-paper",
-    image:
-      "http://www.thejournalshop.com/cdn/shop/files/checkout_1200x1200.png?v=1641817164",
-    category: "Notebooks",
-    status: "active",
-  },
+
   {
     id: "panobook",
     name: "Panobook",
@@ -743,15 +727,7 @@ export const wishlistItems: WishlistItem[] = [
     category: "Notebooks",
     status: "active",
   },
-  {
-    id: "moleskine-livescribe",
-    name: "Moleskine Livescribe",
-    url: "http://shop.moleskine.com/en-us/notebooks-journals/livescribe/",
-    image:
-      "https://shop.moleskine.com/media/catalog/product/cache/1/image/800x800/9df78eab33525d08d6e5fb8d27136e95/l/i/livescribe_notebook.jpg",
-    category: "Notebooks",
-    status: "active",
-  },
+
   {
     id: "resketch",
     name: "Resketch",
@@ -767,7 +743,8 @@ export const wishlistItems: WishlistItem[] = [
     id: "watercolor-block-300lb",
     name: "300lb Watercolor Block",
     url: "https://www.amazon.ca/tumuarta-Watercolor-Cotton-Watercolors-Acrylic/dp/B0D1JWTQ59",
-    image: "https://m.media-amazon.com/images/I/71V1Z1Z1Z1L._AC_SL1500_.jpg",
+    image:
+      "https://m.media-amazon.com/images/I/81EQ4wwH+vL._AC_UF894,1000_QL80_.jpg",
     category: "Watercolor Paper",
     status: "active",
   },
