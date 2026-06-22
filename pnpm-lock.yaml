@@ -71,6 +71,9 @@ dependencies:
   reactflow:
     specifier: ^11.11.4
     version: 11.11.4(@types/react@18.3.27)(react-dom@18.3.1)(react@18.3.1)
+  zustand:
+    specifier: ^5.0.14
+    version: 5.0.14(@types/react@18.3.27)(react@18.3.1)
 
 devDependencies:
   '@changesets/cli':
@@ -9149,6 +9152,28 @@ packages:
       '@types/react': 18.3.27
       react: 18.3.1
       use-sync-external-store: 1.6.0(react@18.3.1)
+    dev: false
+
+  /zustand@5.0.14(@types/react@18.3.27)(react@18.3.1):
+    resolution: {integrity: sha512-/8tAspM5LMPr28b3fwLYrtdj77ECpfZviaP75CMTnwO8ISyaE4GDIG/9rDDYq/cH9D2Xw2A2RXglLInmVBQB/g==}
+    engines: {node: '>=12.20.0'}
+    peerDependencies:
+      '@types/react': '>=18.0.0'
+      immer: '>=9.0.6'
+      react: '>=18.0.0'
+      use-sync-external-store: '>=1.2.0'
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+      immer:
+        optional: true
+      react:
+        optional: true
+      use-sync-external-store:
+        optional: true
+    dependencies:
+      '@types/react': 18.3.27
+      react: 18.3.1
     dev: false
 
   /zwitch@2.0.4:

@@ -364,7 +364,7 @@ export default function ContractorSurveyPage({
               Contractor Intake
             </p>
             <h1 className="m-0 text-4xl font-normal leading-tight md:text-5xl">
-              Customer follow-up survey
+              Discovery survey
             </h1>
             <p className="m-0 text-sm leading-relaxed text-[#AAAAAA]">
               A few details about your business, customer list, and comfort level with agent-assisted outreach.

@@ -4,6 +4,7 @@ export interface WishlistItem {
   url: string;
   image: string;
   category: string;
+  price?: number;
   status: "active" | "purchased";
   notes?: string;
 }
