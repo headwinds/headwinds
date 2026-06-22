@@ -2,7 +2,7 @@
 
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import PageShell from "@/components/layout/PageShell";
-import { wishlistItems, wishlistCategories } from "./wishlists-data";
+import { wishlistItems } from "./wishlists-data";
 import { useFilterMetrics } from "@/hooks/useFilterMetrics";
 import {
   CheckCircle,
@@ -43,7 +43,9 @@ type SubmitStatus = "idle" | "submitting" | "submitted" | "error";
 
 const topCategories = (() => {
   const counts = new Map<string, number>();
-  for (const item of wishlistItems) {
+  for (const item of wishlistItems.filter(
+    (wishlistItem) => wishlistItem.status === "active"
+  )) {
     counts.set(item.category, (counts.get(item.category) ?? 0) + 1);
   }
   return Array.from(counts.entries())
@@ -152,28 +154,32 @@ const ItemCard = ({
             title="Copy item name"
             onClick={handleCopyName}
             className="shrink-0 rounded-md p-1 text-[#6B6B6B] transition-colors hover:bg-[#EAE3DA] hover:text-[#1A1A1A] focus:outline-none focus:ring-2 focus:ring-[#C3DED8]"
-            style={{height: 28, width: 28}}
+            style={{ height: 28, width: 28 }}
           >
             <ClipboardText size={14} weight="regular" />
           </button>
         </div>
-       
+
         <div className="mt-auto flex items-center justify-between gap-3 pt-2">
           <span className="text-sm font-medium tabular-nums text-[#1A1A1A]">
             {formatWishlistPrice(price)}
           </span>
-           <span
-          className="text-[11px] px-2.5 py-0.5 rounded-full w-fit"
-          style={{ backgroundColor: bgColor, color: "#1A1A1A" }}
-        >
-          {item.category}
-        </span>
-        {item.notes && (
-          <p className="text-xs text-[#6B6B6B] truncate m-0">{item.notes}</p>
-        )}
+          <span
+            className="text-[11px] px-2.5 py-0.5 rounded-full w-fit"
+            style={{ backgroundColor: bgColor, color: "#1A1A1A" }}
+          >
+            {item.category}
+          </span>
+          {item.notes && (
+            <p className="text-xs text-[#6B6B6B] truncate m-0">{item.notes}</p>
+          )}
           <button
             type="button"
-            aria-label={inCart ? `Remove ${item.name} from cart` : `Add ${item.name} to cart`}
+            aria-label={
+              inCart
+                ? `Remove ${item.name} from cart`
+                : `Add ${item.name} to cart`
+            }
             title={inCart ? "Remove from cart" : "Add to cart"}
             onClick={handleToggleCart}
             className={`inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-[#C3DED8] ${
@@ -245,7 +251,8 @@ const WishlistPage = () => {
   const budgetRemaining = Math.max(WISHLIST_BUDGET - cartTotal, 0);
   const budgetProgress = Math.min((cartTotal / WISHLIST_BUDGET) * 100, 100);
   const cartCanSubmit = cartItems.length > 0 && cartTotal <= WISHLIST_BUDGET;
-  const showCartCommandBar = cartItems.length > 0 && (showFloatingCartBar || Boolean(budgetHelper));
+  const showCartCommandBar =
+    cartItems.length > 0 && (showFloatingCartBar || Boolean(budgetHelper));
 
   const cartPayload = useMemo(
     () => ({
@@ -275,7 +282,10 @@ const WishlistPage = () => {
   const CHIPS_PER_PAGE = 50;
   const totalChipPages = Math.ceil(topCategories.length / CHIPS_PER_PAGE);
   const pagedChips = showAllChips
-    ? topCategories.slice(chipPage * CHIPS_PER_PAGE, (chipPage + 1) * CHIPS_PER_PAGE)
+    ? topCategories.slice(
+        chipPage * CHIPS_PER_PAGE,
+        (chipPage + 1) * CHIPS_PER_PAGE
+      )
     : topCategories.slice(0, VISIBLE_CHIP_COUNT);
 
   const handleCategoryChange = (category: string) => {
@@ -299,7 +309,9 @@ const WishlistPage = () => {
       return;
     }
 
-    const item = wishlistItems.find((wishlistItem) => wishlistItem.id === itemId);
+    const item = wishlistItems.find(
+      (wishlistItem) => wishlistItem.id === itemId
+    );
     if (!item) {
       return;
     }
@@ -542,18 +554,37 @@ const WishlistPage = () => {
                         ? budgetHelper.kind === "cart"
                           ? "Your cart is over budget."
                           : "That item would go over budget."
-                        : `${cartItems.length} selected · ${formatWishlistPrice(cartTotal)}`}
+                        : `${cartItems.length} selected · ${formatWishlistPrice(
+                            cartTotal
+                          )}`}
                     </p>
                     <p className="m-0 mt-1 text-sm leading-relaxed text-[#3D3D3D]">
                       {budgetHelper
                         ? budgetHelper.kind === "cart"
-                          ? `${budgetHelper.itemName} totals ${formatWishlistPrice(budgetHelper.itemPrice)}, which is ${formatWishlistPrice(budgetHelper.overBy)} over the budget.`
-                          : `${budgetHelper.itemName} costs ${formatWishlistPrice(budgetHelper.itemPrice)}, which puts you ${formatWishlistPrice(budgetHelper.overBy)} over. You have ${formatWishlistPrice(budgetHelper.remaining)} left.`
-                        : `${formatWishlistPrice(budgetRemaining)} remaining before you submit.`}
+                          ? `${
+                              budgetHelper.itemName
+                            } totals ${formatWishlistPrice(
+                              budgetHelper.itemPrice
+                            )}, which is ${formatWishlistPrice(
+                              budgetHelper.overBy
+                            )} over the budget.`
+                          : `${
+                              budgetHelper.itemName
+                            } costs ${formatWishlistPrice(
+                              budgetHelper.itemPrice
+                            )}, which puts you ${formatWishlistPrice(
+                              budgetHelper.overBy
+                            )} over. You have ${formatWishlistPrice(
+                              budgetHelper.remaining
+                            )} left.`
+                        : `${formatWishlistPrice(
+                            budgetRemaining
+                          )} remaining before you submit.`}
                     </p>
                     {filterAffordableOnly && (
                       <p className="m-0 mt-2 text-xs text-[#6B6B6B]">
-                        Showing {affordableItemsCount} items priced at {formatWishlistPrice(budgetRemaining)} or less.
+                        Showing {affordableItemsCount} items priced at{" "}
+                        {formatWishlistPrice(budgetRemaining)} or less.
                       </p>
                     )}
                   </div>
@@ -576,7 +607,9 @@ const WishlistPage = () => {
                       submitStatus === "submitted"
                     }
                     className={`rounded-lg px-3 py-2 text-xs font-medium transition-colors ${
-                      cartCanSubmit && submitStatus !== "submitting" && submitStatus !== "submitted"
+                      cartCanSubmit &&
+                      submitStatus !== "submitting" &&
+                      submitStatus !== "submitted"
                         ? "bg-[#1A1A1A] text-[#F3EBE2] hover:bg-[#333333]"
                         : "cursor-not-allowed bg-[#D5CEC6] text-[#6B6B6B]"
                     }`}
@@ -584,8 +617,8 @@ const WishlistPage = () => {
                     {submitStatus === "submitting"
                       ? "Submitting..."
                       : submitStatus === "submitted"
-                        ? "Submitted"
-                        : "Submit cart"}
+                      ? "Submitted"
+                      : "Submit cart"}
                   </button>
                   {filterAffordableOnly ? (
                     <button
@@ -628,7 +661,9 @@ const WishlistPage = () => {
                           className="flex items-center justify-between gap-3 rounded-lg px-3 py-2 text-sm text-[#1A1A1A] hover:bg-[#F3EBE2]"
                         >
                           <div className="min-w-0 flex-1">
-                            <p className="m-0 truncate font-medium">{item.name}</p>
+                            <p className="m-0 truncate font-medium">
+                              {item.name}
+                            </p>
                             <p className="m-0 mt-0.5 truncate text-xs text-[#6B6B6B]">
                               {item.category}
                             </p>
@@ -667,8 +702,10 @@ const WishlistPage = () => {
           Studio Wishlist
         </h1>
         <p className="text-[17px] text-[#3D3D3D] leading-relaxed m-0 max-w-3xl">
-          Working in eCommerce & Logistics has given me a front-row seat to the tools, software, and services that power the modern supply chain. This is a curated list of the products and services I find most interesting, useful, or just plain cool.{" "}
-   
+          Working in eCommerce & Logistics has given me a front-row seat to the
+          tools, software, and services that power the modern supply chain. This
+          is a curated list of the products and services I find most
+          interesting, useful, or just plain cool.{" "}
         </p>
       </div>
 
@@ -681,7 +718,8 @@ const WishlistPage = () => {
             You have {formatWishlistPrice(WISHLIST_BUDGET)} to spend.
           </h2>
           <p className="text-sm leading-relaxed text-[#AAAAAA] m-0 max-w-2xl">
-            Add items to your virtual cart and see what kind of studio kit you build before the budget runs out.
+            Add items to your virtual cart and see what kind of studio kit you
+            build before the budget runs out.
           </p>
         </div>
         <div className="w-full md:w-[320px] rounded-2xl bg-[#2A2A2A] p-4 flex flex-col gap-3">
@@ -716,7 +754,9 @@ const WishlistPage = () => {
                   submitStatus === "submitted"
                 }
                 className={`inline-flex h-10 items-center justify-center rounded-lg px-4 text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-[#C9A962] ${
-                  cartCanSubmit && submitStatus !== "submitting" && submitStatus !== "submitted"
+                  cartCanSubmit &&
+                  submitStatus !== "submitting" &&
+                  submitStatus !== "submitted"
                     ? "bg-[#C9A962] text-[#1A1A1A] hover:bg-[#D8BE72]"
                     : "cursor-not-allowed bg-[#444444] text-[#AAAAAA]"
                 }`}
@@ -724,8 +764,8 @@ const WishlistPage = () => {
                 {submitStatus === "submitting"
                   ? "Submitting..."
                   : submitStatus === "submitted"
-                    ? "Cart submitted"
-                    : "Submit cart"}
+                  ? "Cart submitted"
+                  : "Submit cart"}
               </button>
               <div className="flex flex-wrap items-center gap-3">
                 <button
@@ -739,10 +779,12 @@ const WishlistPage = () => {
                   {submitStatus === "submitted"
                     ? "Thanks for helping collect data."
                     : submitStatus === "error"
-                      ? "Submission failed. Try again."
-                      : cartCanSubmit
-                        ? `${formatWishlistPrice(budgetRemaining)} left when submitted.`
-                        : "Remove items to submit."}
+                    ? "Submission failed. Try again."
+                    : cartCanSubmit
+                    ? `${formatWishlistPrice(
+                        budgetRemaining
+                      )} left when submitted.`
+                    : "Remove items to submit."}
                 </span>
               </div>
             </div>
@@ -815,7 +857,10 @@ const WishlistPage = () => {
           ))}
           {!showAllChips && topCategories.length > VISIBLE_CHIP_COUNT && (
             <button
-              onClick={() => { setShowAllChips(true); setChipPage(0); }}
+              onClick={() => {
+                setShowAllChips(true);
+                setChipPage(0);
+              }}
               className="h-8 px-4 rounded-full text-[13px] text-[#6B6B6B] hover:text-[#1A1A1A] border border-dashed border-[#C5BEB6] bg-transparent cursor-pointer transition-colors"
             >
               +{topCategories.length - VISIBLE_CHIP_COUNT} more
@@ -827,7 +872,10 @@ const WishlistPage = () => {
         {showAllChips && (
           <div className="flex items-center justify-between pt-1">
             <button
-              onClick={() => { setShowAllChips(false); setChipPage(0); }}
+              onClick={() => {
+                setShowAllChips(false);
+                setChipPage(0);
+              }}
               className="text-[13px] text-[#6B6B6B] hover:text-[#1A1A1A] transition-colors cursor-pointer bg-transparent border-0 p-0"
             >
               ← Show less
@@ -839,17 +887,39 @@ const WishlistPage = () => {
                   disabled={chipPage === 0}
                   className="w-8 h-8 rounded-full border border-[#D5CEC6] bg-white flex items-center justify-center text-[#6B6B6B] hover:text-[#1A1A1A] disabled:opacity-30 cursor-pointer disabled:cursor-default transition-colors"
                 >
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M15 18l-6-6 6-6" /></svg>
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  >
+                    <path d="M15 18l-6-6 6-6" />
+                  </svg>
                 </button>
                 <span className="text-[13px] text-[#6B6B6B] tabular-nums">
                   {chipPage + 1} / {totalChipPages}
                 </span>
                 <button
-                  onClick={() => setChipPage((p) => Math.min(totalChipPages - 1, p + 1))}
+                  onClick={() =>
+                    setChipPage((p) => Math.min(totalChipPages - 1, p + 1))
+                  }
                   disabled={chipPage === totalChipPages - 1}
                   className="w-8 h-8 rounded-full border border-[#D5CEC6] bg-white flex items-center justify-center text-[#6B6B6B] hover:text-[#1A1A1A] disabled:opacity-30 cursor-pointer disabled:cursor-default transition-colors"
                 >
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M9 18l6-6-6-6" /></svg>
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  >
+                    <path d="M9 18l6-6-6-6" />
+                  </svg>
                 </button>
               </div>
             )}
@@ -865,7 +935,9 @@ const WishlistPage = () => {
             ? ` under ${formatWishlistPrice(budgetRemaining)}`
             : ""}
           {cartItems.length > 0
-            ? ` · ${cartItems.length} in cart · ${formatWishlistPrice(cartTotal)}`
+            ? ` · ${cartItems.length} in cart · ${formatWishlistPrice(
+                cartTotal
+              )}`
             : ""}
         </span>
       </div>
@@ -907,7 +979,8 @@ const WishlistPage = () => {
                 Added {cartToast.itemName}
               </p>
               <p className="m-0 mt-1 text-xs leading-relaxed text-[#AAAAAA]">
-                {cartToast.itemCount} items selected · {formatWishlistPrice(cartToast.remaining)} remaining
+                {cartToast.itemCount} items selected ·{" "}
+                {formatWishlistPrice(cartToast.remaining)} remaining
               </p>
             </div>
           </div>

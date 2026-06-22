@@ -49,14 +49,6 @@ export const wishlistItems: WishlistItem[] = [
     category: "Pants",
     status: "active",
   },
-  {
-    id: "bottomslab-chino",
-    name: "Bottomslab Advanced Chino",
-    url: "https://shopbottomslab.com/pages/advanced-chino-pants",
-    image: "https://shopbottomslab.com/favicon.ico",
-    category: "Pants",
-    status: "active",
-  },
 
   // ── Shirts ────────────────────────────────────────────────
   {
@@ -247,29 +239,13 @@ export const wishlistItems: WishlistItem[] = [
   },*/
 
   // ── Plants ────────────────────────────────────────────────
-  {
-    id: "popsci-herb-garden",
-    name: "Planter Herb Garden",
-    url: "https://www.popsci.com/sponsored-post/planter-herb-garden-sale/",
-    image:
-      "https://ca.clickandgrow.com/cdn/shop/files/LoadedWater1440x1440.png?v=1780556584&width=720",
-    category: "Plants",
-    status: "active",
-  },
+
   {
     id: "click-and-grow",
     name: "Click & Grow",
     url: "https://ca.clickandgrow.com/",
     image:
       "https://ca.clickandgrow.com/cdn/shop/files/LoadedWater1440x1440.png?v=1780556584&width=4096",
-    category: "Plants",
-    status: "active",
-  },
-  {
-    id: "windowfarms",
-    name: "Window Farms (City Farming)",
-    url: "http://www.windowfarms.com/",
-    image: "http://www.windowfarms.com/favicon.ico",
     category: "Plants",
     status: "active",
   },
@@ -299,14 +275,6 @@ export const wishlistItems: WishlistItem[] = [
     url: "https://mudwtr.com/pages/mushrooms-you-can-trust",
     image:
       "http://mudwtr.com/cdn/shop/files/mud-tin_1200x1200.jpg?v=1614300033",
-    category: "Focus Potions",
-    status: "active",
-  },
-  {
-    id: "blowfish-hangovers",
-    name: "Blowfish for Hangovers",
-    url: "https://www.amazon.com/Blowfish-Hangovers-FDA-Recognized-Formulation-Guaranteed/dp/B005EHQGCU",
-    image: "https://m.media-amazon.com/images/I/51DBUL5R4vL._AC_SX679_.jpg",
     category: "Focus Potions",
     status: "active",
   },
@@ -596,15 +564,7 @@ export const wishlistItems: WishlistItem[] = [
     category: "Books",
     status: "active",
   },
-  {
-    id: "black-witch",
-    name: "The Black Witch",
-    url: "https://laurieannforest.com/books/the-black-witch/",
-    image:
-      "https://laurieannforest.com/wp-content/uploads/2020/08/Transparent.BW_.Logo_.80x80px.png",
-    category: "Books",
-    status: "active",
-  },
+
   {
     id: "50-years-text-adventures",
     name: "50 Years of Text Adventures",
@@ -785,15 +745,6 @@ export const wishlistItems: WishlistItem[] = [
   },
 
   // ── Desk ──────────────────────────────────────────────────
-  {
-    id: "tilt-table-drawing-desk",
-    name: "Tilt Table Drawing Desk",
-    url: "https://www.google.com/shopping/product/11251053900956062834",
-    image:
-      "https://www.gstatic.com/shopping/shoppingpage/casa/android/1x/home_60dp.png",
-    category: "Desk",
-    status: "active",
-  },
 
   // ── Headphones ────────────────────────────────────────────
   {
@@ -814,15 +765,7 @@ export const wishlistItems: WishlistItem[] = [
     category: "Headphones",
     status: "active",
   },
-  {
-    id: "baybloor-headphones",
-    name: "Bay Bloor Radio Headphones",
-    url: "http://baybloorradio.com/index.php?route=product/product&path=35_95&product_id=141",
-    image:
-      "https://cdn11.bigcommerce.com/s-motmx2bmtn/images/stencil/original/content/favicons/apple-icon-57x57.png",
-    category: "Headphones",
-    status: "active",
-  },
+
   {
     id: "moondrop-space-travel",
     name: "Moondrop Space Travel",
@@ -854,14 +797,6 @@ export const wishlistItems: WishlistItem[] = [
     id: "aiaiai-tma1",
     name: "AIAIAI TMA-1 Studio",
     url: "http://www.theghostlystore.com/products/aiaiai-tma-1-studio-headphones",
-    image: "https://ghostly.com/content/ghostly-titlecard.jpg",
-    category: "Headphones",
-    status: "active",
-  },
-  {
-    id: "ajays-four",
-    name: "a-JAYS Four",
-    url: "http://www.theghostlystore.com/products/a-jays-four-headphones",
     image: "https://ghostly.com/content/ghostly-titlecard.jpg",
     category: "Headphones",
     status: "active",
@@ -907,37 +842,10 @@ export const wishlistItems: WishlistItem[] = [
     category: "Clothes",
     status: "active",
   },
-  {
-    id: "moleskine-architect",
-    name: "Moleskine Architect Design",
-    url: "http://www.moleskineus.com/moleskine-architect-design.html",
-    image:
-      "http://www.moleskineus.com/on/demandware.static/-/Library-Sites-MoleskineSharedLibrary/default/vc3985fdf2c276de2a6e68afa6eac9cd4e7c65664/images/moleskine-logo.jpg",
-    category: "Clothes",
-    status: "active",
-  },
 
   // ── Socks ─────────────────────────────────────────────────
-  {
-    id: "superman-socks",
-    name: "Superman Red and Black Logo Crew Socks",
-    url: "https://www.superherostuff.com/superman-red-and-black-logo-crew-socks-1",
-    image: "",
-    category: "Socks",
-    status: "active",
-  },
 
   // ── Mac Accessories ───────────────────────────────────────
-
-  {
-    id: "ascrono-docking-station",
-    name: "Ascrono Docking Station",
-    url: "https://ascrono.com/",
-    image:
-      "http://ascrono.com/cdn/shop/files/Logo_Ascrono-logo-dark-100px_8bd47bb5-5837-451e-92cb-93318d0a667e.png?height=628&pad_color=fff&v=1630617148&width=1200",
-    category: "Mac Accessories",
-    status: "active",
-  },
 
   // ── iPad ──────────────────────────────────────────────────
   {
@@ -958,15 +866,7 @@ export const wishlistItems: WishlistItem[] = [
     category: "iPad",
     status: "active",
   },
-  {
-    id: "paperlike",
-    name: "Paperlike Screen Protector",
-    url: "https://paperlike.com/",
-    image:
-      "http://paperlike.com/cdn/shop/files/http-10.105.16.170-8082-api-content-a017b738887f0f814f388e04a38743d016f1-removebg-preview.png?v=1689340734&width=2048",
-    category: "iPad",
-    status: "active",
-  },
+
   {
     id: "puurco-cases",
     name: "Puurco iPad Cases",
@@ -975,15 +875,7 @@ export const wishlistItems: WishlistItem[] = [
     category: "iPad",
     status: "active",
   },
-  {
-    id: "bluelounge-mika",
-    name: "Bluelounge Mika Stand",
-    url: "http://www.bluelounge.com/products/mika/",
-    image:
-      "http://bluelounge.com/cdn/shop/files/Bluelounge-ADV_Logo_877C.jpg?v=1713556096&width=1024",
-    category: "iPad",
-    status: "active",
-  },
+
   {
     id: "griffin-compostable-sleeve",
     name: "Griffin Compostable Sleeve",
@@ -1014,15 +906,6 @@ export const wishlistItems: WishlistItem[] = [
       "https://bellroy-product-images.imgix.net//bellroy_dot_com_gallery_image/USD/WCSC-BLK-101/0",
     category: "Wallets",
     status: "purchased",
-  },
-  {
-    id: "capsule-wallets",
-    name: "Capsule Wallets",
-    url: "http://capsulewallets.com/",
-    image:
-      "http://capsulewallets.com/cdn/shop/t/6/assets/logo.png?v=71001228754195328831383507673",
-    category: "Wallets",
-    status: "active",
   },
 
   // ── Food ──────────────────────────────────────────────────
@@ -1060,24 +943,6 @@ export const wishlistItems: WishlistItem[] = [
   },
 
   // ── iPad/iPhone Stand ─────────────────────────────────────
-  {
-    id: "hoverbar",
-    name: "TwelveSouth HoverBar",
-    url: "https://www.twelvesouth.com/product/hoverbar-for-ipad",
-    image:
-      "http://www.twelvesouth.com/cdn/shop/files/twelvesouth_logo_stacked_9175ea72-25ad-425f-8651-d91bd23254b6.jpg?v=1598297227",
-    category: "iPad/iPhone Stand",
-    status: "active",
-  },
-  {
-    id: "hirise",
-    name: "TwelveSouth HiRise",
-    url: "https://twelvesouth.com/product/hirise-iphone5-ipad-mini",
-    image:
-      "http://www.twelvesouth.com/cdn/shop/files/twelvesouth_logo_stacked_9175ea72-25ad-425f-8651-d91bd23254b6.jpg?v=1598297227",
-    category: "iPad/iPhone Stand",
-    status: "active",
-  },
 
   // ── Maps ──────────────────────────────────────────────────
   {
@@ -1093,15 +958,6 @@ export const wishlistItems: WishlistItem[] = [
   // ── Garden ────────────────────────────────────────────────
 
   // ── Controller ────────────────────────────────────────────
-  {
-    id: "icontrolpad",
-    name: "iControlPad",
-    url: "http://www.icontrolpad.com/",
-    image:
-      "https://www.icontrolpad.com/wp-content/uploads/2024/08/cropped-icontrolpad-logo-180x180.png",
-    category: "Controller",
-    status: "active",
-  },
 
   // ── Ultimate ──────────────────────────────────────────────
 
@@ -1129,15 +985,7 @@ export const wishlistItems: WishlistItem[] = [
     category: "MacBook Pro Bags",
     status: "active",
   },
-  {
-    id: "hex-drake-messenger",
-    name: "HEX Drake Messenger",
-    url: "http://www.shophex.com/drake-messenger-bag",
-    image:
-      "http://www.shophex.com/s/files/1/1514/7094/t/13/assets/logo_v-11072030448831009610.png",
-    category: "MacBook Pro Bags",
-    status: "active",
-  },
+
   {
     id: "booq-mamba-daypack",
     name: "Booq Mamba Daypack",
@@ -1147,26 +995,9 @@ export const wishlistItems: WishlistItem[] = [
     category: "MacBook Pro Bags",
     status: "active",
   },
-  {
-    id: "hex-drake-sonic",
-    name: "HEX Drake Sonic Backpack",
-    url: "http://www.shophex.com/drake-sonic-backpack",
-    image:
-      "http://www.shophex.com/s/files/1/1514/7094/t/13/assets/logo_v-11072030448831009610.png",
-    category: "MacBook Pro Bags",
-    status: "active",
-  },
 
   // ── MacBook Stands ────────────────────────────────────────
-  {
-    id: "twelve-south-ghoststand",
-    name: "TwelveSouth GhostStand",
-    url: "http://twelvesouth.com/products/ghoststand/",
-    image:
-      "http://www.twelvesouth.com/cdn/shop/files/twelvesouth_logo_stacked_9175ea72-25ad-425f-8651-d91bd23254b6.jpg?v=1598297227",
-    category: "MacBook Stands",
-    status: "active",
-  },
+
   {
     id: "oakywood-stands",
     name: "Oakywood Stands",
@@ -1185,7 +1016,7 @@ export const wishlistItems: WishlistItem[] = [
     name: "Nakie Hammock",
     url: "https://nakie.ca/",
     image:
-      "https://nakie.ca/cdn/shop/files/Nakie_Hammock_Logo_32x32.jpg?v=1614673377",
+      "https://nakie.ca/cdn/shop/products/DSC03614-2_350x350_crop_center.jpg?v=1772524679",
     category: "Backyard",
     status: "active",
   },
@@ -1225,35 +1056,8 @@ export const wishlistItems: WishlistItem[] = [
   },
 
   // ── Keyboards ─────────────────────────────────────────────
-  {
-    id: "nuphy-air75",
-    name: "NuPhy Air75",
-    url: "https://nuphy.com/products/air75",
-    image:
-      "http://nuphy.com/cdn/shop/files/NuPhyAir75_Main01_221230.png?v=1744598196",
-    category: "Keyboards",
-    status: "active",
-  },
 
   // ── Misc ──────────────────────────────────────────────────
-  {
-    id: "neato-shop",
-    name: "Neato Shop",
-    url: "http://www.neatoshop.com/",
-    image:
-      "https://static.neatoshop.com/core/themes/neato13/images/favicon.ico",
-    category: "Misc",
-    status: "active",
-  },
-  {
-    id: "bagjack",
-    name: "Bagjack",
-    url: "http://www.bagjackshop.com/",
-    image:
-      "https://cdn02.plentymarkets.com/xkwzul1cvawc/plugin/19/ceres/images/ceres-logo.svg",
-    category: "Misc",
-    status: "active",
-  },
 
   {
     id: "imac-usb-hack",
@@ -1268,5 +1072,9 @@ export const wishlistItems: WishlistItem[] = [
 
 // ── Derived helpers ─────────────────────────────────────────
 export const wishlistCategories = Array.from(
-  new Set(wishlistItems.map((item) => item.category))
+  new Set(
+    wishlistItems
+      .filter((item) => item.status === "active")
+      .map((item) => item.category)
+  )
 ).sort();
