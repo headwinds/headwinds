@@ -9,6 +9,7 @@ This project is designed to help people get outside, build real local relationsh
 ## Page Vision
 
 The Rangers page should feel like a living community hub:
+
 - Mission and participation overview
 - Monthly participation network visualization
 - Upcoming events and signup flow
@@ -36,16 +37,16 @@ Show how people participate each month and how strong community ties form over t
 
 - A month selector updates the network for that month.
 - Companion metrics should include:
-	- active participants
-	- new participants
-	- returning participants
-	- total connection strength
+  - active participants
+  - new participants
+  - returning participants
+  - total connection strength
 
 ## Year View
 
-We need to emphasize the Salmon migration and sustainable consumption of this fish. 
+We need to emphasize the Salmon migration and sustainable consumption of this fish.
 
-The salmon run every year in October and November. 
+The salmon run every year in October and November.
 
 ### Messaging
 
@@ -60,6 +61,7 @@ https://www.google.com/maps/place/Humber+River/@43.6496935,-79.4989025,16.2z/dat
 If you are interested in joining, contact brandonflowers@gmail.com or use the site contact page.
 
 The page should support:
+
 - Event discovery
 - Signup
 - Notifications and reminders
@@ -75,6 +77,7 @@ If a geographic river view is included, treat it as a secondary logistics aid. T
 The initiative should connect environmental stewardship with useful technology.
 
 Potential technology themes:
+
 - Scout platform coordination
 - Google-connected logistics workflows
 - Water testing and field data capture
@@ -85,11 +88,13 @@ The tone should stay practical and impact-first.
 ## Support the Mission
 
 Support should focus on community goods first:
+
 - T-shirts
 - Hoodies
 - Hats
 
 Merch proceeds can fund:
+
 - Cleanup supplies
 - Water test kits
 - Event operations
@@ -105,6 +110,7 @@ This section should help volunteers learn, share, and stay engaged between clean
 ## Titans
 
 Anchor the page with inspiration from:
+
 - Jacques Cousteau
 - David Suzuki
 - Jane Goodall
@@ -114,6 +120,7 @@ Use their ideas to reinforce science, conservation, and long-term ecological car
 ## City Connections
 
 Connect local action to broader watershed context:
+
 - Humber River (Toronto)
 - Stratford river concerns
 - Toronto to Montreal corridor and the St. Lawrence system
@@ -122,4 +129,8 @@ This framing helps people understand that local participation contributes to lar
 
 ## The world
 
-how can we tie into other rangers groups in the world? Like the sloane rangers in England. 
+how can we tie into other rangers groups in the world? Like the sloane rangers in England.
+
+## Salmon History
+
+-[paleoartic](https://ca.pinterest.com/pin/827325394073043083/)

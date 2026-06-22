@@ -219,6 +219,21 @@ The site uses a **padded canvas** approach: the entire viewport has a `#C5BEB6` 
 - Section gaps within cards: `24px` (`gap-6`).
 - Element gaps within sections: `8px` to `16px`.
 
+## 4.1 Responsive QA Checklist
+
+Every page update should be validated at minimum on these breakpoints:
+- Mobile: 375px width
+- Tablet: 768px width
+- Desktop: 1280px width
+
+For each breakpoint, verify:
+- No horizontal scrolling appears at page level.
+- Header, filter bars, and stats rows wrap without clipping.
+- Cards in project/brand grids keep readable padding and typography.
+- Primary actions remain visible and tappable without overlap.
+- Modal content stacks or scales appropriately on mobile.
+- Long labels and counts do not collide with controls.
+
 ## 5. Elevation & Depth
 
 The design is **predominantly flat** with elevation used sparingly for emphasis:

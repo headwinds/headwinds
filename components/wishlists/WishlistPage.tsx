@@ -666,10 +666,9 @@ const WishlistPage = () => {
         <h1 className="text-3xl md:text-5xl text-[#1A1A1A] m-0 -tracking-wide font-normal">
           Studio Wishlist
         </h1>
-        <p className="text-[17px] text-[#3D3D3D] leading-relaxed m-0">
-          Things I want, need, or am curious about.{" "}
-          {wishlistItems.length} items across {wishlistCategories.length}{" "}
-          categories.
+        <p className="text-[17px] text-[#3D3D3D] leading-relaxed m-0 max-w-3xl">
+          Working in eCommerce & Logistics has given me a front-row seat to the tools, software, and services that power the modern supply chain. This is a curated list of the products and services I find most interesting, useful, or just plain cool.{" "}
+   
         </p>
       </div>
 

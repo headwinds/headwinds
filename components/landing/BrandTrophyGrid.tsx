@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback, useRef } from "react";
 import Link from "next/link";
-import { AnimatePresence, motion } from "motion/react";
+import { motion } from "motion/react";
 import { BRANDS as INFOGRAPHIC_BRANDS } from "@/headwinds-infographics/brandData";
 import { brandInsightsData, type BrandMetrics } from "./insights-data";
 
@@ -42,111 +42,217 @@ interface BrandMeta {
 
 const BRANDS: BrandMeta[] = [
   {
-    id: "nintendo", label: "Nintendo", col: 0, row: 0,
+    id: "nintendo",
+    label: "Nintendo",
+    col: 0,
+    row: 0,
     role: "Fullstack Developer",
     desc: "Wii Fitness combined a console game with a physical device. We built an instructional video-based website to teach players exercises and track their progress.",
     tech: "Flash AS3",
     route: "/projects/nintendo",
     whaleSpecies: "Humpback Whale",
-    nudgeX: 2, nudgeY: 1.8,
+    nudgeX: 2,
+    nudgeY: 1.8,
   },
   {
-    id: "bmw", label: "BMW", col: 1, row: 0,
+    id: "bmw",
+    label: "BMW",
+    col: 1,
+    row: 0,
     role: "UI Developer",
     desc: "Pick and choose parts for your new BMW and watch the car instantly change to reflect your personal style. The configuration gets sent to find an appropriate dealer or manufacturer.",
     tech: "JavaScript · Backbone",
     route: "/projects/bmw",
     whaleSpecies: "Blue Whale",
-    nudgeX: 1.3, nudgeY: 2.3,
+    nudgeX: 1.3,
+    nudgeY: 2.3,
   },
   {
-    id: "ea-sports", label: "EA Sports", col: 2, row: 0,
+    id: "ea-sports",
+    label: "EA Sports",
+    col: 2,
+    row: 0,
     role: "UI Developer",
     desc: "Built interactive promotional experiences for EA Sports titles, working on front-end UI and animation.",
     tech: "Flash AS3",
+    route: "/projects/ea-sports",
     whaleSpecies: "Orca",
-    nudgeX: 0.4, nudgeY: 1.8,
+    nudgeX: 0.4,
+    nudgeY: 1.8,
   },
   {
-    id: "lexmark", label: "Lexmark", col: 3, row: 0,
+    id: "lexmark",
+    label: "Lexmark",
+    col: 3,
+    row: 0,
     role: "UI Developer",
     desc: "Developed enterprise web applications for Lexmark's printing and imaging solutions platform.",
     tech: "JavaScript",
+    route: "/projects/lexmark",
     whaleSpecies: "Sperm Whale",
-    nudgeX: 1.2, nudgeY: 1.6,
+    nudgeX: 1.2,
+    nudgeY: 1.6,
   },
   {
-    id: "mitsubishi", label: "Mitsubishi", col: 0, row: 1,
+    id: "mitsubishi",
+    label: "Mitsubishi",
+    col: 0,
+    row: 1,
     role: "UI Developer",
     desc: "Lancer Earth — an around the world tour featuring the Mitsubishi Lancer. This FWA award-winning experience showcased incredible 3D video from one of the artists behind The Matrix.",
     tech: "Flash AS3",
     route: "/projects/mitsubishi",
     whaleSpecies: "Fin Whale",
-    nudgeX: 1.2, nudgeY: 3.3,
+    nudgeX: 1.2,
+    nudgeY: 3.3,
   },
   {
-    id: "home-depot", label: "The Home Depot", col: 1, row: 1,
+    id: "home-depot",
+    label: "The Home Depot",
+    col: 1,
+    row: 1,
     role: "UI Developer",
     desc: "Built interactive tools for The Home Depot's digital experience, helping customers explore products and plan projects online.",
     tech: "JavaScript",
+    route: "/projects/home-depot",
     whaleSpecies: "Grey Whale",
-    nudgeX: 1, nudgeY: 3.7,
+    nudgeX: 1,
+    nudgeY: 3.7,
   },
   {
-    id: "bacardi", label: "Bacardí", col: 2, row: 1,
+    id: "bacardi",
+    label: "Bacardí",
+    col: 2,
+    row: 1,
     role: "UI Developer",
     desc: "A 360° video after-party experience in a Manhattan apartment. Users explore in first person, discovering mini games and novelty items that pull content from their Facebook profile.",
     tech: "Flash AS3 · Facebook API",
     route: "/projects/bacardi",
     whaleSpecies: "Humpback Whale",
-    nudgeX: 0.8, nudgeY: 7.9,
+    nudgeX: 0.8,
+    nudgeY: 7.9,
   },
   {
-    id: "microsoft", label: "Microsoft", col: 3, row: 1,
+    id: "microsoft",
+    label: "Microsoft",
+    col: 3,
+    row: 1,
     role: "UI Developer",
     desc: "A global real-time quiz contest promoting the MSN Search Toolbar v2, played over 4 weeks with up to 12 million users. Built with SHA-256 encryption in French and English.",
     tech: "Flash AS2 · ASP.NET",
     route: "/projects/microsoft",
     whaleSpecies: "Blue Whale",
-    nudgeX: 1.3, nudgeY: 2.5,
+    nudgeX: 1.3,
+    nudgeY: 2.5,
   },
   {
-    id: "huggies", label: "Huggies", col: 0, row: 2,
+    id: "huggies",
+    label: "Huggies",
+    col: 0,
+    row: 2,
     role: "UI Developer",
     desc: "Created engaging digital experiences for the Huggies brand, focused on connecting with new parents through interactive content.",
     tech: "Flash AS2",
     whaleSpecies: "Beluga Whale",
-    nudgeX: 1.1, nudgeY: 3.1,
+    nudgeX: 1.1,
+    nudgeY: 3.1,
+    route: "/projects/huggies",
   },
   {
-    id: "chase", label: "Chase Manhattan", col: 1, row: 2,
+    id: "chase",
+    label: "Chase Manhattan",
+    col: 1,
+    row: 2,
     role: "UI Developer",
     desc: "Developed interactive financial tools and promotional web experiences for Chase Manhattan's digital banking platform.",
     tech: "Flash AS2",
     whaleSpecies: "Sperm Whale",
-    nudgeX: 1, nudgeY: 4,
+    nudgeX: 1,
+    nudgeY: 4,
+    route: "/projects/chase",
   },
   {
-    id: "labatt", label: "Labatt", col: 2, row: 2,
+    id: "labatt",
+    label: "Labatt",
+    col: 2,
+    row: 2,
     role: "Designer & Developer",
     desc: "Designed and developed a loyalty program app for Labatt to monitor beer enthusiasts and reward them with events and special prizes.",
     tech: "Flash AS2",
     route: "/projects/labatt",
     whaleSpecies: "Orca",
-    nudgeX: 0, nudgeY: 4,
+    nudgeX: 0,
+    nudgeY: 4,
   },
   {
-    id: "td-bank", label: "TD Bank", col: 3, row: 2,
+    id: "td-bank",
+    label: "TD Bank",
+    col: 3,
+    row: 2,
     role: "UI Developer",
     desc: "Built interactive digital banking tools and promotional experiences for TD Bank's online platform.",
     tech: "JavaScript",
     whaleSpecies: "Grey Whale",
-    nudgeX: 1.3, nudgeY: 2,
+    nudgeX: 1.3,
+    nudgeY: 2,
+    route: "/projects/td-bank",
   },
 ];
 
 const brandMap = new Map(BRANDS.map((b) => [b.id, b]));
 const infographicMap = new Map(INFOGRAPHIC_BRANDS.map((b) => [b.id, b]));
+
+const MODAL_IMAGE_BY_BRAND: Record<BrandId, string> = {
+  nintendo: "/brands/modal_nintendo.png",
+  bmw: "/brands/modal_bmw.png",
+  "ea-sports": "/brands/modal_ea.png",
+  lexmark: "/brands/modal_lexmark.png",
+  mitsubishi: "/brands/modal_mitsubishi.png",
+  "home-depot": "/brands/modal_home.png",
+  bacardi: "/brands/modal_bacardi.png",
+  microsoft: "/brands/modal_microsoft.png",
+  huggies: "/brands/modal_huggies.png",
+  chase: "/brands/modal_chase.png",
+  labatt: "/brands/modal_labatt.png",
+  "td-bank": "/brands/modal_td.png",
+};
+
+const AGENCY_LINKS: Record<string, string> = {
+  BBDO: "https://www.bbdo.com/",
+  "Dentsu (regional)": "https://www.dentsu.com/",
+  "Uncommon Creative Studio": "https://www.uncommon.london/",
+  Anomaly: "https://www.anomaly.com/",
+  "FCB Canada": "https://www.fcb.com/",
+  "The Richards Group": "https://www.richards.com/",
+  "22squared": "https://22squared.com/",
+  "McCann Canada": "https://mccann.ca/",
+  "McCann Worldgroup": "https://eng.mccannwg.co.jp/",
+  Serviceplan: "https://www.serviceplan.com/",
+  "Goodby Silverstein": "https://goodbysilverstein.com/",
+  Ogilvy: "https://www.ogilvy.com/",
+  VML: "https://www.vml.com/",
+  "Leo Burnett": "https://leoburnett.com/",
+  "in-house": "",
+  Droga5: "https://droga5.com/",
+  "Leo Burnett Canada": "https://leotoronto.com/",
+};
+
+function agencyParts(agency: string): string[] {
+  return agency
+    .split("/")
+    .map((part) => part.trim())
+    .filter(Boolean);
+}
+
+function agencyLink(agencyName: string): string {
+  if (/^in-house/i.test(agencyName)) return "";
+  return (
+    AGENCY_LINKS[agencyName] ??
+    `https://www.google.com/search?q=${encodeURIComponent(
+      `${agencyName} agency`
+    )}`
+  );
+}
 
 const gridReveal = {
   hidden: {},
@@ -171,76 +277,147 @@ const tileReveal = {
   },
 };
 
-function BrandInfographicTile({ brandId }: { brandId: BrandId }) {
+function BrandInfographicTile({
+  brandId,
+  revealed,
+  revealDelay = 0,
+}: {
+  brandId: BrandId;
+  revealed: boolean;
+  revealDelay?: number;
+}) {
   const infographic = infographicMap.get(brandId);
   if (!infographic) return null;
 
   return (
     <div className="h-full w-full bg-[#EAE3DA] border border-[#D8CEBF] p-2.5 flex flex-col gap-2 text-[#4F4D47]">
-      <header className="flex items-start gap-2 border-b border-[#D8CEBF] pb-2">
-        <span className="text-[10px] font-bold tracking-[0.1em] text-[#BBAE9E] leading-none pt-0.5">
-          {infographic.index}
-        </span>
-        <div className="min-w-0">
-          <p className="text-[14px] font-extrabold text-[#34322D] leading-tight truncate">
-            {infographic.name}
-          </p>
-          <p className="text-[9px] uppercase tracking-[0.18em] text-[#8A8579] mt-1 truncate">
-            {infographic.sector}
-          </p>
-        </div>
-      </header>
+      <div className="relative w-full aspect-[23/18] rounded-[4px] overflow-hidden bg-[#EAE3DA]">
+        <motion.div
+          className="absolute inset-0"
+          initial={false}
+          animate={{ opacity: revealed ? 0 : 1 }}
+          transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <BrandTrophy brandId={brandId} />
+        </motion.div>
 
-      <div className="relative h-[38%] rounded-[4px] overflow-hidden bg-[#BBAE9E]">
-        <img
-          src={`${INFOGRAPHIC_IMG_BASE}/${infographic.image}`}
-          alt={infographic.imageAlt}
-          className="absolute inset-0 w-full h-full object-cover"
-          loading="lazy"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#34322D]/70 via-[#34322D]/35 to-transparent" />
+        <motion.div
+          className="absolute inset-0"
+          initial={false}
+          animate={{ opacity: revealed ? 1 : 0 }}
+          transition={{
+            duration: 0.45,
+            delay: revealed ? revealDelay : 0,
+            ease: [0.16, 1, 0.3, 1],
+          }}
+        >
+          <img
+            src={`${INFOGRAPHIC_IMG_BASE}/${infographic.image}`}
+            alt={infographic.imageAlt}
+            className="absolute inset-0 w-full h-full object-cover"
+            loading="lazy"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#34322D]/70 via-[#34322D]/35 to-transparent" />
+        </motion.div>
       </div>
 
-      <div className="border-b border-[#D8CEBF] pb-2">
-        <p className="text-[34px] md:text-[38px] leading-none font-extrabold tracking-tight text-[#34322D]">
-          {infographic.hero.value}
-        </p>
-        <p className="text-[12px] leading-tight text-[#8A8579] mt-1.5 line-clamp-2">
-          {infographic.hero.label}
-        </p>
-      </div>
-
-      <div className="grid grid-cols-3 gap-1.5 pt-1 border-t border-[#D8CEBF]">
-        {infographic.stats.map((stat) => (
-          <div key={stat.label} className="border-l-2 border-[#BBAE9E] pl-1 min-w-0">
-            <p className="text-[11px] font-extrabold leading-none text-[#34322D] truncate">
-              {stat.value}
+      <motion.div
+        className="overflow-hidden flex flex-col gap-2"
+        initial={false}
+        animate={{ height: revealed ? "auto" : 0, opacity: revealed ? 1 : 0 }}
+        transition={{
+          duration: 0.55,
+          delay: revealDelay,
+          ease: [0.16, 1, 0.3, 1],
+        }}
+      >
+        <header className="flex items-start gap-2 border-b border-[#D8CEBF] pb-2">
+          <div className="min-w-0">
+            <p className="text-[14px] font-extrabold text-[#34322D] leading-tight truncate">
+              {infographic.name}
             </p>
-            <p className="text-[8px] leading-tight text-[#8A8579] mt-1 line-clamp-3">
-              {stat.label}
+            <p className="text-[9px] uppercase tracking-[0.18em] text-[#8A8579] mt-1 truncate">
+              {infographic.sector}
             </p>
           </div>
-        ))}
-      </div>
+        </header>
 
-      <p className="text-[10px] leading-relaxed text-[#4F4D47] line-clamp-4">
-        {infographic.narrative}
-      </p>
+        <div className="border-b border-[#D8CEBF] pb-2">
+          <p className="text-[34px] md:text-[38px] leading-none font-extrabold tracking-tight text-[#34322D]">
+            {infographic.hero.value}
+          </p>
+          <p className="text-[12px] leading-tight text-[#8A8579] mt-1.5 line-clamp-2">
+            {infographic.hero.label}
+          </p>
+        </div>
 
-      <footer className="mt-auto border-t border-[#D8CEBF] pt-1.5">
-        <div className="grid grid-cols-[3.6rem_1fr] gap-2 py-1 items-start border-b border-dotted border-[#D8CEBF]">
-          <span className="text-[8px] uppercase tracking-[0.14em] font-bold text-[#BBAE9E]">Agency</span>
-          <span className="text-[9px] leading-tight text-[#4F4D47] line-clamp-2">{infographic.agency}</span>
+        <div className="grid grid-cols-3 gap-1.5 pt-1 border-t border-[#D8CEBF]">
+          {infographic.stats.map((stat) => (
+            <div
+              key={stat.label}
+              className="border-l-2 border-[#BBAE9E] pl-1 min-w-0"
+            >
+              <p className="text-[11px] font-extrabold leading-none text-[#34322D] truncate">
+                {stat.value}
+              </p>
+              <p className="text-[8px] leading-tight text-[#8A8579] mt-1 line-clamp-3">
+                {stat.label}
+              </p>
+            </div>
+          ))}
         </div>
-        <div className="grid grid-cols-[3.6rem_1fr] gap-2 py-1 items-start border-b border-dotted border-[#D8CEBF]">
-          <span className="text-[8px] uppercase tracking-[0.14em] font-bold text-[#BBAE9E]">Award</span>
-          <span className="text-[9px] leading-tight text-[#4F4D47] line-clamp-2">{infographic.award}</span>
-        </div>
-        <div className="grid grid-cols-[3.6rem_1fr] gap-2 py-1 items-start">
-          <span className="text-[8px] uppercase tracking-[0.14em] font-bold text-[#BBAE9E]">Opinion</span>
-          <span className="text-[9px] leading-tight italic text-[#34322D] line-clamp-3">{infographic.reputation}</span>
-        </div>
-      </footer>
+
+        <p
+          className="text-[10px] leading-relaxed text-[#4F4D47] line-clamp-4"
+          style={{ minHeight: 50 }}
+        >
+          {infographic.narrative}
+        </p>
+
+        <footer className="mt-auto border-t border-[#D8CEBF] pt-1.5">
+          <div className="grid grid-cols-[3.6rem_1fr] gap-2 py-1 items-start border-b border-dotted border-[#D8CEBF]">
+            <span className="text-[8px] uppercase tracking-[0.14em] font-bold text-[#BBAE9E]">
+              Agency
+            </span>
+            <span className="text-[9px] leading-tight text-[#4F4D47] line-clamp-2">
+              {agencyParts(infographic.agency).map((agency, idx, arr) => (
+                <span key={`${infographic.id}-${agency}`}>
+                  {agencyLink(agency) ? (
+                    <a
+                      href={agencyLink(agency)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline decoration-[#CBBFAE] underline-offset-[2px] hover:text-[#34322D] hover:decoration-[#9D8E79] transition-colors"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      {agency}
+                    </a>
+                  ) : (
+                    <span>{agency}</span>
+                  )}
+                  {idx < arr.length - 1 ? " / " : ""}
+                </span>
+              ))}
+            </span>
+          </div>
+          <div className="grid grid-cols-[3.6rem_1fr] gap-2 py-1 items-start border-b border-dotted border-[#D8CEBF]">
+            <span className="text-[8px] uppercase tracking-[0.14em] font-bold text-[#BBAE9E]">
+              Award
+            </span>
+            <span className="text-[9px] leading-tight text-[#4F4D47] line-clamp-2">
+              {infographic.award}
+            </span>
+          </div>
+          <div className="grid grid-cols-[3.6rem_1fr] gap-2 py-1 items-start">
+            <span className="text-[8px] uppercase tracking-[0.14em] font-bold text-[#BBAE9E]">
+              Opinion
+            </span>
+            <span className="text-[9px] leading-tight italic text-[#34322D] line-clamp-3">
+              {infographic.reputation}
+            </span>
+          </div>
+        </footer>
+      </motion.div>
     </div>
   );
 }
@@ -259,12 +436,16 @@ interface BrandTrophyProps {
   nudgeOverride?: { x: number; y: number };
 }
 
-export function BrandTrophy({ brandId, className = "", nudgeOverride }: BrandTrophyProps) {
+export function BrandTrophy({
+  brandId,
+  className = "",
+  nudgeOverride,
+}: BrandTrophyProps) {
   const brand = brandMap.get(brandId);
   if (!brand) return null;
 
-  const nx = nudgeOverride ? nudgeOverride.x : (brand.nudgeX ?? 0);
-  const ny = nudgeOverride ? nudgeOverride.y : (brand.nudgeY ?? 0);
+  const nx = nudgeOverride ? nudgeOverride.x : brand.nudgeX ?? 0;
+  const ny = nudgeOverride ? nudgeOverride.y : brand.nudgeY ?? 0;
   const xPct = (COLS > 1 ? (brand.col / (COLS - 1)) * 100 : 0) + nx;
   const yPct = (ROWS > 1 ? (brand.row / (ROWS - 1)) * 100 : 0) + ny;
 
@@ -302,7 +483,9 @@ export function BrandTrophy({ brandId, className = "", nudgeOverride }: BrandTro
 
 function SpriteCalibrator() {
   const [isLocal, setIsLocal] = useState(false);
-  const [nudges, setNudges] = useState<Record<BrandId, { x: number; y: number }>>(() => {
+  const [nudges, setNudges] = useState<
+    Record<BrandId, { x: number; y: number }>
+  >(() => {
     const init: Record<string, { x: number; y: number }> = {};
     for (const b of BRANDS) init[b.id] = { x: b.nudgeX ?? 0, y: b.nudgeY ?? 0 };
     return init as Record<BrandId, { x: number; y: number }>;
@@ -321,7 +504,7 @@ function SpriteCalibrator() {
   useEffect(() => {
     setIsLocal(
       window.location.hostname === "localhost" ||
-      window.location.hostname === "127.0.0.1"
+        window.location.hostname === "127.0.0.1"
     );
   }, []);
 
@@ -381,8 +564,13 @@ function SpriteCalibrator() {
   }, []);
 
   const copyValues = useCallback(() => {
-    const lines = BRANDS.filter((b) => nudges[b.id].x !== 0 || nudges[b.id].y !== 0)
-      .map((b) => `  "${b.id}": nudgeX: ${nudges[b.id].x}, nudgeY: ${nudges[b.id].y}`)
+    const lines = BRANDS.filter(
+      (b) => nudges[b.id].x !== 0 || nudges[b.id].y !== 0
+    )
+      .map(
+        (b) =>
+          `  "${b.id}": nudgeX: ${nudges[b.id].x}, nudgeY: ${nudges[b.id].y}`
+      )
       .join("\n");
     navigator.clipboard.writeText(lines || "(all zeroed)");
   }, [nudges]);
@@ -403,7 +591,8 @@ function SpriteCalibrator() {
       {showPanel && (
         <>
           <p className="text-[10px] text-[#6B6B6B] mb-3 font-mono">
-            Drag any logo to reposition it within its card. Crosshair = center target.
+            Drag any logo to reposition it within its card. Crosshair = center
+            target.
           </p>
 
           <div className="grid grid-cols-4 gap-2 mb-4">
@@ -421,7 +610,10 @@ function SpriteCalibrator() {
                 }}
                 style={{ cursor: "grab" }}
               >
-                <BrandTrophy brandId={brand.id} nudgeOverride={nudges[brand.id]} />
+                <BrandTrophy
+                  brandId={brand.id}
+                  nudgeOverride={nudges[brand.id]}
+                />
                 {/* Center crosshair */}
                 <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
                   <div className="w-6 h-[1px] bg-red-500/40" />
@@ -455,11 +647,15 @@ function SpriteCalibrator() {
           </div>
 
           <pre className="bg-[#1A1A1A] text-green-400 text-[10px] font-mono p-3 rounded-lg overflow-x-auto max-h-48 overflow-y-auto">
-{BRANDS.map((b) => {
-  const n = nudges[b.id];
-  const changed = n.x !== 0 || n.y !== 0;
-  return `${changed ? "▸" : " "} ${b.id.padEnd(14)} nudgeX: ${String(n.x).padStart(6)}, nudgeY: ${String(n.y).padStart(6)}`;
-}).join("\n")}
+            {BRANDS.map((b) => {
+              const n = nudges[b.id];
+              const changed = n.x !== 0 || n.y !== 0;
+              return `${changed ? "▸" : " "} ${b.id.padEnd(
+                14
+              )} nudgeX: ${String(n.x).padStart(6)}, nudgeY: ${String(
+                n.y
+              ).padStart(6)}`;
+            }).join("\n")}
           </pre>
         </>
       )}
@@ -485,33 +681,33 @@ function truncate(text: string, max = 50): string {
 }
 
 export default function BrandTrophyGrid() {
-  const [visibleBrands, setVisibleBrands] = useState<BrandMeta[]>([]);
+  const getGridCount = useCallback(() => {
+    if (typeof window === "undefined") return 12;
+    const w = window.innerWidth;
+    if (w < 640) return 12;
+    if (w < 1024) return 8;
+    return 12;
+  }, []);
+
+  const [visibleBrands, setVisibleBrands] = useState<BrandMeta[]>(() =>
+    BRANDS.slice(0, 12)
+  );
   const [selectedBrand, setSelectedBrand] = useState<BrandMeta | null>(null);
-  const [brandImage, setBrandImage] = useState<string | null>(null);
   const [brandMetrics, setBrandMetrics] = useState<BrandMetrics | null>(null);
-  const [imageLoadError, setImageLoadError] = useState(false);
   const [showInfographicTiles, setShowInfographicTiles] = useState(false);
-  const [hasTriggeredInfographics, setHasTriggeredInfographics] = useState(false);
+  const [hasTriggeredInfographics, setHasTriggeredInfographics] =
+    useState(false);
   const sectionRef = useRef<HTMLDivElement | null>(null);
 
   const closeModal = useCallback(() => {
     setSelectedBrand(null);
-    setBrandImage(null);
     setBrandMetrics(null);
-    setImageLoadError(false);
   }, []);
 
   useEffect(() => {
     if (!selectedBrand) return;
 
     setBrandMetrics(brandInsightsData[selectedBrand.id] ?? null);
-    setBrandImage(null);
-    setImageLoadError(false);
-
-    fetch(`/api/unsplash?query=${encodeURIComponent(selectedBrand.label)}`)
-      .then((r) => r.json())
-      .then((d) => { if (d.url) setBrandImage(d.url); })
-      .catch(() => {});
   }, [selectedBrand]);
 
   useEffect(() => {
@@ -526,14 +722,6 @@ export default function BrandTrophyGrid() {
       window.removeEventListener("keydown", handleKey);
     };
   }, [selectedBrand, closeModal]);
-
-  const getGridCount = useCallback(() => {
-    if (typeof window === "undefined") return 6;
-    const w = window.innerWidth;
-    if (w < 640) return 12;
-    if (w < 1024) return 8;
-    return 12;
-  }, []);
 
   useEffect(() => {
     const count = getGridCount();
@@ -554,20 +742,16 @@ export default function BrandTrophyGrid() {
   useEffect(() => {
     const handleScroll = () => {
       if (hasTriggeredInfographics) return;
-
       const section = sectionRef.current;
       if (!section) return;
-
       const sectionRect = section.getBoundingClientRect();
       const sectionCenterY = sectionRect.top + sectionRect.height / 2;
       const viewportCenterY = (window.innerHeight || 1) / 2;
-
       if (sectionCenterY <= viewportCenterY) {
         setShowInfographicTiles(true);
         setHasTriggeredInfographics(true);
       }
     };
-
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     window.addEventListener("resize", handleScroll);
@@ -579,11 +763,11 @@ export default function BrandTrophyGrid() {
 
   const gridCols = "grid-cols-2 sm:grid-cols-3 lg:grid-cols-4";
 
-  const xPct = (brand: BrandMeta) => COLS > 1 ? (brand.col / (COLS - 1)) * 100 : 0;
-  const yPct = (brand: BrandMeta) => ROWS > 1 ? (brand.row / (ROWS - 1)) * 100 : 0;
-
   return (
-    <div ref={sectionRef} className="bg-[#F3EBE2] rounded-2xl p-8 md:p-12 flex flex-col gap-6">
+    <div
+      ref={sectionRef}
+      className="bg-[#F3EBE2] rounded-2xl p-8 md:p-12 flex flex-col gap-6"
+    >
       <div className="flex items-center justify-between">
         <p className="text-[11px] font-medium text-[#6B6B6B] tracking-[3px]">
           BRANDS I&apos;VE WORKED WITH
@@ -603,46 +787,26 @@ export default function BrandTrophyGrid() {
         {visibleBrands.map((brand, i) => (
           <motion.div
             key={`${brand.id}-${i}`}
-            className="rounded-xl bg-[#EAE3DA] overflow-hidden cursor-pointer group relative"
+            className="w-full rounded-xl bg-[#EAE3DA] overflow-hidden cursor-pointer relative"
             onClick={() => setSelectedBrand(brand)}
             variants={tileReveal}
-            style={{ aspectRatio: showInfographicTiles ? "23 / 46" : "23 / 18" }}
-            animate={{ aspectRatio: showInfographicTiles ? "23 / 46" : "23 / 18" }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            style={{ maxHeight: showInfographicTiles ? "620px" : "none" }}
+            animate={{
+              aspectRatio: showInfographicTiles ? "23 / 46" : "23 / 18",
+            }}
+            transition={{
+              duration: 0.6,
+              delay: i * 0.04,
+              ease: [0.16, 1, 0.3, 1],
+            }}
           >
-            <AnimatePresence initial={false} mode="wait">
-              {showInfographicTiles ? (
-                <motion.div
-                  key={`infographic-${brand.id}`}
-                  className="absolute inset-0"
-                  initial={{ opacity: 0, y: -18 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 18 }}
-                  transition={{ duration: 0.36, delay: i * 0.04, ease: [0.16, 1, 0.3, 1] }}
-                >
-                  <BrandInfographicTile brandId={brand.id} />
-                </motion.div>
-              ) : (
-                <motion.div
-                  key={`logo-${brand.id}`}
-                  className="absolute inset-0"
-                  initial={{ opacity: 0, y: -18 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 18 }}
-                  transition={{ duration: 0.36, delay: i * 0.03, ease: [0.16, 1, 0.3, 1] }}
-                >
-                  <BrandTrophy brandId={brand.id} />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/70 via-[#1A1A1A]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3">
-                    <p className="text-[10px] font-medium text-white/60 tracking-[2px] mb-0.5">
-                      {brand.role.toUpperCase()}
-                    </p>
-                    <h4 className="text-sm font-semibold text-white leading-tight">
-                      {brand.label}
-                    </h4>
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
+            <div className="absolute inset-0">
+              <BrandInfographicTile
+                brandId={brand.id}
+                revealed={showInfographicTiles}
+                revealDelay={i * 0.04}
+              />
+            </div>
           </motion.div>
         ))}
       </motion.div>
@@ -658,49 +822,39 @@ export default function BrandTrophyGrid() {
           <div className="absolute inset-0 bg-black/60 backdrop-blur-sm animate-[fadeIn_200ms_ease-out]" />
 
           <div
-            className="relative flex gap-3 max-h-[90vh] animate-[scaleIn_250ms_ease-out]"
+            className="relative flex flex-col md:flex-row gap-3 w-full max-w-[760px] max-h-[90vh] overflow-y-auto md:overflow-visible animate-[scaleIn_250ms_ease-out]"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Main Card */}
-            <div className="bg-[#F3EBE2] rounded-2xl w-[420px] shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
+            <div className="bg-[#F3EBE2] rounded-2xl w-full md:w-[420px] shadow-2xl overflow-hidden flex flex-col max-h-none md:max-h-[90vh] min-w-0">
               {/* Hero Image */}
               <div className="p-2 flex-shrink-0">
-                <div className="relative w-full aspect-[16/9] bg-[#EAE3DA]" style={{ borderRadius: 8, overflow: "hidden" }}>
-                  {brandImage && !imageLoadError ? (
-                    <img
-                      src={brandImage}
-                      alt={selectedBrand.label}
-                      className="absolute inset-0 w-full h-full object-cover"
-                      style={{ borderRadius: 8 }}
-                      onError={() => setImageLoadError(true)}
-                    />
-                  ) : (
-                    <>
-                      <div
-                        className="absolute inset-0"
-                        style={{
-                          backgroundImage: `url(${SPRITE_URL})`,
-                          backgroundSize: `${COLS * 100}% ${ROWS * 100}%`,
-                          backgroundPosition: `${xPct(selectedBrand)}% ${yPct(selectedBrand)}%`,
-                          backgroundRepeat: "no-repeat",
-                          filter: "brightness(1.3)",
-                          mixBlendMode: "multiply",
-                        }}
-                      />
-                      <div
-                        className="absolute inset-0"
-                        style={{
-                          backgroundColor: "rgb(188, 174, 158)",
-                          mixBlendMode: "lighten",
-                        }}
-                      />
-                    </>
-                  )}
+                <div
+                  className="relative w-full aspect-[16/9] bg-[#EAE3DA]"
+                  style={{ borderRadius: 8, overflow: "hidden" }}
+                >
+                  <motion.img
+                    src={MODAL_IMAGE_BY_BRAND[selectedBrand.id]}
+                    alt={selectedBrand.label}
+                    className="absolute inset-0 w-full h-full object-cover"
+                    style={{ borderRadius: 8 }}
+                    initial={{ filter: "grayscale(1)", opacity: 0.5 }}
+                    animate={{ filter: "grayscale(0)", opacity: 1 }}
+                    transition={{ delay: 1, duration: 2, ease: "easeOut" }}
+                  />
                   <button
                     onClick={closeModal}
                     className="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/50 hover:bg-black/70 text-white flex items-center justify-center transition-colors z-10"
                   >
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 14 14"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                    >
                       <path d="M1 1l12 12M13 1L1 13" />
                     </svg>
                   </button>
@@ -738,7 +892,7 @@ export default function BrandTrophyGrid() {
 
             {/* Insights Slide-Out Panel */}
             <div
-              className="w-[320px] flex flex-col gap-3 max-h-[90vh] overflow-y-auto transition-all duration-300 ease-out"
+              className="w-full md:w-[320px] flex flex-col gap-3 max-h-none md:max-h-[90vh] overflow-y-visible md:overflow-y-auto transition-all duration-300 ease-out min-w-0"
               style={{
                 opacity: brandMetrics ? 1 : 0,
                 transform: brandMetrics ? "translateX(0)" : "translateX(-16px)",
@@ -755,12 +909,16 @@ export default function BrandTrophyGrid() {
                       {
                         key: "CEO",
                         value: brandMetrics.ceo,
-                        href: `https://www.google.com/search?q=${encodeURIComponent(brandMetrics.ceo + " " + selectedBrand.label + " CEO")}`,
+                        href: `https://www.google.com/search?q=${encodeURIComponent(
+                          brandMetrics.ceo + " " + selectedBrand.label + " CEO"
+                        )}`,
                       },
                       {
                         key: "Stock Price",
                         value: brandMetrics.stock_price,
-                        href: `https://www.google.com/finance/quote/${encodeURIComponent(selectedBrand.label)}`,
+                        href: `https://www.google.com/finance/quote/${encodeURIComponent(
+                          selectedBrand.label
+                        )}`,
                       },
                       {
                         key: "Latest News",
@@ -775,9 +933,13 @@ export default function BrandTrophyGrid() {
                     ].map((row, i, arr) => (
                       <div
                         key={row.key}
-                        className={`flex items-baseline justify-between py-2 ${i < arr.length - 1 ? "border-b border-[#D5CEC6]" : ""}`}
+                        className={`flex items-baseline justify-between py-2 ${
+                          i < arr.length - 1 ? "border-b border-[#D5CEC6]" : ""
+                        }`}
                       >
-                        <span className="text-[11px] text-[#6B6B6B] shrink-0 mr-3">{row.key}</span>
+                        <span className="text-[11px] text-[#6B6B6B] shrink-0 mr-3">
+                          {row.key}
+                        </span>
                         <a
                           href={row.href}
                           target="_blank"

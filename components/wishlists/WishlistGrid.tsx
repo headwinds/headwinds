@@ -50,7 +50,7 @@ const WishlistGrid = () => {
           Studio Wishlist
         </h1>
         <p className="text-sm text-gray-500 mt-1 m-0">
-          Things I want, need, or am curious about
+          Working in eCommerce & Logistics has given me a front-row seat to the tools, software, and services that power the modern supply chain. This is a curated list of the products and services I find most interesting, useful, or just plain cool — from AI platforms to logistics startups and everything in between. 
         </p>
       </div>
 

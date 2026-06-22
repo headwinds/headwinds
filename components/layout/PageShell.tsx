@@ -5,6 +5,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { HeadwindsLogo } from "cross-country";
 
+const headwindsWordmarkStyle = {
+  fontFamily: "var(--font-agbalumo), cursive",
+  letterSpacing: "0.01em",
+};
+
 const navLinks = [
   { href: "/about", label: "About" },
   { href: "/projects", label: "Projects" },
@@ -34,6 +39,8 @@ const PageShell = ({ children }: { children: React.ReactNode }) => {
     };
   }, [menuOpen]);
 
+  const currentYear = new Date().getFullYear();
+
   return (
     <div className="min-h-screen bg-[#C5BEB6] p-1.5 flex flex-col gap-1.5">
       {/* Nav Bar */}
@@ -46,7 +53,7 @@ const PageShell = ({ children }: { children: React.ReactNode }) => {
           <div style={{ width: 60 }}>
             <HeadwindsLogo width={80} />
           </div>
-          headwinds
+          <span style={headwindsWordmarkStyle}>headwinds</span>
         </Link>
 
         {/* Desktop links */}
@@ -59,6 +66,7 @@ const PageShell = ({ children }: { children: React.ReactNode }) => {
                 pathname === link.href ? "font-medium" : ""
               }`}
             >
+              {/*<ScrambleText text={link.label} isHeadwinds /> */}
               {link.label}
             </Link>
           ))}
@@ -128,7 +136,9 @@ const PageShell = ({ children }: { children: React.ReactNode }) => {
 
       {/* Footer */}
       <div className="bg-[#1A1A1A] rounded-2xl px-6 md:px-12 py-6 md:py-8 flex flex-col md:flex-row items-center justify-between gap-4">
-        <span className="text-sm text-[#6B6B6B]">headwinds © 2025</span>
+        <span className="text-sm text-[#6B6B6B]">
+          <span style={headwindsWordmarkStyle}>headwinds</span> © {currentYear}
+        </span>
         <div className="flex gap-6">
           <a
             href="https://github.com/headwinds"

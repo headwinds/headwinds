@@ -12,6 +12,7 @@ export interface ScrambleTextProps {
   autoPlay?: boolean;
   customClass?: string;
   customStyle?: React.CSSProperties;
+  isHeadwinds?: boolean; // New prop to trigger special styling for "headwinds"
 }
 
 // Characters used for scrambling effect
@@ -26,6 +27,7 @@ const ScrambleText: React.FC<ScrambleTextProps> = ({
   autoPlay = true,
   customClass,
   customStyle,
+  isHeadwinds = false,
 }) => {
   const [displayText, setDisplayText] = useState("");
   const [isAnimating, setIsAnimating] = useState(false);
@@ -145,6 +147,17 @@ const ScrambleText: React.FC<ScrambleTextProps> = ({
   useEffect(() => {
     return cleanup;
   }, [cleanup]);
+
+  if (isHeadwinds) {
+    return (
+      <span
+        className={clsx("font-agbalumo text-[#1A1A1A]", customClass)}
+        style={customStyle}
+      >
+        {displayText || text}
+      </span>
+    );
+  }
 
   return (
     <animated.span style={springProps} className={clsx("relative", className)}>
