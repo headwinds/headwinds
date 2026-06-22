@@ -14,10 +14,7 @@ export interface JournalEntry {
   tags: string[];
 }
 
-export const journalEntries: JournalEntry[] = [
- salesAgents,
- hermesHealer,
-];
+export const journalEntries: JournalEntry[] = [salesAgents, hermesHealer];
 
 export function getEntryBySlug(slug: string): JournalEntry | undefined {
   return journalEntries.find((entry) => entry.slug === slug);
