@@ -4,6 +4,7 @@ import React from "react";
 import { Column, Row, Link as CCLink } from "cross-country";
 import { Tag } from "antd";
 import { LinkOutlined, CheckCircleFilled } from "@ant-design/icons";
+import { ClipboardText } from "@phosphor-icons/react/dist/ssr";
 import type { WishlistItem } from "./types";
 
 const placeholderColors = [
@@ -41,6 +42,13 @@ const WishlistCard = ({ item }: WishlistCardProps) => {
   const hasImage = item.image && !item.image.endsWith("/favicon.ico");
   const bgColor = getPlaceholderColor(item.id);
 
+  const handleCopyName = async (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    event.stopPropagation();
+
+    await navigator.clipboard.writeText(item.name);
+  };
+
   return (
     <a
       href={item.url}
@@ -52,9 +60,10 @@ const WishlistCard = ({ item }: WishlistCardProps) => {
       <div className="relative w-full h-40 overflow-hidden bg-gray-100">
         {hasImage ? (
           <img
+            style={{ borderRadius: 20 }}
             src={item.image}
             alt={item.name}
-            className="w-full h-full object-cover transition-transform group-hover:scale-105"
+            className="w-full h-full object-cover transition-transform group-hover:scale-105 rounded-[10px]"
             loading="lazy"
             onError={(e) => {
               const target = e.currentTarget;
@@ -87,9 +96,20 @@ const WishlistCard = ({ item }: WishlistCardProps) => {
 
       {/* Content */}
       <div className="p-3">
-        <h3 className="text-sm font-semibold text-gray-900 leading-tight truncate m-0">
-          {item.name}
-        </h3>
+        <div className="flex items-start justify-between gap-2">
+          <h3 className="text-sm font-semibold text-gray-900 leading-tight truncate m-0">
+            {item.name}
+          </h3>
+          <button
+            type="button"
+            aria-label={`Copy ${item.name}`}
+            title="Copy item name"
+            onClick={handleCopyName}
+            className="shrink-0 rounded-md p-1 text-gray-400 transition-colors hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300"
+          >
+            <ClipboardText size={14} weight="regular" />
+          </button>
+        </div>
         <div className="mt-2">
           <Tag
             color="default"

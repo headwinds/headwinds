@@ -10,6 +10,7 @@ export const wishlistItems: WishlistItem[] = [
     category: "Air Monitors",
     status: "active",
   },
+  /*
   {
     id: "birdie-amazon",
     name: "Birdie CO2 Monitor (Amazon)",
@@ -18,13 +19,13 @@ export const wishlistItems: WishlistItem[] = [
     category: "Air Monitors",
     status: "active",
   },
-
+  */
   // ── Pants ─────────────────────────────────────────────────
   {
     id: "kyayu",
     name: "Kyayu",
     url: "https://kyayu.com/",
-    image: "http://kyayu.com/cdn/shop/files/lQDPJxZn38D9CFV3zQOosNLYNLqEjwcoAqtA5uAA1QA_936_119.jpg?height=628&pad_color=fff&v=1655287489&width=1200",
+    image: "https://kyayu.com/cdn/shop/files/spp_shopify20250902104359_f631a95170b46a3c4055dd8ae33ead12_4c331407-eec8-4df8-9e3e-699de93546a0.jpg?v=1763976258&width=720",
     category: "Pants",
     status: "active",
   },
@@ -72,10 +73,10 @@ export const wishlistItems: WishlistItem[] = [
   },
   {
     id: "treebeard-shirt",
-    name: "Treebeard Forest Shirt",
-    url: "https://www.pmtong.com/collections/t-shirts/products/treebeard-forest-shirt",
-    image: "",
-    category: "Shirts",
+    name: "Treebeard Statue",
+    url: "https://www.etsy.com/ca/listing/4450102519/treebeard-ent-bust-handcrafted-tolkien?ls=s&ga_order=most_relevant&ga_search_type=all&ga_view_type=gallery&ga_search_query=treebeard+shirt&ref=sr_gallery-1-26&sr_prefetch=1&pf_from=market&pro=1&sts=1&content_source=44492727-93a8-40ad-a230-5e43db26ec0f%253ALT1288fc5938a3123e0ca4d9855c6af1a4e3e37177&organic_search_click=1&logging_key=44492727-93a8-40ad-a230-5e43db26ec0f%3ALT1288fc5938a3123e0ca4d9855c6af1a4e3e37177",
+    image: "https://i.etsystatic.com/54304865/r/il/87ea5e/7956354690/il_1588xN.7956354690_h2tb.jpg",
+    category: "Misc",
     status: "active",
   },
 
@@ -120,7 +121,7 @@ export const wishlistItems: WishlistItem[] = [
     id: "better-morning",
     name: "BetterMorning Supplement",
     url: "https://www.amazon.com/BetterMorning-Supplement-All-Natural-Ingredients-Including/dp/B095VZLH1Q",
-    image: "https://www.amazon.com/favicon.ico",
+    image: "https://m.media-amazon.com/images/I/41Vf9RweijL._AC_.jpg",
     category: "Drinking",
     status: "active",
   },
@@ -128,7 +129,7 @@ export const wishlistItems: WishlistItem[] = [
     id: "myrkl",
     name: "Myrkl",
     url: "https://www.myrkl.com/",
-    image: "http://myrkl.com/cdn/shop/files/logo.svg?height=628&pad_color=ffffff&v=1732027146&width=1200",
+    image: "https://myrkl.com/cdn/shop/files/Box_PNG_large.png?v=1775574788",
     category: "Drinking",
     status: "active",
   },
@@ -148,7 +149,7 @@ export const wishlistItems: WishlistItem[] = [
     id: "fantastic-fungi-chocolate",
     name: "Fantastic Fungi Chocolate Cherry Bars",
     url: "https://fantasticfungi.com/products/chocolate-cherry-bars",
-    image: "",
+    image: "https://fantasticfungi.com/cdn/shop/files/mind-capsules.webp?v=1748856893&width=950",
     category: "Chocolate & Mushroom",
     status: "active",
   },
@@ -176,7 +177,7 @@ export const wishlistItems: WishlistItem[] = [
     id: "star-wars-unlimited",
     name: "Star Wars Unlimited",
     url: "https://starwarsunlimited.com/",
-    image: "https://starwarsunlimited.com/favicon.ico",
+    image: "https://cdn.starwarsunlimited.com/large_SWH_Web_Splash_Mission_Briefing_b8c86c9575.png",
     category: "Cards",
     status: "active",
   },
@@ -202,7 +203,7 @@ export const wishlistItems: WishlistItem[] = [
   },
 
   // ── VR ────────────────────────────────────────────────────
-  {
+  /*{
     id: "vr-youtube",
     name: "VR Video",
     url: "https://www.youtube.com/watch?v=g-RXSWHUwzw",
@@ -225,14 +226,14 @@ export const wishlistItems: WishlistItem[] = [
     image: "",
     category: "VR",
     status: "active",
-  },
+  },*/
 
   // ── Plants ────────────────────────────────────────────────
   {
     id: "popsci-herb-garden",
     name: "Planter Herb Garden",
     url: "https://www.popsci.com/sponsored-post/planter-herb-garden-sale/",
-    image: "https://www.popsci.com/wp-content/uploads/2021/10/23/The-Best-Indoor-Herb-Gardens.jpg?quality=85&w=1200",
+    image: "https://ca.clickandgrow.com/cdn/shop/files/LoadedWater1440x1440.png?v=1780556584&width=720",
     category: "Plants",
     status: "active",
   },
@@ -345,7 +346,7 @@ export const wishlistItems: WishlistItem[] = [
     id: "citizen-sleeper-ttrpg",
     name: "Citizen Sleeper (Lost in Cult)",
     url: "https://www.lostincult.co.uk/citizensleeper",
-    image: "https://images.squarespace-cdn.com/content/v1/5ff8d2a05a6fae169d901492/d8620422-200e-446f-b4d2-d89630b1d707/favicon.ico?format=100w",
+    image: "https://images.squarespace-cdn.com/content/v1/5ff8d2a05a6fae169d901492/f156faee-35e3-4707-a1dc-457babb339cb/Cult-Classics-Perfect-Organism.jpg?format=1500w",
     category: "TTRPG",
     status: "active",
   },
@@ -411,14 +412,13 @@ export const wishlistItems: WishlistItem[] = [
   },
 
   // ── Projectors ────────────────────────────────────────────
-  {
+  /*{
     id: "youngturtle-projector",
     name: "Young Turtle Mini Projector",
     url: "https://youngturtle.com/collections/best-sellers/products/mini-projector",
     image: "",
     category: "Projectors",
     status: "active",
-    notes: "CAREFUL OF SCAMS!!!",
   },
   {
     id: "amazon-portable-projector",
@@ -427,8 +427,8 @@ export const wishlistItems: WishlistItem[] = [
     image: "",
     category: "Projectors",
     status: "active",
-    notes: "CAREFUL OF SCAMS!!!",
-  },
+
+  },*/
 
   // ── Cleaning & Aging ──────────────────────────────────────
   {
@@ -456,7 +456,6 @@ export const wishlistItems: WishlistItem[] = [
     image: "https://aem.lcbo.com/content/dam/lcbo/products/3/8/7/4/387423.jpg.thumb.319.319.png",
     category: "Whisky",
     status: "active",
-    notes: "Pronounced Brock Laddie",
   },
 
   // ── Noodles ───────────────────────────────────────────────
@@ -562,14 +561,14 @@ export const wishlistItems: WishlistItem[] = [
   },
 
   // ── Books ─────────────────────────────────────────────────
-  {
+  /*{
     id: "children-of-time",
     name: "Children of Time - Adrian Tchaikovsky",
     url: "https://www.panmacmillan.com/authors/adrian-tchaikovsky/5478",
     image: "https://ik.imagekit.io/panmac/tr:f-auto,di-placeholder_portrait_aMjPtD9YZ.jpg,w-350,h-531,fo-auto/contributor/5478.jpg",
     category: "Books",
     status: "active",
-  },
+  },*/
   {
     id: "neal-asher",
     name: "Neal Asher (Wired)",
@@ -719,7 +718,6 @@ export const wishlistItems: WishlistItem[] = [
     image: "http://www.studioneat.com/cdn/shop/files/Panobook_Floating_No_Sleeve.jpg?v=1734122441",
     category: "Notebooks",
     status: "active",
-    notes: "STRONG BUY",
   },
   {
     id: "scout-books",
@@ -934,7 +932,6 @@ export const wishlistItems: WishlistItem[] = [
     image: "https://www.urbanears.com/on/demandware.static/-/Library-Sites-SharedLibrary-Urbanears/default/categories/urbanears-open-graph-image-2022-v2.png",
     category: "Headphones",
     status: "active",
-    notes: "Not known for great sound/value ratio",
   },
   {
     id: "bose-700",
@@ -969,7 +966,6 @@ export const wishlistItems: WishlistItem[] = [
     image: "http://www.neuyear.net/cdn/shop/files/a-deck_1200x630.jpg?v=1613788439",
     category: "Calendar",
     status: "purchased",
-    notes: "It sucked",
   },
 
   // ── Clothes ───────────────────────────────────────────────
@@ -1106,7 +1102,6 @@ export const wishlistItems: WishlistItem[] = [
     image: "http://www.biggrips.com/favicon.ico",
     category: "iPad",
     status: "active",
-    notes: "For Mabes",
   },
 
   // ── Drawing Tablet ────────────────────────────────────────
@@ -1159,7 +1154,6 @@ export const wishlistItems: WishlistItem[] = [
     image: "https://bellroy-product-images.imgix.net//bellroy_dot_com_gallery_image/USD/WCSC-BLK-101/0",
     category: "Wallets",
     status: "purchased",
-    notes: "Purchased zipper version $85",
   },
   {
     id: "capsule-wallets",
@@ -1318,7 +1312,6 @@ export const wishlistItems: WishlistItem[] = [
     image: "http://www.booqbags.com/cdn/shop/products/DP-BAT-2_600x.jpg?v=1501292046",
     category: "MacBook Pro Bags",
     status: "active",
-    notes: "Winner (I think...)",
   },
   {
     id: "hex-drake-sonic",
