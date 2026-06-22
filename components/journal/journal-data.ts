@@ -1,5 +1,6 @@
 import React from "react";
 import salesAgents from "./articles/sales-agents/sales-entry";
+import hermesHealer from "./articles/hermes-healer/hermes-healer";
 
 export interface JournalEntry {
   id: string;
@@ -14,7 +15,8 @@ export interface JournalEntry {
 }
 
 export const journalEntries: JournalEntry[] = [
- salesAgents
+ salesAgents,
+ hermesHealer,
 ];
 
 export function getEntryBySlug(slug: string): JournalEntry | undefined {

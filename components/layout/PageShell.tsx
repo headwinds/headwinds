@@ -4,10 +4,9 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { HeadwindsLogo } from "cross-country";
-import ScrambleText from "@/components/scramble-text";
 
 const headwindsWordmarkStyle = {
-  fontFamily: '"Trebuchet MS", "Gill Sans", "Segoe UI", sans-serif',
+  fontFamily: "var(--font-agbalumo), cursive",
   letterSpacing: "0.01em",
 };
 

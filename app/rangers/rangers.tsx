@@ -468,8 +468,11 @@ const Rangers = () => {
             A volunteer community restoring and protecting the Humber River in
             Toronto through recurring cleanups, water-health projects, and
             practical climate action exploring the cross-section of AI, design,
-            and community engagement. Each year we'll celebrate the salmon
-            migration with a special event to watch them return.
+            and community engagement.
+          </p>
+          <p>
+            Each year we'll celebrate the salmon migration with a special event
+            to watch them return.
           </p>
         </div>
 
