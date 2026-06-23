@@ -53,26 +53,44 @@ const featuredProjects = [
 
 const artFrames = [
   {
-    colSpan: "col-span-2", h: "h-48", img: "/ai/collab.png", alt: "Collaboration", bg: "bg-[#C3DED8]",
+    colSpan: "col-span-2",
+    h: "h-48",
+    img: "/ai/collab.png",
+    alt: "Collaboration",
+    bg: "bg-[#C3DED8]",
     title: "AI Collaboration",
     desc: "Two developers brainstorming with an AI coding assistant — exploring how pair programming evolves with generative tools.",
     tech: "Midjourney",
     video: "/ai/brandon-sasha-video.mp4",
   },
   {
-    colSpan: "col-span-1", h: "h-48", img: "/ai/dunks.png", alt: "Dungeon Dunks", bg: "bg-[#C4CFDE]",
-    title: "Dungeon Dunks",
+    colSpan: "col-span-1",
+    h: "h-48",
+    img: "/ai/dunks.png",
+    alt: "Ser Dunks",
+    bg: "bg-[#C4CFDE]",
+    title: "Ser Dunks",
     desc: "D&D-themed sneaker concept — medieval armor meets Nike Dunks, rendered with photorealistic AI.",
-    tech: "Midjourney",
+    tech: "Gemini 3.5",
+    link: "https://www.linkedin.com/feed/update/urn:li:activity:7431478503952277504/",
   },
   {
-    colSpan: "col-span-1", h: "h-40", img: "/ai/vayla.png", alt: "Vayla", bg: "bg-[#D5DCBA]",
-    title: "Vayla",
-    desc: "A 3D-rendered character for the Scout adventure game — young mage in a gothic cathedral.",
-    tech: "Midjourney · Blender",
+    colSpan: "col-span-1",
+    h: "h-40",
+    img: "/ai/hermes.png",
+    alt: "Hermes Agent",
+    bg: "bg-[#D5DCBA]",
+    title: "Hermes Agent",
+    desc: "My thoughts on setting up my own personal agent that grows with me.",
+    tech: "Hermes · AI",
+    link: "/journal/hermes-the-agent-that-learns-you",
   },
   {
-    colSpan: "col-span-1", h: "h-40", img: "/ai/yetiFour.png", alt: "PhotoDare", bg: "bg-[#C3DED8]",
+    colSpan: "col-span-1",
+    h: "h-40",
+    img: "/ai/yetiFour.png",
+    alt: "PhotoDare",
+    bg: "bg-[#C3DED8]",
     title: "PhotoDare",
     desc: "Co-founded PhotoDare with Nick and David, contributing the full-stack React Native and NestJS architecture. A photo sharing app that celebrates real, unfiltered moments — no likes, no filters, no pressure.",
     tech: "React Native · NestJS",
@@ -80,7 +98,11 @@ const artFrames = [
     link: "https://www.photodare.ca/",
   },
   {
-    colSpan: "col-span-1", h: "h-40", img: "/ai/hoth-leia.jpg", alt: "Hoth Leia", bg: "bg-[#C4CFDE]",
+    colSpan: "col-span-1",
+    h: "h-40",
+    img: "/ai/hoth-leia.jpg",
+    alt: "Hoth Leia",
+    bg: "bg-[#C4CFDE]",
     title: "Hoth Leia Reimagined",
     desc: "Using AI to re-envision iconic characters — starting from a classic Hoth Leia reference and generating a reimagined version with new features and styling.",
     tech: "Midjourney",
@@ -89,13 +111,23 @@ const artFrames = [
     modalWidth: "max-w-xs",
   },
   {
-    colSpan: "col-span-2", h: "h-36", img: "/ai/fake_ai_kitchen_products.png", alt: "AI Products", bg: "bg-[#D5DCBA]",
-    title: "AI Product Design",
-    desc: "Speculative product concepts — AI-generated smart kitchen devices exploring industrial design language.",
-    tech: "Midjourney",
+    colSpan: "col-span-2",
+    h: "h-36",
+    img: "/ai/salmon.png",
+    alt: "Humber River Rangers",
+    bg: "bg-[#D5DCBA]",
+    title: "Humber River Rangers",
+    desc: "I have organized a community initiative focused on climate change and environmental conservation to study the local salmon migration and promote sustainable practices.",
+    tech: "Community · Climate Change",
+    link: "/rangers",
+    video: "/salmon/salmon.mov",
   },
   {
-    colSpan: "col-span-1", h: "h-36", img: "/ai/tamogotchi.png", alt: "Tamogotchi", bg: "bg-[#C4CFDE]",
+    colSpan: "col-span-1",
+    h: "h-36",
+    img: "/ai/tamogotchi.png",
+    alt: "Tamogotchi",
+    bg: "bg-[#C4CFDE]",
     title: "Kawaii Pet",
     desc: "A Tamagotchi-inspired virtual pet device — exploring nostalgic hardware with modern kawaii aesthetics.",
     tech: "Midjourney",
@@ -110,7 +142,8 @@ const statColors = [
 ];
 
 const LandingPage = () => {
-  const latestEntry = journalEntries[0];
+  const lastIndex = journalEntries.length - 1;
+  const latestEntry = journalEntries[lastIndex];
   const [selectedFrame, setSelectedFrame] = useState<number | null>(null);
 
   const closeModal = useCallback(() => setSelectedFrame(null), []);
@@ -140,10 +173,16 @@ const LandingPage = () => {
         >
           <div className="absolute inset-0 bg-black/60 backdrop-blur-sm animate-[fadeIn_200ms_ease-out]" />
           <div
-            className={`relative bg-[#F3EBE2] rounded-2xl w-full shadow-2xl animate-[scaleIn_250ms_ease-out] p-2 ${activeFrame.modalWidth ?? "max-w-lg"}`}
+            className={`relative bg-[#F3EBE2] rounded-2xl w-full shadow-2xl animate-[scaleIn_250ms_ease-out] p-2 ${
+              activeFrame.modalWidth ?? "max-w-lg"
+            }`}
             onClick={(e) => e.stopPropagation()}
           >
-            <div className={`relative w-full ${activeFrame.modalAspect ?? "aspect-[16/10]"} rounded-lg overflow-hidden`}>
+            <div
+              className={`relative w-full ${
+                activeFrame.modalAspect ?? "aspect-[16/10]"
+              } rounded-lg overflow-hidden`}
+            >
               {activeFrame.video ? (
                 <video
                   src={activeFrame.video}
@@ -164,7 +203,15 @@ const LandingPage = () => {
                 onClick={closeModal}
                 className="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/50 hover:bg-black/70 text-white flex items-center justify-center transition-colors z-10"
               >
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 14 14"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                >
                   <path d="M1 1l12 12M13 1L1 13" />
                 </svg>
               </button>
@@ -204,7 +251,8 @@ const LandingPage = () => {
             Greenfield Director & Builder with AI super powers.
           </h1>
           <p className="text-lg text-[#3D3D3D] leading-relaxed max-w-lg">
-            A fullstack developer who crafts rich interfaces powered by distributed system design, turning loose business ideas into tight data-driven experiences that monitor and optimize performance.
+            A fullstack developer who crafts rich interfaces, APIs, and
+            architects distributed systems and agentic harnesses.
           </p>
           <Link
             href="/projects"
@@ -278,10 +326,7 @@ const LandingPage = () => {
           </p>
           <div className="flex flex-col gap-3">
             {interests.map((interest) => (
-              <span
-                key={interest}
-                className="text-xl text-[#1A1A1A]"
-              >
+              <span key={interest} className="text-xl text-[#1A1A1A]">
                 {interest}
               </span>
             ))}
@@ -361,7 +406,7 @@ const LandingPage = () => {
             FROM THE WISHLIST
           </p>
           <h3 className="text-2xl md:text-3xl text-[#1A1A1A]">
-            165 Items · 66 Categories
+            Explore a curated collection across design, tech, and the outdoors
           </h3>
           <p className="text-sm text-[#3D3D3D] leading-relaxed">
             A curated collection of tools, gear, and inspiration across design,

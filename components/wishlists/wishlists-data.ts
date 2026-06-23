@@ -51,15 +51,7 @@ export const wishlistItems: WishlistItem[] = [
   },
 
   // ── Shirts ────────────────────────────────────────────────
-  {
-    id: "mott-and-bow-tee",
-    name: "Mott & Bow Classic Tee",
-    url: "https://www.mottandbow.com/en-ca/pages/classic-tee-perfected",
-    image:
-      "http://www.mottandbow.com/cdn/shop/files/Desktop_MBHomepageFallWinter_x800_734d82a0-d800-452a-9281-260a9915a93c.webp?v=1682960583",
-    category: "Shirts",
-    status: "active",
-  },
+
   {
     id: "son-of-a-tailor",
     name: "Son of a Tailor Cotton T-Shirt",
@@ -301,8 +293,9 @@ export const wishlistItems: WishlistItem[] = [
   {
     id: "terraforming-mars",
     name: "Terraforming Mars",
-    url: "https://kotaku.com/terraforming-mars-the-kotaku-review-1827159316",
-    image: "https://kotaku.com/app/uploads/2025/07/kotaku-1200x900-1.jpg",
+    url: "https://www.boardgamebliss.com/products/terraforming-mars?srsltid=AfmBOor3C-Omktcb8QeAjkvH3f-Ui9vieqaIPvw3Qe1Fx0KXbPdVvtec",
+    image:
+      "https://www.boardgamebliss.com/cdn/shop/products/pic2891964.jpg?v=1578609133&width=1125",
     category: "Board Games",
     status: "active",
   },
