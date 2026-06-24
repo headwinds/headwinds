@@ -36,7 +36,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ),
     // Paragraphs
     p: ({ children }) => (
-      <p className="text-sm text-[#3D3D3D] leading-relaxed my-2 mb-4">
+      <p className="text-sm text-[#3D3D3D] leading-relaxed my-2 mb-2">
         {children}
       </p>
     ),
@@ -77,11 +77,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
           </code>
         );
       }
-      return (
-        <code className={className}>
-          {children}
-        </code>
-      );
+      return <code className={className}>{children}</code>;
     },
     pre: ({ children }) => (
       <pre className="bg-[#1A1A1A] text-[#F5F4F2] p-4 rounded-lg overflow-x-auto mb-4 font-mono text-xs leading-relaxed">
@@ -89,29 +85,19 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       </pre>
     ),
     // Horizontal rule
-    hr: () => (
-      <hr className="border-0 border-t border-[#D5CEC6] my-6" />
-    ),
+    hr: () => <hr className="border-0 border-t border-[#D5CEC6] my-6" />,
     // Tables
     table: ({ children }) => (
-      <table className="w-full border-collapse text-sm mb-4">
-        {children}
-      </table>
+      <table className="w-full border-collapse text-sm mb-4">{children}</table>
     ),
     thead: ({ children }) => (
       <thead className="bg-[#EAE3DA] border-b border-[#D5CEC6]">
         {children}
       </thead>
     ),
-    tbody: ({ children }) => (
-      <tbody>
-        {children}
-      </tbody>
-    ),
+    tbody: ({ children }) => <tbody>{children}</tbody>,
     tr: ({ children }) => (
-      <tr className="border-b border-[#D5CEC6]">
-        {children}
-      </tr>
+      <tr className="border-b border-[#D5CEC6]">{children}</tr>
     ),
     th: ({ children }) => (
       <th className="text-left px-4 py-2 text-xs font-medium text-[#1A1A1A] tracking-wide">
@@ -119,20 +105,12 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       </th>
     ),
     td: ({ children }) => (
-      <td className="px-4 py-2 text-[#3D3D3D]">
-        {children}
-      </td>
+      <td className="px-4 py-2 text-[#3D3D3D]">{children}</td>
     ),
     // Strong and emphasis
     strong: ({ children }) => (
-      <strong className="font-semibold text-[#1A1A1A]">
-        {children}
-      </strong>
+      <strong className="font-semibold text-[#1A1A1A]">{children}</strong>
     ),
-    em: ({ children }) => (
-      <em className="italic text-[#3D3D3D]">
-        {children}
-      </em>
-    ),
+    em: ({ children }) => <em className="italic text-[#3D3D3D]">{children}</em>,
   };
 }

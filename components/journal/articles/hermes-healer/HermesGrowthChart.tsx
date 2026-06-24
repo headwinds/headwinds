@@ -3,21 +3,53 @@
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import * as d3 from "d3";
 import NotchSwitch from "@/components/visualization/NotchSwitch";
-import { cumulativeGrowth, memoryEvents, customSkillEvents } from "@/docs/articles/hermes/hermes_growth_data";
+import {
+  cumulativeGrowth,
+  memoryEvents,
+  customSkillEvents,
+} from "@/docs/articles/hermes/hermes_growth_data";
 
 const MARGIN = { top: 48, right: 24, bottom: 36, left: 52 };
 
 const METRICS = [
-  { key: "messages",  label: "Messages",   color: "#C3DED8", yLabel: "Cumulative Messages" },
-  { key: "toolCalls", label: "Tool Calls",  color: "#D5DCBA", yLabel: "Cumulative Tool Calls" },
-  { key: "tokens",    label: "Tokens",      color: "#E8D5C4", yLabel: "Cumulative Tokens" },
+  {
+    key: "messages",
+    label: "Messages",
+    color: "#C3DED8",
+    yLabel: "Cumulative Messages",
+  },
+  {
+    key: "toolCalls",
+    label: "Tool Calls",
+    color: "#D5DCBA",
+    yLabel: "Cumulative Tool Calls",
+  },
+  {
+    key: "tokens",
+    label: "Tokens",
+    color: "#E8D5C4",
+    yLabel: "Cumulative Tokens",
+  },
 ] as const;
 
 type MetricKey = (typeof METRICS)[number]["key"];
 
 function formatLabel(date: string): string {
   const [, month, day] = date.split("-");
-  const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  const months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
   return `${months[parseInt(month, 10) - 1]} ${parseInt(day, 10)}`;
 }
 
@@ -75,7 +107,16 @@ interface DrawOptions {
   height: number;
 }
 
-function drawChart({ svg, points, milestones, color, yLabel, metricKey, width, height }: DrawOptions) {
+function drawChart({
+  svg,
+  points,
+  milestones,
+  color,
+  yLabel,
+  metricKey,
+  width,
+  height,
+}: DrawOptions) {
   const sel = d3.select(svg);
   sel.selectAll("*").remove();
 
@@ -94,7 +135,9 @@ function drawChart({ svg, points, milestones, color, yLabel, metricKey, width, h
     .domain([0, yMax * 1.2])
     .range([innerH, 0]);
 
-  const g = sel.append("g").attr("transform", `translate(${MARGIN.left},${MARGIN.top})`);
+  const g = sel
+    .append("g")
+    .attr("transform", `translate(${MARGIN.left},${MARGIN.top})`);
 
   // Grid lines
   const yTicks = y.ticks(4);
@@ -102,24 +145,33 @@ function drawChart({ svg, points, milestones, color, yLabel, metricKey, width, h
     .data(yTicks)
     .enter()
     .append("line")
-    .attr("x1", 0).attr("x2", innerW)
-    .attr("y1", (d) => y(d)).attr("y2", (d) => y(d))
-    .attr("stroke", "#2A2A2A").attr("stroke-width", 1);
+    .attr("x1", 0)
+    .attr("x2", innerW)
+    .attr("y1", (d) => y(d))
+    .attr("y2", (d) => y(d))
+    .attr("stroke", "#2A2A2A")
+    .attr("stroke-width", 1);
 
   // Y axis labels
   g.selectAll(".y-label")
     .data(yTicks)
     .enter()
     .append("text")
-    .attr("x", -10).attr("y", (d) => y(d))
-    .attr("dy", "0.35em").attr("text-anchor", "end")
-    .attr("fill", "#6B6B6B").attr("font-size", 10)
+    .attr("x", -10)
+    .attr("y", (d) => y(d))
+    .attr("dy", "0.35em")
+    .attr("text-anchor", "end")
+    .attr("fill", "#6B6B6B")
+    .attr("font-size", 10)
     .text((d) => formatValue(d, metricKey));
 
   // Y axis title
   g.append("text")
-    .attr("x", -MARGIN.left + 6).attr("y", -28)
-    .attr("fill", "#6B6B6B").attr("font-size", 9).attr("letter-spacing", "2px")
+    .attr("x", -MARGIN.left + 6)
+    .attr("y", -28)
+    .attr("fill", "#6B6B6B")
+    .attr("font-size", 9)
+    .attr("letter-spacing", "2px")
     .text(yLabel.toUpperCase());
 
   // X axis labels
@@ -130,20 +182,26 @@ function drawChart({ svg, points, milestones, color, yLabel, metricKey, width, h
     .attr("x", (d) => x(d.date) ?? 0)
     .attr("y", innerH + 22)
     .attr("text-anchor", "middle")
-    .attr("fill", "#6B6B6B").attr("font-size", 10)
+    .attr("fill", "#6B6B6B")
+    .attr("font-size", 10)
     .text((d) => formatLabel(d.date));
 
   // Milestone vertical markers and floating badges
+  /*
   for (const ms of milestones) {
     const cx = x(ms.date);
     if (cx == null) continue;
 
     // Vertical stem
     g.append("line")
-      .attr("x1", cx).attr("x2", cx)
-      .attr("y1", 0).attr("y2", innerH)
-      .attr("stroke", ms.color).attr("stroke-width", 0.75)
-      .attr("stroke-dasharray", "3 3").attr("opacity", 0.5);
+      .attr("x1", cx)
+      .attr("x2", cx)
+      .attr("y1", 0)
+      .attr("y2", innerH)
+      .attr("stroke", ms.color)
+      .attr("stroke-width", 0.75)
+      .attr("stroke-dasharray", "3 3")
+      .attr("opacity", 0.5);
 
     // Badge labels above the chart area (into the top margin)
     const badgeY = -MARGIN.top + 8;
@@ -153,37 +211,53 @@ function drawChart({ svg, points, milestones, color, yLabel, metricKey, width, h
       const by = badgeY + i * 18;
 
       g.append("rect")
-        .attr("x", bx).attr("y", by)
-        .attr("width", badgeW).attr("height", 14)
-        .attr("rx", 3).attr("fill", ms.color).attr("opacity", 0.15);
+        .attr("x", bx)
+        .attr("y", by)
+        .attr("width", badgeW)
+        .attr("height", 14)
+        .attr("rx", 3)
+        .attr("fill", ms.color)
+        .attr("opacity", 0.15);
 
       g.append("text")
-        .attr("x", cx).attr("y", by + 9)
+        .attr("x", cx)
+        .attr("y", by + 9)
         .attr("text-anchor", "middle")
-        .attr("fill", ms.color).attr("font-size", 8.5)
+        .attr("fill", ms.color)
+        .attr("font-size", 8.5)
         .attr("letter-spacing", "0.8px")
         .text(label.toUpperCase());
     });
-  }
+  }*/
 
   // Area fill
-  const area = d3.area<{ date: string; value: number }>()
+  const area = d3
+    .area<{ date: string; value: number }>()
     .x((d) => x(d.date) ?? 0)
-    .y0(innerH).y1((d) => y(d.value))
+    .y0(innerH)
+    .y1((d) => y(d.value))
     .curve(d3.curveMonotoneX);
 
-  g.append("path").datum(points).attr("d", area)
-    .attr("fill", color).attr("opacity", 0.07);
+  g.append("path")
+    .datum(points)
+    .attr("d", area)
+    .attr("fill", color)
+    .attr("opacity", 0.07);
 
   // Line
-  const line = d3.line<{ date: string; value: number }>()
+  const line = d3
+    .line<{ date: string; value: number }>()
     .x((d) => x(d.date) ?? 0)
     .y((d) => y(d.value))
     .curve(d3.curveMonotoneX);
 
-  g.append("path").datum(points).attr("d", line)
-    .attr("fill", "none").attr("stroke", color)
-    .attr("stroke-width", 2.5).attr("stroke-linecap", "round");
+  g.append("path")
+    .datum(points)
+    .attr("d", line)
+    .attr("fill", "none")
+    .attr("stroke", color)
+    .attr("stroke-width", 2.5)
+    .attr("stroke-linecap", "round");
 
   // Dots
   g.selectAll(".dot")
@@ -197,7 +271,8 @@ function drawChart({ svg, points, milestones, color, yLabel, metricKey, width, h
       const hasMilestone = milestones.some((m) => m.date === d.date);
       return hasMilestone ? "#1A1A1A" : color;
     })
-    .attr("stroke", color).attr("stroke-width", 2);
+    .attr("stroke", color)
+    .attr("stroke-width", 2);
 
   // Value labels above dots
   g.selectAll(".val-label")
@@ -207,7 +282,8 @@ function drawChart({ svg, points, milestones, color, yLabel, metricKey, width, h
     .attr("x", (d) => x(d.date) ?? 0)
     .attr("y", (d) => y(d.value) - 10)
     .attr("text-anchor", "middle")
-    .attr("fill", "#8A8A8A").attr("font-size", 9)
+    .attr("fill", "#8A8A8A")
+    .attr("font-size", 9)
     .text((d) => formatValue(d.value, metricKey));
 }
 
@@ -238,8 +314,8 @@ export default function HermesGrowthChart() {
         activeMetric === "messages"
           ? p.cumulativeMessages
           : activeMetric === "toolCalls"
-            ? p.cumulativeToolCalls
-            : p.cumulativeTokens,
+          ? p.cumulativeToolCalls
+          : p.cumulativeTokens,
     }));
 
     drawChart({
@@ -266,13 +342,18 @@ export default function HermesGrowthChart() {
           </span>
           <p className="text-[15px] text-[#F3EBE2] leading-snug m-0">
             Cumulative{" "}
-            <span style={{ color: active.color }}>{active.label.toLowerCase()}</span>{" "}
+            <span style={{ color: active.color }}>
+              {active.label.toLowerCase()}
+            </span>{" "}
             across the first sessions — with memory and skill milestones marked.
           </p>
           <div className="flex flex-col gap-1.5 mt-2">
             {MILESTONES.map((ms) =>
               ms.labels.map((label) => (
-                <div key={`${ms.date}-${label}`} className="flex items-center gap-2">
+                <div
+                  key={`${ms.date}-${label}`}
+                  className="flex items-center gap-2"
+                >
                   <span
                     className="inline-block w-2 h-2 rounded-full shrink-0"
                     style={{ background: ms.color, opacity: 0.7 }}

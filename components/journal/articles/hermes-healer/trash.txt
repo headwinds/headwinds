@@ -1,0 +1,21 @@
+<Player
+  artist={{
+    artistName: "@olleai",
+    websiteUrl: "https://linktr.ee/olle_",
+    tiktokUrl:
+      "https://www.tiktok.com/@olleai/video/7643940601657822486?_r=1&_t=ZS-97SBWZr6R5p",
+    isArtistNameUnderline: false,
+  }}
+/>
+
+<Player
+  artist={{
+    artistName: "Mr. Artificial Intelligence",
+    tiktokUrl:
+      "https://www.tiktok.com/@mr.artificialintelligenc/video/7654394135868083473",
+    isArtistNameUnderline: false,
+  }}
+/>
+
+
+https://www.tiktok.com/@brnrt_research/video/7648150306651507999?_r=1&_t=ZS-97TcLzXMSyT

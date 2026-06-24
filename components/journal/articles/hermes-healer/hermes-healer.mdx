@@ -1,1 +1,142 @@
-# Hermes Healer
+import HermesGrowthChart from "./HermesGrowthChart";
+import { Player } from "@headwinds/cross-country";
+
+<img
+  src="/ai/hermes_header.png"
+  alt="Hermes Agent hiking"
+  className="w-full h-auto rounded-lg mb-4"
+/>
+
+<p className="lead">
+  Most AI tools forget you. You use them once, they respond, you close the tab.
+  The context resets. The next session starts from zero. You're always a
+  stranger! But what if the AI could remember you? What if it could learn from
+  your interactions and become more useful over time? That is the promise of
+  Hermes, a personal AI agent that grows with you.
+</p>
+
+Back in 2016, I was happily working away on [Voices](https://www.youtube.com/watch?v=5KZofZX3XaY), a conversational NLP platform for data visualization. It was my baby, and became a crown jewel in the
+[247 acquisition of IntelliResponse](https://techcrunch.com/2014/11/10/14-years-in-the-making-247-buys-intelliresponse-for-its-customer-service-suite/) the following year.
+
+At IntelliResponse, I first learned about the concept that a system could learn from its interactions and become more useful over time. We would tell customers to expect that the decisions and accuracy would be poor intially and then it would improve as it learned from its interactions; that we should see it grow from 20% to 80% within two months depending on the customer. We had both financial (namely TD Bank) and education customers. And we 💛 our virtual agent [Iris](https://www.youtube.com/watch?v=o1tL0IYlhf4)!
+
+I also enjoyed tracking this intelligence over time metric! It made for such an impressive time series chart. I would watch the system improve over time, and it was fascinating to see how quickly it could learn from its interactions. At the time, AI was much more of an algorithm. We are were not using neural networks but we had sophisticted machine learning in place. As budding data scientist, I created my own toy models and tried to learn from Kaggle datasets, Monte Carlo simulations, TF-IDF, random forestsand other techniques.
+
+Fast forward to today, and I am working with Hermes, a personal AI agent that learns everytime I interact with it. It even learns on its own. The experience is similar to what I saw at IntelliResponse, but the scale is much larger. Hermes is not just learning from a few thousand interactions, but from millions of interactions across the entire platform. It is learning from the way I work, the tools I use, and the problems I am trying to solve.
+
+Working with **Hermes** is different. The agent doesn't reset — it accumulates. Every session leaves a residue: the vocabulary you used, the tools you reached for, the problems you kept coming back to. Over time that residue becomes something more structured. Memory. Skills. A posture that fits the way you actually think.
+
+The chart below is three days of early work with Hermes. Nothing dramatic — just normal problem-solving sessions. But if you look at where the milestones fall, you can trace the arc: an agent learning, committing what it learned, and then building on top of it.
+
+[how to setup Hermes](https://x.com/scottybeamio/status/2066885278451519590?s=43&t=JosrImXLm25J_T3QQadmMw) and the history of [nous research ](https://x.com/doublenickk/status/2069012700353474733?s=43&t=JosrImXLm25J_T3QQadmMw)
+
+<HermesGrowthChart />
+
+## Interview yourself
+
+I spend a lot of time reflecting on my work. I ask myself questions, and I answer them. I try to understand what I am doing, why I am doing it, and how I can do it better. This is a form of self-interviewing, and it is a powerful tool for learning.
+
+I have accumulated a list of questions that I ask myself regularly. They are not always easy to answer, but they help me understand my work and my goals. They help me learn from my experiences and improve my skills.
+
+These personal stories have become my own dataset of life experiences. They are shared with the AI, which can also be used to help me reflect on my work. I can ask the AI questions about my work, and it can help me understand my experiences and improve my skills.
+
+Over the year, I have met people I really love and loath. Those who have wronged him as well as those who have helped him. I don't just ignore the haters but try to learn from them. I have learned from my experiences, and I have grown as a person. I have learned to be more empathetic, more understanding, and more compassionate. I have learned to be more patient, more resilient, and more adaptable. I have learned to be more self-aware, more self-reflective, and more self-compassionate.
+
+When I work with Hermes, I do the same thing. I ask it questions, and it answers them. But the difference is that Hermes remembers the answers. It remembers the context of the conversation, the tools we used, and the problems we were trying to solve. It learns from our interactions, and it becomes more useful over time.
+
+## Hermes remembers you
+
+On day one, Hermes is a blank slate. It has its base model and nothing else. The session is long because Hermes has to ask a lot of questions to get to know you. It needs to understand your context before it can be useful inside it.
+
+At the end of that first day, something happens: _memory gets locked_. This is not a metaphor. Hermes writes a structured memory file — a compressed, curated record of what it now knows about you.
+
+<img
+  src="/ai/hermes_mecha.png"
+  alt="Hermes Mecha"
+  className="w-full h-auto rounded-lg mb-4"
+/>
+
+After reading this tweet about [12 labours of Hermes](https://x.com/ericosiu/status/2068453841612484902?s=43&t=JosrImXLm25J_T3QQadmMw), I had some fun asking Gemini to envision Hermes as the heroine Hercules and locust mech pilot! I like their branding choice of creating an avatar reministic of the the [Lofi girl](https://www.youtube.com/watch?v=RAVSP4Gp0Y8) instead following more closely to the [mythology](https://www.theoi.com/Olympios/HermesMyths2.html) of Hermes as a messanger, shepherd, trader and trickster.
+
+<img
+  src="/ai/hermes_hercules.png"
+  alt="Hermes Agent"
+  className="w-full h-auto rounded-lg mb-4"
+/>
+
+Like a new service, I want to kick the tires on the free plan before I commit to a paid plan. I want to see how it works, and I want to see if it is useful for my work. I want to see if it is worth the investment. Hermes offers a free plan, and I decided to plug in the free step-fun 3.7 flash model which remarkably well; so much so that I'm really questioning my past token spend as a total waste of money!
+
+## Cheaper And Free models
+
+- [Mini-max 2.7](https://huggingface.co/MiniMaxAI/MiniMax-M2.7)
+- [step-fun 3.7 flash](https://huggingface.co/stepfun-ai/Step-3.7-Flash)
+- [Kimi k 2.6](https://huggingface.co/moonshotai/Kimi-K2.6)
+- [Qwen 3.5](https://www.bentoml.com/blog/navigating-the-world-of-open-source-large-language-models#qwen3.5-397b-a17b)
+- [Gemma 4](https://ollama.com/library/gemma4)
+- [GLM 5.2](https://z.ai/blog/glm-5.2)
+- [Sakana](https://sakana.ai/)
+
+You may have seen the following message like I just did:
+
+"You've reached your credit limit. To continue working, please contact your organization's Copilot admin or wait until your credits reset on June 30, 2026 at 8:00 PM."
+
+So obviously, one benefit of using free models setup is that you can switch them when you run of credits. If you are using VSCode, you can use the [Continue](https://marketplace.visualstudio.com/items?itemName=Continue.continue) extension to switch between models and watch this excellent [Continue setup video](https://www.youtube.com/watch?v=T_arXqLvOKs).
+
+## Hermes builds skills
+
+A custom skill is a reusable behavior Hermes builds from patterns it observes. If you keep asking it to do the same kind of thing in a particular way, it learns to anticipate that. It structures a skill: a named capability, a prompt template, a set of tool sequences, a default tone. The next time you need it, Hermes doesn't have to reason it out from scratch — it reaches for the skill.
+
+This is the shift from a capable tool to something closer to a capable colleague. A colleague who has seen how you work and adjusted accordingly.
+
+Look at the cumulative messages or tool calls curve. It rises fast through day two, then almost flattens on day three. That's not a drop in usefulness — it's the opposite. Day three was a shorter session precisely because Hermes was faster. Context was carried over. Skills were available. Less needed to be explained.
+
+## Agent Growth
+
+Most people treat AI assistants as stateless utilities — disposable, interchangeable, instantly forgettable. That framing makes sense for a tool. It doesn't make sense for something that can learn.
+
+Growing an agent means treating early sessions as infrastructure work. You are putting in time to teach it. You're not just solving today's problem — you're teaching the agent the shape of how you think, what you care about, and how you want to work. That context doesn't evaporate at session end. It compounds.
+
+After a few weeks with Hermes, the experience is noticeably different from week one. It anticipates. It adapts. It carries your vocabulary into its responses. The chart only shows three days. Imagine what the shape looks like after thirty. Actually I don't have to imagine. I know I will review it in a month and see how it has grown. This reminds of the [live artifacts](https://www.eigent.ai/blog/claude-live-artifacts-guide). This article has reach components to show how Hermes grows over time. This is part of the beauty of writing in mdx over md! I could pump this data into database or static file and then host it so that the chart could be updated in real time. I also could write to local files and hook them up to [qmd](https://github.com/tobi/qmd). Hermes has a [qmd skill](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/research/qmd/SKILL.md)!
+
+I'm a big practitioner of spec driven development and like to plan every feature out ahead of time and then iterate with the LLM to build it out. Plan mode then agent mode!
+
+## Soloscout uses MDX As your Obsidian alternative
+
+I'm on a mission to build a better Obsidian alternative. I want to make it easier for people to get started with personal knowledge management, and to make it easier for them to use their notes in a more intelligent way. As mentioned, I'm more passionate about [mdx](https://nextjs.org/docs/pages/guides/mdx) than markdown. I want to make it easier for people to use and configure react components in their articles like I do in this article and when I'm testing react components in [Storybook](https://storybook.js.org/).
+
+To beat Obsidian, I have been building the Scout platform. Scout should not just draw links; it should assign confidence, type, and utility to links. A useful model is a multilayer graph with edges like explicit_link, heading_ref, block_ref, semantic_similarity, same_entity, shared_frontmatter, citation, and co-change, each with a weight and provenance so users can trust why two notes are connected.
+
+Obsidian usually leaves to plugins or manual practice: “show me the strongest connections,” “show weak but promising links,” “show links created by me vs inferred by Scout,” and “show decaying links that haven’t been revisited.” This is likely more valuable to switchers than a prettier graph, because it makes the graph operational instead of decorative.
+
+Obsidian shows your links; Scout explains, ranks, and grows them.
+
+Sign up for the waitlist for [soloscout](https://soloscout.net/waitlist)
+
+## Hermes as a confidence booster
+
+I enjoy taking my daughter to soccer practice. Initially, I was little shy around the other parents, and would initially escape the nearby coffee shop to study while she played. Awful! I realized I was missing out on both watching her grow and the social aspect of the experience.
+
+So I made a point to slide up to the parent pod and attempt to join the conversation. Usually one parent talked about their work and life, and I would listen.
+
+Eventually the topic would turn to AI, and I would share my experiences with Hermes. The other parents were intrigued, and I was happy to share what I had learned.
+
+From these conversations, I realized that many people are interested in AI, but they don't know where to start; they are even content with ChatGPT as it is.
+
+They don't know how to set up an agent, or how to teach it to learn from their interactions. They don't know how to make it useful for their work.
+
+One parent was a general contractor and another was a small business owner who was into auctioning automative parts. They were both interested in using Hermes to help them with their work, but they didn't know how to get started.
+
+Some developers scoff at the idea of building a yet another ChatGPT wrapper, but I see it differently. I see it as a way to help people get started with AI, and to help them understand how to make it useful for their work.
+
+The next product is not to kill chat, but to help people get started with AI, and to help them understand how to make it useful for their work as they converse. We still have about [85% of the population who are not using AI](https://www.mindstudio.ai/blog/ai-adoption-gap-ibm-2026-study), and we need to help them get started. We need to help them understand how to make it useful for their work.
+
+I would be weary of Agent that claims you need to do nothing! You definitely need to work at it. And while working it, you are actually working on you! That is the most rewarding part of the experience; this self introspection. You are learning about yourself, and you are learning about how to make AI useful for your work. It snowballs into a positive feedback loop where you should feel as a sense of acceleration and greater control; that you are directing the AI as it drives.
+
+## Related
+
+- [When AI builds itself](https://www.anthropic.com/institute/recursive-self-improvement)
+- [@0xjeff The Hermes Sensei Loop](https://x.com/0xjeff/status/2069008589721932251?s=43&t=JosrImXLm25J_T3QQadmMw)
+- [Olle AI on free models](https://www.tiktok.com/@olleai/video/7643940601657822486?_r=1&_t=ZS-97SBWZr6R5p)
+- [Mr. Artificial Intelligence & the Sakana Swarm (also see Boids!)](https://www.tiktok.com/@mr.artificialintelligenc/video/7654394135868083473)
+- [brainrot research on why jarivs is a joke](https://www.tiktok.com/@brnrt_research/video/7648150306651507999?_r=1&_t=ZS-97TcLzXMSyT)
+- [dev.to hermes agent challenge](https://dev.to/devteam/congrats-to-the-hermes-agent-challenge-winners-3on0?)

@@ -14,6 +14,7 @@ export interface JournalEntry {
   tags: string[];
 }
 
+// add the new article to the end of the array to have it appear first in the list
 export const journalEntries: JournalEntry[] = [salesAgents, hermesHealer];
 
 export function getEntryBySlug(slug: string): JournalEntry | undefined {
