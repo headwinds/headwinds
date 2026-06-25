@@ -3,6 +3,7 @@
 import Image from "next/image";
 import PageShell from "@/components/layout/PageShell";
 import PortholePreview from "./PortholePreview";
+import Pitch from "./pitch.mdx";
 
 const skills = [
   "React · React Native · Next.js · Node",
@@ -71,21 +72,20 @@ const AboutPage = () => {
 
       {/* Career + Education Row */}
       <div className="flex flex-col md:flex-row gap-1.5">
-        <div className="flex-1 bg-[#C3DED8] rounded-2xl p-8 md:p-10 flex flex-col gap-5">
+        <div className="flex-1 bg-[#C3DED8] rounded-2xl p-8 md:p-10 flex flex-col gap-2">
           <p className="text-[11px] font-medium text-[#3D3D3D] tracking-[3px] m-0">
-            LAST ROLE
+            MY PITCH
           </p>
           <h3 className="text-2xl md:text-3xl text-[#1A1A1A] leading-snug m-0">
             Lead Full-stack Engineer
             <br />
-            at AXL Labs
+            <span className="text-sm md:text-base text-[#3D3D3D] leading-snug">
+              Acts like a Founder, Thinks like a Product Owner
+            </span>
           </h3>
-          <p className="text-sm text-[#3D3D3D] leading-relaxed m-0">
-            As a new founder, I was excited to launch the next generation of
-            human-centric AI-powered companies. They have an ambitious plan to
-            launch 50 in 5 years and are well on track to realize this vision.
-          </p>
-          <p className="text-sm text-[#3D3D3D] leading-relaxed m-0">
+
+          <Pitch />
+          {/*<p className="text-sm text-[#3D3D3D] leading-relaxed m-0">
             At AXL, they pitch that "anyone is a founder" and I believe in that
             philosophy deeply. When I join a company I pour myself into to work
             and collaborate with the team to build solutions that will drive
@@ -101,7 +101,7 @@ const AboutPage = () => {
             implemented rigorous testing and validation processes to review and
             annotate the data. Along with RAG, I used a reasoning LLM to perform
             a 5 step evaluation loop to arrive at the best possible answer.{" "}
-          </p>
+          </p>*/}
         </div>
         <div className="w-full md:w-[400px] bg-[#F3EBE2] rounded-2xl p-8 md:p-10 flex flex-col gap-6 md:shrink-0">
           <p className="text-[11px] font-medium text-[#6B6B6B] tracking-[3px] m-0">
