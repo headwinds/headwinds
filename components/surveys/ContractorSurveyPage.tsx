@@ -348,6 +348,14 @@ const ContractorSurveyPage = ({ contractorId }: ContractorSurveyPageProps) => {
 
       const data = await response.json();
 
+      if (data?.status === 500) {
+        setStatus("error");
+        setMessage(
+          "Something went wrong. Please try again or contact support."
+        );
+        return;
+      }
+
       console.log("Contractor survey submission response:", response);
       console.log("Contractor survey submission data:", data);
 

@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import ContractorSurveyPage from "@/components/surveys/ContractorSurveyPage";
 import NoSurveyFoundPage from "@/components/surveys/NoSurveyFoundPage";
+import { getScoutDomain } from "@/utils/network-util";
 
 interface SurveyClientPageProps {
   contractorId: string;
@@ -11,13 +12,9 @@ interface SurveyClientPageProps {
 const CheckSurveyClientPage = ({ contractorId }: SurveyClientPageProps) => {
   const [status, setStatus] = useState<string>("unknown");
 
-  if (!contractorId) {
-    return <NoSurveyFoundPage />;
-  }
-
   useEffect(() => {
     const fetchSurvey = async () => {
-      const url = `http://localhost:8000/api/survey/contractor/${contractorId}`;
+      const url = `${getScoutDomain()}/api/survey/contractor/${contractorId}`;
 
       try {
         const response = await fetch(url);
@@ -37,6 +34,10 @@ const CheckSurveyClientPage = ({ contractorId }: SurveyClientPageProps) => {
 
     fetchSurvey();
   }, []);
+
+  if (!contractorId) {
+    return <NoSurveyFoundPage />;
+  }
 
   if (status === "unknown") {
     const message = `Checking survey with id ${contractorId}`;
