@@ -248,7 +248,7 @@ const LandingPage = () => {
             HI, I&apos;M BRANDON
           </p>
           <h1 className="text-3xl sm:text-5xl md:text-7xl font-normal text-[#1A1A1A] tracking-tight leading-none">
-            Greenfield Director & Builder with AI super powers.
+            Greenfield Director & Builder. Buffed with AI!
           </h1>
           <p className="text-lg text-[#3D3D3D] leading-relaxed max-w-lg">
             A fullstack developer who crafts rich interfaces, APIs, and
