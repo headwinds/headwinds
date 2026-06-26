@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import ContractorSurveyPage from "@/components/surveys/ContractorSurveyPage";
+import CheckSurveyClientPage from "./check-survey-client";
 
 export const metadata: Metadata = {
   title: "Contractor survey | headwinds",
@@ -18,5 +18,5 @@ export default function SurveyRoute({
 }: {
   params: { contractorId: string };
 }) {
-  return <ContractorSurveyPage contractorId={params.contractorId} />;
+  return <CheckSurveyClientPage contractorId={params.contractorId} />;
 }

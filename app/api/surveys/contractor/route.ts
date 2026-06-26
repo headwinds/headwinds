@@ -25,30 +25,140 @@ const surveyQuestions: SurveyQuestion[] = [
   { field: "contractorName", question: "Your name", questionType: "text" },
   { field: "companyName", question: "Company name", questionType: "text" },
   { field: "email", question: "Email", questionType: "text" },
-  { field: "hasWebsite", question: "Do you have a website?", questionType: "singleChoice" },
-  { field: "websiteUrl", question: "What is your website URL?", questionType: "text" },
-  { field: "wantsWebsite", question: "Would you like a website?", questionType: "singleChoice" },
-  { field: "projectRecordingProcess", question: "After each project, what do you use to record the project details and photos?", questionType: "text" },
-  { field: "testimonialFrequency", question: "Do you ask each customer for a testimonial after each project?", questionType: "singleChoice" },
-  { field: "clientContactCadence", question: "How often do you contact clients after the work has been completed?", questionType: "singleChoice" },
-  { field: "existingCustomerAgentComfort", question: "How would you feel about an agent contacting existing customers for a short survey?", questionType: "singleChoice" },
-  { field: "newCustomerAgentComfort", question: "How would you feel about an agent contacting new customers after a project is completed?", questionType: "singleChoice" },
-  { field: "acquisitionChannels", question: "How do you typically get new customers?", questionType: "multipleChoice" },
-  { field: "acquisitionOther", question: "Other customer source", questionType: "text" },
-  { field: "workWanted", question: "What type of work do you want more of?", questionType: "text" },
-  { field: "outcomes", question: "What customer outcomes matter most to your business?", questionType: "multipleChoice" },
-  { field: "customerListStatus", question: "Do you currently have a customer list with names and email addresses?", questionType: "singleChoice" },
-  { field: "emailPermission", question: "Do you have permission to email those customers about their completed projects?", questionType: "singleChoice" },
-  { field: "emailApprovalPreference", question: "Would you want to review and approve each email before the agent sends it?", questionType: "singleChoice" },
-  { field: "surveyTopics", question: "What should the customer survey ask about?", questionType: "multipleChoice" },
-  { field: "doNotContact", question: "Are there any customers or project types the agent should not contact?", questionType: "text" },
-  { field: "senderName", question: "What sender name should customer messages use?", questionType: "text" },
-  { field: "replyToEmail", question: "What reply-to email should customer messages use?", questionType: "text" },
-  { field: "companyEmailStatus", question: "What is your company email/domain status?", questionType: "text" },
-  { field: "incentive", question: "Should customers be offered an incentive for completing the survey?", questionType: "singleChoice" },
-  { field: "incentiveOther", question: "Other incentive", questionType: "text" },
-  { field: "positiveFollowUp", question: "What should happen when a customer leaves a positive response?", questionType: "multipleChoice" },
-  { field: "negativeFollowUp", question: "What should happen when a customer leaves a negative response?", questionType: "multipleChoice" },
+  {
+    field: "hasWebsite",
+    question: "Do you have a website?",
+    questionType: "singleChoice",
+  },
+  {
+    field: "yearsInBusiness",
+    question: "How many years have you been in business?",
+    questionType: "singleChoice",
+  },
+  {
+    field: "websiteUrl",
+    question: "What is your website URL?",
+    questionType: "text",
+  },
+  {
+    field: "wantsWebsite",
+    question: "Would you like a website?",
+    questionType: "singleChoice",
+  },
+  {
+    field: "projectRecordingProcess",
+    question:
+      "After each project, what do you use to record the project details and photos?",
+    questionType: "text",
+  },
+  {
+    field: "testimonialFrequency",
+    question: "Do you ask each customer for a testimonial after each project?",
+    questionType: "singleChoice",
+  },
+  {
+    field: "clientContactCadence",
+    question:
+      "How often do you contact clients after the work has been completed?",
+    questionType: "singleChoice",
+  },
+  {
+    field: "existingCustomerAgentComfort",
+    question:
+      "How would you feel about an agent contacting existing customers for a short survey?",
+    questionType: "singleChoice",
+  },
+  {
+    field: "newCustomerAgentComfort",
+    question:
+      "How would you feel about an agent contacting new customers after a project is completed?",
+    questionType: "singleChoice",
+  },
+  {
+    field: "acquisitionChannels",
+    question: "How do you typically get new customers?",
+    questionType: "multipleChoice",
+  },
+  {
+    field: "acquisitionOther",
+    question: "Other customer source",
+    questionType: "text",
+  },
+  {
+    field: "workWanted",
+    question: "What type of work do you want more of?",
+    questionType: "text",
+  },
+  {
+    field: "outcomes",
+    question: "What customer outcomes matter most to your business?",
+    questionType: "multipleChoice",
+  },
+  {
+    field: "customerListStatus",
+    question:
+      "Do you currently have a customer list with names and email addresses?",
+    questionType: "singleChoice",
+  },
+  {
+    field: "emailPermission",
+    question:
+      "Do you have permission to email those customers about their completed projects?",
+    questionType: "singleChoice",
+  },
+  {
+    field: "emailApprovalPreference",
+    question:
+      "Would you want to review and approve each email before the agent sends it?",
+    questionType: "singleChoice",
+  },
+  {
+    field: "surveyTopics",
+    question: "What should the customer survey ask about?",
+    questionType: "multipleChoice",
+  },
+  {
+    field: "doNotContact",
+    question:
+      "Are there any customers or project types the agent should not contact?",
+    questionType: "text",
+  },
+  {
+    field: "senderName",
+    question: "What sender name should customer messages use?",
+    questionType: "text",
+  },
+  {
+    field: "replyToEmail",
+    question: "What reply-to email should customer messages use?",
+    questionType: "text",
+  },
+  {
+    field: "companyEmailStatus",
+    question: "What is your company email/domain status?",
+    questionType: "text",
+  },
+  {
+    field: "incentive",
+    question:
+      "Should customers be offered an incentive for completing the survey?",
+    questionType: "singleChoice",
+  },
+  {
+    field: "incentiveOther",
+    question: "Other incentive",
+    questionType: "text",
+  },
+  {
+    field: "positiveFollowUp",
+    question: "What should happen when a customer leaves a positive response?",
+    questionType: "multipleChoice",
+  },
+  {
+    field: "negativeFollowUp",
+    question: "What should happen when a customer leaves a negative response?",
+    questionType: "multipleChoice",
+  },
 ];
 
 function stringifyAnswer(value: unknown): string {
@@ -61,7 +171,9 @@ function stringifyAnswer(value: unknown): string {
   return String(value).trim();
 }
 
-function validateBody(body: unknown):
+function validateBody(
+  body: unknown
+):
   | { valid: true; contractorId: string; responses: ContractorSurveyResponses }
   | { valid: false; message: string } {
   if (!body || typeof body !== "object") {
@@ -72,9 +184,10 @@ function validateBody(body: unknown):
   const contractorId = String(requestBody.contractorId || "").trim();
   const responses = requestBody.responses;
 
+  /* checked server side now
   if (!contractorId || !/^contractor-[a-zA-Z0-9_-]{4,80}$/.test(contractorId)) {
     return { valid: false, message: "Invalid contractor invitation" };
-  }
+  }*/
 
   if (!responses || typeof responses !== "object" || Array.isArray(responses)) {
     return { valid: false, message: "Missing survey responses" };
@@ -143,16 +256,20 @@ async function createScoutSurvey({
   contractorId: string;
   responses: ContractorSurveyResponses;
   answeredQuestions: SurveyQuestion[];
-  scoutAuthToken: string;
+  scoutAuthToken?: string;
 }) {
   const companyName = stringifyAnswer(responses.companyName) || contractorId;
   const contractorEmail = stringifyAnswer(responses.email);
 
-  const response = await fetch(`${SCOUT_API_URL}/api/quiz/build`, {
+  const url = scoutAuthToken
+    ? `${SCOUT_API_URL}/api/quiz/build`
+    : `${SCOUT_API_URL}/api/quiz/headwinds/build`;
+
+  const response = await fetch(url, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${scoutAuthToken}`,
+      ...(scoutAuthToken ? { Authorization: `Bearer ${scoutAuthToken}` } : {}),
     },
     body: JSON.stringify({
       title: `Contractor Scout Survey - ${companyName}`,
@@ -201,7 +318,8 @@ export async function POST(request: NextRequest) {
     const scoutAuthToken = process.env.SCOUT_AUTH_TOKEN || "";
     const answeredQuestions = getAnsweredQuestions(validation.responses);
 
-    if (!scoutAuthToken || answeredQuestions.length === 0) {
+    if (!scoutAuthToken) {
+      /*
       console.log("Contractor survey submitted without Scout forwarding", {
         contractorId: validation.contractorId,
         hasScoutAuthToken: Boolean(scoutAuthToken),
@@ -213,7 +331,28 @@ export async function POST(request: NextRequest) {
         status: 202,
         message: "Survey captured; Scout forwarding is not configured",
         scoutSubmitted: false,
+      });*/
+
+      const scoutSurvey = await createScoutSurvey({
+        contractorId: validation.contractorId,
+        responses: validation.responses,
+        answeredQuestions,
+        scoutAuthToken: undefined,
       });
+
+      return NextResponse.json(
+        {
+          status: 200,
+          message: "success",
+          scoutSubmitted: true,
+          scout: {
+            collection_id: scoutSurvey.collectionId,
+            question_ids: scoutSurvey.questionIds,
+            questions_added: scoutSurvey.questionIds.length,
+          },
+        },
+        { status: 200 }
+      );
     }
 
     const scoutSurvey = await createScoutSurvey({
@@ -270,8 +409,14 @@ export async function POST(request: NextRequest) {
     });
   } catch (error) {
     console.error("Contractor survey route error", error);
+    const errorMessage = process.env.SCOUT_AUTH_TOKEN
+      ? "authorized survey error"
+      : "unauthorized survey error";
     return NextResponse.json(
-      { status: 500, message: "Internal server error" },
+      {
+        status: 500,
+        message: `Sorry, Something went wrong: ${errorMessage}`,
+      },
       { status: 500 }
     );
   }

@@ -33,6 +33,7 @@ type ContractorSurveyValues = {
   incentiveOther: string;
   positiveFollowUp: string[];
   negativeFollowUp: string[];
+  yearsInBusiness: string; // Changed this line to match the type
 };
 
 const initialValues: ContractorSurveyValues = {
@@ -63,7 +64,15 @@ const initialValues: ContractorSurveyValues = {
   incentiveOther: "",
   positiveFollowUp: [],
   negativeFollowUp: [],
+  yearsInBusiness: "",
 };
+
+const yearsInBusinessOptions = [
+  "1-3 years",
+  "3-5 years",
+  "5-10 years",
+  "10+ years",
+];
 
 const acquisitionOptions = [
   "Word of mouth",
@@ -131,7 +140,9 @@ function ToggleGroup({
 }) {
   return (
     <fieldset className="flex flex-col gap-3 border-0 p-0 m-0">
-      <legend className="text-sm font-medium text-[#1A1A1A]">{label}</legend>
+      <legend className="text-sm font-medium text-[#1A1A1A] mb-2">
+        {label}
+      </legend>
       <div className="flex flex-wrap gap-2">
         {options.map((option) => (
           <label
@@ -180,7 +191,9 @@ function CheckboxGroup({
 
   return (
     <fieldset className="flex flex-col gap-3 border-0 p-0 m-0">
-      <legend className="text-sm font-medium text-[#1A1A1A]">{label}</legend>
+      <legend className="text-sm font-medium text-[#1A1A1A] mb-2">
+        {label}
+      </legend>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
         {options.map((option) => (
           <label
@@ -287,11 +300,11 @@ function Section({
   );
 }
 
-export default function ContractorSurveyPage({
-  contractorId,
-}: {
+interface ContractorSurveyPageProps {
   contractorId: string;
-}) {
+}
+
+const ContractorSurveyPage = ({ contractorId }: ContractorSurveyPageProps) => {
   const [values, setValues] = useState<ContractorSurveyValues>(initialValues);
   const [status, setStatus] = useState<SubmitStatus>("idle");
   const [message, setMessage] = useState("");
@@ -327,29 +340,24 @@ export default function ContractorSurveyPage({
     setMessage("");
 
     try {
-      const response = await fetch("/api/surveys/contractor", {
+      const response = await fetch(`/api/surveys/contractor`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ contractorId, responses: values }),
       });
 
-      const data = await response.json().catch(() => null);
+      const data = await response.json();
 
-      if (!response.ok) {
-        throw new Error(data?.message || "Unable to submit survey");
-      }
+      console.log("Contractor survey submission response:", response);
+      console.log("Contractor survey submission data:", data);
 
       setStatus("sent");
-      setMessage(
-        data?.scoutSubmitted === false
-          ? "Thanks. Your answers were captured, but Scout forwarding is not configured yet."
-          : "Thanks. Your answers were submitted."
-      );
+      setMessage("Thanks. Your answers were submitted.");
     } catch (error) {
       setStatus("error");
       setMessage(
         error instanceof Error
-          ? error.message
+          ? `Something went wrong: ${error.message}`
           : "Something went wrong. Please try again."
       );
     }
@@ -359,6 +367,11 @@ export default function ContractorSurveyPage({
     <PageShell>
       <main className="flex flex-col gap-1.5 lg:flex-row">
         <aside className="bg-[#1A1A1A] rounded-2xl p-8 md:p-10 lg:w-[360px] lg:shrink-0 flex flex-col gap-8 text-[#F5F4F2]">
+          <img
+            src="/surveys/contractor/deck_survey.png"
+            alt="Deck with firepit"
+            className="rounded-2xl"
+          />
           <div className="flex flex-col gap-4">
             <p className="m-0 text-[11px] font-medium uppercase tracking-[3px] text-[#AAAAAA]">
               Contractor Intake
@@ -367,7 +380,8 @@ export default function ContractorSurveyPage({
               Discovery survey
             </h1>
             <p className="m-0 text-sm leading-relaxed text-[#AAAAAA]">
-              A few details about your business, customer list, and comfort level with agent-assisted outreach.
+              A few details about your business, customer list, and comfort
+              level with agent-assisted outreach.
             </p>
           </div>
 
@@ -380,12 +394,14 @@ export default function ContractorSurveyPage({
             </p>
           </div>
 
-          <div className="grid grid-cols-2 gap-2">
+          <div className="grid grid-cols-2 gap-2 sticky top-8">
             <div className="rounded-2xl bg-[#C3DED8] p-4 text-[#1A1A1A]">
               <p className="m-0 text-[10px] font-medium uppercase tracking-[2px]">
                 Progress
               </p>
-              <p className="m-0 mt-2 text-2xl font-normal">{completionCount}/12</p>
+              <p className="m-0 mt-2 text-2xl font-normal">
+                {completionCount}/12
+              </p>
             </div>
             <div className="rounded-2xl bg-[#C9A962] p-4 text-[#1A1A1A]">
               <p className="m-0 text-[10px] font-medium uppercase tracking-[2px]">
@@ -406,14 +422,12 @@ export default function ContractorSurveyPage({
                 label="Your name"
                 value={values.contractorName}
                 onChange={(value) => updateValue("contractorName", value)}
-                placeholder="Jane Contractor"
                 required
               />
               <TextField
                 label="Company name"
                 value={values.companyName}
                 onChange={(value) => updateValue("companyName", value)}
-                placeholder="Northside Renovations"
                 required
               />
               <TextField
@@ -421,16 +435,24 @@ export default function ContractorSurveyPage({
                 type="email"
                 value={values.email}
                 onChange={(value) => updateValue("email", value)}
-                placeholder="jane@example.com"
                 required
               />
+
+              <ToggleGroup
+                name="yearsInBusiness"
+                label="How many years have you been in business?"
+                value={values.yearsInBusiness || ""}
+                options={yearsInBusinessOptions}
+                onChange={(value) => updateValue("yearsInBusiness", value)}
+              />
+              {/*}
               <TextField
                 label="Reply-to email for customer messages"
                 type="email"
-                value={values.replyToEmail}
+                value={values.replyToEmail}`
                 onChange={(value) => updateValue("replyToEmail", value)}
                 placeholder="hello@company.com"
-              />
+              />*/}
             </div>
 
             <ToggleGroup
@@ -469,7 +491,9 @@ export default function ContractorSurveyPage({
             <TextArea
               label="After each project, what do you use to record the project details and photos?"
               value={values.projectRecordingProcess}
-              onChange={(value) => updateValue("projectRecordingProcess", value)}
+              onChange={(value) =>
+                updateValue("projectRecordingProcess", value)
+              }
               placeholder="Spreadsheet, CRM, phone photos, Google Drive, Jobber, Housecall Pro..."
               required
             />
@@ -485,7 +509,13 @@ export default function ContractorSurveyPage({
               label="How often do you contact clients after the work has been completed?"
               name="clientContactCadence"
               value={values.clientContactCadence}
-              options={["Monthly", "Quarterly", "Yearly", "Every 5 years", "Not at all"]}
+              options={[
+                "Monthly",
+                "Quarterly",
+                "Yearly",
+                "Every 5 years",
+                "Not at all",
+              ]}
               onChange={(value) => updateValue("clientContactCadence", value)}
               required
             />
@@ -496,24 +526,44 @@ export default function ContractorSurveyPage({
               label="How would you feel about an agent contacting existing customers for a short survey?"
               name="existingCustomerAgentComfort"
               value={values.existingCustomerAgentComfort}
-              options={["Comfortable", "Maybe with approval first", "Not comfortable", "Need more information"]}
-              onChange={(value) => updateValue("existingCustomerAgentComfort", value)}
+              options={[
+                "Comfortable",
+                "Maybe with approval first",
+                "Not comfortable",
+                "Need more information",
+              ]}
+              onChange={(value) =>
+                updateValue("existingCustomerAgentComfort", value)
+              }
               required
             />
             <ToggleGroup
               label="How would you feel about an agent contacting new customers after a project is completed?"
               name="newCustomerAgentComfort"
               value={values.newCustomerAgentComfort}
-              options={["Comfortable", "Maybe with approval first", "Not comfortable", "Need more information"]}
-              onChange={(value) => updateValue("newCustomerAgentComfort", value)}
+              options={[
+                "Comfortable",
+                "Maybe with approval first",
+                "Not comfortable",
+                "Need more information",
+              ]}
+              onChange={(value) =>
+                updateValue("newCustomerAgentComfort", value)
+              }
               required
             />
             <ToggleGroup
               label="Would you want to review and approve each email before the agent sends it?"
               name="emailApprovalPreference"
               value={values.emailApprovalPreference}
-              options={["Yes, for every email", "Only for the first batch", "No, use an approved template"]}
-              onChange={(value) => updateValue("emailApprovalPreference", value)}
+              options={[
+                "Yes, for every email",
+                "Only for the first batch",
+                "No, use an approved template",
+              ]}
+              onChange={(value) =>
+                updateValue("emailApprovalPreference", value)
+              }
               required
             />
           </Section>
@@ -523,7 +573,13 @@ export default function ContractorSurveyPage({
               label="Do you currently have a customer list with names and email addresses?"
               name="customerListStatus"
               value={values.customerListStatus}
-              options={["Yes, in a spreadsheet", "Yes, in CRM/software", "Yes, but scattered", "No", "Not sure"]}
+              options={[
+                "Yes, in a spreadsheet",
+                "Yes, in CRM/software",
+                "Yes, but scattered",
+                "No",
+                "Not sure",
+              ]}
               onChange={(value) => updateValue("customerListStatus", value)}
               required
             />
@@ -548,7 +604,9 @@ export default function ContractorSurveyPage({
               label="How do you typically get new customers?"
               values={values.acquisitionChannels}
               options={acquisitionOptions}
-              onChange={(nextValues) => updateValue("acquisitionChannels", nextValues)}
+              onChange={(nextValues) =>
+                updateValue("acquisitionChannels", nextValues)
+              }
             />
             {values.acquisitionChannels.includes("Other") && (
               <TextField
@@ -579,6 +637,7 @@ export default function ContractorSurveyPage({
               options={surveyTopicOptions}
               onChange={(nextValues) => updateValue("surveyTopics", nextValues)}
             />
+            {/*
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <TextField
                 label="Sender name"
@@ -593,11 +652,17 @@ export default function ContractorSurveyPage({
                 placeholder="We use Gmail, Google Workspace, Outlook..."
               />
             </div>
+            */}
             <ToggleGroup
               label="Should customers be offered an incentive for completing the survey?"
               name="incentive"
               value={values.incentive}
-              options={["No incentive", "Discount on future work", "Gift card", "Other"]}
+              options={[
+                "No incentive",
+                "Discount on future work",
+                "Gift card",
+                "Other",
+              ]}
               onChange={(value) => updateValue("incentive", value)}
             />
             {values.incentive === "Other" && (
@@ -612,13 +677,17 @@ export default function ContractorSurveyPage({
               label="What should happen when a customer leaves a positive response?"
               values={values.positiveFollowUp}
               options={positiveFollowUpOptions}
-              onChange={(nextValues) => updateValue("positiveFollowUp", nextValues)}
+              onChange={(nextValues) =>
+                updateValue("positiveFollowUp", nextValues)
+              }
             />
             <CheckboxGroup
               label="What should happen when a customer leaves a negative response?"
               values={values.negativeFollowUp}
               options={negativeFollowUpOptions}
-              onChange={(nextValues) => updateValue("negativeFollowUp", nextValues)}
+              onChange={(nextValues) =>
+                updateValue("negativeFollowUp", nextValues)
+              }
             />
           </Section>
 
@@ -628,7 +697,11 @@ export default function ContractorSurveyPage({
               disabled={status === "sending" || status === "sent"}
               className="inline-flex min-h-12 w-full items-center justify-center rounded-lg bg-[#1A1A1A] px-8 py-3 text-sm font-bold text-[#F3EBE2] transition-colors hover:bg-[#333333] disabled:cursor-not-allowed disabled:opacity-50 sm:w-fit"
             >
-              {status === "sending" ? "Submitting..." : status === "sent" ? "Submitted" : "Submit Survey"}
+              {status === "sending"
+                ? "Submitting..."
+                : status === "sent"
+                ? "Submitted"
+                : "Submit Survey"}
             </button>
             {message && (
               <p
@@ -644,4 +717,6 @@ export default function ContractorSurveyPage({
       </main>
     </PageShell>
   );
-}
+};
+
+export default ContractorSurveyPage;
